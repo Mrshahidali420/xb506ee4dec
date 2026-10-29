@@ -39,10 +39,12 @@ r = [x for x in p.get_search({src['title']!r}) if x.name.strip().lower() == {src
 a = Anime.from_search_result(p, r[0])
 lang = L.DUB if {src.get('lang', 'dub')!r} == 'dub' and L.DUB in a.languages else L.SUB
 s = a.get_video(a.get_episodes(lang=lang)[{int(src['episode']) - 1}], lang=lang, preferred_quality=720)
-print(s.url); print(s.referrer or '')
+print('URL=' + str(s.url)); print('REF=' + (s.referrer or ''))
 """
     out = subprocess.run([*UV, "--with", "anipy-cli", "python", "-c", code], capture_output=True, text=True, check=True)
-    url, ref = (out.stdout.strip().splitlines() + [""])[-2:]
+    lines = out.stdout.splitlines()
+    url = next(l[4:] for l in lines if l.startswith("URL="))
+    ref = next((l[4:] for l in lines if l.startswith("REF=")), "")
     sh([*UV, "--with", "yt-dlp", "yt-dlp", "-q", *(["--referer", ref] if ref else []), "--remux-video", "mp4",
         "-o", str(job / "source.mp4"), url])
 
