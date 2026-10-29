@@ -1,0 +1,30 @@
+{
+ "title": "He Was The Only Reader Of A Novel... Then It Became Real . . .",
+ "source": "source.mp4",
+ "frame": "full",
+ "music": "../../music/Shinigami_Draven_Godrics.mp3",
+ "music_credit": "Shinigami - Draven Godrics",
+ "music_db_under_voice": 9,
+ "credit": "Manhwa: Omniscient Reader (Ch. 1-2)",
+ "watermark": "@RECAPTEST",
+ "voice_chain": ["edge", "orpheus", "kokoro"],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {"say": "This guy is the only person on Earth who knows how the *world ends*.", "clips": [87.1, [33.1, 8]]},
+  {"say": "Jack was a boring office worker who read one web novel on the subway every day.", "clips": [177.1, [183.1, 7]]},
+  {"say": "The novel had over *three thousand* chapters, and only one reader. Him.", "clips": [18.1, [291.1, 8]]},
+  {"say": "For ten years, he never skipped a *single* chapter.", "clips": [264.1, [273.1, 5]]},
+  {"say": "On the day of the final chapter, the author finally sent him a message.", "clips": [252.1, [396.1, 7]]},
+  {"say": "He thanked Jack for reading, and promised him a special *gift*.", "clips": [405.1, [432.1, 6]]},
+  {"say": "The gift said: starting at seven PM, this story will help you.", "clips": [435.1, [438.1, 5]]},
+  {"say": "Jack looked at the clock. It was six fifty nine.", "clips": [441.1, [468.1, 5]]},
+  {"say": "At exactly seven PM, the train shook, and something *smiled* in the dark.", "clips": [469.6, [456.1, 5], [459.1, 9]]},
+  {"say": "Then a strange message appeared in front of every passenger.", "clips": [486.1, [492.1, 4]]},
+  {"say": "The novel Jack read for ten years had just become *real*.", "clips": [480.1, [54.1, 7]]},
+  {"say": "And he is the only one who knows how *everyone dies*.", "clips": [489.1, [30.1, 6]]}
+ ]
+}

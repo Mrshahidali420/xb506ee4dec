@@ -1,0 +1,51 @@
+name: Build video
+run-name: Build ${{ inputs.job }}
+
+# Start with: gh workflow run build.yml -f job=jobs/<name>
+# A job folder holds script.json + source.json. Videos are never committed:
+# the source is fetched here, and the result is a 1-day artifact.
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: Job folder, e.g. jobs/death-note-e1
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch private assets (music)
+        env:
+          ASSETS_KEY: ${{ secrets.ASSETS_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && printf '%s\n' "$ASSETS_KEY" > ~/.ssh/assets && chmod 600 ~/.ssh/assets
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/assets -o StrictHostKeyChecking=accept-new" \
+            git clone --depth 1 git@github.com:${{ github.repository_owner }}/recap-assets.git assets
+          ln -s assets/music music
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
+          pip install -q uv
+          mkdir -p ~/.config/watch
+          printf 'GROQ_API_KEY=%s\nHF_TOKEN=%s\n' "${{ secrets.GROQ_API_KEY }}" "${{ secrets.HF_TOKEN }}" > ~/.config/watch/.env
+
+      - name: Fetch source
+        env:
+          YT_COOKIES: ${{ secrets.YT_COOKIES }}
+        run: python3 tools/fetch_source.py "${{ inputs.job }}"
+
+      - name: Build
+        run: |
+          uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy \
+            --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: video
+          path: ${{ inputs.job }}/final_*.mp4
+          retention-days: 1

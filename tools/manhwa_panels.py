@@ -1,0 +1,122 @@
+"""Cut webtoon strips into panels and render them as one 9:16 'source' video for build_short.py.
+
+Usage: python manhwa_panels.py <project_dir>
+Reads <project_dir>/pages/*.jpg|png (in name order), writes:
+  panels/p_###.png      one image per panel
+  source.mp4            each panel = SECONDS of full-screen motion (tall: pan down, wide: slow zoom)
+  work/shots.txt        one line per panel, so clips never cross into the next panel
+  work/panels_sheet_*.jpg  labelled contact sheets for picking panels
+"""
+from __future__ import annotations
+
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import numpy as np
+from PIL import Image
+
+FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
+WIDTH = 800          # strips are normalised to this width before cutting
+MIN_GAP = 24         # rows of gap needed to split two panels
+MIN_PANEL = 140      # smaller pieces are joined to their neighbour
+SECONDS = 3.0
+W, H, FPS = 1080, 1920, 30
+
+
+def load_strip(pages: list[Path]) -> np.ndarray:
+    rows = []
+    for page in pages:
+        img = Image.open(page).convert("RGB")
+        img = img.resize((WIDTH, round(img.height * WIDTH / img.width)))
+        rows.append(np.asarray(img))
+    return np.concatenate(rows, axis=0)
+
+
+def cut_panels(strip: np.ndarray) -> list[tuple[int, int]]:
+    # a row is gap when under 1.5% of its pixels differ from the row's own background colour,
+    # so stray sparks and JPEG noise on a black or white gutter do not count as art
+    bg = np.median(strip, axis=1, keepdims=True)
+    differs = np.abs(strip.astype(np.int16) - bg).max(axis=2) > 40
+    blank = differs.mean(axis=1) < 0.015
+    spans, start, gap = [], None, 0
+    for y, is_blank in enumerate(blank):
+        if not is_blank:
+            if start is None:
+                start = y
+            gap = 0
+        elif start is not None:
+            gap += 1
+            if gap >= MIN_GAP:
+                spans.append((start, y - gap + 1))
+                start, gap = None, 0
+    if start is not None:
+        spans.append((start, len(blank)))
+    merged: list[tuple[int, int]] = []
+    for a, b in spans:  # join slivers (sound effects, thin borders) onto the panel above
+        if merged and b - a < MIN_PANEL:
+            merged[-1] = (merged[-1][0], b)
+        else:
+            merged.append((a, b))
+    return [(a, b) for a, b in merged if b - a >= MIN_PANEL]
+
+
+def panel_clip(img: Path, out: Path) -> None:
+    w, h = Image.open(img).size
+    frames = int(SECONDS * FPS)
+    if h / w > H / W:  # tall panel: fill the width, pan from top to bottom
+        vf = (f"scale={W}:-2,crop={W}:{H}:0:'(ih-{H})*t/{SECONDS}',setsar=1,fps={FPS}")
+        args = ["-loop", "1", "-t", f"{SECONDS}", "-i", str(img), "-vf", vf]
+    else:  # wide panel: blurred fill behind, the panel at full width, slow push-in
+        vf = (f"[0:v]split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+              f"boxblur=30:2,eq=brightness=-0.15[bg];"
+              f"[b]scale={W * 2}:-2,zoompan=z='1+0.08*on/{frames}':x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':"
+              f"d={frames}:s={W}x{round(h * W / w) // 2 * 2}:fps={FPS}[fg];"
+              f"[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps={FPS}")
+        args = ["-loop", "1", "-t", f"{SECONDS}", "-i", str(img), "-filter_complex", vf]
+    subprocess.run([FFMPEG, "-v", "error", "-y", *args, "-frames:v", str(frames), "-c:v", "libx264",
+                    "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", str(out)], check=True)
+
+
+def main() -> None:
+    proj = Path(sys.argv[1]).resolve()
+    pages = sorted(p for p in (proj / "pages").iterdir() if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
+    strip = load_strip(pages)
+    spans = cut_panels(strip)
+    pdir, work, clips = proj / "panels", proj / "work", proj / "work" / "panel_clips"
+    for d in (pdir, work, clips):
+        d.mkdir(parents=True, exist_ok=True)
+    listing = []
+    for i, (a, b) in enumerate(spans):
+        img = pdir / f"p_{i:03d}.png"
+        Image.fromarray(strip[a:b]).save(img)
+        clip = clips / f"c_{i:03d}.mp4"
+        panel_clip(img, clip)
+        listing.append(f"file '{clip.as_posix()}'")
+    (work / "panels.txt").write_text("\n".join(listing) + "\n", encoding="utf-8")
+    # silent track so the builder's audio mapping works like a film source
+    subprocess.run([FFMPEG, "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(work / "panels.txt"),
+                    "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-shortest", "-c:v", "copy",
+                    "-c:a", "aac", str(proj / "source.mp4")], check=True)
+    (work / "shots.txt").write_text(
+        "\n".join(f"{i * SECONDS:.2f} {(i + 1) * SECONDS:.2f}" for i in range(len(spans))), encoding="utf-8")
+    for k in range(0, len(spans), 24):  # labelled sheets: panel number = start second / SECONDS
+        thumbs = []
+        for i in range(k, min(k + 24, len(spans))):
+            im = Image.open(pdir / f"p_{i:03d}.png")
+            im.thumbnail((260, 420))
+            tile = Image.new("RGB", (260, 440), "black")
+            tile.paste(im, ((260 - im.width) // 2, 20))
+            from PIL import ImageDraw
+            ImageDraw.Draw(tile).text((4, 2), f"#{i} t={i * SECONDS:.0f}", fill="yellow")
+            thumbs.append(tile)
+        sheet = Image.new("RGB", (260 * 8, 440 * 3), "black")
+        for j, t in enumerate(thumbs):
+            sheet.paste(t, (260 * (j % 8), 440 * (j // 8)))
+        sheet.save(work / f"panels_sheet_{k // 24 + 1}.jpg", quality=85)
+    print(f"{len(pages)} strips -> {len(spans)} panels, source.mp4 = {len(spans) * SECONDS:.0f}s")
+
+
+if __name__ == "__main__":
+    main()

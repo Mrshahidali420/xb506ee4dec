@@ -1,0 +1,15 @@
+# Public repo: code and scripts only. Never films, episodes, music or keys.
+/*
+!/.gitignore
+!/.github/
+!/tools/
+!/jobs/
+!/README.md
+tools/*.v1.py
+jobs/**/*.mp4
+jobs/**/*.mp3
+jobs/**/*.wav
+jobs/**/pages/
+jobs/**/panels/
+jobs/**/build/
+__pycache__/
