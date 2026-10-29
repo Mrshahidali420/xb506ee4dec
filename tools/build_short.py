@@ -149,8 +149,11 @@ def orpheus_tts(text: str, voice: str, raw: Path) -> None:
 
 
 def kokoro_tts(text: str, voice: str, raw: Path) -> None:
-    import soundfile as sf
-    from kokoro_onnx import Kokoro
+    try:
+        import soundfile as sf
+        from kokoro_onnx import Kokoro
+    except ImportError as exc:  # not installed on the build machine
+        raise VoiceEngineDown(f"kokoro: {exc}") from exc
 
     tts = Kokoro(str(KOKORO_DIR / "kokoro-v1.0.onnx"), str(KOKORO_DIR / "voices-v1.0.bin"))
     samples, rate = tts.create(text, voice=voice, speed=1.0, lang="en-us")
