@@ -10,6 +10,9 @@ on:
       job:
         description: Job folder, e.g. jobs/death-note-e1
         required: true
+      script:
+        description: Script file inside the job folder (script.json = vertical short)
+        default: script.json
 
 jobs:
   build:
@@ -42,7 +45,7 @@ jobs:
       - name: Build
         run: |
           uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy \
-            --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}"
+            --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "${{ inputs.script }}"
 
       - uses: actions/upload-artifact@v4
         with:

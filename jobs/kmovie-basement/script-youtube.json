@@ -1,0 +1,669 @@
+{
+ "title": "This Dad Locked His Family In A Basement For 40 Days . . .",
+ "aspect": "16:9",
+ "output": "final_youtube.mp4",
+ "source": "source.mp4",
+ "music": "../../music/Headlights_Slowed_Alok_Alan_Walker.mp3",
+ "music_credit": "Headlights (Slowed) - Alok & Alan Walker",
+ "music_db_under_voice": 9,
+ "credit": "Movie: The Basement (2020)",
+ "watermark": "@RECAPTEST",
+ "voice_chain": [
+  "edge",
+  "orpheus",
+  "kokoro"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "This dad let his neighbor *die* outside his door, and his own daughter watched him do it.",
+   "clips": [
+    1098.7,
+    [
+     1140.7,
+     7
+    ],
+    [
+     1150.7,
+     12
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1183.6,
+    1185.0
+   ],
+   "text": "If you go out there, I'll kill you."
+  },
+  {
+   "say": "But to understand why, we have to go back a few days.",
+   "clips": [
+    19.7
+   ]
+  },
+  {
+   "say": "Jack was a normal dad. Big house, nice car, and golf every *weekend*.",
+   "clips": [
+    27.5,
+    [
+     36.4,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then the TV said one thing. A *nuclear missile* was coming.",
+   "clips": [
+    36.4,
+    [
+     67.9,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Jack grabbed his wife Anna and his daughter Lily, and ran *down* to the basement.",
+   "clips": [
+    79.4,
+    [
+     81.3,
+     6
+    ],
+    [
+     104.3,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He locked the door. Then he *nailed* it shut with a hammer.",
+   "clips": [
+    119.8,
+    [
+     130.9,
+     6
+    ],
+    [
+     136.2,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Lily screamed. Anna begged. But Jack kept hitting the nails, one by one.",
+   "clips": [
+    137.9,
+    [
+     143.1,
+     4
+    ],
+    [
+     150.4,
+     7
+    ],
+    [
+     160.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Because outside, the *bomb* was coming.",
+   "clips": [
+    147.0,
+    [
+     174.7,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "The lights went out. In the dark, Lily asked if they were all going to *die*.",
+   "clips": [
+    198.7,
+    [
+     262.2,
+     5
+    ],
+    [
+     269.7,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Jack said they only had to hold on for *two weeks*. After that, the radiation would be gone.",
+   "clips": [
+    292.8,
+    [
+     330.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Anna wanted to call her parents. Jack said the lines were dead. But the phone rang. Grandma and grandpa were safe, in a *shelter*.",
+   "clips": [
+    405.0,
+    [
+     430.0,
+     9
+    ],
+    [
+     455.0,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "They had canned food, a little water, and a radio that did not work.",
+   "clips": [
+    1080.3,
+    [
+     1000.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "By day three, Jack and Anna were already *fighting*. About water. About money. About his golf.",
+   "clips": [
+    870.0,
+    [
+     900.0,
+     9
+    ],
+    [
+     940.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then, someone *knocked*.",
+   "clips": [
+    1089.7
+   ]
+  },
+  {
+   "say": "It was their neighbor, Mrs. Park. She was crying. Her kids were *sick*.",
+   "clips": [
+    1100.7,
+    [
+     1110.7,
+     6
+    ],
+    [
+     1116.7,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Lily ran for the door. Anna told him to open it. Jack *refused*.",
+   "clips": [
+    1146.7,
+    [
+     1131.7,
+     5
+    ],
+    [
+     1156.7,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Mrs. Park kept knocking, slower and slower.",
+   "clips": [
+    1176.7,
+    [
+     1191.6,
+     4
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1202.9,
+    1205.9
+   ],
+   "text": "Please... save me!"
+  },
+  {
+   "say": "And then, the knocking *stopped*.",
+   "clips": [
+    1206.7
+   ]
+  },
+  {
+   "say": "That night, nobody talked. Jack sat by the door and said sorry, over and over, to *no one*.",
+   "clips": [
+    1236.7
+   ]
+  },
+  {
+   "say": "Lily never forgave him. She said those kids died in pain, and they could have *lived*.",
+   "clips": [
+    1266.7,
+    [
+     1280.7,
+     9
+    ],
+    [
+     1292.7,
+     13
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1320.2,
+    1326.3
+   ],
+   "text": "Dad did it to save our family."
+  },
+  {
+   "say": "Day after day, it got worse. Food ran low. Then Lily heard her best friend was *dead*.",
+   "clips": [
+    1519.0,
+    [
+     1540.0,
+     8
+    ],
+    [
+     2168.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Grandma and grandpa called from a shelter. They were *sick* too.",
+   "clips": [
+    2404.0,
+    [
+     2440.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Jack started counting every cup of water. Every can of food. Lily started counting the days on the *wall*.",
+   "clips": [
+    985.0,
+    [
+     1010.0,
+     8
+    ],
+    [
+     5231.7,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "But Jack noticed something weird. After a *nuclear* bomb, how was the phone still working?",
+   "clips": [
+    2581.5,
+    [
+     2595.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then he heard a *helicopter*.",
+   "clips": [
+    2675.0
+   ]
+  },
+  {
+   "say": "The water was almost gone. So Jack did something smart. He caught the *dew* dripping from the ceiling.",
+   "clips": [
+    2922.0,
+    [
+     2935.4,
+     8
+    ],
+    [
+     2941.2,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Three and a half hours, for *one* cup.",
+   "clips": [
+    2980.3,
+    [
+     2972.2,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Lily asked if it had *radiation* in it. Jack just smiled and said, try it.",
+   "clips": [
+    2951.1,
+    [
+     2969.4,
+     8
+    ],
+    [
+     2987.3,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then the radio finally worked. And the news was worse than the bomb.",
+   "clips": [
+    3112.6,
+    [
+     3138.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "*North Korea* had taken the whole South. But the radiation outside had dropped.",
+   "clips": [
+    3126.8,
+    [
+     3181.8,
+     6
+    ],
+    [
+     3195.6,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So the family made *armor*. Snorkels, ski goggles, raincoats, and garden hats.",
+   "clips": [
+    3355.7,
+    [
+     3371.7,
+     4
+    ],
+    [
+     3377.3,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Jack even took a *selfie* before they went out. One, two, three.",
+   "clips": [
+    3375.6,
+    [
+     3393.9,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He went up the stairs first. And the second he looked outside, his face *changed*.",
+   "clips": [
+    3403.3,
+    [
+     3409.8,
+     7
+    ],
+    [
+     3446.9,
+     12
+    ]
+   ]
+  },
+  {
+   "orig": [
+    3432.0,
+    3436.3
+   ],
+   "text": "No! Don't come up here!"
+  },
+  {
+   "say": "He ran back down, screaming at them to get *down*.",
+   "clips": [
+    3449.5,
+    [
+     3463.2,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then everything went *black*.",
+   "clips": [
+    3470.9
+   ]
+  },
+  {
+   "say": "When Lily woke up, Anna was *bleeding*. Glass everywhere.",
+   "clips": [
+    3488.2,
+    [
+     3497.6,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Anna begged Lily to call grandma. The phone rang, and rang, and *rang*.",
+   "clips": [
+    3531.95,
+    [
+     3544.3,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Back in the basement, Jack said the words nobody wanted to hear. Two more *weeks*.",
+   "clips": [
+    3572.0,
+    [
+     3582.3,
+     7
+    ],
+    [
+     3594.9,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Lily snapped.",
+   "clips": [
+    3606.9
+   ]
+  },
+  {
+   "orig": [
+    3681.9,
+    3688.0
+   ],
+   "text": "Open the door! Open the door now!"
+  },
+  {
+   "say": "And Anna finally said it out loud. This was all Jack's *fault*.",
+   "clips": [
+    3703.4,
+    [
+     3711.8,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Jack screamed that he was the one keeping them alive. Anna just laughed in his *face*.",
+   "clips": [
+    3762.5,
+    [
+     3790.4,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then the itching started. Lily's skin turned *red*. Anna got a fever that would not go down.",
+   "clips": [
+    3960.0,
+    [
+     3990.0,
+     6
+    ],
+    [
+     4290.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "One night, Lily said something that broke Jack.",
+   "clips": [
+    4541.4
+   ]
+  },
+  {
+   "orig": [
+    4581.9,
+    4585.6
+   ],
+   "text": "This isn't a movie."
+  },
+  {
+   "say": "Then Anna stopped *answering*.",
+   "clips": [
+    4683.9,
+    [
+     4711.1,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Jack piled blankets on her. Lily held her hand. They kept telling each other she was *fine*.",
+   "clips": [
+    4731.4,
+    [
+     4737.6,
+     5
+    ],
+    [
+     4795.5,
+     10
+    ],
+    [
+     5019.7,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Days passed. Anna did not *move*.",
+   "clips": [
+    5050.7,
+    [
+     5099.9,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "And then, one morning, Anna *opened* her eyes.",
+   "clips": [
+    5108.6,
+    [
+     5116.9,
+     4
+    ]
+   ]
+  },
+  {
+   "orig": [
+    5163.2,
+    5169.7
+   ],
+   "text": "I'm so thirsty."
+  },
+  {
+   "say": "Jack hugged her. Lily cried. And Anna asked, how long has it been?",
+   "clips": [
+    5175.5,
+    [
+     5192.5,
+     4
+    ],
+    [
+     5212.3,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Jack *lied*. He said one day. But the wall was covered in marks.",
+   "clips": [
+    5205.6,
+    [
+     5231.7,
+     6
+    ]
+   ]
+  },
+  {
+   "orig": [
+    5226.9,
+    5229.5
+   ],
+   "text": "Tomorrow, we can go out."
+  },
+  {
+   "say": "So the family put their armor back on. Anna too.",
+   "clips": [
+    5294.0,
+    [
+     5297.6,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They walked to the door together, and opened it to a *blinding* light.",
+   "clips": [
+    5282.7,
+    [
+     5287.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "But here is the thing. Did Anna really wake up? Or did Jack and Lily *lose their minds* down there?",
+   "clips": [
+    5310.4,
+    [
+     5321.6,
+     7
+    ],
+    [
+     5334.4,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Comment what you think was waiting outside that *door*.",
+   "clips": [
+    5354.8
+   ]
+  }
+ ]
+}

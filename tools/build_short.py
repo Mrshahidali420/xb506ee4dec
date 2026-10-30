@@ -26,8 +26,9 @@ truststore.inject_into_ssl()
 
 FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
 FFPROBE = shutil.which("ffprobe") or "ffprobe"
-W, H, FPS = 1080, 1920, 30
+W, H, FPS = 1080, 1920, 30  # 9:16 default; "aspect": "16:9" in script.json switches to 1920x1080
 FG_HEIGHT = 900
+WIDE = False
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
         else "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")  # GitHub runners are Linux
 YELLOW = "&H00D7FF&"  # ASS colours are BGR
@@ -259,7 +260,7 @@ def mean_db(path: Path) -> float:
 def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = None, full: bool = False) -> None:
     """One source shot, framed 9:16: sharp centre crop over a blurred, darkened copy.
     `audio` swaps the film sound for another file on the same clock (the no-voice stem)."""
-    if full:  # source is already 9:16 (manhwa panels): fill the screen, no blurred band
+    if full or WIDE:  # source already fits the frame (manhwa panels, or a film in 16:9): fill the screen
         vf = f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS}[v]"
     else:
         vf = (f"[0:v]split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
@@ -327,8 +328,9 @@ def captions(events: list[tuple[float, float, str]], path: Path) -> None:
     head = (f"[Script Info]\nScriptType: v4.00+\nPlayResX: {W}\nPlayResY: {H}\n\n[V4+ Styles]\n"
             "Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, "
             "BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV\n"
-            "Style: Word,Arial Black,104,&H00FFFFFF,&H00000000,&H64000000,1,0,1,8,3,5,40,40,0\n"
-            "Style: Quote,Arial,60,&H00FFFFFF,&H00000000,&H64000000,1,1,1,5,2,2,80,80,330\n\n"
+            f"Style: Word,Arial Black,{76 if WIDE else 104},&H00FFFFFF,&H00000000,&H64000000,1,0,1,7,3,5,40,40,0\n"
+            f"Style: Quote,Arial,{46 if WIDE else 60},&H00FFFFFF,&H00000000,&H64000000,1,1,1,4,2,2,80,80,"
+            f"{70 if WIDE else 330}\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n")
     lines = []
     for start, end, word in events:
@@ -339,7 +341,7 @@ def captions(events: list[tuple[float, float, str]], path: Path) -> None:
         text = re.sub(r"[*]", "", word).upper()
         colour = f"\\c{YELLOW}" if key else ""
         pop = "\\fscx118\\fscy118\\t(0,90,\\fscx100\\fscy100)"
-        lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Word,,0,0,0,,{{\\pos({W // 2},1450){pop}{colour}}}{text}")
+        lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Word,,0,0,0,,{{\\pos({W // 2},{int(H * (0.82 if WIDE else 0.755))}){pop}{colour}}}{text}")
     path.write_text(head + "\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -359,8 +361,13 @@ def build_segments(cfg: dict, proj: Path, tmp: Path) -> tuple[list[Path], list]:
 
 def main() -> None:
     proj = Path(sys.argv[1]).resolve()
-    cfg = json.loads((proj / "script.json").read_text(encoding="utf-8"))
-    tmp = proj / "build"
+    script = proj / (sys.argv[2] if len(sys.argv) > 2 else "script.json")
+    cfg = json.loads(script.read_text(encoding="utf-8"))
+    global W, H, WIDE
+    if cfg.get("aspect") == "16:9":  # YouTube long version
+        W, H, WIDE = 1920, 1080, True
+    # each script gets its own build folder, so cached voice lines never mix between versions
+    tmp = proj / ("build" if script.name == "script.json" else f"build-{script.stem}")
     tmp.mkdir(exist_ok=True)
     chain = [e for e in cfg.get("voice_chain", ["f5", "elevenlabs", "orpheus", "kokoro"]) if e in ENGINES]
     for engine in chain:
@@ -376,11 +383,12 @@ def main() -> None:
     joined = tmp / "joined.mp4"
     concat(segs, joined)
     captions(events, tmp / "captions.ass")
+    mark_y, credit_y = ("40", "h-50") if WIDE else ("210", "h-150")
     vf = ("ass=captions.ass,"
-          f"drawtext=fontfile='{FONT}':text='{dt(cfg['watermark'])}':x=(w-tw)/2:y=210:fontsize=44:"
+          f"drawtext=fontfile='{FONT}':text='{dt(cfg['watermark'])}':x=(w-tw)/2:y={mark_y}:fontsize=44:"
           "fontcolor=white@0.85:box=1:boxcolor=black@0.35:boxborderw=12,"
-          f"drawtext=fontfile='{FONT}':text='{dt(cfg['credit'])}':x=(w-tw)/2:y=h-150:fontsize=26:fontcolor=white@0.75")
-    final = proj / "final_short.mp4"
+          f"drawtext=fontfile='{FONT}':text='{dt(cfg['credit'])}':x=(w-tw)/2:y={credit_y}:fontsize=26:fontcolor=white@0.75")
+    final = proj / cfg.get("output", "final_short.mp4")
     if cfg.get("music"):
         # steady music bed set N dB under the voice track, as measured on the reference videos (13.5 dB)
         music = (proj / cfg["music"]).resolve()

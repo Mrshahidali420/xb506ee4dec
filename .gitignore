@@ -10,9 +10,9 @@ jobs/**/*.mp4
 jobs/**/*.mp3
 jobs/**/pages/
 jobs/**/panels/
-jobs/**/build/*
-!jobs/**/build/voice-*/
-jobs/**/build/voice-*/*.raw.*
+jobs/**/build*/*
+!jobs/**/build*/voice-*/
+jobs/**/build*/voice-*/*.raw.*
 __pycache__/
 jobs/**/*.wav
-!jobs/**/build/voice-*/v*.wav
+!jobs/**/build*/voice-*/v*.wav
