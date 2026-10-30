@@ -9,47 +9,389 @@
  "music_db_under_voice": 9,
  "credit": "Movie: Train to Busan (2016)",
  "watermark": "@SpoilerRoomRecap",
- "voice_chain": ["edge", "orpheus", "kokoro"],
+ "voice_chain": [
+  "edge",
+  "orpheus",
+  "kokoro"
+ ],
  "edge_voice": "en-US-GuyNeural",
  "edge_rate": "+30%",
  "edge_pitch": "+10Hz",
  "speed": 1.0,
  "bed_volume": 0,
  "segments": [
-  {"say": "One bite on this train, and in *ten minutes*, half the passengers were not human anymore.", "clips": [1290, [1350, 8]]},
-  {"orig": [1394.7, 1397.6], "text": "Run away!"},
-  {"say": "And the most *selfish* man on board had one job. Keep his little girl alive until the last stop.", "clips": [1440, [1488, 10]]},
-  {"orig": [1488.3, 1490.0], "text": "Dad!"},
-  {"say": "But to understand why this ride went so wrong, we have to go back to that *morning*.", "clips": [90, [130, 9]]},
-  {"say": "On a quiet road, a truck hit a deer. The driver drove away. Then the dead deer *stood back up*.", "clips": [150, [180, 9], [200, 15]]},
-  {"say": "Its eyes were white. Its neck was *broken*. Nobody saw it. Nobody cared.", "clips": [205]},
-  {"say": "Meet Jack. A rich money man who never left the office, and never answered his phone at *home*.", "clips": [240, [300, 10]]},
-  {"say": "His wife had left him. His little daughter Lily lived with him, but she barely *knew* him.", "clips": [330, [360, 9]]},
-  {"orig": [374.2, 376.5], "text": "Do you know tomorrow is her birthday?"},
-  {"say": "He forgot her birthday. So he bought her a game console. She already *had* the same one. He gave it to her last year.", "clips": [440, [630, 12]]},
-  {"say": "Lily only wanted one present. To see her *mom*.", "clips": [520]},
-  {"orig": [529.3, 532.5], "text": "Busan. I want to go to mom."},
-  {"say": "So Jack took the morning train to Busan. Just one hour, then back to *work*.", "clips": [810, [860, 9]]},
-  {"say": "But just before the doors closed, a girl with a bloody leg ran in, and fell down *shaking*.", "clips": [960, [990, 11]]},
-  {"say": "On the train, Lily saw an old lady standing, and gave up her *seat*. Jack did not like that.", "clips": [1140, [1150, 12]]},
-  {"say": "Remember what he said here. It will matter at the *end*.", "clips": [1160]},
-  {"orig": [2097.6, 2101.2], "text": "You don't have to do that. You should think only about yourself."},
-  {"say": "Then the shaking girl twisted her neck, and *bit* a train attendant.", "clips": [1320, [1340, 6]]},
-  {"say": "The attendant got up. And bit the next one. And the *next* one. Car after car fell.", "clips": [1400, [1420, 6], [1460, 12]]},
-  {"say": "Jack grabbed Lily and ran. A big tough guy, Big Mike, held the door shut with his *pregnant* wife Grace behind him.", "clips": [1500, [1560, 10], [1620, 16]]},
-  {"say": "On the TV, the whole country was in *riots*. This was not just one train.", "clips": [1590, [1680, 9]]},
-  {"say": "So Jack did what Jack does. He called a friend in the army, and got a secret exit at Daejeon station. Only for him and Lily.", "clips": [2250, [2265, 12], [2300, 20]]},
-  {"say": "The train stopped. The army was there. Jack pulled Lily to a *different* gate, away from everyone else.", "clips": [2380, [2520, 10], [2545, 16]]},
-  {"say": "But Lily heard his phone call. She wanted to warn the *others*.", "clips": [2580]},
-  {"orig": [2592.0, 2605.5], "text": "Just think about yourself. — You only know about yourself. That's why mom left you."},
-  {"say": "Then a soldier came walking down the stairs. Slowly. With his head *hanging* down.", "clips": [2620, [2640, 8]]},
-  {"say": "The army was already *infected*. Every single soldier.", "clips": [2650, [2670, 4]]},
-  {"say": "Hundreds of them poured down the escalator. Jack, Lily, Big Mike and Grace ran *back* to the train.", "clips": [2675, [2700, 9], [2760, 14]]},
-  {"orig": [2743.5, 2745.5], "text": "Hurry up!"},
-  {"say": "The doors were closing. Jack jumped on. Big Mike jumped on. The train *left*.", "clips": [2850, [2880, 8]]},
-  {"say": "Jack was safe. He turned around to hug Lily. But Lily was not *there*.", "clips": [2900, [3120, 9]]},
-  {"say": "She got on a car at the very *back*. With Grace and a homeless man, hiding in a toilet.", "clips": [3130, [3160, 10]]},
-  {"say": "And between Jack and his daughter? Four train cars. *Full* of them.", "clips": [3240, [3290, 7]]},
-  {"say": "Part 2 is up next. Follow so you don't miss how he *gets* her back.", "clips": [3330]}
+  {
+   "say": "One bite on this train, and in *ten minutes*, half the passengers were not human anymore.",
+   "clips": [
+    1305.9,
+    [
+     1378.3,
+     7
+    ],
+    [
+     1471.7,
+     11
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1394.7,
+    1397.6
+   ],
+   "text": "Run away!"
+  },
+  {
+   "say": "And the most *selfish* man on board had one job. Keep his little girl alive until the last stop.",
+   "clips": [
+    1467.9,
+    [
+     1487.4,
+     11
+    ],
+    [
+     1497.9,
+     15
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1488.3,
+    1490.0
+   ],
+   "text": "Dad!"
+  },
+  {
+   "say": "But to understand why this ride went so wrong, we have to go back to that *morning*.",
+   "clips": [
+    79.3,
+    [
+     121.4,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "On a quiet road, a truck hit a deer. The driver drove away. Then the dead deer *stood back up*.",
+   "clips": [
+    145.3,
+    [
+     192.4,
+     8
+    ],
+    [
+     227.6,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Its eyes were white. Its neck was *broken*. Nobody saw it. Nobody cared.",
+   "clips": [
+    228.0
+   ]
+  },
+  {
+   "say": "Meet Jack. A rich money man who never left the office, and never answered his phone at *home*.",
+   "clips": [
+    239.2,
+    [
+     241.0,
+     8
+    ],
+    [
+     283.9,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "His wife had left him. His little daughter Lily lived with him, but she barely *knew* him.",
+   "clips": [
+    380.1,
+    [
+     427.3,
+     6
+    ],
+    [
+     445.6,
+     9
+    ]
+   ]
+  },
+  {
+   "orig": [
+    374.2,
+    376.5
+   ],
+   "text": "Do you know tomorrow is her birthday?"
+  },
+  {
+   "say": "He forgot her birthday. So he bought her a game console. She already *had* the same one. He gave it to her last year.",
+   "clips": [
+    499.1,
+    [
+     508.0,
+     10
+    ],
+    [
+     522.7,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "Lily only wanted one present. To see her *mom*.",
+   "clips": [
+    528.6
+   ]
+  },
+  {
+   "orig": [
+    529.3,
+    532.5
+   ],
+   "text": "Busan. I want to go to mom."
+  },
+  {
+   "say": "So Jack took the morning train to Busan. Just one hour, then back to *work*.",
+   "clips": [
+    682.1,
+    [
+     791.3,
+     8
+    ],
+    [
+     807.1,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "But just before the doors closed, a girl with a bloody leg ran in, and fell down *shaking*.",
+   "clips": [
+    945.2,
+    [
+     950.4,
+     7
+    ],
+    [
+     1013.2,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Then the shaking girl twisted her neck, and *bit* a train attendant.",
+   "clips": [
+    1274.6,
+    [
+     1303.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The attendant got up. And bit the next one. And the *next* one. Car after car fell.",
+   "clips": [
+    1340.0,
+    [
+     1343.0,
+     5
+    ],
+    [
+     1394.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Jack grabbed Lily and ran. A big tough guy, Big Mike, held the door shut with his *pregnant* wife Grace behind him.",
+   "clips": [
+    1511.2,
+    [
+     1647.1,
+     6
+    ],
+    [
+     1578.8,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "On the TV, the whole country was in *riots*. This was not just one train.",
+   "clips": [
+    1230.9,
+    [
+     1959.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "In the next car, Lily gave her seat to an old lady. Jack did not like that.",
+   "clips": [
+    2063.2,
+    [
+     2078.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Remember what he said here. It will matter at the *end*.",
+   "clips": [
+    2090.3
+   ]
+  },
+  {
+   "orig": [
+    2097.6,
+    2101.2
+   ],
+   "text": "You don't have to do that. You should think only about yourself."
+  },
+  {
+   "say": "So Jack did what Jack does. He called a friend in the army, and got a secret exit at Daejeon station. Only for him and Lily.",
+   "clips": [
+    2244.7,
+    [
+     2261.2,
+     7
+    ],
+    [
+     2284.9,
+     20
+    ]
+   ]
+  },
+  {
+   "say": "The train stopped. The army was there. Jack pulled Lily to a *different* gate, away from everyone else.",
+   "clips": [
+    2369.2,
+    [
+     2507.9,
+     8
+    ],
+    [
+     2564.3,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "But Lily heard his phone call. She wanted to warn the *others*.",
+   "clips": [
+    2583.2
+   ]
+  },
+  {
+   "orig": [
+    2592.0,
+    2605.5
+   ],
+   "text": "Just think about yourself. — You only know about yourself. That's why mom left you."
+  },
+  {
+   "say": "Then a soldier came walking toward them. Slowly. With *blood* on his face.",
+   "clips": [
+    2628.2,
+    [
+     2700.6,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The army was already *infected*. Every single soldier.",
+   "clips": [
+    2649.3,
+    [
+     2654.95,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Hundreds of them poured down the escalator. Jack, Lily, Big Mike and Grace ran *back* to the train.",
+   "clips": [
+    2682.5,
+    [
+     2661.9,
+     7
+    ],
+    [
+     2719.7,
+     14
+    ]
+   ]
+  },
+  {
+   "orig": [
+    2743.5,
+    2745.5
+   ],
+   "text": "Hurry up!"
+  },
+  {
+   "say": "The doors were closing. Jack jumped on. Big Mike jumped on. The train *left*.",
+   "clips": [
+    2832.2,
+    [
+     3052.1,
+     6
+    ],
+    [
+     3077.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Jack was safe. He turned around to hug Lily. But Lily was not *there*.",
+   "clips": [
+    3055.7,
+    [
+     3065.9,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "She got on a car at the very *back*. With Grace and a homeless man, hiding in a toilet.",
+   "clips": [
+    3117.8,
+    [
+     3128.4,
+     9
+    ],
+    [
+     3172.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "And between Jack and his daughter? Four train cars. *Full* of them.",
+   "clips": [
+    3226.9,
+    [
+     3136.4,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Part 2 is up next. Follow so you don't miss how he *gets* her back.",
+   "clips": [
+    3313.3,
+    [
+     3386.8,
+     8
+    ]
+   ]
+  }
  ]
 }
