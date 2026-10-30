@@ -11,8 +11,11 @@ on:
         description: Job folder, e.g. jobs/death-note-e1
         required: true
       script:
-        description: Script file inside the job folder (script.json = vertical short)
+        description: Script file(s) inside the job folder, space separated, built in order
         default: script.json
+      queue:
+        description: Page to queue the videos for (e.g. spoiler); empty = artifact only
+        default: ''
 
 jobs:
   build:
@@ -69,3 +72,33 @@ jobs:
             ${{ inputs.job }}/work/shots.txt
           if-no-files-found: ignore
           retention-days: 1
+
+  # Puts the built videos into the page's posting queue, in script order.
+  # Shares the post workflow's lock, so the queue file never gets two writers.
+  queue:
+    needs: build
+    if: inputs.queue != ''
+    runs-on: ubuntu-latest
+    concurrency:
+      group: post-${{ inputs.queue }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: video
+          path: ${{ inputs.job }}
+      - name: Add to the queue
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git pull -q --rebase
+          for s in ${{ inputs.script }}; do
+            f="${{ inputs.job }}/$s"
+            out=$(jq -r '.output // "final_short.mp4"' "$f"); cap=$(jq -r '.caption // .title' "$f")
+            python3 tools/queue_post.py add "${{ inputs.queue }}" "${{ inputs.job }}/$out" "$cap"
+          done
+          git add queue && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}" && git push -q
