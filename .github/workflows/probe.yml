@@ -1,0 +1,35 @@
+name: Source probe
+run-name: Probe ${{ inputs.title }}
+
+# Checks that a title can be fetched on a GitHub machine (kisskh-dl):
+# subtitles always, plus the first episode / the film when `video` is ticked.
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Title or kisskh URL
+        required: true
+      video:
+        description: Also download the video
+        type: boolean
+        default: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Install
+        run: |
+          pip install -q -U kisskh-downloader playwright
+          python -m playwright install --with-deps chromium > /dev/null
+      - name: Subtitles
+        run: kisskh dl "${{ inputs.title }}" -f 1 -l 1 -s en -so -ds -o out || kisskh dl "${{ inputs.title }}" -f 1 -l 1 -s en -so -o out
+      - name: Video
+        if: inputs.video
+        run: kisskh dl "${{ inputs.title }}" -f 1 -l 1 -q 720p -o out
+      - name: Report
+        run: |
+          find out -type f -exec ls -la {} \; | awk '{print $5, $NF}'
+          f=$(find out -name "*.srt" | head -1); [ -n "$f" ] && head -40 "$f"
+          v=$(find out -name "*.mp4" | head -1); [ -n "$v" ] && ffprobe -v error -show_entries format=duration:stream=width,height -of csv=p=0 "$v" || true
