@@ -262,7 +262,11 @@ def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = N
     """One source shot, framed 9:16: sharp centre crop over a blurred, darkened copy.
     `audio` swaps the film sound for another file on the same clock (the no-voice stem)."""
     cut = f"crop=iw:ih*{1 - CROP_BOTTOM:.3f}:0:0," if CROP_BOTTOM else ""
-    if full or WIDE:  # source already fits the frame (manhwa panels, or a film in 16:9): fill the screen
+    if full and WIDE:  # tall comic panels in a 16:9 frame: whole panel in the middle, blurred copy behind
+        vf = (f"[0:v]{cut}split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+              f"boxblur=30:2,eq=brightness=-0.15[bg];[b]scale=-2:{H}[fg];"
+              f"[bg][fg]overlay=(W-w)/2:0,setsar=1,fps={FPS}[v]")
+    elif full or WIDE:  # source already fits the frame (manhwa panels, or a film in 16:9): fill the screen
         vf = f"[0:v]{cut}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS}[v]"
     else:
         vf = (f"[0:v]{cut}split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"

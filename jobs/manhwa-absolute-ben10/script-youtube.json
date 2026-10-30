@@ -1,0 +1,741 @@
+{
+ "title": "His Dead Grandpa Sent Him A Watch . . . Then Aliens Came For It",
+ "source": "source.mp4",
+ "frame": "full",
+ "music": "../../music/Shinigami_Draven_Godrics.mp3",
+ "music_db_under_voice": 9,
+ "credit": "Webtoon: Absolute Ben 10 (Danboywonder & Duckzart)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "edge",
+  "orpheus",
+  "kokoro"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_youtube.mp4",
+ "segments": [
+  {
+   "say": "An alien bounty hunter just told Ben he would sell him for *human meat*.",
+   "clips": [
+    897.1,
+    [
+     864.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "And it all started with a gift from his *dead* grandpa.",
+   "clips": [
+    186.1,
+    [
+     192.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Ben Tennyson, fifteen. A few months ago, he lost his grandpa *Max*.",
+   "clips": [
+    18.1,
+    [
+     15.1,
+     6
+    ],
+    [
+     3.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Max was everything to him. His coach, his hero, the guy who never missed a *game*.",
+   "clips": [
+    249.1,
+    [
+     252.1,
+     6
+    ],
+    [
+     255.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Now Ben quit *baseball*. He stopped talking. His parents had no idea how to help.",
+   "clips": [
+    72.1,
+    [
+     33.1,
+     5
+    ],
+    [
+     45.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then his cousin *Gwen* stepped in.",
+   "clips": [
+    102.1
+   ]
+  },
+  {
+   "say": "She said he can't hide forever, and dragged him on a family *camping* trip.",
+   "clips": [
+    126.1,
+    [
+     132.1,
+     7
+    ],
+    [
+     144.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "The night before they left, Ben found a box in his room. It said, *from Max*.",
+   "clips": [
+    165.1,
+    [
+     168.1,
+     5
+    ],
+    [
+     186.1,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Inside was a letter. Remember, the sky isn't the limit for us Tennysons. We aim for the *stars*.",
+   "clips": [
+    180.1,
+    [
+     177.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "And a tiny piece of *moon rock*. Ben broke down and cried.",
+   "clips": [
+    183.1,
+    [
+     189.1,
+     6
+    ],
+    [
+     195.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "At camp, Gwen found him alone by the lake.",
+   "clips": [
+    210.1,
+    [
+     231.1,
+     4
+    ],
+    [
+     234.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "She said she missed Grandpa too. But Ben *snapped*. Clearly, he wasn't yours.",
+   "clips": [
+    237.1,
+    [
+     240.1,
+     6
+    ],
+    [
+     264.1,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Gwen walked away hurt. Ben looked up and said, I wish I could talk to you *again*.",
+   "clips": [
+    270.1,
+    [
+     276.1,
+     6
+    ],
+    [
+     282.1,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "And right then, a *fireball* came out of the sky.",
+   "clips": [
+    285.1,
+    [
+     291.1,
+     5
+    ],
+    [
+     294.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "It crashed right next to him. *Boom*.",
+   "clips": [
+    303.1,
+    [
+     306.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "In the crater sat a glowing pod. Ben touched it, and it said, *DNA target located*.",
+   "clips": [
+    324.1,
+    [
+     333.1,
+     6
+    ],
+    [
+     336.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "A watch jumped out and locked onto his wrist. It *burned* like fire.",
+   "clips": [
+    345.1,
+    [
+     351.1,
+     5
+    ],
+    [
+     363.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He pressed the dial, and his whole body *changed*.",
+   "clips": [
+    375.1,
+    [
+     387.1,
+     5
+    ],
+    [
+     390.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Ben was now a blue alien that could run faster than *lightning*.",
+   "clips": [
+    405.1,
+    [
+     432.1,
+     5
+    ],
+    [
+     465.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He could not stop. He shot across the cliffs, onto the road, and straight at a speeding *truck*.",
+   "clips": [
+    474.1,
+    [
+     495.1,
+     6
+    ],
+    [
+     504.1,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "The driver screamed. His brakes were *gone*.",
+   "clips": [
+    507.1,
+    [
+     537.1,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then Ben heard Grandpa's voice in his head. Stay calm. Trust yourself, even when you're *scared*.",
+   "clips": [
+    546.1,
+    [
+     549.1,
+     7
+    ],
+    [
+     552.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Three. Two. One. He ran at the truck and pulled the driver *out*.",
+   "clips": [
+    567.1,
+    [
+     570.1,
+     1
+    ],
+    [
+     585.1,
+     3
+    ],
+    [
+     612.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The truck *exploded* behind them.",
+   "clips": [
+    621.1
+   ]
+  },
+  {
+   "say": "But Gwen heard the crash. She went to check, and found something else in the *dark*.",
+   "clips": [
+    624.1,
+    [
+     633.1,
+     6
+    ],
+    [
+     645.1,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "A giant alien *bounty hunter*. And he was looking for the watch.",
+   "clips": [
+    678.1,
+    [
+     684.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He grabbed Gwen and said, help me find the Omnitrix, and I'll help you find your cousin.",
+   "clips": [
+    687.1,
+    [
+     696.1,
+     4
+    ],
+    [
+     702.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Gwen *punched* him in the face.",
+   "clips": [
+    708.1
+   ]
+  },
+  {
+   "say": "Far away, Ben's watch turned red, and he was *human* again.",
+   "clips": [
+    714.1,
+    [
+     726.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Then Aunt Natalie called. Gwen was *missing*.",
+   "clips": [
+    765.1,
+    [
+     768.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Ben found her phone on the ground. And then, *boom*.",
+   "clips": [
+    789.1,
+    [
+     792.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The hunter, *Kraab*, yelled, come out kid! I'm done waiting on this stinky planet.",
+   "clips": [
+    795.1,
+    [
+     798.1,
+     7
+    ],
+    [
+     816.1,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Ben said, I need to get help. Then he stopped. Maybe I *am* the help.",
+   "clips": [
+    801.1,
+    [
+     804.1,
+     9
+    ],
+    [
+     810.1,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Kraab fired a giant laser. Ben slammed the watch and *vanished* in the smoke.",
+   "clips": [
+    822.1,
+    [
+     828.1,
+     6
+    ],
+    [
+     834.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "This time he was a black alien with long *cables* for arms.",
+   "clips": [
+    849.1,
+    [
+     852.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Kraab laughed. After all this waiting, I'm owed some *fun*.",
+   "clips": [
+    876.1,
+    [
+     879.1,
+     4
+    ],
+    [
+     891.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He threw Ben around like a toy, stabbed his own cable into him, and *electrocuted* him.",
+   "clips": [
+    888.1,
+    [
+     912.1,
+     7
+    ],
+    [
+     924.1,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, Gwen was trapped in a burning *cabin*.",
+   "clips": [
+    948.1,
+    [
+     957.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "She closed her eyes and said words she had only read in books. And the door *shattered*.",
+   "clips": [
+    966.1,
+    [
+     972.1,
+     8
+    ],
+    [
+     981.1,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Gwen had *magic*.",
+   "clips": [
+    984.1,
+    [
+     987.1,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Kraab beat Ben down and said, the watch has bonded to you. So I have to take *you* with it.",
+   "clips": [
+    1011.1,
+    [
+     1017.1,
+     8
+    ],
+    [
+     1020.1,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then he saw Gwen running away, and aimed right at her.",
+   "clips": [
+    1038.1,
+    [
+     1047.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Ben screamed *no*. His cables caught Kraab's blast, and drank the *energy*.",
+   "clips": [
+    1050.1,
+    [
+     1080.1,
+     4
+    ],
+    [
+     1104.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then he fired it all back in one giant *beam*.",
+   "clips": [
+    1107.1,
+    [
+     1110.1,
+     5
+    ],
+    [
+     1113.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Kraab burned. Ben dropped to his knees, and the watch beeped *red*.",
+   "clips": [
+    1146.1,
+    [
+     1149.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Gwen found him. Ben hid his arm and lied. I'm fine, just a scratch.",
+   "clips": [
+    1164.1,
+    [
+     1167.1,
+     4
+    ],
+    [
+     1176.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "But behind them, the burnt Kraab twitched, and sent a *signal* into space.",
+   "clips": [
+    1194.1,
+    [
+     1200.1,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Far away, on the planet *Galvan Prime*, someone got the message.",
+   "clips": [
+    1212.1,
+    [
+     1215.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "The Omnitrix was supposed to be *destroyed*. Along with its maker, and Max Tennyson.",
+   "clips": [
+    1257.1,
+    [
+     1260.1,
+     5
+    ],
+    [
+     1263.1,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Back home, Ben became a *hero*. He hit the home run that won the championship.",
+   "clips": [
+    1275.1,
+    [
+     1278.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "His family cheered. He looked at the empty chair, and smiled. *Grandpa*.",
+   "clips": [
+    1281.1,
+    [
+     1284.1,
+     6
+    ],
+    [
+     1293.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "But every night, Ben had *nightmares*. Kraab kept coming back.",
+   "clips": [
+    1296.1,
+    [
+     1302.1,
+     5
+    ],
+    [
+     1305.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "And deep in space, a robot ruler was tracing the signal. Soon the Omnitrix would be *his*.",
+   "clips": [
+    1356.1,
+    [
+     1359.1,
+     7
+    ],
+    [
+     1365.1,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "One night, Ben was late getting home. So he used the watch, and grew *wings*.",
+   "clips": [
+    1380.1,
+    [
+     1392.1,
+     10
+    ],
+    [
+     1398.1,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "He flew over the city laughing. Maybe this thing isn't so bad after all.",
+   "clips": [
+    1410.1,
+    [
+     1413.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then something *slammed* into him from the sky.",
+   "clips": [
+    1419.1,
+    [
+     1422.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "A blue alien stood over him. He said, my name is *Rook*.",
+   "clips": [
+    1425.1,
+    [
+     1428.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Your grandfather was my partner. And it's my *fault* he's dead.",
+   "clips": [
+    1428.1
+   ]
+  },
+  {
+   "say": "So how did Grandpa Max really die? And why did his watch come looking for *Ben*? Comment part two if you want more.",
+   "clips": [
+    186.1,
+    [
+     1263.1,
+     8
+    ],
+    [
+     1428.1,
+     14
+    ]
+   ]
+  }
+ ],
+ "aspect": "16:9"
+}
