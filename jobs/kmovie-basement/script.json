@@ -20,16 +20,29 @@
  "bed_volume": 0,
  "segments": [
   {
-   "say": "This dad let his neighbor *die* outside his door, and his own daughter watched him do it.",
+   "say": "Kids were dying outside this door, and this dad *refused* to open it.",
    "clips": [
-    1098.7,
+    1100.7,
     [
      1140.7,
      7
-    ],
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1202.9,
+    1205.9
+   ],
+   "text": "Please... save me!"
+  },
+  {
+   "say": "His own daughter begged him. He grabbed her and said this.",
+   "clips": [
+    1146.7,
     [
      1150.7,
-     12
+     5
     ]
    ]
   },
@@ -39,6 +52,16 @@
     1185.0
    ],
    "text": "If you go out there, I'll kill you."
+  },
+  {
+   "say": "But here is the crazy part. He might have been *right*.",
+   "clips": [
+    1206.7,
+    [
+     1321.2,
+     6
+    ]
+   ]
   },
   {
    "say": "A *nuclear missile* was coming, so Jack ran his family into the basement and *nailed* the door shut.",
@@ -138,17 +161,33 @@
    ]
   },
   {
-   "say": "Did Anna really wake up, or did they *lose their minds* down there? Comment what was outside.",
+   "say": "Anna had not moved for *days*. Now she was walking out that door with them.",
    "clips": [
-    5321.6,
+    5297.6,
     [
-     5334.4,
+     5294.0,
      8
+    ]
+   ]
+  },
+  {
+   "say": "But remember the phone that still worked? And the helicopter? What if there was *never* a bomb at all?",
+   "clips": [
+    2581.5,
+    [
+     2675.0,
+     7
     ],
     [
-     5354.8,
-     13
+     5334.4,
+     12
     ]
+   ]
+  },
+  {
+   "say": "Comment *bomb* or *no bomb*. I will tell you the truth.",
+   "clips": [
+    5354.8
    ]
   }
  ]

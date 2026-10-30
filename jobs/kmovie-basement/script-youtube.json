@@ -21,16 +21,29 @@
  "bed_volume": 0,
  "segments": [
   {
-   "say": "This dad let his neighbor *die* outside his door, and his own daughter watched him do it.",
+   "say": "Kids were dying outside this door, and this dad *refused* to open it.",
    "clips": [
-    1098.7,
+    1100.7,
     [
      1140.7,
      7
-    ],
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1202.9,
+    1205.9
+   ],
+   "text": "Please... save me!"
+  },
+  {
+   "say": "His own daughter begged him. He grabbed her and said this.",
+   "clips": [
+    1146.7,
     [
      1150.7,
-     12
+     5
     ]
    ]
   },
@@ -42,7 +55,17 @@
    "text": "If you go out there, I'll kill you."
   },
   {
-   "say": "But to understand why, we have to go back a few days.",
+   "say": "But here is the crazy part. He might have been *right*.",
+   "clips": [
+    1206.7,
+    [
+     1321.2,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "To understand why, we have to go back a few days.",
    "clips": [
     19.7
    ]
@@ -647,21 +670,31 @@
    ]
   },
   {
-   "say": "But here is the thing. Did Anna really wake up? Or did Jack and Lily *lose their minds* down there?",
+   "say": "Anna had not moved for *days*. Now she was walking out that door with them.",
    "clips": [
-    5310.4,
+    5297.6,
     [
-     5321.6,
-     7
-    ],
-    [
-     5334.4,
-     14
+     5294.0,
+     8
     ]
    ]
   },
   {
-   "say": "Comment what you think was waiting outside that *door*.",
+   "say": "But remember the phone that still worked? And the helicopter? What if there was *never* a bomb at all?",
+   "clips": [
+    2581.5,
+    [
+     2675.0,
+     7
+    ],
+    [
+     5334.4,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Comment *bomb* or *no bomb*. I will tell you the truth.",
    "clips": [
     5354.8
    ]
