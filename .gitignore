@@ -17,3 +17,8 @@ __pycache__/
 jobs/**/*.wav
 !jobs/**/build*/voice-*/v*.wav
 jobs/**/build*/voice-*/*.raw.*
+!/brand/
+/brand/*/*
+!/brand/*/profile.png
+!/brand/*/logo.png
+!/brand/*/header.png

@@ -28,6 +28,7 @@ FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
 FFPROBE = shutil.which("ffprobe") or "ffprobe"
 W, H, FPS = 1080, 1920, 30  # 9:16 default; "aspect": "16:9" in script.json switches to 1920x1080
 FG_HEIGHT = 900
+HEADER_Y = 150  # vertical videos: top of the page name card, in the band above the 900 px picture
 WIDE = False
 CROP_BOTTOM = 0.0  # share of the source height to cut off (burned-in film subtitles)
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
@@ -321,7 +322,8 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
         span = cuts[j + 1] - cuts[j]
         p = tmp / f"s{i:02d}_{j}.mp4"
         at = snap(start, span, shots)
-        piece(proj / cfg["source"], at, span, p, bed, cfg.get("frame") == "full", shot_room(at, shots))
+        comic = cfg.get("frame") == "full"  # a film clip may run on across a cut (a normal edit); a comic panel never spills
+        piece(proj / cfg["source"], at, span, p, bed, comic, shot_room(at, shots) if comic else 1e9)
         parts.append(p)
     video = tmp / f"s{i:02d}_pic.mp4"
     concat(parts, video)
@@ -407,10 +409,16 @@ def main() -> None:
     concat(segs, joined)
     captions(events, tmp / "captions.ass")
     mark_y, credit_y = ("40", "h-50") if WIDE else ("210", "h-150")
-    vf = ("ass=captions.ass,"
-          f"drawtext=fontfile='{FONT}':text='{dt(cfg['watermark'])}':x=(w-tw)/2:y={mark_y}:fontsize=44:"
-          "fontcolor=white@0.85:box=1:boxcolor=black@0.35:boxborderw=12,"
+    header = cfg.get("header") and not WIDE  # page name card in the empty band above the picture
+    if header:
+        shutil.copy(proj / cfg["header"], tmp / "header.png")
+    mark = "" if header else (  # the card already carries the @handle
+        f"drawtext=fontfile='{FONT}':text='{dt(cfg['watermark'])}':x=(w-tw)/2:y={mark_y}:fontsize=44:"
+        "fontcolor=white@0.85:box=1:boxcolor=black@0.35:boxborderw=12,")
+    vf = ("ass=captions.ass," + mark +
           f"drawtext=fontfile='{FONT}':text='{dt(cfg['credit'])}':x=(w-tw)/2:y={credit_y}:fontsize=26:fontcolor=white@0.75")
+    if header:
+        vf = f"movie=header.png[hd];[in]{vf}[b];[b][hd]overlay=(W-w)/2:{HEADER_Y}[out]"
     final = proj / cfg.get("output", "final_short.mp4")
     if cfg.get("music"):
         # steady music bed set N dB under the voice track, as measured on the reference videos (13.5 dB)
