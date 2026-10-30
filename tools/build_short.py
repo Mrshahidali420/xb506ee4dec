@@ -233,7 +233,12 @@ def snap(start: float, dur: float, shots: list[tuple[float, float]]) -> float:
 
 def shot_room(start: float, shots: list[tuple[float, float]]) -> float:
     """Seconds left in the shot that holds `start` (a clip longer than this holds its last frame)."""
-    return next((b - start - 0.04 for a, b in shots if a <= start < b), 1e9)
+    for k, (a, b) in enumerate(shots):
+        if a <= start < b:
+            if b - start > 0.5 or k + 1 == len(shots):
+                return max(b - start - 0.04, 0.04)
+            return shots[k + 1][1] - start - 0.04  # starts a blink before a cut: the next shot is the real one
+    return 1e9
 
 
 def dt(text: str) -> str:

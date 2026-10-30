@@ -58,6 +58,7 @@ jobs:
           done
 
       - uses: actions/upload-artifact@v4
+        if: always()  # keep the parts that did build
         with:
           name: video
           path: ${{ inputs.job }}/final_*.mp4
