@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -56,13 +57,51 @@ def webtoon(job: Path, src: dict) -> None:
     sh([*UV, "--with", "numpy", "--with", "pillow", "python", "tools/manhwa_panels.py", str(job)])
 
 
+def srt_to_text(srt: Path, out: Path) -> None:
+    """'<second> <line>' per subtitle, the same shape as a Whisper transcript."""
+    lines = []
+    for block in re.split(r"\n\s*\n", srt.read_text(encoding="utf-8-sig", errors="replace")):
+        rows = [r.strip() for r in block.strip().splitlines()]
+        stamp = next((i for i, r in enumerate(rows) if "-->" in r), None)
+        if stamp is None:
+            continue
+        h, m, s, ms = map(int, re.match(r"(\d+):(\d+):(\d+)[,.](\d+)", rows[stamp]).groups())
+        text = re.sub(r"<[^>]+>", "", " ".join(r for r in rows[stamp + 1:] if r))
+        lines.append(f"{h * 3600 + m * 60 + s + ms / 1000:7.1f} {text}")
+    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def kisskh(job: Path, src: dict) -> None:
+    """A film or drama episode from kisskh (needs the WARP step on GitHub), plus English subtitles."""
+    ep = str(src.get("episode", 1))
+    sh(["kisskh", "dl", src["url"], "-f", ep, "-l", ep, "-q", src.get("quality", "720p"), "-s", "en",
+        "-o", str(job / "dl")])
+    next((job / "dl").rglob("*.mp4")).rename(job / "source.mp4")
+    srt = next((job / "dl").rglob("*.srt"), None)
+    (job / "work").mkdir(exist_ok=True)
+    if srt:
+        srt_to_text(srt, job / "work" / "english.txt")
+
+
+def film_sheets(job: Path) -> None:
+    """A labelled frame every 30 s, 30 to a sheet, so the script writer can see the scenes."""
+    frames = job / "work" / "sheetframes"
+    frames.mkdir(parents=True, exist_ok=True)
+    sh(["ffmpeg", "-v", "error", "-i", str(job / "source.mp4"), "-vf",
+        "fps=1/30,scale=320:-2,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
+        "text='%{pts\\:hms}':x=6:y=6:fontsize=20:fontcolor=yellow:box=1:boxcolor=black@0.6",
+        str(frames / "f%04d.jpg")])
+    sh(["ffmpeg", "-v", "error", "-i", str(frames / "f%04d.jpg"), "-vf", "tile=6x5",
+        str(job / "work" / "film_sheet_%02d.jpg")])
+
+
 def main() -> None:
     job = Path(sys.argv[1])
     src = json.loads((job / "source.json").read_text(encoding="utf-8"))
     if src["type"] == "url":
         sh([*UV, "--with", "yt-dlp", "yt-dlp", "-q", "-o", str(job / "source.mp4"), src["url"]])
     else:
-        {"youtube": youtube, "anime": anime, "webtoon": webtoon}[src["type"]](job, src)
+        {"youtube": youtube, "anime": anime, "webtoon": webtoon, "kisskh": kisskh}[src["type"]](job, src)
     if not (job / "work" / "shots.txt").exists():  # camera cuts, so clips never jump across a cut
         (job / "work").mkdir(exist_ok=True)
         log = subprocess.run(["ffmpeg", "-i", str(job / "source.mp4"), "-an", "-vf",
@@ -71,6 +110,8 @@ def main() -> None:
         cuts = [0.0] + [float(x.split(":")[1]) for x in log.split() if x.startswith("pts_time:")]
         (job / "work" / "shots.txt").write_text(
             "\n".join(f"{a:.2f} {b:.2f}" for a, b in zip(cuts, cuts[1:]) if b - a > 0.3), encoding="utf-8")
+    if src["type"] != "webtoon" and not any(job.glob("script*.json")):  # prep run: help write the script
+        film_sheets(job)
 
 
 if __name__ == "__main__":

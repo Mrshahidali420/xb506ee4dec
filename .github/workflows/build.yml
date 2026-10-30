@@ -30,10 +30,14 @@ jobs:
             git clone --depth 1 git@github.com:${{ github.repository_owner }}/recap-assets.git assets
           ln -s assets/music music
 
+      - name: Route traffic through Cloudflare WARP
+        timeout-minutes: 5
+        uses: ./.github/actions/warp
+
       - name: Install tools
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
-          pip install -q uv
+          pip install -q uv kisskh-downloader playwright && python -m playwright install --with-deps chromium > /dev/null
           mkdir -p ~/.config/watch
           printf 'GROQ_API_KEY=%s\nHF_TOKEN=%s\n' "${{ secrets.GROQ_API_KEY }}" "${{ secrets.HF_TOKEN }}" > ~/.config/watch/.env
 
@@ -60,6 +64,8 @@ jobs:
           name: sheets
           path: |
             ${{ inputs.job }}/work/panels_sheet_*.jpg
+            ${{ inputs.job }}/work/film_sheet_*.jpg
+            ${{ inputs.job }}/work/english.txt
             ${{ inputs.job }}/work/shots.txt
           if-no-files-found: ignore
           retention-days: 1
