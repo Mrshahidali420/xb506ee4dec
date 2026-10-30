@@ -1,0 +1,49 @@
+name: Post queue
+run-name: Post ${{ inputs.page || 'spoiler' }}${{ inputs.dry_run && ' (dry run)' || '' }}
+
+# Posts the next queued video to a Facebook Page (tools/queue_post.py).
+# Runs every 30 minutes; the script itself keeps posts MIN_GAP_MINUTES apart
+# (115 = about 12 a day), so an early or doubled schedule never double-posts.
+# Real posts only when the repo variable <PAGE>_POST_ENABLED is 'true'.
+on:
+  schedule:
+    - cron: '11,41 * * * *'
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Page short name
+        default: spoiler
+      dry_run:
+        description: Only show what would be posted
+        type: boolean
+        default: true
+
+concurrency:
+  group: post-${{ inputs.page || 'spoiler' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PAGE: ${{ inputs.page || 'spoiler' }}
+      GH_TOKEN: ${{ github.token }}
+      SPOILER_FB_PAGE_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
+      SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
+      MIN_GAP_MINUTES: ${{ vars.MIN_GAP_MINUTES }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests truststore
+      - name: Post next video
+        run: |
+          GO=""
+          if [ "${{ inputs.dry_run }}" != "true" ] && [ "${{ vars.SPOILER_POST_ENABLED }}" = "true" ]; then GO="--go"; fi
+          python3 tools/queue_post.py next "$PAGE" $GO
+      - name: Save the queue record
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add queue 2>/dev/null; git diff --cached --quiet || (git commit -qm "Queue: posted to $PAGE" && git pull -q --rebase && git push -q)

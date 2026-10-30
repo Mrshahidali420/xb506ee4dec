@@ -4,6 +4,7 @@
 !/.github/
 !/tools/
 !/jobs/
+!/queue/
 !/README.md
 tools/*.v1.py
 jobs/**/*.mp4
