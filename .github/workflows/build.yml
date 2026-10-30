@@ -66,6 +66,23 @@ jobs:
               --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
           done
 
+      # Every finished video is kept for good in the private assets repo, one release per series
+      # (jobs/kdrama-weak-hero-e03 -> release archive-kdrama-weak-hero, file e03-final_short.mp4),
+      # so whole-series compilations can be cut later without rebuilding.
+      - name: Archive the videos
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
+        run: |
+          ls "${{ inputs.job }}"/final_*.mp4 >/dev/null 2>&1 || exit 0
+          [ -n "$GH_TOKEN" ] || { echo "no ARCHIVE_TOKEN, skipped"; exit 0; }
+          name=$(basename "${{ inputs.job }}"); series=$(echo "$name" | sed -E 's/-e[0-9]+$//'); ep=$(echo "$name" | grep -oE 'e[0-9]+$' || true)
+          repo="${{ github.repository_owner }}/recap-assets"; tag="archive-$series"
+          gh release view "$tag" -R "$repo" >/dev/null 2>&1 || gh release create "$tag" -R "$repo" --title "$tag" --notes "Finished recap videos for $series."
+          for f in "${{ inputs.job }}"/final_*.mp4; do
+            cp "$f" "/tmp/${ep:+$ep-}$(basename "$f")"; gh release upload "$tag" "/tmp/${ep:+$ep-}$(basename "$f")" -R "$repo" --clobber
+          done
+
       - uses: actions/upload-artifact@v4
         if: always()  # keep the parts that did build
         with:
