@@ -58,6 +58,10 @@ jobs:
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
         run: python3 tools/fetch_source.py "${{ inputs.job }}"
 
+      # WARP is only for the download; the free edge voice service blocks its shared addresses
+      - name: Leave WARP
+        run: warp-cli --accept-tos disconnect || true
+
       - name: Build
         run: |
           for s in ${{ inputs.script }}; do

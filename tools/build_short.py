@@ -128,7 +128,7 @@ def edge_tts_voice(text: str, cfg: dict, raw: Path) -> None:
             if attempt + 1 == EDGE_TRIES:
                 raise VoiceEngineDown(f"edge: {exc}") from exc
             print(f"edge try {attempt + 1} failed ({exc}), trying again", flush=True)
-            time.sleep(5 * (attempt + 1))
+            time.sleep(30 * 2 ** attempt)  # a block from the service lifts after a minute or two
     run([FFMPEG, "-y", "-i", str(raw.with_suffix(".mp3")), str(raw)])
 
 
