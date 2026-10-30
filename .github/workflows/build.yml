@@ -71,6 +71,7 @@ jobs:
           path: |
             ${{ inputs.job }}/work/panels_sheet_*.jpg
             ${{ inputs.job }}/work/film_sheet_*.jpg
+            ${{ inputs.job }}/work/shot_sheet_*.jpg
             ${{ inputs.job }}/work/english.txt
             ${{ inputs.job }}/work/shots.txt
           if-no-files-found: ignore

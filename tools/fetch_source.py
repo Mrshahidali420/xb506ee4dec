@@ -95,6 +95,21 @@ def film_sheets(job: Path) -> None:
         str(job / "work" / "film_sheet_%02d.jpg")])
 
 
+def shot_sheets(job: Path) -> None:
+    """One labelled frame from the middle of every camera shot, 48 to a sheet, for exact clip picking."""
+    frames = job / "work" / "shotframes"
+    frames.mkdir(parents=True, exist_ok=True)
+    shots = [tuple(map(float, l.split())) for l in (job / "work" / "shots.txt").read_text().splitlines()]
+    font = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    for k, (a, b) in enumerate(s for s in shots if s[1] - s[0] >= 0.8):
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{(a + b) / 2:.2f}", "-i", str(job / "source.mp4"),
+                        "-frames:v", "1", "-vf", f"scale=240:-2,drawtext=fontfile={font}:text='{a:.1f}-{b:.1f}':"
+                        "x=4:y=4:fontsize=16:fontcolor=yellow:box=1:boxcolor=black@0.7",
+                        str(frames / f"f{k:05d}.jpg")], check=True)
+    sh(["ffmpeg", "-v", "error", "-y", "-i", str(frames / "f%05d.jpg"), "-vf", "tile=8x6",
+        str(job / "work" / "shot_sheet_%02d.jpg")])
+
+
 def main() -> None:
     job = Path(sys.argv[1])
     src = json.loads((job / "source.json").read_text(encoding="utf-8"))
@@ -112,6 +127,8 @@ def main() -> None:
             "\n".join(f"{a:.2f} {b:.2f}" for a, b in zip(cuts, cuts[1:]) if b - a > 0.3), encoding="utf-8")
     if src["type"] != "webtoon" and not any(job.glob("script*.json")):  # prep run: help write the script
         film_sheets(job)
+    if src.get("shot_sheets"):
+        shot_sheets(job)
 
 
 if __name__ == "__main__":
