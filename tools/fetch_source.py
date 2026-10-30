@@ -3,6 +3,7 @@
 {"type": "youtube", "url": "..."}                      film from YouTube (YT_COOKIES secret helps)
 {"type": "anime", "title": "death note", "episode": 1, "lang": "dub"}   via anipy-cli
 {"type": "webtoon", "urls": ["...episode-1...", "..."]}  manhwa strips, then panels via manhwa_panels.py
+{"type": "manga", "sources": [...], "chapters": "1-6"}  first source that works (list from find_manhwa.py)
 {"type": "url", "url": "..."}                           any direct video link
 """
 from __future__ import annotations
@@ -10,6 +11,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -55,6 +57,31 @@ def webtoon(job: Path, src: dict) -> None:
         sh([*UV, "--with", "gallery-dl", "gallery-dl", "-D", str(job / "pages"), "--filename",
             "e{episode_no:>02}_{num:>03}.{extension}", url])
     keep = ["--keep-text"] if src.get("bubbles") == "keep" else []  # default: blank bubbles
+    sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
+
+
+def manga(job: Path, src: dict) -> None:
+    """Chapters from the first source that works ("sources" from find_manhwa.py, best first).
+    "chapters": "1-6" picks the range. A source that fails or gives no pages hands over to the next."""
+    a, b = (src.get("chapters", "1-5").split("-") + [None])[:2]
+    pages = job / "pages"
+    for url in src["sources"]:
+        webtoon_site = "webtoons.com" in url
+        num = "episode_no" if webtoon_site else "chapter"
+        name = "e{episode_no:>03}_{num:>03}.{extension}" if webtoon_site else "e{chapter:>03}{chapter_minor}_{page:>03}.{extension}"
+        try:
+            sh([*UV, "--with", "gallery-dl", "gallery-dl", "-D", str(pages), "--filename", name,
+                "--chapter-filter", f"{a} <= {num} <= {b or a}" + ("" if webtoon_site else " and lang == 'en'"), url])
+        except subprocess.CalledProcessError as exc:
+            print(f"source failed, trying the next: {url} ({exc})", flush=True)
+        got = {p.name.split("_")[0] for p in pages.glob("e*_*")} if pages.exists() else set()
+        if len(got) >= int(b or a) - int(a) + 1:
+            print(f"pages from {url}: {len(got)} chapters", flush=True)
+            break
+        shutil.rmtree(pages, ignore_errors=True)  # a half download would mix two scans
+    else:
+        sys.exit("no source gave every chapter")
+    keep = ["--keep-text"] if src.get("bubbles") == "keep" else []
     sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
 
 
@@ -119,7 +146,7 @@ def main() -> None:
     elif src["type"] == "url":
         sh([*UV, "--with", "yt-dlp", "yt-dlp", "-q", "-o", str(job / "source.mp4"), src["url"]])
     else:
-        {"youtube": youtube, "anime": anime, "webtoon": webtoon, "kisskh": kisskh}[src["type"]](job, src)
+        {"youtube": youtube, "anime": anime, "webtoon": webtoon, "manga": manga, "kisskh": kisskh}[src["type"]](job, src)
     if not (job / "work" / "shots.txt").exists():  # camera cuts, so clips never jump across a cut
         (job / "work").mkdir(exist_ok=True)
         log = subprocess.run(["ffmpeg", "-i", str(job / "source.mp4"), "-an", "-vf",
@@ -128,7 +155,7 @@ def main() -> None:
         cuts = [0.0] + [float(x.split(":")[1]) for x in log.split() if x.startswith("pts_time:")]
         (job / "work" / "shots.txt").write_text(
             "\n".join(f"{a:.2f} {b:.2f}" for a, b in zip(cuts, cuts[1:]) if b - a > 0.3), encoding="utf-8")
-    if src["type"] != "webtoon" and not any(job.glob("script*.json")):  # prep run: help write the script
+    if src["type"] not in ("webtoon", "manga") and not any(job.glob("script*.json")):  # prep run: help write the script
         film_sheets(job)
     if src.get("shot_sheets") and not (job / "work" / "shot_sheet_01.jpg").exists():
         shot_sheets(job)
