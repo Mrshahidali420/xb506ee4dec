@@ -22,6 +22,7 @@ WIDTH = 800          # strips are normalised to this width before cutting
 MIN_GAP = 24         # rows of gap needed to split two panels
 MIN_PANEL = 140      # smaller pieces are joined to their neighbour
 SECONDS = 3.0
+LETTER = 45          # a dark mark this tall or less (and up to 4x as wide) inside white counts as lettering
 W, H, FPS = 1080, 1920, 30
 
 
@@ -62,6 +63,28 @@ def cut_panels(strip: np.ndarray) -> list[tuple[int, int]]:
     return [(a, b) for a, b in merged if b - a >= MIN_PANEL]
 
 
+def blank_bubbles(panel: np.ndarray) -> np.ndarray:
+    """Erase the lettering inside speech bubbles and on white captions; the bubble shapes stay.
+
+    Letters are small dark marks sitting inside a white area. Long marks (bubble outlines,
+    drawn lines) and big ones (sound effects) are art, so they are kept.
+    """
+    from scipy import ndimage
+
+    white = (panel > 225).all(axis=2)
+    filled = ndimage.binary_closing(white, structure=np.ones((15, 15)), iterations=2)
+    regions, _ = ndimage.label(filled)
+    sizes = np.bincount(regions.ravel())
+    big = np.isin(regions, np.nonzero(sizes > 2500)[0][1:])  # white areas worth reading text from
+    marks = big & ~white
+    labels, n = ndimage.label(marks)
+    out = panel.copy()
+    for k, box in enumerate(ndimage.find_objects(labels), start=1):
+        if box and box[0].stop - box[0].start <= LETTER and box[1].stop - box[1].start <= 4 * LETTER:
+            out[box][labels[box] == k] = 255
+    return out
+
+
 def panel_clip(img: Path, out: Path) -> None:
     w, h = Image.open(img).size
     frames = int(SECONDS * FPS)
@@ -81,6 +104,7 @@ def panel_clip(img: Path, out: Path) -> None:
 
 def main() -> None:
     proj = Path(sys.argv[1]).resolve()
+    keep_text = "--keep-text" in sys.argv  # bubbles are blank unless asked; the narrator tells the story
     pages = sorted(p for p in (proj / "pages").iterdir() if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
     pdir, work, clips = proj / "panels", proj / "work", proj / "work" / "panel_clips"
     for d in (pdir, work, clips):
@@ -93,7 +117,8 @@ def main() -> None:
     for name, group in episodes.items():
         strip = load_strip(group)
         for a, b in cut_panels(strip):
-            Image.fromarray(strip[a:b]).save(pdir / f"p_{count:03d}.png")
+            panel = strip[a:b] if keep_text else blank_bubbles(strip[a:b])
+            Image.fromarray(panel).save(pdir / f"p_{count:03d}.png")
             count += 1
         del strip
         print(f"{name}: {len(group)} strips, {count} panels so far", flush=True)

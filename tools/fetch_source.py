@@ -54,7 +54,8 @@ def webtoon(job: Path, src: dict) -> None:
     for url in src["urls"]:  # a list page gives every episode
         sh([*UV, "--with", "gallery-dl", "gallery-dl", "-D", str(job / "pages"), "--filename",
             "e{episode_no:>02}_{num:>03}.{extension}", url])
-    sh([*UV, "--with", "numpy", "--with", "pillow", "python", "tools/manhwa_panels.py", str(job)])
+    keep = ["--keep-text"] if src.get("bubbles") == "keep" else []  # default: blank bubbles
+    sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
 
 
 def srt_to_text(srt: Path, out: Path) -> None:
