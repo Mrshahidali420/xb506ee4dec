@@ -33,8 +33,11 @@ def upload_reel(ig_id: str, token: str, video: Path, caption: str) -> str:
                                                          "access_token": token}, timeout=60).json()
     if "id" not in made:
         sys.exit(f"container failed: {made}")
+    uri = made["uri"]
+    if not uri.startswith("https://rupload.facebook.com/"):  # never send the token to another host
+        uri = f"https://rupload.facebook.com/ig-api-upload/{GRAPH.rsplit('/', 1)[1]}/{made['id']}"
     data = video.read_bytes()
-    sent = requests.post(made["uri"], data=data, timeout=600,
+    sent = requests.post(uri, data=data, timeout=600,
                          headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(len(data))}).json()
     if not sent.get("success"):
         sys.exit(f"upload failed: {sent}")

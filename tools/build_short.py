@@ -232,13 +232,24 @@ def snap(start: float, dur: float, shots: list[tuple[float, float]]) -> float:
     return start
 
 
-def shot_room(start: float, shots: list[tuple[float, float]]) -> float:
-    """Seconds left in the shot that holds `start` (a clip longer than this holds its last frame)."""
+PANEL_EDGE = 0.12  # three frames kept clear of each panel edge: seeking can land one frame early or late
+
+
+def inside_panel(start: float, shots: list[tuple[float, float]]) -> float:
+    """Comic start moved clear of panel edges, so no frame of the panel before or after flashes on screen."""
     for k, (a, b) in enumerate(shots):
         if a <= start < b:
-            if b - start > 0.5 or k + 1 == len(shots):
-                return max(b - start - 0.04, 0.04)
-            return shots[k + 1][1] - start - 0.04  # starts a blink before a cut: the next shot is the real one
+            if b - start <= 0.5 and k + 1 < len(shots):  # a blink before a cut: the next panel is the real one
+                return shots[k + 1][0] + PANEL_EDGE
+            return min(max(start, a + PANEL_EDGE), b - 2 * PANEL_EDGE)
+    return start
+
+
+def shot_room(start: float, shots: list[tuple[float, float]]) -> float:
+    """Seconds left in the panel that holds `start` (a clip longer than this holds its last frame)."""
+    for a, b in shots:
+        if a <= start < b:
+            return max(b - start - PANEL_EDGE, 0.04)
     return 1e9
 
 
@@ -321,8 +332,9 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     for j, (start, _) in enumerate(clips):
         span = cuts[j + 1] - cuts[j]
         p = tmp / f"s{i:02d}_{j}.mp4"
-        at = snap(start, span, shots)
         comic = cfg.get("frame") == "full"  # a film clip may run on across a cut (a normal edit); a comic panel never spills
+        at = snap(start, span, shots)
+        at = inside_panel(at, shots) if comic else at
         piece(proj / cfg["source"], at, span, p, bed, comic, shot_room(at, shots) if comic else 1e9)
         parts.append(p)
     video = tmp / f"s{i:02d}_pic.mp4"

@@ -22,7 +22,8 @@ WIDTH = 800          # strips are normalised to this width before cutting
 MIN_GAP = 24         # rows of gap needed to split two panels
 MIN_PANEL = 140      # smaller pieces are joined to their neighbour
 SECONDS = 3.0
-LETTER = 45          # a dark mark this tall or less (and up to 4x as wide) inside white counts as lettering
+BUBBLE_PANEL = 0.6    # a panel this much white bubble area (a bubble-only strip) keeps its words
+LETTER = 45         # a dark mark this tall or less (and up to 4x as wide) inside white counts as lettering
 W, H, FPS = 1080, 1920, 30
 
 
@@ -76,6 +77,8 @@ def blank_bubbles(panel: np.ndarray) -> np.ndarray:
     regions, _ = ndimage.label(filled)
     sizes = np.bincount(regions.ravel())
     big = np.isin(regions, np.nonzero(sizes > 2500)[0][1:])  # white areas worth reading text from
+    if big.mean() > BUBBLE_PANEL:  # the bubble is the panel: blanked, nothing is left to look at, so keep the words
+        return panel
     marks = big & ~white
     labels, n = ndimage.label(marks)
     out = panel.copy()
