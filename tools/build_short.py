@@ -305,10 +305,29 @@ def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = N
          "-c:a", "aac", "-ar", "44100", "-ac", "2", str(out)])
 
 
+def video_length(path: Path) -> float:
+    out = subprocess.run([FFPROBE, "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration",
+                          "-of", "csv=p=0", str(path)], capture_output=True, text=True).stdout.strip()
+    return float(out) if out and out != "N/A" else duration(path)
+
+
 def concat(parts: list[Path], out: Path) -> None:
+    """Join clips. Pictures are copied; sound is joined as raw samples, each part cut to its picture's
+    length. Copying the AAC sound instead adds a ~23 ms gap at every join, so the voice stutters and drifts."""
     listing = out.with_suffix(".txt")
     listing.write_text("".join(f"file '{p.as_posix()}'\n" for p in parts), encoding="utf-8")
-    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(listing), "-c", "copy", str(out)])
+    sound = []
+    for p in parts:
+        wav = p.with_suffix(".join.wav")
+        run([FFMPEG, "-y", "-i", str(p), "-vn", "-af", "apad", "-t", f"{video_length(p):.6f}",
+             "-c:a", "pcm_s16le", "-ar", "44100", "-ac", "2", str(wav)])
+        sound.append(wav)
+    sounds = out.with_suffix(".wav.txt")
+    sounds.write_text("".join(f"file '{w.as_posix()}'\n" for w in sound), encoding="utf-8")
+    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(listing), "-f", "concat", "-safe", "0", "-i", str(sounds),
+         "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "256k", str(out)])
+    for w in sound:
+        w.unlink()
 
 
 def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tuple[Path, float, list]:
@@ -343,14 +362,14 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     run([FFMPEG, "-y", "-i", str(video), "-i", str(voice), "-filter_complex",
          f"[0:a]volume={cfg['bed_volume']}[bed];[bed][1:a]amix=inputs=2:duration=first:normalize=0[a]",
          "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-ar", "44100", "-ac", "2", str(out)])
-    return out, duration(out), words
+    return out, video_length(out), words
 
 
 def original_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tuple[Path, float, list]:
     start, end = seg["orig"]
     out = tmp / f"seg{i:02d}.mp4"
     piece(proj / cfg["source"], start, end - start, out, full=cfg.get("frame") == "full")
-    return out, duration(out), [(0.0, end - start, "QUOTE:" + seg["text"])]
+    return out, video_length(out), [(0.0, end - start, "QUOTE:" + seg["text"])]
 
 
 # ---------- captions ----------
