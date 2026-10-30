@@ -29,6 +29,7 @@ FFPROBE = shutil.which("ffprobe") or "ffprobe"
 W, H, FPS = 1080, 1920, 30  # 9:16 default; "aspect": "16:9" in script.json switches to 1920x1080
 FG_HEIGHT = 900
 HEADER_Y = 150  # vertical videos: top of the page name card, in the band above the 900 px picture
+PANEL_TOP = 420  # vertical comics with a card: the panel starts just under the card (card is 250 px tall)
 WIDE = False
 CROP_BOTTOM = 0.0  # share of the source height to cut off (burned-in film subtitles)
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
@@ -460,7 +461,12 @@ def main() -> None:
     vf = ("ass=captions.ass," + mark +
           f"drawtext=fontfile='{FONT}':text='{dt(cfg['credit'])}':x=(w-tw)/2:y={credit_y}:fontsize=26:fontcolor=white@0.75")
     if header:
-        vf = f"movie=header.png[hd];[in]{vf}[b];[b][hd]overlay=(W-w)/2:{HEADER_Y}[out]"
+        # comic panels fill the whole frame, so they shrink into the space under the card, over a blurred copy;
+        # a film already leaves an empty band there
+        fit = "" if cfg.get("frame") != "full" else (
+            f"split[pa][pb];[pa]boxblur=30:2,eq=brightness=-0.15[pbg];[pb]scale=-2:{H - PANEL_TOP}[pfg];"
+            f"[pbg][pfg]overlay=(W-w)/2:{PANEL_TOP},")
+        vf = f"movie=header.png[hd];[in]{fit}{vf}[b];[b][hd]overlay=(W-w)/2:{HEADER_Y}[out]"
     final = proj / cfg.get("output", "final_short.mp4")
     if cfg.get("music"):
         # steady music bed set N dB under the voice track, as measured on the reference videos (13.5 dB)
