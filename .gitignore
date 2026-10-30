@@ -12,7 +12,7 @@ jobs/**/pages/
 jobs/**/panels/
 jobs/**/build*/*
 !jobs/**/build*/voice-*/
-jobs/**/build*/voice-*/*.raw.*
 __pycache__/
 jobs/**/*.wav
 !jobs/**/build*/voice-*/v*.wav
+jobs/**/build*/voice-*/*.raw.*
