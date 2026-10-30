@@ -1,7 +1,7 @@
 name: Post queue
-run-name: Post ${{ inputs.page || 'spoiler' }}${{ inputs.dry_run && ' (dry run)' || '' }}
+run-name: Post ${{ inputs.page || 'all pages' }}${{ inputs.dry_run && ' (dry run)' || '' }}
 
-# Posts the next queued video to a Facebook Page (tools/queue_post.py).
+# Posts the next queued video to each Facebook Page (tools/queue_post.py).
 # Runs every 30 minutes; the script itself keeps posts MIN_GAP_MINUTES apart
 # (115 = about 12 a day), so an early or doubled schedule never double-posts.
 # Real posts only when the repo variable <PAGE>_POST_ENABLED is 'true'.
@@ -11,37 +11,45 @@ on:
   workflow_dispatch:
     inputs:
       page:
-        description: Page short name
+        description: Page short name (spoiler, manhwax)
         default: spoiler
       dry_run:
         description: Only show what would be posted
         type: boolean
         default: true
 
-concurrency:
-  group: post-${{ inputs.page || 'spoiler' }}
-  cancel-in-progress: false
-
 permissions:
   contents: write
 
 jobs:
   post:
+    strategy:
+      max-parallel: 1  # both pages write the queue folder; one at a time
+      matrix:
+        page: ${{ fromJSON(inputs.page && format('["{0}"]', inputs.page) || '["spoiler","manhwax"]') }}
+    concurrency:
+      group: post-${{ matrix.page }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      PAGE: ${{ inputs.page || 'spoiler' }}
+      PAGE: ${{ matrix.page }}
       GH_TOKEN: ${{ github.token }}
       SPOILER_FB_PAGE_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
       SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
+      MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
+      MANHWAX_FB_PAGE_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
       MIN_GAP_MINUTES: ${{ vars.MIN_GAP_MINUTES }}
+      ALL_VARS: ${{ toJSON(vars) }}
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q requests truststore
       - name: Post next video
         run: |
+          [ -f "queue/$PAGE.json" ] || { echo "no queue for $PAGE"; exit 0; }
+          enabled=$(echo "$ALL_VARS" | jq -r --arg k "${PAGE^^}_POST_ENABLED" '.[$k] // ""')
           GO=""
-          if [ "${{ inputs.dry_run }}" != "true" ] && [ "${{ vars.SPOILER_POST_ENABLED }}" = "true" ]; then GO="--go"; fi
+          if [ "${{ inputs.dry_run }}" != "true" ] && [ "$enabled" = "true" ]; then GO="--go"; fi
           python3 tools/queue_post.py next "$PAGE" $GO
       - name: Save the queue record
         run: |
