@@ -38,7 +38,7 @@ def cut_panels(strip: np.ndarray) -> list[tuple[int, int]]:
     # a row is gap when under 1.5% of its pixels differ from the row's own background colour,
     # so stray sparks and JPEG noise on a black or white gutter do not count as art
     bg = np.median(strip, axis=1, keepdims=True)
-    differs = np.abs(strip.astype(np.int16) - bg).max(axis=2) > 40
+    differs = np.abs(strip.astype(np.int16) - bg.astype(np.int16)).max(axis=2) > 40
     blank = differs.mean(axis=1) < 0.015
     spans, start, gap = [], None, 0
     for y, is_blank in enumerate(blank):
@@ -82,17 +82,26 @@ def panel_clip(img: Path, out: Path) -> None:
 def main() -> None:
     proj = Path(sys.argv[1]).resolve()
     pages = sorted(p for p in (proj / "pages").iterdir() if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
-    strip = load_strip(pages)
-    spans = cut_panels(strip)
     pdir, work, clips = proj / "panels", proj / "work", proj / "work" / "panel_clips"
     for d in (pdir, work, clips):
         d.mkdir(parents=True, exist_ok=True)
+    # one episode at a time ("e03_012.jpg" -> "e03"), so memory holds one episode, not the whole series
+    episodes: dict[str, list[Path]] = {}
+    for page in pages:
+        episodes.setdefault(page.name.split("_")[0], []).append(page)
+    count = 0
+    for name, group in episodes.items():
+        strip = load_strip(group)
+        for a, b in cut_panels(strip):
+            Image.fromarray(strip[a:b]).save(pdir / f"p_{count:03d}.png")
+            count += 1
+        del strip
+        print(f"{name}: {len(group)} strips, {count} panels so far", flush=True)
+    spans = range(count)
     listing = []
-    for i, (a, b) in enumerate(spans):
-        img = pdir / f"p_{i:03d}.png"
-        Image.fromarray(strip[a:b]).save(img)
+    for i in spans:
         clip = clips / f"c_{i:03d}.mp4"
-        panel_clip(img, clip)
+        panel_clip(pdir / f"p_{i:03d}.png", clip)
         listing.append(f"file '{clip.as_posix()}'")
     (work / "panels.txt").write_text("\n".join(listing) + "\n", encoding="utf-8")
     # silent track so the builder's audio mapping works like a film source

@@ -43,6 +43,7 @@ jobs:
         run: python3 tools/fetch_source.py "${{ inputs.job }}"
 
       - name: Build
+        if: hashFiles(format('{0}/{1}', inputs.job, inputs.script)) != ''
         run: |
           uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy \
             --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "${{ inputs.script }}"
@@ -51,4 +52,14 @@ jobs:
         with:
           name: video
           path: ${{ inputs.job }}/final_*.mp4
+          if-no-files-found: ignore
+          retention-days: 1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sheets
+          path: |
+            ${{ inputs.job }}/work/panels_sheet_*.jpg
+            ${{ inputs.job }}/work/shots.txt
+          if-no-files-found: ignore
           retention-days: 1
