@@ -107,18 +107,28 @@ def f5_tts(text: str, voice: str, raw: Path) -> None:
     shutil.copy(got.get("path", got) if isinstance(got, dict) else got, raw)
 
 
+EDGE_TRIES = 4
+
+
 def edge_tts_voice(text: str, cfg: dict, raw: Path) -> None:
     """Free Microsoft edge-tts. GuyNeural +30% / +10Hz = the anime recap narrator (0.86 vs refs 18, 21, 22)."""
     import asyncio
 
     import edge_tts
 
-    comm = edge_tts.Communicate(text, cfg.get("edge_voice", "en-US-GuyNeural"),
-                                rate=cfg.get("edge_rate", "+30%"), pitch=cfg.get("edge_pitch", "+10Hz"))
-    try:
-        asyncio.run(comm.save(str(raw.with_suffix(".mp3"))))
-    except Exception as exc:
-        raise VoiceEngineDown(f"edge: {exc}") from exc
+    import time
+
+    for attempt in range(EDGE_TRIES):  # the free service drops a line now and then ("No audio was received")
+        comm = edge_tts.Communicate(text, cfg.get("edge_voice", "en-US-GuyNeural"),
+                                    rate=cfg.get("edge_rate", "+30%"), pitch=cfg.get("edge_pitch", "+10Hz"))
+        try:
+            asyncio.run(comm.save(str(raw.with_suffix(".mp3"))))
+            break
+        except Exception as exc:
+            if attempt + 1 == EDGE_TRIES:
+                raise VoiceEngineDown(f"edge: {exc}") from exc
+            print(f"edge try {attempt + 1} failed ({exc}), trying again", flush=True)
+            time.sleep(5 * (attempt + 1))
     run([FFMPEG, "-y", "-i", str(raw.with_suffix(".mp3")), str(raw)])
 
 
