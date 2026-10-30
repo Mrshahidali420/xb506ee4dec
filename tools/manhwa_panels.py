@@ -107,7 +107,7 @@ def panel_clip(img: Path, out: Path) -> None:
 
 def main() -> None:
     proj = Path(sys.argv[1]).resolve()
-    keep_text = "--keep-text" in sys.argv  # bubbles are blank unless asked; the narrator tells the story
+    keep_text = "--blank-text" not in sys.argv  # off by default: the cleaner also wiped titles and narration art
     pages = sorted(p for p in (proj / "pages").iterdir() if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
     pdir, work, clips = proj / "panels", proj / "work", proj / "work" / "panel_clips"
     for d in (pdir, work, clips):

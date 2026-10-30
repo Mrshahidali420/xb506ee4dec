@@ -56,7 +56,7 @@ def webtoon(job: Path, src: dict) -> None:
     for url in src["urls"]:  # a list page gives every episode
         sh([*UV, "--with", "gallery-dl", "gallery-dl", "-D", str(job / "pages"), "--filename",
             "e{episode_no:>02}_{num:>03}.{extension}", url])
-    keep = ["--keep-text"] if src.get("bubbles") == "keep" else []  # default: blank bubbles
+    keep = ["--blank-text"] if src.get("bubbles") == "blank" else []  # bubbles keep their words unless asked
     sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
 
 
@@ -81,7 +81,7 @@ def manga(job: Path, src: dict) -> None:
         shutil.rmtree(pages, ignore_errors=True)  # a half download would mix two scans
     else:
         sys.exit("no source gave every chapter")
-    keep = ["--keep-text"] if src.get("bubbles") == "keep" else []
+    keep = ["--blank-text"] if src.get("bubbles") == "blank" else []
     sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
 
 
