@@ -340,7 +340,8 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     words = word_times(seg["say"], voice, dur - 0.12)
     clips = [c if isinstance(c, list) else [c, None] for c in seg["clips"]]
     # each shot starts on its word (given, or an even share of the words), so picture follows the line
-    cuts = [0.0] + [words[w][0] if w is not None else words[round(j * len(words) / len(clips))][0]
+    # a word number past the end of the line (a typo, or the transcript merged words) means the last word
+    cuts = [0.0] + [words[min(w, len(words) - 1)][0] if w is not None else words[round(j * len(words) / len(clips))][0]
                     for j, (_, w) in enumerate(clips) if j]
     cuts.append(dur)
     for k in range(1, len(cuts) - 1):  # every shot stays on screen at least half a second
