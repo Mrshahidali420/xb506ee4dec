@@ -113,7 +113,9 @@ def shot_sheets(job: Path) -> None:
 def main() -> None:
     job = Path(sys.argv[1])
     src = json.loads((job / "source.json").read_text(encoding="utf-8"))
-    if src["type"] == "url":
+    if (job / "source.mp4").exists():  # restored from the Actions cache
+        print("source cached, no download", flush=True)
+    elif src["type"] == "url":
         sh([*UV, "--with", "yt-dlp", "yt-dlp", "-q", "-o", str(job / "source.mp4"), src["url"]])
     else:
         {"youtube": youtube, "anime": anime, "webtoon": webtoon, "kisskh": kisskh}[src["type"]](job, src)
@@ -127,7 +129,7 @@ def main() -> None:
             "\n".join(f"{a:.2f} {b:.2f}" for a, b in zip(cuts, cuts[1:]) if b - a > 0.3), encoding="utf-8")
     if src["type"] != "webtoon" and not any(job.glob("script*.json")):  # prep run: help write the script
         film_sheets(job)
-    if src.get("shot_sheets"):
+    if src.get("shot_sheets") and not (job / "work" / "shot_sheet_01.jpg").exists():
         shot_sheets(job)
 
 

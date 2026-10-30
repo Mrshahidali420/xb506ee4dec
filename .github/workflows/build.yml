@@ -44,6 +44,15 @@ jobs:
           mkdir -p ~/.config/watch
           printf 'GROQ_API_KEY=%s\nHF_TOKEN=%s\n' "${{ secrets.GROQ_API_KEY }}" "${{ secrets.HF_TOKEN }}" > ~/.config/watch/.env
 
+      # The film or panel video is kept between runs, so only the first build of a job downloads it.
+      - name: Restore cached source
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ inputs.job }}/source.mp4
+            ${{ inputs.job }}/work
+          key: src-${{ inputs.job }}-${{ hashFiles(format('{0}/source.json', inputs.job)) }}
+
       - name: Fetch source
         env:
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
