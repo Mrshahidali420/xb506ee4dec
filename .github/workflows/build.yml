@@ -111,7 +111,7 @@ jobs:
           git pull -q --rebase
           for s in ${{ inputs.script }}; do
             f="${{ inputs.job }}/$s"
-            out=$(jq -r '.output // "final_short.mp4"' "$f"); cap=$(jq -r '.caption // .title' "$f")
-            python3 tools/queue_post.py add "${{ inputs.queue }}" "${{ inputs.job }}/$out" "$cap"
+            out=$(jq -r '.output // "final_short.mp4"' "$f"); cap=$(jq -r '.caption // .title' "$f"); com=$(jq -r '.comment // ""' "$f")
+            python3 tools/queue_post.py add "${{ inputs.queue }}" "${{ inputs.job }}/$out" "$cap" "$com"
           done
           git add queue && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}" && git push -q

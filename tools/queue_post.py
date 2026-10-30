@@ -19,6 +19,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_COMMENT = "What would you have done in this situation? 👇"
 REPO = os.environ.get("GITHUB_REPOSITORY", "Mrshahidali420/xb506ee4dec")
 
 
@@ -36,7 +37,7 @@ def save(path: Path, queue: dict) -> None:
     path.write_text(json.dumps(queue, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
-def add(page: str, video: Path, caption: str) -> None:
+def add(page: str, video: Path, caption: str, comment: str = "") -> None:
     tag = f"queue-{page}"
     if subprocess.run(["gh", "release", "view", tag, "-R", REPO], capture_output=True).returncode:
         gh("release", "create", tag, "--title", tag, "--notes", "Posting queue. Assets are deleted once posted.")
@@ -48,7 +49,7 @@ def add(page: str, video: Path, caption: str) -> None:
     finally:
         staged.unlink()
     path, queue = load(page)
-    queue["items"].append({"asset": asset, "caption": caption, "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    queue["items"].append({"asset": asset, "caption": caption, "comment": comment, "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                            "posted_at": None, "post": None})
     save(path, queue)
     print(f"queued {asset}; {sum(1 for i in queue['items'] if not i['posted_at'])} waiting")
@@ -83,6 +84,12 @@ def next_post(page: str, go: bool) -> None:
     save(path, queue)
     gh("release", "delete-asset", f"queue-{page}", item["asset"], "-y")
     print(f"posted https://www.facebook.com/{video_id}; {len(waiting) - 1} left")
+    import comment_fb  # every post gets one comment from the page, to start the talk under it
+
+    try:
+        print("comment:", comment_fb.comment(page, video_id, item.get("comment") or DEFAULT_COMMENT))
+    except Exception as exc:  # the post is up; a failed comment must not undo the queue record
+        print(f"::warning::comment failed: {exc}")
     if len(waiting) - 1 <= 3:
         print(f"::warning::only {len(waiting) - 1} videos left in the {page} queue")
 
@@ -91,8 +98,8 @@ def main() -> None:
     if len(sys.argv) < 3:
         sys.exit(__doc__)
     cmd, page = sys.argv[1], sys.argv[2].lower()
-    if cmd == "add" and len(sys.argv) == 5:
-        add(page, Path(sys.argv[3]), sys.argv[4])
+    if cmd == "add" and len(sys.argv) in (5, 6):
+        add(page, Path(sys.argv[3]), sys.argv[4], sys.argv[5] if len(sys.argv) == 6 else "")
     elif cmd == "next":
         next_post(page, "--go" in sys.argv)
     elif cmd == "status":
