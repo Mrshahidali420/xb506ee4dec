@@ -29,6 +29,7 @@ FFPROBE = shutil.which("ffprobe") or "ffprobe"
 W, H, FPS = 1080, 1920, 30  # 9:16 default; "aspect": "16:9" in script.json switches to 1920x1080
 FG_HEIGHT = 900
 WIDE = False
+CROP_BOTTOM = 0.0  # share of the source height to cut off (burned-in film subtitles)
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
         else "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")  # GitHub runners are Linux
 YELLOW = "&H00D7FF&"  # ASS colours are BGR
@@ -248,7 +249,7 @@ def music_drop(path: Path, need: float) -> float:
     full = 0.85 * np.percentile(smooth, 90)
     latest = max(0.0, len(rms) * 0.5 - need - 2)  # keep enough track left for the whole short
     hit = next((i * 0.5 for i, v in enumerate(smooth) if v >= full), 0.0)
-    return min(hit, latest)
+    return hit if hit > latest else min(hit, latest)  # long videos loop the track anyway
 
 
 def mean_db(path: Path) -> float:
@@ -260,10 +261,11 @@ def mean_db(path: Path) -> float:
 def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = None, full: bool = False) -> None:
     """One source shot, framed 9:16: sharp centre crop over a blurred, darkened copy.
     `audio` swaps the film sound for another file on the same clock (the no-voice stem)."""
+    cut = f"crop=iw:ih*{1 - CROP_BOTTOM:.3f}:0:0," if CROP_BOTTOM else ""
     if full or WIDE:  # source already fits the frame (manhwa panels, or a film in 16:9): fill the screen
-        vf = f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS}[v]"
+        vf = f"[0:v]{cut}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS}[v]"
     else:
-        vf = (f"[0:v]split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+        vf = (f"[0:v]{cut}split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
           f"boxblur=30:2,eq=brightness=-0.12[bg];[b]scale=-2:{FG_HEIGHT},crop={W}:{FG_HEIGHT}[fg];"
           f"[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps={FPS}[v]")
     extra = ["-ss", f"{start:.3f}", "-t", f"{dur:.3f}", "-i", str(audio)] if audio else []
@@ -363,7 +365,8 @@ def main() -> None:
     proj = Path(sys.argv[1]).resolve()
     script = proj / (sys.argv[2] if len(sys.argv) > 2 else "script.json")
     cfg = json.loads(script.read_text(encoding="utf-8"))
-    global W, H, WIDE
+    global W, H, WIDE, CROP_BOTTOM
+    CROP_BOTTOM = cfg.get("crop_bottom", 0.0)
     if cfg.get("aspect") == "16:9":  # YouTube long version
         W, H, WIDE = 1920, 1080, True
     # each script gets its own build folder, so cached voice lines never mix between versions

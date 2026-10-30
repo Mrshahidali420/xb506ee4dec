@@ -3,6 +3,7 @@
  "aspect": "16:9",
  "output": "final_youtube.mp4",
  "source": "source.mp4",
+ "crop_bottom": 0.16,
  "music": "../../music/Headlights_Slowed_Alok_Alan_Walker.mp3",
  "music_credit": "Headlights (Slowed) - Alok & Alan Walker",
  "music_db_under_voice": 9,
