@@ -50,10 +50,12 @@ jobs:
         run: python3 tools/fetch_source.py "${{ inputs.job }}"
 
       - name: Build
-        if: hashFiles(format('{0}/{1}', inputs.job, inputs.script)) != ''
         run: |
-          uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy \
-            --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "${{ inputs.script }}"
+          for s in ${{ inputs.script }}; do
+            [ -f "${{ inputs.job }}/$s" ] || { echo "no $s: prep run only"; continue; }
+            uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy \
+              --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
+          done
 
       - uses: actions/upload-artifact@v4
         with:
