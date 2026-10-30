@@ -231,6 +231,11 @@ def snap(start: float, dur: float, shots: list[tuple[float, float]]) -> float:
     return start
 
 
+def shot_room(start: float, shots: list[tuple[float, float]]) -> float:
+    """Seconds left in the shot that holds `start` (a clip longer than this holds its last frame)."""
+    return next((b - start - 0.04 for a, b in shots if a <= start < b), 1e9)
+
+
 def dt(text: str) -> str:
     """Escape text for ffmpeg drawtext inside a filter graph (colons, quotes, backslashes)."""
     return text.replace("\\", "\\\\").replace(":", "\:").replace("'", "’")
@@ -258,7 +263,8 @@ def mean_db(path: Path) -> float:
     return float(re.search(r"mean_volume: (-?[\d.]+) dB", out).group(1))
 
 
-def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = None, full: bool = False) -> None:
+def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = None, full: bool = False,
+          room: float = 1e9) -> None:
     """One source shot, framed 9:16: sharp centre crop over a blurred, darkened copy.
     `audio` swaps the film sound for another file on the same clock (the no-voice stem)."""
     cut = f"crop=iw:ih*{1 - CROP_BOTTOM:.3f}:0:0," if CROP_BOTTOM else ""
@@ -272,9 +278,13 @@ def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = N
         vf = (f"[0:v]{cut}split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
           f"boxblur=30:2,eq=brightness=-0.12[bg];[b]scale=-2:{FG_HEIGHT},crop={W}:{FG_HEIGHT}[fg];"
           f"[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps={FPS}[v]")
-    extra = ["-ss", f"{start:.3f}", "-t", f"{dur:.3f}", "-i", str(audio)] if audio else []
-    run([FFMPEG, "-y", "-ss", f"{start:.3f}", "-t", f"{dur:.3f}", "-i", str(src), *extra, "-filter_complex", vf,
-         "-map", "[v]", "-map", "1:a" if audio else "0:a", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+    take = min(dur, room)  # never read past the shot; hold its last frame for the rest
+    if take < dur:
+        vf = vf[:-3] + f",tpad=stop_mode=clone:stop_duration={dur - take:.3f}[v]"
+    extra = ["-ss", f"{start:.3f}", "-t", f"{take:.3f}", "-i", str(audio)] if audio else []
+    run([FFMPEG, "-y", "-ss", f"{start:.3f}", "-t", f"{take:.3f}", "-i", str(src), *extra, "-filter_complex", vf,
+         "-map", "[v]", "-map", "1:a" if audio else "0:a", "-af", "apad", "-t", f"{dur:.3f}",
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
          "-c:a", "aac", "-ar", "44100", "-ac", "2", str(out)])
 
 
@@ -305,7 +315,8 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     for j, (start, _) in enumerate(clips):
         span = cuts[j + 1] - cuts[j]
         p = tmp / f"s{i:02d}_{j}.mp4"
-        piece(proj / cfg["source"], snap(start, span, shots), span, p, bed, cfg.get("frame") == "full")
+        at = snap(start, span, shots)
+        piece(proj / cfg["source"], at, span, p, bed, cfg.get("frame") == "full", shot_room(at, shots))
         parts.append(p)
     video = tmp / f"s{i:02d}_pic.mp4"
     concat(parts, video)
