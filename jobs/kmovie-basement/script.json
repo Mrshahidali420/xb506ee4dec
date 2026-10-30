@@ -1,0 +1,29 @@
+{
+ "title": "He Nailed His Family Inside A Basement . . .",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "music": "../../music/Headlights_Slowed_Alok_Alan_Walker.mp3",
+ "music_credit": "Headlights (Slowed) - Alok & Alan Walker",
+ "music_db_under_voice": 9,
+ "credit": "Movie: The Basement (2020)",
+ "watermark": "@RECAPTEST",
+ "voice_chain": ["edge", "orpheus", "kokoro"],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {"say": "This dad let his neighbor *die* outside his door, and his own daughter watched him do it.", "clips": [1098.7, [1140.7, 7], [1150.7, 12]]},
+  {"orig": [1183.6, 1185.0], "text": "If you go out there, I'll kill you."},
+  {"say": "A *nuclear missile* was coming, so Jack ran his family into the basement and *nailed* the door shut.", "clips": [36.4, [104.3, 7], [130.9, 14]]},
+  {"say": "Then the neighbor knocked. Her kids were *sick*. Jack refused to open.", "clips": [1089.7, [1116.7, 5], [1156.7, 9]]},
+  {"say": "And then, the knocking *stopped*.", "clips": [1206.7]},
+  {"say": "Weeks later, the radio said the radiation had dropped. So they made *armor* and went up.", "clips": [3195.6, [3371.7, 10], [3377.3, 13]]},
+  {"orig": [3432.0, 3436.3], "text": "No! Don't come up here!"},
+  {"say": "Then everything went *black*. Back down, Anna got a fever. And one night, she stopped *answering*.", "clips": [3470.9, [3488.2, 4], [4683.9, 10], [4711.1, 14]]},
+  {"say": "Days later, she *opened* her eyes, and asked how long it had been. Jack *lied*.", "clips": [5116.9, [5212.3, 6], [5231.7, 13]]},
+  {"say": "The next morning, they opened the door to a *blinding* light.", "clips": [5294.0, [5287.9, 7]]},
+  {"say": "Did Anna really wake up, or did they *lose their minds* down there? Comment what was outside.", "clips": [5321.6, [5334.4, 8], [5354.8, 13]]}
+ ]
+}
