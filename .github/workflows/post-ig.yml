@@ -1,0 +1,47 @@
+name: Post to Instagram
+run-name: Instagram ${{ inputs.page }} from run ${{ inputs.run_id }}${{ inputs.go && '' || ' (check only)' }}
+
+# Posts one built video as a Reel on the Instagram account linked to a Facebook Page.
+# The video comes from a build run's "video" artifact, so nothing passes through the PC.
+on:
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Page short name whose token to use (e.g. manhwaindex)
+        required: true
+      run_id:
+        description: Build run id that holds the video artifact
+        required: true
+      file:
+        description: Video file name inside the artifact
+        default: final_vertical.mp4
+      job:
+        description: Job folder whose script.json gives the caption and comment
+        required: true
+      go:
+        description: Really post (off = only check the account)
+        type: boolean
+        default: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      MANHWAINDEX_FB_PAGE_ID: ${{ secrets.MANHWAINDEX_FB_PAGE_ID }}
+      MANHWAINDEX_FB_PAGE_TOKEN: ${{ secrets.MANHWAINDEX_FB_PAGE_TOKEN }}
+      MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
+      MANHWAX_FB_PAGE_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
+      SPOILER_FB_PAGE_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
+      SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests truststore
+      - name: Get the video
+        run: gh run download "${{ inputs.run_id }}" -n video -D video
+      - name: Post
+        run: |
+          s="${{ inputs.job }}/script.json"
+          cap=$(jq -r '.caption // .title' "$s"); com=$(jq -r '.comment // ""' "$s")
+          cd tools && python3 post_ig.py "${{ inputs.page }}" "../video/${{ inputs.file }}" "$cap" "$com" ${{ inputs.go && '--go' || '' }}
