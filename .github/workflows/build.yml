@@ -201,4 +201,6 @@ jobs:
             out=$(jq -r '.output // "final_short.mp4"' "$f"); cap=$(jq -r '.caption // .title' "$f"); com=$(jq -r '.comment // ""' "$f")
             python3 tools/queue_post.py add "${{ inputs.queue }}" "${{ inputs.job }}/$out" "$cap" "$com"
           done
-          git add queue && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}" && git push -q
+          git add queue && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}"
+          # other builds and the daily run push too: rebase and try again instead of failing
+          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && exit 0; sleep $((i * 7)); done; exit 1
