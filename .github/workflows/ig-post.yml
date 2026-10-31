@@ -34,7 +34,7 @@ jobs:
           PAGE_TOKEN: ${{ secrets[format('{0}_FB_PAGE_TOKEN', inputs.page)] }}
           PAGE: ${{ inputs.page }}
         run: |
-          pip install -q requests
+          pip install -q requests truststore
           up=$(echo "$PAGE" | tr a-z A-Z)
           export "${up}_FB_PAGE_ID=$PAGE_ID" "${up}_FB_PAGE_TOKEN=$PAGE_TOKEN"
           f="${{ inputs.job }}/script.json"
