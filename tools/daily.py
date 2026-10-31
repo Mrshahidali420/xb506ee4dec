@@ -94,7 +94,7 @@ def push(message: str) -> None:
     sh("git", "add", "jobs")
     if sh("git", "diff", "--cached", "--name-only"):
         sh("git", "commit", "-qm", message)
-    sh("git", "pull", "-q", "--rebase")
+    sh("git", "pull", "-q", "--rebase", "--autostash")
     sh("git", "push", "-q")
 
 
