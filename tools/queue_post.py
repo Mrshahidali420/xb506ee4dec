@@ -55,6 +55,21 @@ def add(page: str, video: Path, caption: str, comment: str = "") -> None:
     print(f"queued {asset}; {sum(1 for i in queue['items'] if not i['posted_at'])} waiting")
 
 
+def post_instagram(page_id: str, token: str, page: str, item: dict) -> str:
+    """Instagram fetches the queued file from this public repo's release link itself. Returns the Reel link."""
+    import requests
+    import post_ig
+
+    link = f"https://github.com/{REPO}/releases/download/queue-{page}/{item['asset']}"
+    os.environ["VIDEO_URL"] = requests.head(link, allow_redirects=True, timeout=60).url
+    ig_id, name = post_ig.ig_account(page_id, token)
+    media = post_ig.upload_reel(ig_id, token, Path("/tmp") / item["asset"], item["caption"])
+    url = requests.get(f"{post_ig.GRAPH}/{media}", params={"fields": "permalink", "access_token": token},
+                       timeout=60).json().get("permalink", media)
+    print(f"Instagram @{name}: {url}")
+    return url
+
+
 def next_post(page: str, go: bool) -> None:
     path, queue = load(page)
     waiting = [i for i in queue["items"] if not i["posted_at"]]
@@ -82,6 +97,12 @@ def next_post(page: str, go: bool) -> None:
     video_id = post_fb.upload(page_id, token, Path("/tmp") / item["asset"], item["caption"])
     item["posted_at"], item["post"] = datetime.now(timezone.utc).isoformat(timespec="seconds"), video_id
     save(path, queue)
+    if os.environ.get("IG_POST_ENABLED") == "true":  # the same Reel on the page's linked Instagram account
+        try:
+            item["ig"] = post_instagram(page_id, token, page, item)
+            save(path, queue)
+        except BaseException as exc:  # sys.exit or an API error: Facebook is posted, keep going
+            print(f"::warning::Instagram failed: {exc}")
     gh("release", "delete-asset", f"queue-{page}", item["asset"], "-y")
     print(f"posted https://www.facebook.com/{video_id}; {len(waiting) - 1} left")
     import comment_fb  # every post gets one comment from the page, to start the talk under it

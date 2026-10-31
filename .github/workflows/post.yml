@@ -42,6 +42,7 @@ jobs:
       ANIME_FB_PAGE_ID: ${{ secrets.ANIME_FB_PAGE_ID }}
       ANIME_FB_PAGE_TOKEN: ${{ secrets.ANIME_FB_PAGE_TOKEN }}
       MIN_GAP_MINUTES: ${{ vars.MIN_GAP_MINUTES }}
+      IG_POST_ENABLED: ${{ vars.IG_POST_ENABLED }}
       ALL_VARS: ${{ toJSON(vars) }}
     steps:
       - uses: actions/checkout@v4
