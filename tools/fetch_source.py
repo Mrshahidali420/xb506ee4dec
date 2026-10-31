@@ -123,8 +123,7 @@ def transcribe(job: Path) -> None:
     sh([*UV, "--with", "groq", "--with", "truststore", "python", "tools/groq_transcribe.py", str(audio), str(out), "en"])
     segs = json.loads(out.read_text(encoding="utf-8")).get("segments", [])
     (job / "work" / "english.txt").write_text(
-        "".join(f"{s['start']:7.1f} {s['text'].strip()}
-" for s in segs), encoding="utf-8")
+        "".join(f"{s['start']:7.1f} {s['text'].strip()}\n" for s in segs), encoding="utf-8")
 
 
 def kisskh(job: Path, src: dict) -> None:
