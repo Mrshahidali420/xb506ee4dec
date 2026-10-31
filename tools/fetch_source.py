@@ -5,6 +5,8 @@
 {"type": "webtoon", "urls": ["...episode-1...", "..."]}  manhwa strips, then panels via manhwa_panels.py
 {"type": "manga", "sources": [...], "chapters": "1-6"}  first source that works (list from find_manhwa.py)
 {"type": "url", "url": "..."}                           any direct video link
+{"type": "kisskh", "search": "parasite", "episode": 1}  kisskh title search instead of a url (first hit)
+A dubbed anime has no subtitle file, so its English audio is transcribed (Groq Whisper) to work/english.txt.
 """
 from __future__ import annotations
 
@@ -99,10 +101,37 @@ def srt_to_text(srt: Path, out: Path) -> None:
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def kisskh_search(query: str) -> str:
+    code = f"""
+from kisskh_downloader.kisskh_api import KissKHApi
+hits = list(KissKHApi().search_dramas_by_query({query!r}))
+exact = [h for h in hits if h.title.strip().lower() == {query!r}.lower()]
+h = (exact or hits)[0]
+print('URL=https://kisskh.co/Drama/x?id=' + str(h.id)); print('TITLE=' + h.title)
+"""
+    out = subprocess.run([*UV, "--with", "kisskh-downloader", "python", "-c", code], capture_output=True, text=True, check=True)
+    print(out.stdout, flush=True)
+    return next(l[4:] for l in out.stdout.splitlines() if l.startswith("URL="))
+
+
+def transcribe(job: Path) -> None:
+    """English audio -> work/english.txt ('<second> <line>'), for sources without a subtitle file."""
+    audio = job / "work" / "audio.mp3"
+    sh(["ffmpeg", "-v", "error", "-y", "-i", str(job / "source.mp4"), "-vn", "-ac", "1", "-ar", "16000",
+        "-b:a", "24k", str(audio)])
+    out = job / "work" / "transcript.json"
+    sh([*UV, "--with", "groq", "--with", "truststore", "python", "tools/groq_transcribe.py", str(audio), str(out), "en"])
+    segs = json.loads(out.read_text(encoding="utf-8")).get("segments", [])
+    (job / "work" / "english.txt").write_text(
+        "".join(f"{s['start']:7.1f} {s['text'].strip()}
+" for s in segs), encoding="utf-8")
+
+
 def kisskh(job: Path, src: dict) -> None:
     """A film or drama episode from kisskh (needs the WARP step on GitHub), plus English subtitles."""
     ep = str(src.get("episode", 1))
-    sh(["kisskh", "dl", src["url"], "-f", ep, "-l", ep, "-q", src.get("quality", "720p"), "-s", "en",
+    url = src.get("url") or kisskh_search(src["search"])
+    sh(["kisskh", "dl", url, "-f", ep, "-l", ep, "-q", src.get("quality", "720p"), "-s", "en",
         "-o", str(job / "dl")])
     next((job / "dl").rglob("*.mp4")).rename(job / "source.mp4")
     srt = next((job / "dl").rglob("*.srt"), None)
@@ -157,6 +186,11 @@ def main() -> None:
             "\n".join(f"{a:.2f} {b:.2f}" for a, b in zip(cuts, cuts[1:]) if b - a > 0.3), encoding="utf-8")
     if src["type"] not in ("webtoon", "manga") and not any(job.glob("script*.json")):  # prep run: help write the script
         film_sheets(job)
+        if src["type"] == "anime" and src.get("lang", "dub") == "dub" and not (job / "work" / "english.txt").exists():
+            try:
+                transcribe(job)
+            except (subprocess.CalledProcessError, OSError, ValueError) as err:
+                print(f"no transcript: {err}", flush=True)
     if src.get("shot_sheets") and not (job / "work" / "shot_sheet_01.jpg").exists():
         shot_sheets(job)
 

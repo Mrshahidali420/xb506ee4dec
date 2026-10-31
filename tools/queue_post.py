@@ -49,7 +49,7 @@ def add(page: str, video: Path, caption: str, comment: str = "") -> None:
     finally:
         staged.unlink()
     path, queue = load(page)
-    queue["items"].append({"asset": asset, "caption": caption, "comment": comment, "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    queue["items"].append({"asset": asset, "job": video.parent.as_posix(), "caption": caption, "comment": comment, "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                            "posted_at": None, "post": None})
     save(path, queue)
     print(f"queued {asset}; {sum(1 for i in queue['items'] if not i['posted_at'])} waiting")
