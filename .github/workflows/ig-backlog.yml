@@ -9,11 +9,14 @@ on:
         description: Page short name (spoiler, anime, manhwax)
         required: true
       ids:
-        description: Facebook video ids, oldest first, space separated
+        description: Items oldest first, space separated, each <fb video id>@<archive tag>/<file>
         required: true
       gap:
         description: Minutes between Reels
         default: '40'
+
+permissions:
+  contents: write   # files are staged on this repo's public ig-staging release, then removed
 
 jobs:
   copy:
@@ -23,6 +26,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Post the Reels
         env:
+          GH_TOKEN: ${{ github.token }}
+          ARCHIVE_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
           PAGE_ID: ${{ secrets[format('{0}_FB_PAGE_ID', inputs.page)] }}
           PAGE_TOKEN: ${{ secrets[format('{0}_FB_PAGE_TOKEN', inputs.page)] }}
           PAGE: ${{ inputs.page }}
