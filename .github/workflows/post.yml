@@ -24,9 +24,9 @@ permissions:
 jobs:
   post:
     strategy:
-      max-parallel: 1  # both pages write the queue folder; one at a time
+      max-parallel: 1  # all pages write the queue folder; one at a time
       matrix:
-        page: ${{ fromJSON(inputs.page && format('["{0}"]', inputs.page) || '["spoiler","manhwax"]') }}
+        page: ${{ fromJSON(inputs.page && format('["{0}"]', inputs.page) || '["spoiler","manhwax","anime"]') }}
     concurrency:
       group: post-${{ matrix.page }}
       cancel-in-progress: false
@@ -39,6 +39,8 @@ jobs:
       SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
       MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
       MANHWAX_FB_PAGE_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
+      ANIME_FB_PAGE_ID: ${{ secrets.ANIME_FB_PAGE_ID }}
+      ANIME_FB_PAGE_TOKEN: ${{ secrets.ANIME_FB_PAGE_TOKEN }}
       MIN_GAP_MINUTES: ${{ vars.MIN_GAP_MINUTES }}
       ALL_VARS: ${{ toJSON(vars) }}
     steps:
