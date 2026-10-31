@@ -22,12 +22,12 @@ ROOT = Path(__file__).resolve().parents[2]
 EXAMPLE = ROOT / "jobs" / "manhwa-swordmaster-son-p1" / "script.json"
 URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "openai/gpt-oss-120b"
-TRIES = 3
+TRIES = 4
 STEP = 3                      # seconds per panel, same as manhwa_panels.SECONDS
 TEXT_BUDGET = 10000           # characters of panel text; the free tier allows 8000 tokens per request, answer included
 ANSWER_TOKENS = 3800          # room for the script (about 1300 words + clips) and a short reasoning pass
-SEGMENTS = (45, 70)
-WORDS = (450, 1300)           # about 3 to 8 minutes at the narrator's pace
+SEGMENTS = (40, 70)
+WORDS = (380, 1300)           # about 2.5 to 8 minutes at the narrator's pace
 LINE_WORDS = (4, 25)
 MUSIC_DEFAULT, MUSIC_SUSPENSE = "../../music/Kamin_EMIN_JONY.mp3", "../../music/Lordly_Feder.mp3"
 HASHTAGS = "#manhwa #manhwarecap #manga #recap #fyp"
@@ -96,6 +96,26 @@ def build_prompt(job: Path, meta: dict, panels: list[dict]) -> str:
         parts.append("The previous part ended with these lines (continue the story, do not repeat them):\n" + "\n".join(before))
     parts.append("Panel text, in story order:\n" + panel_listing(panels))
     return "\n\n".join(parts)
+
+
+def repair(data: dict, last_t: int) -> dict:
+    """Fix the small slips in code instead of spending a retry on them."""
+    segs = [s for s in data.get("segments") or [] if isinstance(s, dict) and isinstance(s.get("say"), str) and s["say"].strip()]
+    for seg in segs:
+        if not re.search(r"\*[^*\s][^*]*\*", seg["say"]):  # no keyword: star the longest word
+            word = max(re.findall(r"[A-Za-z']+", seg["say"]) or [""], key=len)
+            if word:
+                seg["say"] = re.sub(rf"\b{re.escape(word)}\b",f"*{word}*", seg["say"], count=1)
+        n = len(seg["say"].split())
+        fixed = []
+        for clip in seg.get("clips") or []:
+            t, idx = (clip[0], clip[1]) if isinstance(clip, list) and len(clip) == 2 else (clip, None)
+            if isinstance(t, (int, float)) and not isinstance(t, bool):
+                t = min(max(int(round(t / STEP)) * STEP, 0), last_t)  # nearest real panel
+                fixed.append(t if not isinstance(idx, int) else [t, min(max(idx, 0), n - 1)])
+        seg["clips"] = fixed
+    data["segments"] = [s for s in segs if s["clips"]]  # a line with no picture is dropped
+    return data
 
 
 def validate(data: dict, last_t: int) -> list[str]:
@@ -168,6 +188,7 @@ def write_draft(job: Path, meta: dict, panels: list[dict]) -> dict:
         reply = ask(key, messages)
         try:
             data = parse(reply)
+            data = repair(data, last_t) if isinstance(data, dict) else data
             errors = validate(data, last_t) if isinstance(data, dict) else ["the answer must be one JSON object"]
         except json.JSONDecodeError as exc:
             data, errors = None, [f"the answer was not valid JSON ({exc})"]
