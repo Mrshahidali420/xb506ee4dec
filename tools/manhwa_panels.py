@@ -105,7 +105,14 @@ def ocr_panels(pdir: Path, count: int, work: Path) -> None:
         img = np.asarray(Image.open(pdir / f"p_{i:03d}.png").convert("RGB"))
         words = []
         for y in range(0, img.shape[0], OCR_SLICE):  # slices come top to bottom, so the text stays in reading order
-            found, _ = engine(img[y:y + OCR_SLICE])
+            part = img[y:y + OCR_SLICE]
+            if part.shape[0] < OCR_SLICE:  # one slice shape for every call: odd shapes grow onnxruntime's memory arena
+                part = np.pad(part, ((0, OCR_SLICE - part.shape[0]), (0, 0), (0, 0)), constant_values=255)
+            try:
+                found, _ = engine(part)
+            except Exception as exc:  # OCR is only a helper for the script writer; a bad slice must not stop the video
+                print(f"OCR slice skipped (panel {i}): {str(exc)[:120]}", flush=True)
+                continue
             lines = sorted((b[0][1], b[0][0], t) for b, t, score in (found or []) if float(score) >= OCR_MIN_SCORE)
             words += [t for _, _, t in lines]
         out.append({"panel": i, "t": round(i * SECONDS), "text": " ".join(words)})
