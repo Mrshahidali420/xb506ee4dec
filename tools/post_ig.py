@@ -6,6 +6,7 @@ Usage: python post_ig.py <page> <video.mp4> "<caption>" ["<comment>"] [--go]
 """
 from __future__ import annotations
 
+import os
 import sys
 import time
 from pathlib import Path
@@ -26,13 +27,7 @@ def ig_account(page_id: str, token: str) -> tuple[str, str]:
     return acct["id"], acct.get("username", "?")
 
 
-def upload_reel(ig_id: str, token: str, video: Path, caption: str) -> str:
-    """Create a Reel container, send the bytes, wait for Instagram to process it, publish. Returns the media id."""
-    made = requests.post(f"{GRAPH}/{ig_id}/media", data={"media_type": "REELS", "upload_type": "resumable",
-                                                         "caption": caption, "share_to_feed": "true",
-                                                         "access_token": token}, timeout=60).json()
-    if "id" not in made:
-        sys.exit(f"container failed: {made}")
+def send_bytes(made: dict, token: str, video: Path) -> None:
     uri = made["uri"]
     if not uri.startswith("https://rupload.facebook.com/"):  # never send the token to another host
         uri = f"https://rupload.facebook.com/ig-api-upload/{GRAPH.rsplit('/', 1)[1]}/{made['id']}"
@@ -41,6 +36,19 @@ def upload_reel(ig_id: str, token: str, video: Path, caption: str) -> str:
                          headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(len(data))}).json()
     if not sent.get("success"):
         sys.exit(f"upload failed: {sent}")
+
+
+def upload_reel(ig_id: str, token: str, video: Path, caption: str) -> str:
+    """Create a Reel container, send the bytes, wait for Instagram to process it, publish. Returns the media id."""
+    url = os.environ.get("VIDEO_URL", "")  # a public link: Instagram fetches the file itself (no byte upload)
+    source = {"video_url": url} if url else {"upload_type": "resumable"}
+    made = requests.post(f"{GRAPH}/{ig_id}/media", data={"media_type": "REELS", **source,
+                                                         "caption": caption, "share_to_feed": "true",
+                                                         "access_token": token}, timeout=60).json()
+    if "id" not in made:
+        sys.exit(f"container failed: {made}")
+    if not url:
+        send_bytes(made, token, video)
     for _ in range(60):  # Instagram transcodes the video before it can go live
         state = requests.get(f"{GRAPH}/{made['id']}", params={"fields": "status_code,status",
                                                               "access_token": token}, timeout=60).json()

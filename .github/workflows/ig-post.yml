@@ -19,6 +19,9 @@ on:
         description: File in that release, e.g. e2-final_short.mp4
         required: true
 
+permissions:
+  contents: write   # the video is staged on a public release of this repo for Instagram to fetch, then removed
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -28,6 +31,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
         run: gh release download "${{ inputs.tag }}" -R "${{ github.repository_owner }}/recap-assets" -p "${{ inputs.asset }}" -O video.mp4
+      - name: Stage the video on a public link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          name="ig-$(date +%s).mp4"; mv video.mp4 "$name"
+          gh release view ig-staging >/dev/null 2>&1 || gh release create ig-staging --title ig-staging --notes "Videos waiting for Instagram to fetch them. Removed after posting."
+          gh release upload ig-staging "$name"
+          echo "STAGED=$name" >> "$GITHUB_ENV"
+          link="https://github.com/${{ github.repository }}/releases/download/ig-staging/$name"
+          echo "VIDEO_URL=$(curl -sLI -o /dev/null -w '%{url_effective}' "$link")" >> "$GITHUB_ENV"
       - name: Post the Reel
         env:
           PAGE_ID: ${{ secrets[format('{0}_FB_PAGE_ID', inputs.page)] }}
@@ -39,4 +52,9 @@ jobs:
           export "${up}_FB_PAGE_ID=$PAGE_ID" "${up}_FB_PAGE_TOKEN=$PAGE_TOKEN"
           f="${{ inputs.job }}/script.json"
           cap=$(jq -r '.caption // .title' "$f"); com=$(jq -r '.comment // ""' "$f")
-          cd tools && python3 post_ig.py "$PAGE" ../video.mp4 "$cap" "$com" --go
+          cd tools && python3 post_ig.py "$PAGE" "../$STAGED" "$cap" "$com" --go
+      - name: Remove the staged video
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: '[ -z "$STAGED" ] || gh release delete-asset ig-staging "$STAGED" -y'
