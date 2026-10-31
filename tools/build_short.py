@@ -32,6 +32,8 @@ HEADER_Y = 150  # vertical videos: top of the page name card, in the band above 
 LOGO_SIZE, LOGO_X, LOGO_Y = 130, 40, 240  # vertical comics: small round page logo instead of the card
 WIDE = False
 CROP_BOTTOM = 0.0  # share of the source height to cut off (burned-in film subtitles)
+FILM_ZOOM = 1.08  # film shots are pushed in a little, so the frame is not a 1:1 copy of the film (fewer Content ID matches)
+MUSIC_OUT = 0.4  # seconds the music takes to fade away before the last line (silence makes the cliffhanger hit)
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
         else "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")  # GitHub runners are Linux
 YELLOW = "&H00D7FF&"  # ASS colours are BGR
@@ -300,11 +302,14 @@ def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = N
         vf = (f"[0:v]{cut}split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
               f"boxblur=30:2,eq=brightness=-0.15[bg];[b]scale=-2:{H}[fg];"
               f"[bg][fg]overlay=(W-w)/2:0,setsar=1,fps={FPS}[v]")
-    elif full or WIDE:  # source already fits the frame (manhwa panels, or a film in 16:9): fill the screen
+    elif full:  # manhwa panels already fit the frame: fill the screen
         vf = f"[0:v]{cut}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS}[v]"
+    elif WIDE:  # a film in 16:9: fill the screen, pushed in a little
+        vf = (f"[0:v]{cut}scale={round(W * FILM_ZOOM) // 2 * 2}:{round(H * FILM_ZOOM) // 2 * 2}:"
+              f"force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS}[v]")
     else:
         vf = (f"[0:v]{cut}split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
-          f"boxblur=30:2,eq=brightness=-0.12[bg];[b]scale=-2:{FG_HEIGHT},crop={W}:{FG_HEIGHT}[fg];"
+          f"boxblur=30:2,eq=brightness=-0.12[bg];[b]scale=-2:{round(FG_HEIGHT * FILM_ZOOM) // 2 * 2},crop={W}:{FG_HEIGHT}[fg];"
           f"[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps={FPS}[v]")
     take = min(dur, room)  # never read past the shot; hold its last frame for the rest
     if take < dur:
@@ -476,8 +481,12 @@ def main() -> None:
         start = cfg.get("music_start", "auto")
         start = music_drop(music, duration(joined)) if start == "auto" else float(start)
         print(f"music starts at {start:.1f}s of the track")
+        # the music goes silent for the last line, so the cliffhanger lands in quiet
+        last = duration(joined) - video_length(segs[-1])
+        out = (f",afade=t=out:st={max(last - MUSIC_OUT, 0):.2f}:d={MUSIC_OUT}"
+               if cfg.get("music_off_last", True) and len(segs) > 1 else "")
         audio = ["-stream_loop", "-1", "-ss", f"{start:.2f}", "-i", str(music), "-filter_complex",
-                 f"[1:a]volume={gain:.1f}dB,afade=t=in:d=0.05[m];"
+                 f"[1:a]volume={gain:.1f}dB,afade=t=in:d=0.05{out}[m];"
                  "[0:a][m]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]",
                  "-map", "0:v", "-map", "[a]"]
     else:
