@@ -104,9 +104,11 @@ def srt_to_text(srt: Path, out: Path) -> None:
 def kisskh_search(query: str) -> str:
     code = f"""
 from kisskh_downloader.kisskh_api import KissKHApi
+import re
+norm = lambda s: re.sub(r'[^a-z0-9]', '', re.sub(r'\\(\\d{{4}}\\)', '', s.lower()))
 hits = list(KissKHApi().search_dramas_by_query({query!r}))
-exact = [h for h in hits if h.title.strip().lower() == {query!r}.lower()]
-h = (exact or hits)[0]
+# only a one-episode title with the same name: a near match once gave a 45-minute show instead of the film
+h = next(h for h in hits if h.episodes_count == 1 and norm(h.title) == norm({query!r}))
 print('URL=https://kisskh.co/Drama/x?id=' + str(h.id)); print('TITLE=' + h.title)
 """
     out = subprocess.run([*UV, "--with", "kisskh-downloader", "python", "-c", code], capture_output=True, text=True, check=True)
