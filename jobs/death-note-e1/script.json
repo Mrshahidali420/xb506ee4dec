@@ -3,7 +3,7 @@
  "source": "source.mp4",
  "music": "../../music/Shinigami_Draven_Godrics.mp3",
  "music_credit": "Shinigami - Draven Godrics",
- "music_db_under_voice": 9,
+ "music_db_under_voice": 12,
  "credit": "Anime: Death Note (Episode 1)",
  "watermark": "@RECAPTEST",
  "voice_chain": ["edge", "orpheus", "kokoro"],
