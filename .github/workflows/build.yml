@@ -97,7 +97,13 @@ jobs:
       - name: Fetch source
         env:
           YT_COOKIES: ${{ secrets.YT_COOKIES }}
-        run: python3 tools/fetch_source.py "${{ inputs.job }}"
+        # manga: memory cap (12 GB of the runner's 16), so a runaway step fails with a readable MemoryError
+        # instead of starving the runner until GitHub loses it, which leaves no log at all.
+        # Not for video sources: Chromium (kisskh keys) reserves far more address space than it uses.
+        run: |
+          free -m | head -2; df -h . | tail -1
+          case "${{ steps.src.outputs.type }}" in manga|webtoon) ulimit -v 12000000 ;; esac
+          python3 tools/fetch_source.py "${{ inputs.job }}"
 
       # WARP is only for the download; the free edge voice service blocks its shared addresses
       - name: Leave WARP
