@@ -1,0 +1,42 @@
+name: Post to Instagram
+run-name: Instagram ${{ inputs.page }} ${{ inputs.job }}
+
+# Posts one archived video (recap-assets release) as a Reel on the page's linked Instagram account.
+# Caption and comment come from the job's script.json.
+on:
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Page short name (spoiler, anime, manhwax)
+        required: true
+      job:
+        description: Job folder, e.g. jobs/death-note-e2
+        required: true
+      tag:
+        description: recap-assets release, e.g. archive-death-note
+        required: true
+      asset:
+        description: File in that release, e.g. e2-final_short.mp4
+        required: true
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the video
+        env:
+          GH_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
+        run: gh release download "${{ inputs.tag }}" -R "${{ github.repository_owner }}/recap-assets" -p "${{ inputs.asset }}" -O video.mp4
+      - name: Post the Reel
+        env:
+          PAGE_ID: ${{ secrets[format('{0}_FB_PAGE_ID', inputs.page)] }}
+          PAGE_TOKEN: ${{ secrets[format('{0}_FB_PAGE_TOKEN', inputs.page)] }}
+          PAGE: ${{ inputs.page }}
+        run: |
+          pip install -q requests
+          up=$(echo "$PAGE" | tr a-z A-Z)
+          export "${up}_FB_PAGE_ID=$PAGE_ID" "${up}_FB_PAGE_TOKEN=$PAGE_TOKEN"
+          f="${{ inputs.job }}/script.json"
+          cap=$(jq -r '.caption // .title' "$f"); com=$(jq -r '.comment // ""' "$f")
+          cd tools && python3 post_ig.py "$PAGE" ../video.mp4 "$cap" "$com" --go
