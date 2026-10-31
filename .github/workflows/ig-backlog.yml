@@ -1,0 +1,33 @@
+name: Instagram backlog
+run-name: Instagram backlog ${{ inputs.page }}
+
+# Copies videos the Facebook Page already posted to its Instagram account (tools/ig_backlog.py), with a gap between them.
+on:
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Page short name (spoiler, anime, manhwax)
+        required: true
+      ids:
+        description: Facebook video ids, oldest first, space separated
+        required: true
+      gap:
+        description: Minutes between Reels
+        default: '40'
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post the Reels
+        env:
+          PAGE_ID: ${{ secrets[format('{0}_FB_PAGE_ID', inputs.page)] }}
+          PAGE_TOKEN: ${{ secrets[format('{0}_FB_PAGE_TOKEN', inputs.page)] }}
+          PAGE: ${{ inputs.page }}
+        run: |
+          pip install -q requests truststore
+          up=$(echo "$PAGE" | tr a-z A-Z)
+          export "${up}_FB_PAGE_ID=$PAGE_ID" "${up}_FB_PAGE_TOKEN=$PAGE_TOKEN"
+          cd tools && python3 ig_backlog.py "$PAGE" "${{ inputs.gap }}" ${{ inputs.ids }}
