@@ -57,7 +57,7 @@ def webtoon(job: Path, src: dict) -> None:
         sh([*UV, "--with", "gallery-dl", "gallery-dl", "-D", str(job / "pages"), "--filename",
             "e{episode_no:>02}_{num:>03}.{extension}", url])
     keep = ["--blank-text"] if src.get("bubbles") == "blank" else []  # bubbles keep their words unless asked
-    sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
+    sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "--with", "rapidocr-onnxruntime", "python", "tools/manhwa_panels.py", str(job), *keep])
 
 
 def manga(job: Path, src: dict) -> None:
@@ -82,7 +82,7 @@ def manga(job: Path, src: dict) -> None:
     else:
         sys.exit("no source gave every chapter")
     keep = ["--blank-text"] if src.get("bubbles") == "blank" else []
-    sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "python", "tools/manhwa_panels.py", str(job), *keep])
+    sh([*UV, "--with", "numpy", "--with", "pillow", "--with", "scipy", "--with", "rapidocr-onnxruntime", "python", "tools/manhwa_panels.py", str(job), *keep])
 
 
 def srt_to_text(srt: Path, out: Path) -> None:

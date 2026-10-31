@@ -1,0 +1,70 @@
+name: Autopilot (manhwa)
+run-name: Autopilot manhwa
+
+# No human in the loop: pick a lesser-known manhwa (or the next 5 chapters of an open series),
+# build.yml downloads it, writes the script (Groq), builds the video and queues it for manhwax,
+# then the series moves on to the next part. Needs the secrets of build.yml, including GROQ_API_KEY.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */3 * * *'
+
+concurrency:
+  group: autopilot
+  cancel-in-progress: false
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      job: ${{ steps.pick.outputs.job }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick the next manhwa part
+        id: pick
+        run: |
+          # the page posts about every 2 hours; stop making videos while 6 still wait in the queue
+          waiting=$(jq '[.items[] | select(.posted_at == null)] | length' queue/manhwax.json 2>/dev/null || echo 0)
+          [ "$waiting" -lt 6 ] || { echo "queue has $waiting waiting videos, skipped"; exit 0; }
+          pip install -q requests
+          job=$(python3 tools/autopilot/pick.py manhwa)
+          echo "job=$job" >> "$GITHUB_OUTPUT"
+          echo "picked $job"
+      - name: Commit the job folder and the autopilot state
+        if: steps.pick.outputs.job != ''
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add "${{ steps.pick.outputs.job }}" autopilot
+          git commit -qm "Autopilot: pick ${{ steps.pick.outputs.job }}"
+          git pull -q --rebase && git push -q
+
+  build:
+    needs: pick
+    if: needs.pick.outputs.job != ''
+    uses: ./.github/workflows/build.yml
+    with:
+      job: ${{ needs.pick.outputs.job }}
+      queue: manhwax
+      ref: ${{ github.ref_name }}
+    secrets: inherit
+
+  # Only after the video is queued does the series move on (next 5 chapters, part + 1).
+  # A failed build leaves the state alone, so the next run retries the same part (3 tries, then the series is closed).
+  done:
+    needs: [pick, build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Move the series to its next part
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          python3 tools/autopilot/mark_done.py "${{ needs.pick.outputs.job }}"
+          git add autopilot
+          git diff --cached --quiet || git commit -qm "Autopilot: ${{ needs.pick.outputs.job }} queued"
+          git pull -q --rebase && git push -q

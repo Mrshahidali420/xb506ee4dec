@@ -2,6 +2,8 @@ name: Build video
 run-name: Build ${{ inputs.job }}
 
 # Start with: gh workflow run build.yml -f job=jobs/<name>
+# autopilot.yml calls it too (workflow_call). An auto-* job has meta.json and no script.json:
+# the script is written here (tools/autopilot/write_script.py) and committed back to the repo.
 # A job folder holds script.json + source.json. Videos are never committed:
 # the source is fetched here, and the result is a 1-day artifact.
 on:
@@ -16,13 +18,34 @@ on:
       queue:
         description: Page to queue the videos for (e.g. spoiler); empty = artifact only
         default: ''
+      ref:
+        description: Branch to check out (autopilot passes its branch, so the job folder it just pushed is there)
+        default: ''
+  workflow_call:
+    inputs:
+      job:
+        type: string
+        required: true
+      script:
+        type: string
+        default: script.json
+      queue:
+        type: string
+        default: ''
+      ref:
+        type: string
+        default: ''
 
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    permissions:
+      contents: write   # the written script.json of an autopilot job is committed back
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - name: Fetch private assets (music)
         env:
@@ -74,6 +97,18 @@ jobs:
       # WARP is only for the download; the free edge voice service blocks its shared addresses
       - name: Leave WARP
         run: warp-cli --accept-tos disconnect || true
+
+      - name: Write the script (autopilot jobs)
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          job="${{ inputs.job }}"
+          if [ -f "$job/meta.json" ] && [ ! -f "$job/script.json" ]; then
+            python3 tools/autopilot/write_script.py "$job"
+            git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+            git add "$job/script.json" && git commit -qm "Script: $job"
+            git pull -q --rebase && git push -q
+          fi
 
       - name: Build
         run: |
@@ -135,10 +170,23 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
       - uses: actions/download-artifact@v4
         with:
           name: video
           path: ${{ inputs.job }}
+      # Autopilot videos have no human check, so a broken build must not reach the page
+      - name: Check the video length (autopilot jobs)
+        if: startsWith(inputs.job, 'jobs/auto-')
+        run: |
+          which ffprobe >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null; }
+          for s in ${{ inputs.script }}; do
+            out=$(jq -r '.output // "final_short.mp4"' "${{ inputs.job }}/$s")
+            len=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "${{ inputs.job }}/$out")
+            echo "$out: ${len}s"
+            awk -v l="$len" 'BEGIN { exit !(l >= 120 && l <= 540) }' || { echo "length outside 120-540 s, not queued"; exit 1; }
+          done
       - name: Add to the queue
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"

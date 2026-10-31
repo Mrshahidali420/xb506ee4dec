@@ -5,10 +5,12 @@ Reads <project_dir>/pages/*.jpg|png (in name order), writes:
   panels/p_###.png      one image per panel
   source.mp4            each panel = SECONDS of full-screen motion (tall: pan down, wide: slow zoom)
   work/shots.txt        one line per panel, so clips never cross into the next panel
+  work/panels_text.json [{"panel": n, "t": n*3, "text": "..."}] read by the script writer (needs rapidocr-onnxruntime)
   work/panels_sheet_*.jpg  labelled contact sheets for picking panels
 """
 from __future__ import annotations
 
+import json
 import shutil
 import subprocess
 import sys
@@ -23,6 +25,8 @@ MIN_GAP = 24         # rows of gap needed to split two panels
 MIN_PANEL = 140      # smaller pieces are joined to their neighbour
 SECONDS = 3.0
 BUBBLE_PANEL = 0.6    # a panel this much white bubble area (a bubble-only strip) keeps its words
+OCR_SLICE = 1400     # tall panels are read in slices of this many rows, the reader shrinks big images
+OCR_MIN_SCORE = 0.5
 LETTER = 45         # a dark mark this tall or less (and up to 4x as wide) inside white counts as lettering
 W, H, FPS = 1080, 1920, 30
 
@@ -88,6 +92,27 @@ def blank_bubbles(panel: np.ndarray) -> np.ndarray:
     return out
 
 
+def ocr_panels(pdir: Path, count: int, work: Path) -> None:
+    """Read the words on every panel into work/panels_text.json. Optional: no OCR package, no file."""
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+        engine = RapidOCR()
+    except Exception as exc:
+        print(f"OCR skipped: {exc}", flush=True)
+        return
+    out = []
+    for i in range(count):
+        img = np.asarray(Image.open(pdir / f"p_{i:03d}.png").convert("RGB"))
+        words = []
+        for y in range(0, img.shape[0], OCR_SLICE):  # slices come top to bottom, so the text stays in reading order
+            found, _ = engine(img[y:y + OCR_SLICE])
+            lines = sorted((b[0][1], b[0][0], t) for b, t, score in (found or []) if float(score) >= OCR_MIN_SCORE)
+            words += [t for _, _, t in lines]
+        out.append({"panel": i, "t": round(i * SECONDS), "text": " ".join(words)})
+    (work / "panels_text.json").write_text(json.dumps(out, ensure_ascii=False, indent=0), encoding="utf-8")
+    print(f"OCR: {sum(1 for o in out if o['text'])}/{count} panels have text", flush=True)
+
+
 def panel_clip(img: Path, out: Path) -> None:
     w, h = Image.open(img).size
     frames = int(SECONDS * FPS)
@@ -125,6 +150,7 @@ def main() -> None:
             count += 1
         del strip
         print(f"{name}: {len(group)} strips, {count} panels so far", flush=True)
+    ocr_panels(pdir, count, work)
     spans = range(count)
     listing = []
     for i in spans:

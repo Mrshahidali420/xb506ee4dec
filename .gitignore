@@ -3,6 +3,7 @@
 !/.gitignore
 !/.github/
 !/tools/
+!/autopilot/
 !/jobs/
 !/queue/
 !/README.md
