@@ -105,8 +105,9 @@ def wait(runs: dict[str, str]) -> dict[str, str]:
     while len(done) < len(runs) and time.time() < end:
         for rid in runs:
             if rid not in done:
-                info = json.loads(sh("gh", "run", "view", rid, "--json", "status,conclusion"))
-                if info["status"] == "completed":
+                raw = sh("gh", "run", "view", rid, "--json", "status,conclusion", check=False)
+                info = json.loads(raw) if raw.startswith("{") else {}  # a network blip: ask again next round
+                if info.get("status") == "completed":
                     done[rid] = info["conclusion"]
         if len(done) < len(runs):
             time.sleep(45)
