@@ -29,7 +29,7 @@ FFPROBE = shutil.which("ffprobe") or "ffprobe"
 W, H, FPS = 1080, 1920, 30  # 9:16 default; "aspect": "16:9" in script.json switches to 1920x1080
 FG_HEIGHT = 900
 HEADER_Y = 150  # vertical videos: top of the page name card, in the band above the 900 px picture
-PANEL_TOP = 420  # vertical comics with a card: the panel starts just under the card (card is 250 px tall)
+LOGO_SIZE, LOGO_X, LOGO_Y = 130, 40, 240  # vertical comics: small round page logo instead of the card
 WIDE = False
 CROP_BOTTOM = 0.0  # share of the source height to cut off (burned-in film subtitles)
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
@@ -454,19 +454,20 @@ def main() -> None:
     mark_y, credit_y = ("40", "h-50") if WIDE else ("210", "h-150")
     header = cfg.get("header") and not WIDE  # page name card in the empty band above the picture
     if header:
-        shutil.copy(proj / cfg["header"], tmp / "header.png")
+        card = proj / cfg["header"]
+        # comic panels fill the whole frame at full size, so they get only the small round logo, not the card
+        shutil.copy(card.with_name("logo.png") if cfg.get("frame") == "full" else card, tmp / "header.png")
     mark = "" if header else (  # the card already carries the @handle
         f"drawtext=fontfile='{FONT}':text='{dt(cfg['watermark'])}':x=(w-tw)/2:y={mark_y}:fontsize=44:"
         "fontcolor=white@0.85:box=1:boxcolor=black@0.35:boxborderw=12,")
     vf = ("ass=captions.ass," + mark +
           f"drawtext=fontfile='{FONT}':text='{dt(cfg['credit'])}':x=(w-tw)/2:y={credit_y}:fontsize=26:fontcolor=white@0.75")
     if header:
-        # comic panels fill the whole frame, so they shrink into the space under the card, over a blurred copy;
-        # a film already leaves an empty band there
-        fit = "" if cfg.get("frame") != "full" else (
-            f"split[pa][pb];[pa]boxblur=30:2,eq=brightness=-0.15[pbg];[pb]scale=-2:{H - PANEL_TOP}[pfg];"
-            f"[pbg][pfg]overlay=(W-w)/2:{PANEL_TOP},")
-        vf = f"movie=header.png[hd];[in]{fit}{vf}[b];[b][hd]overlay=(W-w)/2:{HEADER_Y}[out]"
+        if cfg.get("frame") == "full":  # small logo in the top left corner, under the app's back button
+            vf = (f"movie=header.png,scale={LOGO_SIZE}:-1,format=rgba,colorchannelmixer=aa=0.9[hd];"
+                  f"[in]{vf}[b];[b][hd]overlay={LOGO_X}:{LOGO_Y}[out]")
+        else:  # a film leaves an empty band above the picture for the full card
+            vf = f"movie=header.png[hd];[in]{vf}[b];[b][hd]overlay=(W-w)/2:{HEADER_Y}[out]"
     final = proj / cfg.get("output", "final_short.mp4")
     if cfg.get("music"):
         # steady music bed set N dB under the voice track, as measured on the reference videos (13.5 dB)
