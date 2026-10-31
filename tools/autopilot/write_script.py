@@ -24,7 +24,8 @@ URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "openai/gpt-oss-120b"
 TRIES = 3
 STEP = 3                      # seconds per panel, same as manhwa_panels.SECONDS
-TEXT_BUDGET = 20000           # characters of panel text sent to the model (free tier token limit)
+TEXT_BUDGET = 10000           # characters of panel text; the free tier allows 8000 tokens per request, answer included
+ANSWER_TOKENS = 3800          # room for the script (about 1300 words + clips) and a short reasoning pass
 SEGMENTS = (45, 70)
 WORDS = (450, 1300)           # about 3 to 8 minutes at the narrator's pace
 LINE_WORDS = (4, 25)
@@ -67,9 +68,12 @@ def api_key() -> str:
 
 def panel_listing(panels: list[dict]) -> str:
     """'t=12: text' per panel with words, cut so the whole list fits the token budget."""
-    withtext = [p for p in panels if p["text"].strip()]
+    withtext = [p for p in panels if len(p["text"].strip()) > 2]
     cap = max(40, min(160, TEXT_BUDGET // max(len(withtext), 1)))
-    return "\n".join(f"t={p['t']}: {p['text'].strip()[:cap]}" for p in withtext)
+    lines = [f"t={p['t']}: {p['text'].strip()[:cap]}" for p in withtext]
+    while len("\n".join(lines)) > TEXT_BUDGET:  # still too long: keep an even spread of panels
+        lines = lines[::2] + ([lines[-1]] if len(lines) % 2 == 0 else [])
+    return "\n".join(lines)
 
 
 def previous_lines(job: Path, part: int) -> list[str]:
@@ -129,13 +133,13 @@ def validate(data: dict, last_t: int) -> list[str]:
 
 
 def ask(key: str, messages: list[dict], json_mode: bool = True) -> str:
-    body = {"model": MODEL, "messages": messages, "temperature": 0.7, "max_completion_tokens": 9000,
+    body = {"model": MODEL, "messages": messages, "temperature": 0.7, "max_completion_tokens": ANSWER_TOKENS,
             "reasoning_effort": "low"}
     if json_mode:
         body["response_format"] = {"type": "json_object"}
     req = urllib.request.Request(URL, json.dumps(body).encode(), {
         "Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "recap-autopilot/1"})
-    for wait in (0, 20, 45):  # rate limit: wait and ask again
+    for wait in (0, 30, 65):  # the token limit is per minute: wait and ask again
         time.sleep(wait)
         try:
             with urllib.request.urlopen(req, timeout=180) as resp:
@@ -170,8 +174,9 @@ def write_draft(job: Path, meta: dict, panels: list[dict]) -> dict:
         if not errors:
             return data
         print(f"try {attempt}: {len(errors)} problems: {errors[:3]}", file=sys.stderr, flush=True)
-        messages += [{"role": "assistant", "content": reply[:6000]},
-                     {"role": "user", "content": "Fix these problems and send the whole JSON again:\n- " + "\n- ".join(errors)}]
+        # a retry resends the prompt with the problems, not the old answer: both would not fit the token limit
+        messages = messages[:2] + [{"role": "user", "content": "Your last answer had these problems, avoid them:\n- " + "\n- ".join(errors)}]
+        time.sleep(60)  # the free tier counts tokens per minute
     sys.exit(f"no valid script after {TRIES} tries")
 
 
