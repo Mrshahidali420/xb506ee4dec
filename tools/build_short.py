@@ -34,6 +34,7 @@ WIDE = False
 CROP_BOTTOM = 0.0  # share of the source height to cut off (burned-in film subtitles)
 FILM_ZOOM = 1.08  # film shots are pushed in a little, so the frame is not a 1:1 copy of the film (fewer Content ID matches)
 MUSIC_OUT = 0.4  # seconds the music takes to fade away before the last line (silence makes the cliffhanger hit)
+MUSIC_TRIM = {"Shinigami": 4.0}  # extra dB under the voice for tracks that feel loud at the same average level
 FONT = ("C\\:/Windows/Fonts/arialbd.ttf" if sys.platform == "win32"
         else "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")  # GitHub runners are Linux
 YELLOW = "&H00D7FF&"  # ASS colours are BGR
@@ -477,7 +478,8 @@ def main() -> None:
     if cfg.get("music"):
         # steady music bed set N dB under the voice track, as measured on the reference videos (13.5 dB)
         music = (proj / cfg["music"]).resolve()
-        gain = mean_db(joined) - cfg.get("music_db_under_voice", 13.5) - mean_db(music)
+        trim = next((db for name, db in MUSIC_TRIM.items() if name in music.name), 0.0)
+        gain = mean_db(joined) - cfg.get("music_db_under_voice", 13.5) - trim - mean_db(music)
         start = cfg.get("music_start", "auto")
         start = music_drop(music, duration(joined)) if start == "auto" else float(start)
         print(f"music starts at {start:.1f}s of the track")
