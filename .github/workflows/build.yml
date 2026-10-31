@@ -52,6 +52,13 @@ jobs:
         timeout-minutes: 5
         uses: ./.github/actions/warp
 
+      # Kokoro voice model (~330 MB): build_short.py downloads it on a miss, the cache keeps it
+      - name: Restore voice model
+        uses: actions/cache@v4
+        with:
+          path: voice-test/models
+          key: kokoro-v1.0
+
       - name: Install tools
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
@@ -72,7 +79,7 @@ jobs:
         run: |
           for s in ${{ inputs.script }}; do
             [ -f "${{ inputs.job }}/$s" ] || { echo "no $s: prep run only"; continue; }
-            uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy \
+            uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy --with kokoro-onnx \
               --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
           done
 

@@ -18,6 +18,7 @@ import re
 import shutil
 import subprocess
 import sys
+import urllib.request
 from pathlib import Path
 
 import truststore
@@ -59,6 +60,8 @@ def plain(text: str) -> str:
 # ---------- voice ----------
 
 KOKORO_DIR = Path(__file__).resolve().parent.parent / "voice-test" / "models"
+KOKORO_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
+KOKORO = None  # the loaded model, shared by every line
 
 
 class VoiceEngineDown(Exception):
@@ -172,8 +175,14 @@ def kokoro_tts(text: str, voice: str, raw: Path) -> None:
     except ImportError as exc:  # not installed on the build machine
         raise VoiceEngineDown(f"kokoro: {exc}") from exc
 
-    tts = Kokoro(str(KOKORO_DIR / "kokoro-v1.0.onnx"), str(KOKORO_DIR / "voices-v1.0.bin"))
-    samples, rate = tts.create(text, voice=voice, speed=1.0, lang="en-us")
+    global KOKORO
+    if KOKORO is None:  # load once per build; fetch the model files the first time (the runner cache keeps them)
+        KOKORO_DIR.mkdir(parents=True, exist_ok=True)
+        for name in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+            if not (KOKORO_DIR / name).exists():
+                urllib.request.urlretrieve(KOKORO_URL + name, KOKORO_DIR / name)
+        KOKORO = Kokoro(str(KOKORO_DIR / "kokoro-v1.0.onnx"), str(KOKORO_DIR / "voices-v1.0.bin"))
+    samples, rate = KOKORO.create(text, voice=voice, speed=1.0, lang="en-gb" if voice.startswith("b") else "en-us")
     sf.write(raw, samples, rate)
 
 
