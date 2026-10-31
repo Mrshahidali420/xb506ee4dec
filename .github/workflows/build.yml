@@ -69,9 +69,14 @@ jobs:
             ${{ inputs.job }}/work
           key: src-${{ inputs.job }}-${{ hashFiles(format('{0}/source.json', inputs.job)) }}
 
-      # WARP is only needed to download a source the cache did not have
+      - name: Read the source type
+        id: src
+        run: echo "type=$(jq -r .type '${{ inputs.job }}/source.json')" >> "$GITHUB_OUTPUT"
+
+      # WARP is only needed to download a video source the cache did not have. Manga pages come without it:
+      # a manga download through the tunnel twice cut the runner off from GitHub ("lost communication").
       - name: Route traffic through Cloudflare WARP
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true' && steps.src.outputs.type != 'manga' && steps.src.outputs.type != 'webtoon'
         timeout-minutes: 5
         uses: ./.github/actions/warp
 
