@@ -43,6 +43,8 @@ jobs:
   build:
     needs: pick
     if: needs.pick.outputs.job != ''
+    permissions:
+      contents: write   # build.yml commits the written script and the queue
     uses: ./.github/workflows/build.yml
     with:
       job: ${{ needs.pick.outputs.job }}
