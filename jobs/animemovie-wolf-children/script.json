@@ -67,13 +67,6 @@
       ]
     },
     {
-      "say": "Her name means flower. Her dad wanted her to smile through anything, even his *funeral*.",
-      "clips": [
-        455,
-        650
-      ]
-    },
-    {
       "say": "But one night, he says he has a *secret*.",
       "clips": [
         640,
@@ -108,24 +101,16 @@
     {
       "say": "That winter, Yuki is born in a snowstorm, and the next spring, Hana is expecting *again*.",
       "clips": [
-        1060,
         1073,
+        1085,
         1122
       ]
     },
     {
-      "say": "On the rainy day Ame arrives, her husband steps out for a moment, and he never comes *back*.",
+      "say": "On the rainy day Ame arrives, her husband steps out and never comes back, so Hana heads into the rain to *find* him.",
       "clips": [
-        1125.5,
         1129,
-        1155
-      ]
-    },
-    {
-      "say": "So Hana heads out into the rain to *find* him.",
-      "clips": [
-        1150.5,
-        1158,
+        1155,
         1167
       ]
     },
@@ -242,26 +227,18 @@
       ]
     },
     {
-      "say": "Soon the whole village pitches in, with seedlings, advice, and a lot of free *opinions*.",
+      "say": "Soon the whole village pitches in, and by fall, she has more potatoes than three people can possibly *eat*.",
       "clips": [
-        2825,
         2890,
-        2928
-      ]
-    },
-    {
-      "say": "By fall, she has more potatoes than three people can possibly *eat*.",
-      "clips": [
         3033.5,
-        3036.5,
         3040
       ]
     },
     {
       "say": "Then winter comes, and Yuki and Ame race through the snow as wolves, with Hana laughing right behind *them*.",
       "clips": [
-        3228,
-        3312,
+        3311.5,
+        3338,
         3363.5
       ]
     },
@@ -344,10 +321,10 @@
       ]
     },
     {
-      "say": "When he keeps pushing, Yuki runs, and the wolf inside her snaps. Sohei ends up with a *bloody* ear.",
+      "say": "When he keeps pushing, the wolf inside Yuki snaps, and Sohei ends up with a *bloody* ear.",
       "clips": [
-        4185.5,
-        4202,
+        4188.5,
+        4243,
         4259.5
       ]
     },
@@ -386,8 +363,8 @@
     {
       "say": "At dinner, Yuki begs him to try school just *once*.",
       "clips": [
-        4940,
-        4962.9
+        4928,
+        4945
       ]
     },
     {
@@ -398,19 +375,11 @@
       "text": "Because I'm a wolf. You are a human. No, I'm not."
     },
     {
-      "say": "The argument gets out of hand, and two wolf kids tear the kitchen *apart*.",
+      "say": "The argument gets out of hand, and two wolf kids tear the kitchen *apart*. Sibling rivalry, wolf edition.",
       "clips": [
         4990.8,
         5014.8,
         5038
-      ]
-    },
-    {
-      "say": "Hana watches them, and realizes this is the freedom she moved them here to *give*.",
-      "clips": [
-        5099,
-        5147,
-        5057
       ]
     },
     {
@@ -478,18 +447,11 @@
       ]
     },
     {
-      "say": "Back at school, Sohei admits his mom is having a baby, and he feels *forgotten*.",
+      "say": "Back at school, Sohei admits he feels forgotten now that his mom is having a baby, so Yuki tells him the secret she has kept for *years*.",
       "clips": [
         6132.5,
-        6146,
-        6162
-      ]
-    },
-    {
-      "say": "Yuki listens. Then she tells him the secret she has kept for *years*.",
-      "clips": [
-        6176,
-        6193.5
+        6162,
+        6176
       ]
     },
     {
