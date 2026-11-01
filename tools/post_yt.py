@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import os
 import sys
+import time
 from pathlib import Path
 
 CONFIG = Path.home() / ".config/watch"
@@ -101,8 +102,15 @@ def add_to_playlist(yt, video_id: str, name: str) -> None:
         pid = yt.playlists().insert(part="snippet,status", body={
             "snippet": {"title": name, "defaultLanguage": "en"}, "status": {"privacyStatus": "public"}}).execute()["id"]
         print(f"made playlist {name!r}")
-    yt.playlistItems().insert(part="snippet", body={
-        "snippet": {"playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}}}).execute()
+    body = {"snippet": {"playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}}}
+    for attempt in range(4):  # a playlist made a second ago can answer 409 SERVICE_UNAVAILABLE for a while
+        try:
+            yt.playlistItems().insert(part="snippet", body=body).execute()
+            break
+        except Exception:
+            if attempt == 3:
+                raise
+            time.sleep(10 * (attempt + 1))
     print(f"added to playlist {name!r}")
 
 
