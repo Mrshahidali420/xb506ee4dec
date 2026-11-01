@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import shutil
 import re
 import subprocess
 import sys
@@ -157,7 +158,7 @@ def prep() -> None:
             j["state"], j["why"] = "failed", f"prep run {j['prep_run']}: {result}"
             continue
         sheets = ROOT / j["job"] / "sheets"
-        sheets.mkdir(exist_ok=True)
+        shutil.rmtree(sheets, ignore_errors=True)  # gh refuses to overwrite files from an earlier download
         sh("gh", "run", "download", j["prep_run"], "-n", "sheets", "-D", str(sheets), check=False)
         j["state"] = "ready"
     save(TODAY, state)
