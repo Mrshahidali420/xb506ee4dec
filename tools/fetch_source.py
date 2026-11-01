@@ -46,7 +46,10 @@ lang = L.DUB if {src.get('lang', 'dub')!r} == 'dub' and L.DUB in a.languages els
 s = a.get_video(a.get_episodes(lang=lang)[{int(src['episode']) - 1}], lang=lang, preferred_quality=720)
 print('URL=' + str(s.url)); print('REF=' + (s.referrer or ''))
 """
-    out = subprocess.run([*UV, "--with", "anipy-cli", "python", "-c", code], capture_output=True, text=True, check=True)
+    out = subprocess.run([*UV, "--with", "anipy-cli", "python", "-c", code], capture_output=True, text=True)
+    if out.returncode:  # show why (episode not out yet, provider down) instead of a bare exit code
+        print(out.stderr[-1500:], flush=True)
+        out.check_returncode()
     lines = out.stdout.splitlines()
     url = next(l[4:] for l in lines if l.startswith("URL="))
     ref = next((l[4:] for l in lines if l.startswith("REF=")), "")
