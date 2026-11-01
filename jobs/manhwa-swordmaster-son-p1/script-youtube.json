@@ -1,0 +1,806 @@
+{
+ "title": "The Worst Swordsman In His Clan Died . . . Then Woke Up As A Baby",
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Swordmaster's Youngest Son (Hwangze Penguin / Mr. Big / AZI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_youtube.mp4",
+ "segments": [
+  {
+   "say": "A boy who should be *dead* just woke up as a one-year-old baby.",
+   "clips": [
+    361,
+    [
+     373,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "And this time, he knows exactly which sword to *grab*.",
+   "clips": [
+    376,
+    [
+     418,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "This world is ruled by one family of swordmasters. The *Runcandel* clan.",
+   "clips": [
+    10,
+    [
+     13,
+     5
+    ],
+    [
+     31,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Their creed is simple. Survival of the *fittest*.",
+   "clips": [
+    19,
+    [
+     25,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Jin Runcandel is the youngest son. As a baby, he grabbed the patriarch's sword at the Rite of *Choice*.",
+   "clips": [
+    37,
+    [
+     40,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Everyone thought he would lead the clan one day. They were *wrong*.",
+   "clips": [
+    52,
+    [
+     55,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He grew up with zero talent. They called him the worst swordsman in the history of the *Runcandels*.",
+   "clips": [
+    61,
+    [
+     64,
+     6
+    ],
+    [
+     67,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "His brothers laughed at his wooden sword. Why even *bother*?",
+   "clips": [
+    79,
+    [
+     85,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They kicked him down, stomped on him, and snapped his sword in *half*.",
+   "clips": [
+    91,
+    [
+     103,
+     4
+    ],
+    [
+     124,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then they ripped up the notes he studied every night, right in front of his *face*.",
+   "clips": [
+    127,
+    [
+     130,
+     5
+    ],
+    [
+     133,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "My siblings tormented me, Jin said. And then the clan threw him *out*.",
+   "clips": [
+    148,
+    [
+     160,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Outside the clan, a red-haired teacher showed him something the Runcandels *forbid*. Magic.",
+   "clips": [
+    178,
+    [
+     181,
+     5
+    ],
+    [
+     190,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Years later, deep in the dark, a voice spoke. The god of *shadows*.",
+   "clips": [
+    205,
+    [
+     208,
+     6
+    ],
+    [
+     217,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "I offer you a contract. You will wield *shadow force*, and no curse will ever touch you.",
+   "clips": [
+    220,
+    [
+     226,
+     7
+    ],
+    [
+     229,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Then the god saw something. Someone had cursed Jin when he was just a *kid*.",
+   "clips": [
+    235,
+    [
+     241,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "A curse called Blade's Delusion. It had been *crushing* his talent his whole life.",
+   "clips": [
+    244,
+    [
+     247,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The chains on his heart *shattered*. Now, you shall become a spellsword with no *equal*.",
+   "clips": [
+    250,
+    [
+     253,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Jin grabbed a sword. For the first time in his life, it felt like *nothing*.",
+   "clips": [
+    265,
+    [
+     271,
+     6
+    ],
+    [
+     274,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Every swing went higher. The worst swordsman in the clan was finally *good*.",
+   "clips": [
+    289,
+    [
+     295,
+     6
+    ],
+    [
+     301,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "And that same night, armored knights found him in the *woods*.",
+   "clips": [
+    307,
+    [
+     310,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They cut him down. His blood soaked the stones, and everything went *black*.",
+   "clips": [
+    316,
+    [
+     325,
+     6
+    ],
+    [
+     355,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then he felt grass under his hands. Huh? I'm supposed to be *dead*.",
+   "clips": [
+    361,
+    [
+     367,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "His nanny Gilly was smiling at him. You can do it, young master *Jin*.",
+   "clips": [
+    370,
+    [
+     364,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He was one year old again, at the Rite of Choice, with the patriarch's sword *Balisada* in front of him.",
+   "clips": [
+    376,
+    [
+     418,
+     8
+    ],
+    [
+     385,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Last time, he grabbed it by *chance*. This time, he reached for it on *purpose*.",
+   "clips": [
+    388,
+    [
+     391,
+     6
+    ],
+    [
+     421,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "The elders froze. Jin has chosen *Balisada*.",
+   "clips": [
+    412,
+    [
+     409,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Six years later, Jin was locked in Storm Castle until he turned *ten*.",
+   "clips": [
+    427,
+    [
+     433,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "One morning, Gilly *screamed*. A dead bird had been left in his room.",
+   "clips": [
+    448,
+    [
+     451,
+     6
+    ],
+    [
+     457,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "It was the twins. Heitona and Deitona, nine years old, and *proud* of it.",
+   "clips": [
+    469,
+    [
+     475,
+     7
+    ],
+    [
+     478,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "In his past life, they tormented him for years. Not *anymore*.",
+   "clips": [
+    490,
+    [
+     487,
+     6
+    ],
+    [
+     502,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shadow force burst out of his hands, and he knocked both of them *flat*.",
+   "clips": [
+    514,
+    [
+     523,
+     6
+    ],
+    [
+     529,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then he dragged them out into the storm, and left them in the rain to *learn*.",
+   "clips": [
+    580,
+    [
+     583,
+     6
+    ],
+    [
+     589,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "But a guardian knight named Kahn saw *everything*. That power was not aura.",
+   "clips": [
+    604,
+    [
+     611,
+     6
+    ],
+    [
+     616,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He thought Jin used forbidden *magic*, so he rode off to report it.",
+   "clips": [
+    628,
+    [
+     640,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Jin knew his contract came back with him. And the curse chains could not hold him this *time*.",
+   "clips": [
+    652,
+    [
+     655,
+     9
+    ],
+    [
+     661,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Far away, the patriarch heard the report. Assemble the *flagbearers*.",
+   "clips": [
+    670,
+    [
+     676,
+     4
+    ],
+    [
+     673,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "His strongest children, and two hundred knights, marched to Storm *Castle*.",
+   "clips": [
+    691,
+    [
+     697,
+     4
+    ],
+    [
+     712,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ciaron Runcandel. A demigod. The strongest man alive, and Jin's *father*.",
+   "clips": [
+    781,
+    [
+     835,
+     3
+    ],
+    [
+     838,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "In his past life, this man treated him like he never *existed*.",
+   "clips": [
+    847,
+    [
+     853,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The twins tried to blame Jin. Bring Jin to *me*.",
+   "clips": [
+    817,
+    [
+     820,
+     5
+    ],
+    [
+     823,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Alone, his father asked one question. The twins say you used a special *power*.",
+   "clips": [
+    937,
+    [
+     946,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Jin did not lie. He opened his hand, and shadow force *bloomed*.",
+   "clips": [
+    985,
+    [
+     988,
+     6
+    ],
+    [
+     1009,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "His father went pale. That is the power of the first patriarch's god. The god of *shadows*.",
+   "clips": [
+    994,
+    [
+     997,
+     7
+    ],
+    [
+     1027,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "And how will you use it? Jin said, for the *clan*.",
+   "clips": [
+    1063,
+    [
+     1072,
+     6
+    ],
+    [
+     1078,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "His father laughed. What an interesting *lie*!",
+   "clips": [
+    1087,
+    [
+     1090,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "So Jin told the truth. For *himself*. Good, his father said. I like *that*.",
+   "clips": [
+    1105,
+    [
+     1108,
+     6
+    ],
+    [
+     1111,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Later, his sister Mary brought a gift. A real phoenix *heart*.",
+   "clips": [
+    1156,
+    [
+     1168,
+     4
+    ],
+    [
+     1183,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Eat it young, and fire can't hurt you. One day, you can even summon *phoenixes*.",
+   "clips": [
+    1201,
+    [
+     1216,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The twins begged for some of the soup. Fine, Jin said. But first, you *dig*.",
+   "clips": [
+    1231,
+    [
+     1237,
+     8
+    ],
+    [
+     1240,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "They dug all night. Their prize? One *teaspoon*. I never said anything about the amount.",
+   "clips": [
+    1270,
+    [
+     1282,
+     7
+    ],
+    [
+     1294,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Because that tunnel led to a place Jin was *never* allowed in his past life.",
+   "clips": [
+    1312,
+    [
+     1324,
+     7
+    ],
+    [
+     1330,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Behind a sealed door, deep under the castle, something was *sleeping*.",
+   "clips": [
+    1351,
+    [
+     1366,
+     6
+    ],
+    [
+     1369,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "A man, frozen in a glass prison for a thousand *years*.",
+   "clips": [
+    1375,
+    [
+     1378,
+     6
+    ],
+    [
+     1381,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "No way, Jin whispered. It was *Murakhan*. The guardian dragon of the clan.",
+   "clips": [
+    1393,
+    [
+     1396,
+     6
+    ],
+    [
+     1405,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That night, footsteps in the dark. A stranger stood in his room. Who the hell are *you*?",
+   "clips": [
+    1453,
+    [
+     1456,
+     6
+    ],
+    [
+     1462,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Guardian? *Guardian*?! Murakhan roared. Darn those Runcandels!",
+   "clips": [
+    1480,
+    [
+     1483,
+     2
+    ],
+    [
+     1489,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then he sniffed the air. That scent. Only Solderet's contractor *smells* like that.",
+   "clips": [
+    1513,
+    [
+     1516,
+     5
+    ],
+    [
+     1522,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Jin opened his hand, and showed him the *shadows*.",
+   "clips": [
+    1537
+   ]
+  },
+  {
+   "say": "Hey, Solderet. This is a *joke*, right? I waited a thousand years for this tiny *kid*?",
+   "clips": [
+    1540,
+    [
+     1543,
+     9
+    ],
+    [
+     1546,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "He fell to his knees. I made a promise to Solderet, he said. A thousand years *ago*.",
+   "clips": [
+    1549,
+    [
+     1561,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then the shadows spread, and the man became a giant *dragon*.",
+   "clips": [
+    1585,
+    [
+     1591,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "I am Murakhan. And from now on, I serve Solderet's *contractor*.",
+   "clips": [
+    1594,
+    [
+     1597,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The worst swordsman of the Runcandel clan now has a god and a dragon on his *side*. And his family has no idea what's *coming*.",
+   "clips": [
+    1600,
+    [
+     1603,
+     8
+    ],
+    [
+     1009,
+     14
+    ]
+   ]
+  }
+ ],
+ "aspect": "16:9",
+ "kokoro_voice": "am_liam"
+}
