@@ -1,0 +1,109 @@
+{
+ "title": "A Secret Agent Catches The Killer Of His Fiancee . . . And Does Something Cold . . . (highlight)",
+ "caption": "Daniel finally catches Victor, the man who murdered his fiancee, in I Saw the Devil (2010). Then he does something cold. Full recap is on our page 👉 link in the comments\n\n#isawthedevil #koreanmovie #movierecap #thriller #revenge",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Movie: I Saw the Devil (2010)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Full recap: https://www.facebook.com/1061049920275264",
+ "kokoro_voice": "am_liam",
+ "segments": [
+  {
+   "say": "A secret agent finds the man who *murdered* his fiancee. And what he does next is *cold*.",
+   "clips": [
+    3012.0,
+    3060.0
+   ]
+  },
+  {
+   "say": "Victor is a school van driver. Tonight he has picked a new *girl*.",
+   "clips": [
+    2640.0,
+    2700.0
+   ]
+  },
+  {
+   "say": "But he does not know that someone has been *following* him the whole time.",
+   "clips": [
+    2992.8,
+    2985.5
+   ]
+  },
+  {
+   "say": "Daniel finally *finds* him. Alone, in the dark.",
+   "clips": [
+    2962.0
+   ]
+  },
+  {
+   "say": "Victor is tough, but Daniel is *stronger*. The fight ends in seconds.",
+   "clips": [
+    2907.2,
+    2879.7
+   ]
+  },
+  {
+   "say": "Victor laughs. The cops found me this *quick*? You do not know who you are dealing with.",
+   "clips": [
+    3036.0,
+    3040.0
+   ]
+  },
+  {
+   "say": "Daniel just stands there. Calm. No *rage*. That is what makes it scary.",
+   "clips": [
+    2974.5
+   ]
+  },
+  {
+   "say": "Victor thinks he has the upper hand. That was his first *mistake*.",
+   "clips": [
+    3056.0
+   ]
+  },
+  {
+   "say": "Daniel forces a small *capsule* into his mouth. And Victor has no choice but to *swallow* it.",
+   "clips": [
+    3073.9,
+    3067.5
+   ]
+  },
+  {
+   "say": "It holds a GPS and a *microphone*. Now Daniel can follow him, and hear every *word*.",
+   "clips": [
+    3082.8
+   ]
+  },
+  {
+   "say": "Then he just walks *away*. No police. No handcuffs.",
+   "clips": [
+    3087.7
+   ]
+  },
+  {
+   "say": "Why would he let a killer go? Because a quick end is not what Daniel *wants*.",
+   "clips": [
+    3090.9
+   ]
+  },
+  {
+   "say": "The full story is on our page.",
+   "clips": [
+    2921.6
+   ]
+  }
+ ]
+}

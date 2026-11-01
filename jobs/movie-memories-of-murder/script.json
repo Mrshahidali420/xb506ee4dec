@@ -1,0 +1,536 @@
+{
+ "title": "They Tortured The Wrong Man For Years . . . Then The DNA Test Came Back",
+ "caption": "Memories of Murder (2003): a village detective beats a confession out of a slow boy while a serial killer keeps striking in 1986 Korea. Then a Seoul detective arrives, and a DNA test from America changes everything. 😳 Follow for more movie recaps!\n\n#memoriesofmurder #bongjoonho #movierecap #kmovie #spoilerroom",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Film: Memories of Murder (2003)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Would you forgive Jack for what he did to Tommy? Why? 👀",
+ "segments": [
+  {
+   "say": "Ryan has a gun in a man's face. Then the DNA papers from America say *no match*.",
+   "clips": [
+    6995.5,
+    7113.0,
+    7120.5
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to *1986*.",
+   "clips": [
+    99.0,
+    180.0
+   ]
+  },
+  {
+   "say": "A farmer finds a girl's body in a *drain*, deep in the rice fields.",
+   "clips": [
+    172.0,
+    243.0
+   ]
+  },
+  {
+   "say": "Jack, the local detective, runs in. So do half the village and a damn *tractor*.",
+   "clips": [
+    131.5,
+    126.0,
+    217.5
+   ]
+  },
+  {
+   "say": "Jack has no training and no lab. He trusts one thing. His *eyes*.",
+   "clips": [
+    560.0,
+    574.0,
+    589.0
+   ]
+  },
+  {
+   "say": "Then a gossip points him at a slow, harmless boy named *Tommy*.",
+   "clips": [
+    757.0
+   ]
+  },
+  {
+   "say": "Jack and his partner Mike drag Tommy in, and beat him until he *breaks*.",
+   "clips": [
+    805.0,
+    1180.0
+   ]
+  },
+  {
+   "say": "They show him a footprint that matches his shoe. Tommy starts to *crack*.",
+   "clips": [
+    1143.0,
+    1153.5,
+    1158.5
+   ]
+  },
+  {
+   "say": "So they drive him to the woods and feed him every answer. Tommy acts out the *murder*.",
+   "clips": [
+    1197.0,
+    1366.0,
+    1385.0
+   ]
+  },
+  {
+   "say": "Watching from the trees is a young detective from Seoul. His name is *Ryan*.",
+   "clips": [
+    998.0,
+    1405.5
+   ]
+  },
+  {
+   "say": "Ryan believes in files, not gut. During a blackout drill, he sneaks into the records room, hunting for *proof*.",
+   "clips": [
+    1436.5,
+    1439.5,
+    1460.5
+   ]
+  },
+  {
+   "say": "The next day, Jack stages a huge re-enactment for the *press*.",
+   "clips": [
+    1599.0,
+    1672.0
+   ]
+  },
+  {
+   "orig": [
+    1650.1,
+    1652.9
+   ],
+   "text": "I told you before Kwang-ho isn't guilty."
+  },
+  {
+   "say": "Then Tommy's father runs in and screams that his son is *innocent*.",
+   "clips": [
+    1680.5,
+    1684.0
+   ]
+  },
+  {
+   "say": "The case collapses. The newspapers tear the whole station *apart*.",
+   "clips": [
+    1788.5,
+    1793.0,
+    1801.0
+   ]
+  },
+  {
+   "say": "That was Jack's first mistake.",
+   "clips": [
+    3002.0
+   ]
+  },
+  {
+   "say": "Ryan keeps digging. Rain. Red clothes. Young women. One *killer*.",
+   "clips": [
+    1816.0,
+    1832.0,
+    1880.0
+   ]
+  },
+  {
+   "say": "He marks a map, and the third body turns up right where he *said*.",
+   "clips": [
+    1946.5,
+    2030.0
+   ]
+  },
+  {
+   "say": "Ryan was right. Jack hates that.",
+   "clips": [
+    2297.0
+   ]
+  },
+  {
+   "say": "At a drunken dinner, the two men finally *explode*.",
+   "clips": [
+    2200.0,
+    2287.0,
+    2303.5
+   ]
+  },
+  {
+   "say": "The Chief orders them to work together. Next rainy night, they will *catch* him.",
+   "clips": [
+    2575.0,
+    2616.0,
+    2628.0
+   ]
+  },
+  {
+   "say": "So officer Anna walks a dark road in a red dress, as *bait*.",
+   "clips": [
+    2656.0,
+    2700.0,
+    2777.0
+   ]
+  },
+  {
+   "say": "But the killer picks another girl, somewhere *else*.",
+   "clips": [
+    2800.0,
+    2858.0
+   ]
+  },
+  {
+   "say": "By morning, all they find are footprints, smeared by the *rain*.",
+   "clips": [
+    2952.0,
+    2956.0,
+    2965.0
+   ]
+  },
+  {
+   "say": "Then Anna notices something. A song called Sad Letter plays on the radio before every *murder*.",
+   "clips": [
+    3168.0,
+    3181.0
+   ]
+  },
+  {
+   "say": "A lonely man keeps begging the DJ to play it, always on rainy *days*.",
+   "clips": [
+    3164.5,
+    3175.5
+   ]
+  },
+  {
+   "say": "Jack gets desperate. He decides the killer has no body hair, so his men raid public *saunas*.",
+   "clips": [
+    3288.0,
+    3300.0
+   ]
+  },
+  {
+   "say": "Desperate men chase desperate ideas.",
+   "clips": [
+    3318.0
+   ]
+  },
+  {
+   "say": "Jack even visits a shaman, hoping she can show him a *face*.",
+   "clips": [
+    3431.0,
+    3446.0,
+    3458.0
+   ]
+  },
+  {
+   "say": "Then a suspect turns up near a crime scene, and the whole team chases him through the *dark*.",
+   "clips": [
+    3801.0,
+    3807.5,
+    3886.0
+   ]
+  },
+  {
+   "say": "They corner a man at a quarry. His name is *Sam*.",
+   "clips": [
+    3908.0,
+    3963.5,
+    4021.5
+   ]
+  },
+  {
+   "say": "His wife swears he is a gentle husband. But Jack trusts his *eyes*.",
+   "clips": [
+    4070.0,
+    4110.5,
+    4112.0
+   ]
+  },
+  {
+   "say": "Jack and Mike break Sam, until he *dreams up* a confession.",
+   "clips": [
+    4289.5,
+    4348.0,
+    4431.5
+   ]
+  },
+  {
+   "say": "That confession was worth *nothing*.",
+   "clips": [
+    4334.5
+   ]
+  },
+  {
+   "say": "Meanwhile, Ryan follows a lead to a school, and hears about a crying *woman*.",
+   "clips": [
+    4472.0,
+    4493.0,
+    4625.0
+   ]
+  },
+  {
+   "say": "He finds her. She is a *survivor*.",
+   "clips": [
+    4716.0,
+    4763.0,
+    4806.0
+   ]
+  },
+  {
+   "say": "She never saw his face. But she remembers his *hands*.",
+   "clips": [
+    4849.0,
+    4817.5
+   ]
+  },
+  {
+   "orig": [
+    4859.2,
+    4862.0
+   ],
+   "text": "His hands were very soft."
+  },
+  {
+   "say": "Ryan runs back to stop it. Jack is about to *sign*.",
+   "clips": [
+    4903.0,
+    4924.0,
+    4926.5
+   ]
+  },
+  {
+   "say": "Ryan blocks him, and the whole station *erupts*.",
+   "clips": [
+    4953.0,
+    4975.0,
+    4990.0
+   ]
+  },
+  {
+   "say": "That same night, another girl is *dead*. And Sam was in a cell the whole time.",
+   "clips": [
+    5055.0,
+    5090.0,
+    5112.5
+   ]
+  },
+  {
+   "say": "At last a postcard leads them to a quiet factory worker named *Peter*.",
+   "clips": [
+    5196.0,
+    5206.0,
+    5280.0
+   ]
+  },
+  {
+   "say": "Peter has soft, clean hands. He started this town job just before the first *murder*.",
+   "clips": [
+    5233.0,
+    5320.0
+   ]
+  },
+  {
+   "say": "He admits he sent the postcards. He swears he knows nothing about the *murders*.",
+   "clips": [
+    5331.0,
+    5359.5,
+    5381.5
+   ]
+  },
+  {
+   "say": "Ryan describes the killer's night in horrible detail. Peter does not *flinch*.",
+   "clips": [
+    5398.5,
+    5453.5,
+    5523.0
+   ]
+  },
+  {
+   "say": "This man is ice *cold*.",
+   "clips": [
+    5310.5
+   ]
+  },
+  {
+   "say": "Back at the station, Jack can't sleep. How did Tommy know every detail? He digs out the old *tape*.",
+   "clips": [
+    5650.0,
+    5683.8,
+    5709.5
+   ]
+  },
+  {
+   "say": "Tommy never confessed. On that tape, he sounds like a *witness*.",
+   "clips": [
+    5741.5,
+    5971.0,
+    6003.5
+   ]
+  },
+  {
+   "say": "So they take Tommy back to the tracks, and show him a photo of *Peter*.",
+   "clips": [
+    6035.5,
+    6053.0,
+    6071.0
+   ]
+  },
+  {
+   "say": "Tommy stares at the photo. Then a train comes, and he is standing on the *tracks*.",
+   "clips": [
+    6114.5,
+    6128.0,
+    6134.0
+   ]
+  },
+  {
+   "say": "Their last hope is DNA. But Korea cannot test it. It has to go to *America*.",
+   "clips": [
+    6230.0,
+    6258.0,
+    6288.0
+   ]
+  },
+  {
+   "say": "Then Mike steps on a rusty nail, and loses his *leg*.",
+   "clips": [
+    6383.0,
+    6419.0
+   ]
+  },
+  {
+   "say": "Jack calls the post office every *hour*.",
+   "clips": [
+    6429.5,
+    6452.0
+   ]
+  },
+  {
+   "say": "Peter slips away from the men watching him, and gets off the bus *early*.",
+   "clips": [
+    6561.0,
+    6576.5,
+    6645.0
+   ]
+  },
+  {
+   "say": "Then another girl is killed in the *rain*.",
+   "clips": [
+    6818.5,
+    6884.5,
+    6888.0
+   ]
+  },
+  {
+   "say": "Ryan snaps. He drags Peter into a train tunnel, and beats him on the *tracks*.",
+   "clips": [
+    6944.5,
+    6958.5,
+    6987.5
+   ]
+  },
+  {
+   "say": "He pulls a gun, and screams for a *confession*.",
+   "clips": [
+    6995.5,
+    7275.0,
+    7281.0
+   ]
+  },
+  {
+   "say": "Then the papers from America arrive. The DNA does *not match*.",
+   "clips": [
+    7053.0,
+    7098.5,
+    7113.0
+   ]
+  },
+  {
+   "say": "Ryan says the document is a *lie*.",
+   "clips": [
+    7120.5,
+    7136.0,
+    7150.5
+   ]
+  },
+  {
+   "say": "Jack lets Peter walk away. Years of work, and nothing to *show*.",
+   "clips": [
+    7259.0,
+    7290.0,
+    7316.0
+   ]
+  },
+  {
+   "say": "Seventeen years later, Jack is a salesman with a *family*.",
+   "clips": [
+    7339.0,
+    7404.0
+   ]
+  },
+  {
+   "say": "One day he drives past the same rice field, and *stops*.",
+   "clips": [
+    7443.0,
+    7470.5,
+    7483.0
+   ]
+  },
+  {
+   "say": "He looks into the old drain, just like he did in *1986*.",
+   "clips": [
+    7495.0,
+    7509.0,
+    7515.0
+   ]
+  },
+  {
+   "say": "A little girl is watching him.",
+   "clips": [
+    7548.0,
+    7552.0
+   ]
+  },
+  {
+   "say": "She says a man was here not long ago, looking into the same *hole*.",
+   "clips": [
+    7563.0,
+    7570.5,
+    7576.5
+   ]
+  },
+  {
+   "say": "Jack asks what he looked like.",
+   "clips": [
+    7600.0,
+    7611.5,
+    7620.5
+   ]
+  },
+  {
+   "orig": [
+    7627.4,
+    7630.4
+   ],
+   "text": "Just... ordinary."
+  },
+  {
+   "say": "The killer is still out there. And he could be *anyone*.",
+   "clips": [
+    7633.0,
+    7640.0
+   ]
+  }
+ ],
+ "kokoro_voice": "am_liam"
+}

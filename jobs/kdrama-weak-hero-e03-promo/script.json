@@ -1,0 +1,169 @@
+{
+ "title": "Max Walks Into A Gangster's House Alone . . . And Then A Text Changes Everything . . . (highlight)",
+ "caption": "Max walks alone into a gangster's house in Weak Hero Class 1, episode 3. Then one text message makes Rex go cold. Full recap is on our page 👉 link in the comments\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Weak Hero Class 1 (2022)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Full recap: https://www.facebook.com/2392452494902755",
+ "kokoro_voice": "am_liam",
+ "segments": [
+  {
+   "say": "Max walks into a gangster's house alone, and ends up *knocked out* on the floor.",
+   "clips": [
+    1906.0,
+    [
+     1910.5,
+     2.5
+    ]
+   ]
+  },
+  {
+   "say": "It all starts with a car ride. Max is on his way to Rex's *hideout*.",
+   "clips": [
+    1798.5,
+    [
+     1800.9,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Rex leads him inside. Have a seat, he says. Anything to *drink*?",
+   "clips": [
+    1846.0,
+    [
+     1856.8,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Then the mask drops. Give me your *phone*.",
+   "clips": [
+    1862.0,
+    [
+     1864.6,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Max just smiles. I take personal information very *seriously*, he says.",
+   "clips": [
+    [
+     1877.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "That was a bold *move*.",
+   "clips": [
+    1883.0,
+    [
+     1873.8,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Fine, then this isn't going to work out, Max tells him. And Rex's smile *dies*.",
+   "clips": [
+    1890.2,
+    [
+     1896.5,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Rex explodes. He lunges, and Max goes down *hard*.",
+   "clips": [
+    1901.0,
+    [
+     1903.5,
+     2
+    ],
+    [
+     1907.5,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "His boys grab the phone. Rex wants to see what Max was *hiding*.",
+   "clips": [
+    [
+     1914.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then a message lights up on the screen. Coming with the *police*.",
+   "clips": [
+    [
+     1919.7,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Rex did not see that *coming*.",
+   "clips": [
+    1928.2,
+    [
+     1925.8,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "His whole crew freezes. Then Rex calls everyone to *follow* him.",
+   "clips": [
+    1935.2,
+    [
+     1941.5,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Max just bought his friends some *time*. But at what cost?",
+   "clips": [
+    [
+     1850.5,
+     3
+    ],
+    [
+     1887.0,
+     2.5
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our page.",
+   "clips": [
+    1821.0,
+    [
+     1826.0,
+     3
+    ]
+   ]
+  }
+ ]
+}

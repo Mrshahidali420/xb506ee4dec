@@ -1,0 +1,512 @@
+{
+ "title": "A Gangster Pulled A Knife On Two Students . . . Then A Powerful Family Buried It (Episode 4)",
+ "caption": "Weak Hero Class 1, episode 4: Rex's men drag Max and Bobby into a van, and it ends in an abandoned theme park.\nSam, Max and Amy take on a gangster with a knife, then learn a powerful family is covering it all up. Follow for episode 5!\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Weak Hero Class 1 (2022)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Would you have walked into that theme park to save Max and Bobby? Why?",
+ "segments": [
+  {
+   "say": "A gangster pulls a knife on two high school kids, and ends up flat on the *ground*.",
+   "clips": [
+    1127.5,
+    1157.2,
+    1185.0
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to the night his men dragged Max and Bobby *away*.",
+   "clips": [
+    4.0,
+    16.6
+   ]
+  },
+  {
+   "say": "Rex's men load Max into a car like *cargo*, and Bobby watches, terrified.",
+   "clips": [
+    19.8,
+    26.0
+   ]
+  },
+  {
+   "say": "Rex loses it. Is that kid really coming with the *cops*?",
+   "clips": [
+    8.6,
+    22.5
+   ]
+  },
+  {
+   "say": "Then police lights flash down the street, and his crew *scatter*.",
+   "clips": [
+    29.2,
+    35.6,
+    42.0
+   ]
+  },
+  {
+   "say": "Rex calls Jake, his old right-hand man. Come to Mangu-dong, he says. And bring *Amy*.",
+   "clips": [
+    73.5,
+    79.5
+   ]
+  },
+  {
+   "say": "If they don't show, he will sell the boy beside him. That's Tim, only *fourteen*.",
+   "clips": [
+    84.3,
+    87.5
+   ]
+  },
+  {
+   "say": "Jake knows Rex means it, so he tells Amy to stay here and hide. Don't *follow* me.",
+   "clips": [
+    94.0,
+    108.0,
+    113.5
+   ]
+  },
+  {
+   "say": "That was either brave or *stupid*.",
+   "clips": [
+    124.8
+   ]
+  },
+  {
+   "say": "But Amy is not the type to sit and wait. She calls the one person she *trusts*. Sam.",
+   "clips": [
+    131.7,
+    138.5
+   ]
+  },
+  {
+   "say": "Sam is already standing in Rex's house. It's empty, with only *blood* on the floor.",
+   "clips": [
+    145.0,
+    205.5
+   ]
+  },
+  {
+   "say": "Amy tells him to track her phone and bring the police, or they will all *die*.",
+   "clips": [
+    154.0,
+    168.5,
+    175.0
+   ]
+  },
+  {
+   "say": "Then she hangs up and chases after Jake. Take me with you, she begs. But he *refuses*.",
+   "clips": [
+    184.2,
+    189.5,
+    194.5
+   ]
+  },
+  {
+   "say": "Then a message lights up a phone. Come to Mangu-dong first. Your *friends* are there. And Sam doesn't wait. He *runs*.",
+   "clips": [
+    223.0,
+    227.0,
+    230.5
+   ]
+  },
+  {
+   "say": "Mangu-dong turns out to be an abandoned theme park, and Rex sits in the middle of it like a *king*.",
+   "clips": [
+    331.8,
+    341.0
+   ]
+  },
+  {
+   "say": "Max and Bobby sit tied up on the ground, bruised but *alive*.",
+   "clips": [
+    349.0,
+    357.0
+   ]
+  },
+  {
+   "say": "Bobby whispers that he only came to hand over the money. Now he is tied up *too*.",
+   "clips": [
+    370.5,
+    377.0
+   ]
+  },
+  {
+   "say": "Jake and Amy creep through the park. Don't do anything stupid, he tells her. She says it's all her *fault*.",
+   "clips": [
+    409.0,
+    421.0,
+    429.5
+   ]
+  },
+  {
+   "say": "Then Jake walks in alone, straight toward *Rex*.",
+   "clips": [
+    470.5,
+    475.5
+   ]
+  },
+  {
+   "say": "I fed you and gave you a roof, Rex says. Why would you *betray* me?",
+   "clips": [
+    482.0,
+    499.5
+   ]
+  },
+  {
+   "say": "Jake doesn't argue. He just asks Rex to hit *him*.",
+   "clips": [
+    511.0,
+    519.0
+   ]
+  },
+  {
+   "orig": [
+    525.1,
+    527.5
+   ],
+   "text": "Just punch me."
+  },
+  {
+   "say": "Rex smiles, and beats him into the *dirt*.",
+   "clips": [
+    531.5,
+    545.2,
+    549.2
+   ]
+  },
+  {
+   "say": "Amy can't watch. Stop, she screams, and Rex's men drag her *back*.",
+   "clips": [
+    551.2,
+    563.8,
+    566.0
+   ]
+  },
+  {
+   "say": "Then Rex turns to Tim. Fourteen years old, and *terrified*.",
+   "clips": [
+    586.0,
+    590.0
+   ]
+  },
+  {
+   "say": "You already stabbed those kids, Rex tells him. And minors don't go to *prison*.",
+   "clips": [
+    593.0,
+    601.0,
+    604.5
+   ]
+  },
+  {
+   "say": "He wants a kid doing his dirty work.",
+   "clips": [
+    610.0
+   ]
+  },
+  {
+   "say": "Then Rex plays eeny, meeny, miny, moe over the tied-up boys. This might *sting*, he grins.",
+   "clips": [
+    631.0,
+    640.5,
+    646.0
+   ]
+  },
+  {
+   "say": "That's when a voice cuts in. *Enough*. Jake is back on his feet, and Rex goes flying.",
+   "clips": [
+    663.3,
+    665.5
+   ]
+  },
+  {
+   "say": "Just you and me, Jake tells him. If you lose, you *leave*.",
+   "clips": [
+    684.0,
+    688.0
+   ]
+  },
+  {
+   "say": "Jake wins round one. Rex crashes into a pile of *junk*.",
+   "clips": [
+    700.2,
+    716.5,
+    720.7
+   ]
+  },
+  {
+   "say": "But Rex doesn't fight fair. His men pile on, and Jake goes *down*.",
+   "clips": [
+    734.0,
+    737.0,
+    741.0
+   ]
+  },
+  {
+   "say": "That was never a fair *fight*.",
+   "clips": [
+    758.2
+   ]
+  },
+  {
+   "say": "Then Amy steps out holding a *knife*. Nobody move, she says. But Rex walks right up and grabs her by the *throat*. This is what you get for hanging around with Jake, he snarls.",
+   "clips": [
+    754.5,
+    765.0,
+    786.5,
+    798.8
+   ]
+  },
+  {
+   "say": "And that is when *Sam* walks in.",
+   "clips": [
+    811.0,
+    819.0
+   ]
+  },
+  {
+   "say": "It's over, Sam says. The police are coming, and they will search your *car*.",
+   "clips": [
+    830.0,
+    836.0
+   ]
+  },
+  {
+   "say": "Rex's men bolt. Amy rushes to Jake, and Max and Bobby look up. Sorry I'm late, Sam says. Untie *us*, Max says.",
+   "clips": [
+    844.5,
+    851.0,
+    856.5
+   ]
+  },
+  {
+   "say": "Max jokes he is never going to a theme park again. Then he spots Rex's men *coming back*.",
+   "clips": [
+    869.5,
+    879.5
+   ]
+  },
+  {
+   "say": "It was a bluff, Rex roars. You made a *fool* of me!",
+   "clips": [
+    882.0,
+    893.6
+   ]
+  },
+  {
+   "say": "The brawl is on. Fists, tires, and nobody backs *down*.",
+   "clips": [
+    898.0,
+    903.0,
+    911.0
+   ]
+  },
+  {
+   "say": "This time it's *true*. A real officer, gun drawn. Hands up!",
+   "clips": [
+    977.0,
+    988.0
+   ]
+  },
+  {
+   "say": "But Rex smooths it over. A misunderstanding, he says. Didn't we play *soccer* together?",
+   "clips": [
+    991.0,
+    994.5,
+    998.8
+   ]
+  },
+  {
+   "say": "Of course he knew a *cop*.",
+   "clips": [
+    1000.6
+   ]
+  },
+  {
+   "say": "While they talk, Rex slips away, and Sam runs after *him*.",
+   "clips": [
+    1007.5,
+    1015.8,
+    1019.8
+   ]
+  },
+  {
+   "say": "Deep in the park, Sam catches up. Not this kid *again*, Rex groans.",
+   "clips": [
+    1052.0,
+    1057.6,
+    1060.5
+   ]
+  },
+  {
+   "say": "Rex knocks him down, and pulls a *knife*.",
+   "clips": [
+    1080.6,
+    1084.5
+   ]
+  },
+  {
+   "orig": [
+    1090.0,
+    1092.6
+   ],
+   "text": "How should I stab you?"
+  },
+  {
+   "say": "Then someone shouts. It's *Max*, running in. There's no other way, he says. You need a good *beating*.",
+   "clips": [
+    1097.0,
+    1104.0,
+    1111.0
+   ]
+  },
+  {
+   "say": "It gets ugly fast. Rex fights dirty, and Sam ends up flat on the *ground*.",
+   "clips": [
+    1122.0,
+    1145.6,
+    1162.4
+   ]
+  },
+  {
+   "say": "But Max keeps swinging, and finally Rex goes down. He does not get *up*.",
+   "clips": [
+    1137.5,
+    1171.0,
+    1185.2
+   ]
+  },
+  {
+   "say": "Max can't believe it. Why did you go after him *alone*? You came, didn't you, Sam says. Best friends, worst *plan*.",
+   "clips": [
+    1195.0,
+    1211.5,
+    1224.5
+   ]
+  },
+  {
+   "say": "Outside the gate, Jake tells Amy to run. It's not your *fault*. But a cop is already aiming at *Jake*.",
+   "clips": [
+    1259.0,
+    1263.0,
+    1280.0
+   ]
+  },
+  {
+   "say": "Rex is wheeled off in an ambulance. I'll see you when I get out, he tells Max. *Never* again, Max says.",
+   "clips": [
+    1292.0,
+    1302.0,
+    1326.0
+   ]
+  },
+  {
+   "say": "At the police station, Bobby finally admits Sam was *right*.",
+   "clips": [
+    1390.0,
+    1422.5
+   ]
+  },
+  {
+   "say": "Then a man in a suit walks in. Nothing from tonight will reach your family or your *school*.",
+   "clips": [
+    1458.0,
+    1467.5
+   ]
+  },
+  {
+   "say": "Sam is told to keep quiet. Somebody powerful was cleaning this *up*.",
+   "clips": [
+    1474.0,
+    1486.8
+   ]
+  },
+  {
+   "say": "The man in the suit isn't done. He leads Bobby into a back room, and Rex is *waiting*.",
+   "clips": [
+    1676.8,
+    1680.0
+   ]
+  },
+  {
+   "say": "The assemblyman wants you to pay him back, the man says. Go ahead. Hit *him*.",
+   "clips": [
+    1683.0,
+    1688.0
+   ]
+  },
+  {
+   "say": "But Rex only laughs. Come on, little puppy, he taunts. Hit *me*!",
+   "clips": [
+    1705.2,
+    1720.0,
+    1741.0
+   ]
+  },
+  {
+   "say": "Later, Max lies in a hospital bed with a broken *arm*. Sam and Amy come to see him.",
+   "clips": [
+    1783.5,
+    1766.0
+   ]
+  },
+  {
+   "say": "Victor's family covered it *up*, he tells them. Our names are gone, and Rex was arrested. His dad is a National Assemblyman. Of course he is *powerful*.",
+   "clips": [
+    1808.0,
+    1813.5,
+    1818.5,
+    1825.0
+   ]
+  },
+  {
+   "say": "Then Max starts to tease. Are you two dating? Sam says no. Amy says *yes*.",
+   "clips": [
+    1872.0,
+    1879.0
+   ]
+  },
+  {
+   "say": "Far away, the assemblyman talks on TV. I am not only an assemblyman, he says. I am a *father*.",
+   "clips": [
+    2043.5,
+    2050.2
+   ]
+  },
+  {
+   "say": "But when the screen goes dark, his voice *changes*.",
+   "clips": [
+    2051.0,
+    2074.0
+   ]
+  },
+  {
+   "orig": [
+    2086.8,
+    2089.5
+   ],
+   "text": "I shouldn't have taken you in."
+  },
+  {
+   "say": "You are a bad seed, he says. But who is he *talking* to?",
+   "clips": [
+    2091.0,
+    2103.0
+   ]
+  }
+ ],
+ "kokoro_voice": "am_liam"
+}
