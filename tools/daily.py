@@ -69,18 +69,15 @@ def movie_job(slot: dict) -> tuple[str, dict] | None:
     return f"jobs/{slot['prefix']}-{slug(title)}", {"type": "kisskh", "search": title, "episode": 1, "shot_sheets": True}
 
 
-def promo_job(slot: dict, page: str) -> tuple[str, dict, dict] | None:
-    """Newest posted part of the series that has no promo yet."""
-    posted = {i.get("job"): i for i in queue_items(page) if i.get("posted_at") and i.get("post")}
-    parts = sorted((ROOT / "jobs").glob(f"{slot['of']}-p*"), key=lambda p: -int(re.sub(r"\D", "", p.name[-3:]) or 0))
-    for part in parts:
-        if part.name.endswith("-promo") or (part.parent / f"{part.name}-promo").exists():
+def promo_job(page: str) -> tuple[str, dict, dict] | None:
+    """Newest full video of this page that is posted and has no promo yet (any series, episode or movie)."""
+    posted = [i for i in queue_items(page) if i.get("posted_at") and i.get("post") and i.get("job")]
+    for item in sorted(posted, key=lambda i: i["posted_at"], reverse=True):
+        job = item["job"]
+        if job.endswith("-promo") or (ROOT / f"{job}-promo").exists() or not (ROOT / job / "script.json").exists():
             continue
-        item = posted.get(f"jobs/{part.name}")
-        if item:
-            src = json.loads((part / "source.json").read_text(encoding="utf-8"))
-            return f"jobs/{part.name}-promo", src, {"parent": f"jobs/{part.name}",
-                                                   "parent_post": f"https://www.facebook.com/{item['post']}"}
+        src = json.loads((ROOT / job / "source.json").read_text(encoding="utf-8"))
+        return f"{job}-promo", src, {"parent": job, "parent_post": f"https://www.facebook.com/{item['post']}"}
     return None
 
 
@@ -131,7 +128,7 @@ def prep() -> None:
                 elif kind == "movie":
                     made = movie_job(slot)
                 else:
-                    found = promo_job(slot, page)
+                    found = promo_job(page)  # each promo slot takes the next posted video (its folder now exists)
                     made, extra = (found[:2], found[2]) if found else (None, {})
                 if not made:
                     print(f"skip {page}/{kind}: nothing left or nothing posted yet")
