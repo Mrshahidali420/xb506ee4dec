@@ -199,6 +199,12 @@ def build(only: set[str] | None = None) -> None:
     if missing:
         print("no script.json yet:", missing)
     ready = [j for j in ready if j["job"] not in missing]
+    for j in list(ready):  # the storyboard check also validates the clip format; a broken script never reaches GitHub
+        out = subprocess.run(["uv", "run", "-q", "--python", "3.11", "--with", "pillow", "python", "-I",
+                              "tools/storyboard.py", j["job"]], cwd=ROOT, capture_output=True, text=True)
+        if out.returncode:
+            print(f"NOT BUILT {j['job']}: {(out.stderr or out.stdout).strip()[-300:]}")
+            ready.remove(j)
     push(f"Daily run {state['date']}: scripts")
     for j in ready:
         j["build_run"] = dispatch(j["job"], j["page"])

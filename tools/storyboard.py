@@ -72,6 +72,11 @@ def main() -> None:
     has_frames = any(sheets.glob("*_sheet_*.jpg")) if sheets.exists() else False  # storyboard pages do not count
     if not has_frames and job.name.endswith("-promo"):  # a promo reuses its full video's source and sheets
         sheets = job.with_name(job.name[: -len("-promo")]) / "sheets"
+    bad = [f"#{n + 1}: {c}" for n, seg in enumerate(script["segments"]) for c in seg.get("clips", [])
+           if isinstance(c, list) and (len(c) != 2 or not float(c[1]).is_integer()
+                                       or not 0 <= c[1] < len(seg.get("say", "").split()))]
+    if bad:  # [second, word_number]: a fraction here is a duration, which the build cannot use
+        sys.exit("clip format error, the 2nd number must be a whole word number inside the line: " + ", ".join(bad))
     frames = Frames(sheets)
     font = ImageFont.truetype(FONT, 20) if FONT else ImageFont.load_default()
     segs = script["segments"]
