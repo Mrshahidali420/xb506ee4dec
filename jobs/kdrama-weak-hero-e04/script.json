@@ -138,7 +138,7 @@
    ]
   },
   {
-   "say": "Bobby whispers that he only came to hand over the money. Now he is tied up *too*.",
+   "say": "Max asks why Bobby is even here. I came to hand over the money, Bobby says. So now I'm tied up *too*.",
    "clips": [
     370.5,
     377.0
@@ -374,7 +374,7 @@
    ]
   },
   {
-   "say": "It gets ugly fast. Rex fights dirty, and Sam ends up flat on the *ground*.",
+   "say": "It gets ugly fast. Rex chokes Max, and Sam ends up flat on the *ground*.",
    "clips": [
     1122.0,
     1145.6,
@@ -382,10 +382,10 @@
    ]
   },
   {
-   "say": "But Max keeps swinging, and finally Rex goes down. He does not get *up*.",
+   "say": "Rex pins Max down and keeps hitting. But Max gets up one more time, and Rex hits the dirt. He does not get *up*.",
    "clips": [
-    1137.5,
     1171.0,
+    1183.0,
     1185.2
    ]
   },
@@ -408,20 +408,21 @@
   {
    "say": "Rex is wheeled off in an ambulance. I'll see you when I get out, he tells Max. *Never* again, Max says.",
    "clips": [
-    1292.0,
     1302.0,
-    1326.0
+    1310.0,
+    1331.0
    ]
   },
   {
-   "say": "At the police station, Bobby finally admits Sam was *right*.",
+   "say": "At the police station, Sam says sorry to Bobby. His plan got Max hurt. And Bobby says sorry *too*.",
    "clips": [
     1390.0,
-    1422.5
+    1427.0,
+    1433.0
    ]
   },
   {
-   "say": "Then a man in a suit walks in. Nothing from tonight will reach your family or your *school*.",
+   "say": "Then a man in a suit sits them down. Nothing from tonight will reach your family or your *school*.",
    "clips": [
     1458.0,
     1467.5
@@ -442,7 +443,7 @@
    ]
   },
   {
-   "say": "The assemblyman wants you to pay him back, the man says. Go ahead. Hit *him*.",
+   "say": "The assemblyman wants you to pay him back, the man tells Bobby. Go ahead. Hit *him*.",
    "clips": [
     1683.0,
     1688.0
@@ -464,7 +465,7 @@
    ]
   },
   {
-   "say": "Victor's family covered it *up*, he tells them. Our names are gone, and Rex was arrested. His dad is a National Assemblyman. Of course he is *powerful*.",
+   "say": "Bobby's family covered it up, Max tells them. Our names are gone, and Rex was arrested. Bobby's dad is a National Assemblyman. No wonder it all *vanished*.",
    "clips": [
     1808.0,
     1813.5,
@@ -482,12 +483,12 @@
   {
    "say": "Far away, the assemblyman talks on TV. I am not only an assemblyman, he says. I am a *father*.",
    "clips": [
-    2043.5,
-    2050.2
+    2040.0,
+    2043.5
    ]
   },
   {
-   "say": "But when the screen goes dark, his voice *changes*.",
+   "say": "Then the TV goes dark, and a boy stands in front of him, *silent*.",
    "clips": [
     2051.0,
     2074.0
@@ -501,10 +502,10 @@
    "text": "I shouldn't have taken you in."
   },
   {
-   "say": "You are a bad seed, he says. But who is he *talking* to?",
+   "say": "You are a bad seed, he says. So is that boy *Bobby*?",
    "clips": [
     2091.0,
-    2103.0
+    2083.5
    ]
   }
  ],
