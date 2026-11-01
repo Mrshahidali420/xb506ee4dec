@@ -61,8 +61,20 @@ def series_job(slot: dict) -> tuple[str, dict] | None:
     return job, {"type": "kisskh", "url": slot["url"], "episode": n, "shot_sheets": True}
 
 
+def movie_pool(slot: dict) -> list[str]:
+    """A flat pool, or genre pools taken in turn (romance, comedy, serious...) so the page changes mood daily."""
+    if "pools" not in slot:
+        return slot["pool"]
+    order = slot["order"]
+    for k in range(len(order)):  # this turn's genre first; an empty genre hands over to the next
+        pool = [t for t in slot["pools"][order[(slot.get("turn", 0) + k) % len(order)]] if t not in slot["used"]]
+        if pool:
+            return pool
+    return []
+
+
 def movie_job(slot: dict) -> tuple[str, dict] | None:
-    title = next((t for t in slot["pool"] if t not in slot["used"]), None)
+    title = next((t for t in movie_pool(slot) if t not in slot["used"]), None)
     if title is None:
         return None
     if slot["source"] == "anime":
@@ -194,9 +206,12 @@ def build() -> None:
         slot = plan[j["page"]][j["slot"]]
         if j["kind"] == "series":
             slot["next"] += 1
+            if slot["next"] > slot.get("last", 10**6) and slot.get("then"):  # season over: the next show in line
+                slot.update(slot["then"].pop(0), next=1)
         elif j["kind"] == "movie":
             src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
             slot["used"].append(src.get("search") or src.get("title"))
+            slot["turn"] = slot.get("turn", 0) + 1
         print(f"build started {j['job']} -> {j['page']} run {j['build_run']}", flush=True)
     for j in state["jobs"]:  # a movie that would not download is dropped from the pool, so tomorrow tries the next
         if j["state"] == "failed" and j["kind"] == "movie":
