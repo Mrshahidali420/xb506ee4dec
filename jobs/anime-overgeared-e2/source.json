@@ -1,6 +1,7 @@
 {
- "type": "anime",
- "title": "overgeared",
- "episode": 2,
- "lang": "dub"
+  "type": "anime",
+  "title": "overgeared",
+  "episode": 2,
+  "lang": "dub",
+  "shot_sheets": true
 }

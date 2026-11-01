@@ -1,6 +1,7 @@
 {
- "type": "anime",
- "title": "death note",
- "episode": 4,
- "lang": "dub"
+  "type": "anime",
+  "title": "death note",
+  "episode": 4,
+  "lang": "dub",
+  "shot_sheets": true
 }

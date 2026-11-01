@@ -56,7 +56,7 @@ def series_job(slot: dict) -> tuple[str, dict] | None:
         per = slot["chapters_per_part"]
         return job, {"type": "manga", "chapters": f"{(n - 1) * per + 1}-{n * per}", "sources": slot["sources"]}
     if slot["type"] == "anime":
-        return job, {"type": "anime", "title": slot["title"], "episode": n, "lang": slot.get("lang", "dub")}
+        return job, {"type": "anime", "title": slot["title"], "episode": n, "lang": slot.get("lang", "dub"), "shot_sheets": True}
     return job, {"type": "kisskh", "url": slot["url"], "episode": n, "shot_sheets": True}
 
 
@@ -65,7 +65,7 @@ def movie_job(slot: dict) -> tuple[str, dict] | None:
     if title is None:
         return None
     if slot["source"] == "anime":
-        return f"jobs/{slot['prefix']}-{slug(title)}", {"type": "anime", "title": title, "episode": 1, "lang": "dub"}
+        return f"jobs/{slot['prefix']}-{slug(title)}", {"type": "anime", "title": title, "episode": 1, "lang": "dub", "shot_sheets": True}
     return f"jobs/{slot['prefix']}-{slug(title)}", {"type": "kisskh", "search": title, "episode": 1, "shot_sheets": True}
 
 

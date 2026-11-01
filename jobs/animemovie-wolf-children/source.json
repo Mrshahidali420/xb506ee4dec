@@ -1,6 +1,7 @@
 {
- "type": "anime",
- "title": "wolf children",
- "episode": 1,
- "lang": "dub"
+  "type": "anime",
+  "title": "wolf children",
+  "episode": 1,
+  "lang": "dub",
+  "shot_sheets": true
 }
