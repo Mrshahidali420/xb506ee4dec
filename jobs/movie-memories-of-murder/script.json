@@ -18,7 +18,7 @@
  "edge_pitch": "+10Hz",
  "speed": 1.0,
  "bed_volume": 0,
- "comment": "Would you forgive Jack for what he did to Tommy? Why? 👀",
+ "comment": "Peter walked free. Was he the killer, or did Ryan almost shoot an innocent man? Why? 👀",
  "segments": [
   {
    "say": "Ryan has a gun in a man's face. Then the DNA papers from America say *no match*.",
@@ -61,6 +61,7 @@
   {
    "say": "Then a gossip points him at a slow, harmless boy named *Tommy*.",
    "clips": [
+    740.0,
     757.0
    ]
   },
@@ -68,6 +69,7 @@
    "say": "Jack and his partner Mike drag Tommy in, and beat him until he *breaks*.",
    "clips": [
     805.0,
+    1149.0,
     1180.0
    ]
   },
@@ -88,10 +90,17 @@
    ]
   },
   {
+   "say": "That was Jack's first mistake.",
+   "clips": [
+    1381.5
+   ]
+  },
+  {
    "say": "Watching from the trees is a young detective from Seoul. His name is *Ryan*.",
    "clips": [
-    998.0,
-    1405.5
+    1329.0,
+    1405.5,
+    1417.0
    ]
   },
   {
@@ -106,22 +115,23 @@
    "say": "The next day, Jack stages a huge re-enactment for the *press*.",
    "clips": [
     1599.0,
+    1640.0,
     1672.0
    ]
   },
   {
-   "orig": [
-    1650.1,
-    1652.9
-   ],
-   "text": "I told you before Kwang-ho isn't guilty."
-  },
-  {
-   "say": "Then Tommy's father runs in and screams that his son is *innocent*.",
+   "say": "Then Tommy's father breaks through the *crowd*.",
    "clips": [
     1680.5,
     1684.0
    ]
+  },
+  {
+   "orig": [
+    1690.1,
+    1692.9
+   ],
+   "text": "He didn't kill anyone! My son's innocent!"
   },
   {
    "say": "The case collapses. The newspapers tear the whole station *apart*.",
@@ -129,12 +139,6 @@
     1788.5,
     1793.0,
     1801.0
-   ]
-  },
-  {
-   "say": "That was Jack's first mistake.",
-   "clips": [
-    3002.0
    ]
   },
   {
@@ -148,6 +152,7 @@
   {
    "say": "He marks a map, and the third body turns up right where he *said*.",
    "clips": [
+    1910.0,
     1946.5,
     2030.0
    ]
@@ -159,38 +164,39 @@
    ]
   },
   {
-   "say": "At a drunken dinner, the two men finally *explode*.",
+   "say": "Over drinks that night, the two men finally *explode*.",
    "clips": [
-    2200.0,
     2287.0,
-    2303.5
+    2400.0,
+    2462.0
    ]
   },
   {
-   "say": "The Chief orders them to work together. Next rainy night, they will *catch* him.",
+   "say": "The Chief pulls them apart. The killer will strike again, he says, on the next rainy *night*.",
    "clips": [
-    2575.0,
-    2616.0,
-    2628.0
+    2490.0,
+    2506.0,
+    2571.0
    ]
   },
   {
-   "say": "So officer Anna walks a dark road in a red dress, as *bait*.",
+   "say": "So officer Anna puts on a red skirt and goes out alone, as *bait*.",
    "clips": [
-    2656.0,
     2700.0,
+    2774.0,
     2777.0
    ]
   },
   {
-   "say": "But the killer picks another girl, somewhere *else*.",
+   "say": "But the killer strikes somewhere else. By morning, all that's left is her *umbrella*.",
    "clips": [
-    2800.0,
-    2858.0
+    2924.0,
+    2930.0,
+    2936.0
    ]
   },
   {
-   "say": "By morning, all they find are footprints, smeared by the *rain*.",
+   "say": "And footprints, smeared by the *rain*.",
    "clips": [
     2952.0,
     2956.0,
@@ -205,7 +211,7 @@
    ]
   },
   {
-   "say": "A lonely man keeps begging the DJ to play it, always on rainy *days*.",
+   "say": "Someone keeps mailing the radio show, asking for that song on rainy *nights*.",
    "clips": [
     3164.5,
     3175.5
@@ -214,7 +220,7 @@
   {
    "say": "Jack gets desperate. He decides the killer has no body hair, so his men raid public *saunas*.",
    "clips": [
-    3288.0,
+    3280.0,
     3300.0
    ]
   },
@@ -233,23 +239,23 @@
    ]
   },
   {
-   "say": "Then a suspect turns up near a crime scene, and the whole team chases him through the *dark*.",
+   "say": "Days later, the team chases a stranger through the night, all the way to a *quarry*.",
    "clips": [
     3801.0,
-    3807.5,
-    3886.0
-   ]
-  },
-  {
-   "say": "They corner a man at a quarry. His name is *Sam*.",
-   "clips": [
     3908.0,
-    3963.5,
-    4021.5
+    3953.5
    ]
   },
   {
-   "say": "His wife swears he is a gentle husband. But Jack trusts his *eyes*.",
+   "say": "Jack corners the man there. His name is *Sam*.",
+   "clips": [
+    3961.5,
+    3964.0,
+    4022.0
+   ]
+  },
+  {
+   "say": "Sam has kids at home. But Jack trusts his *eyes*.",
    "clips": [
     4070.0,
     4110.5,
@@ -335,30 +341,30 @@
   {
    "say": "Peter has soft, clean hands. He started this town job just before the first *murder*.",
    "clips": [
-    5233.0,
-    5320.0
+    5303.0,
+    5316.0
    ]
   },
   {
    "say": "He admits he sent the postcards. He swears he knows nothing about the *murders*.",
    "clips": [
     5331.0,
-    5359.5,
+    5360.0,
     5381.5
    ]
   },
   {
    "say": "Ryan describes the killer's night in horrible detail. Peter does not *flinch*.",
    "clips": [
+    5393.0,
     5398.5,
-    5453.5,
-    5523.0
+    5456.0
    ]
   },
   {
    "say": "This man is ice *cold*.",
    "clips": [
-    5310.5
+    5355.0
    ]
   },
   {
@@ -373,28 +379,27 @@
    "say": "Tommy never confessed. On that tape, he sounds like a *witness*.",
    "clips": [
     5741.5,
-    5971.0,
-    6003.5
+    6004.0
    ]
   },
   {
-   "say": "So they take Tommy back to the tracks, and show him a photo of *Peter*.",
+   "say": "So they hunt Tommy down by the railway, and show him a photo of *Peter*.",
    "clips": [
-    6035.5,
-    6053.0,
+    5975.0,
+    6036.0,
     6071.0
    ]
   },
   {
    "say": "Tommy stares at the photo. Then a train comes, and he is standing on the *tracks*.",
    "clips": [
-    6114.5,
-    6128.0,
+    6031.5,
+    6061.5,
     6134.0
    ]
   },
   {
-   "say": "Their last hope is DNA. But Korea cannot test it. It has to go to *America*.",
+   "say": "Their only witness is gone. Their last hope is DNA, and Korea cannot test it. It has to go to *America*.",
    "clips": [
     6230.0,
     6258.0,
@@ -443,7 +448,7 @@
    "say": "He pulls a gun, and screams for a *confession*.",
    "clips": [
     6995.5,
-    7275.0,
+    7181.5,
     7281.0
    ]
   },
@@ -464,11 +469,11 @@
    ]
   },
   {
-   "say": "Jack lets Peter walk away. Years of work, and nothing to *show*.",
+   "say": "Jack holds Ryan back. Peter walks off into the *tunnel*. Years of work, gone.",
    "clips": [
-    7259.0,
-    7290.0,
-    7316.0
+    7316.0,
+    7263.0,
+    7284.0
    ]
   },
   {
