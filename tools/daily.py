@@ -192,9 +192,9 @@ def report(state: dict) -> None:
         print(line)
 
 
-def build() -> None:
+def build(only: set[str] | None = None) -> None:
     state, plan = load(TODAY), load(PLAN)
-    ready = [j for j in state["jobs"] if j["state"] == "ready"]
+    ready = [j for j in state["jobs"] if j["state"] == "ready" and (not only or j["job"] in only)]
     missing = [j["job"] for j in ready if not (ROOT / j["job"] / "script.json").exists()]
     if missing:
         print("no script.json yet:", missing)
@@ -228,4 +228,4 @@ def post() -> None:
 
 
 if __name__ == "__main__":
-    {"prep": prep, "build": build, "post": post, "report": lambda: report(load(TODAY))}[sys.argv[1]]()
+    {"prep": prep, "build": lambda: build(set(sys.argv[2:])), "post": post, "report": lambda: report(load(TODAY))}[sys.argv[1]]()
