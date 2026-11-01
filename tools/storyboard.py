@@ -40,21 +40,22 @@ class Frames:
         return self.cache.get(path)
 
     def tile(self, second: float) -> Image.Image | None:
+        cols = 8
         if self.panels:
-            k, per, name = int(second // PANEL_SECONDS), PANEL_TILES, f"panels_sheet_{{}}.jpg"
-        else:
-            if not self.starts:
-                return None
+            k, per, name = int(second // PANEL_SECONDS), PANEL_TILES, "panels_sheet_{}.jpg"
+        elif self.starts and (self.sheets / "shot_sheet_01.jpg").exists():
             k, per, name = max(bisect.bisect_right(self.starts, second) - 1, 0), SHOT_TILES, "shot_sheet_{:02d}.jpg"
+        else:  # older jobs have only film sheets: one frame every 30 s, 6 x 5 per sheet (nearest frame, not exact)
+            k, per, name, cols = int(second // 30), 30, "film_sheet_{:02d}.jpg", 6
         img = self.sheet(self.sheets / name.format(k // per + 1))
         if img is None:
             return None
-        rows = per // 8
-        w, h = img.width // 8, img.height // rows
+        rows = per // cols
+        w, h = img.width // cols, img.height // rows
         pos = k % per
-        if pos // 8 >= rows or (pos // 8 + 1) * h > img.height:
+        if pos // cols >= rows or (pos // cols + 1) * h > img.height:
             return None
-        tile = img.crop((pos % 8 * w, pos // 8 * h, pos % 8 * w + w, pos // 8 * h + h))
+        tile = img.crop((pos % cols * w, pos // cols * h, pos % cols * w + w, pos // cols * h + h))
         return tile.resize((round(tile.width * THUMB_H / tile.height), THUMB_H))
 
 
@@ -68,7 +69,8 @@ def main() -> None:
     job = Path(sys.argv[1])
     script = json.loads((job / (sys.argv[2] if len(sys.argv) > 2 else "script.json")).read_text(encoding="utf-8"))
     sheets = job / "sheets"
-    if not sheets.exists() and job.name.endswith("-promo"):  # a promo reuses its full video's source and sheets
+    has_frames = any(sheets.glob("*_sheet_*.jpg")) if sheets.exists() else False  # storyboard pages do not count
+    if not has_frames and job.name.endswith("-promo"):  # a promo reuses its full video's source and sheets
         sheets = job.with_name(job.name[: -len("-promo")]) / "sheets"
     frames = Frames(sheets)
     font = ImageFont.truetype(FONT, 20) if FONT else ImageFont.load_default()
