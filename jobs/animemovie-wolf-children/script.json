@@ -55,7 +55,7 @@
       "clips": [
         182,
         190.5,
-        237
+        214
       ]
     },
     {
@@ -69,7 +69,7 @@
     {
       "say": "Her name means flower. Her dad wanted her to smile through anything, even his *funeral*.",
       "clips": [
-        430,
+        455,
         650
       ]
     },
@@ -108,8 +108,8 @@
     {
       "say": "That winter, Yuki is born in a snowstorm, and the next spring, Hana is expecting *again*.",
       "clips": [
+        1060,
         1073,
-        1085,
         1122
       ]
     },
@@ -221,8 +221,8 @@
       "say": "She makes one rule. Being wolf children is their little *secret*.",
       "clips": [
         2052,
-        2145,
-        2085
+        2135,
+        2145
       ]
     },
     {
@@ -344,7 +344,7 @@
       ]
     },
     {
-      "say": "When he keeps pushing, Yuki snaps. She turns into a wolf, and tears his *ear*.",
+      "say": "When he keeps pushing, Yuki runs, and the wolf inside her snaps. Sohei ends up with a *bloody* ear.",
       "clips": [
         4185.5,
         4202,
@@ -409,8 +409,8 @@
       "say": "Hana watches them, and realizes this is the freedom she moved them here to *give*.",
       "clips": [
         5099,
-        5057,
-        5065
+        5147,
+        5057
       ]
     },
     {
@@ -425,8 +425,8 @@
       "say": "Sensei is dying, Ame says, and somebody has to take his place. Hana begs him to *stay*.",
       "clips": [
         5190,
-        5201,
-        5207.5
+        5167,
+        5201
       ]
     },
     {
@@ -465,7 +465,7 @@
       "say": "Deep in the forest, Hana hears something huge moving in the fog, and then the ground gives *way*.",
       "clips": [
         5798,
-        5811,
+        5823,
         5836
       ]
     },
@@ -489,8 +489,7 @@
       "say": "Yuki listens. Then she tells him the secret she has kept for *years*.",
       "clips": [
         6176,
-        6192,
-        6199.8
+        6193.5
       ]
     },
     {

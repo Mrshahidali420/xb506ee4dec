@@ -1,551 +1,499 @@
 {
- "title": "A Level One Blacksmith In Borrowed Armor Just Wiped Out A Whole Gang . . . (Episode 2)",
- "source": "source.mp4",
- "caption": "Grid is level negative three and can't even afford a carriage ride. Overgeared, episode 2: one epic arrow starts a hunt for the maker, and an old smith's forge becomes a battlefield. Follow for episode 3!\n\n#overgeared #anime #animerecap #animeexplained #fyp",
- "comment": "Would you have helped Khan, or kept your arrows and walked away? Why?",
- "music": "../../music/Kamin_EMIN_JONY.mp3",
- "music_db_under_voice": 12,
- "credit": "Anime: Overgeared (Episode 2)",
- "watermark": "@AnimeRewindRecap",
- "header": "../../brand/anime-rewind/header.png",
- "voice_chain": [
-  "kokoro",
-  "edge"
- ],
- "kokoro_voice": "am_liam",
- "edge_voice": "en-US-GuyNeural",
- "edge_rate": "+30%",
- "edge_pitch": "+10Hz",
- "speed": 1.0,
- "bed_volume": 0,
- "segments": [
-  {
-   "say": "A level one blacksmith in borrowed *armor* just wiped out an entire gang with one swing.",
-   "clips": [
-    1263.9,
-    1272.6,
-    1275.5
-   ]
-  },
-  {
-   "say": "To see how it got here, go back to the day after the temple *fell*.",
-   "clips": [
-    42.3
-   ]
-  },
-  {
-   "say": "Yura won that fight, and the game company is *watching*.",
-   "clips": [
-    52.7,
-    36.9
-   ]
-  },
-  {
-   "say": "One executive can't stop thinking about the guy who *lost*.",
-   "clips": [
-    58.6,
-    63.5
-   ]
-  },
-  {
-   "say": "Grid logs back in, and the system says he is now an enemy of the Yatan *cult*.",
-   "clips": [
-    166.6,
-    170.2
-   ]
-  },
-  {
-   "say": "Worse, he is level negative three, in a town packed with level one hundred *players*.",
-   "clips": [
-    182.3,
-    186.5,
-    190.4
-   ]
-  },
-  {
-   "say": "So he tries to hire a carriage out of there, but the ride costs ten *gold*.",
-   "clips": [
-    203.2,
-    204.9
-   ]
-  },
-  {
-   "say": "Grid has none. He begs, the driver does not care, and he gets thrown *out*.",
-   "clips": [
-    216.3,
-    218.8,
-    223.3
-   ]
-  },
-  {
-   "say": "Nobody helps a broke man, so Grid pulls himself *together*.",
-   "clips": [
-    226.7
-   ]
-  },
-  {
-   "say": "Then it hits him. He is a legendary *blacksmith*, and mastering a few skills lifts every stat ten *percent*.",
-   "clips": [
-    237.9,
-    239.5
-   ]
-  },
-  {
-   "say": "Better still, he can craft any item he *wants*.",
-   "clips": [
-    249.0,
-    257.2
-   ]
-  },
-  {
-   "say": "So he designs a greatsword with stats over ten *million*, a meteor on every swing.",
-   "clips": [
-    269.5,
-    276.7
-   ]
-  },
-  {
-   "say": "And it looks like a *shark*.",
-   "clips": [
-    280.5,
-    285.0
-   ]
-  },
-  {
-   "say": "Grid stares at it like a proud *father*.",
-   "clips": [
-    282.5
-   ]
-  },
-  {
-   "say": "Even the system warns him he went a little *overboard*.",
-   "clips": [
-    295.5,
-    303.3
-   ]
-  },
-  {
-   "say": "But now he understands how every piece is *made*.",
-   "clips": [
-    305.3,
-    307.3
-   ]
-  },
-  {
-   "say": "Eighteen hundred attack, before he adds a single *upgrade*.",
-   "clips": [
-    310.8,
-    317.4,
-    330.5
-   ]
-  },
-  {
-   "say": "Feeling good, he walks up to a high level party, and they tell him he can't *join*.",
-   "clips": [
-    340.3,
-    353.0
-   ]
-  },
-  {
-   "say": "They guess he is level sixty. He says one hundred, and they take it as an *insult*.",
-   "clips": [
-    342.5,
-    359.4
-   ]
-  },
-  {
-   "say": "Then Ragus, the holy fist, offers to test his *skills*.",
-   "clips": [
-    373.5,
-    379.2
-   ]
-  },
-  {
-   "say": "Grid takes one look at the shirtless fighter and says *no thanks*.",
-   "clips": [
-    392.3,
-    395.5,
-    405.2
-   ]
-  },
-  {
-   "say": "Smart. He would have lost.",
-   "clips": [
-    397.4
-   ]
-  },
-  {
-   "say": "So he begs a village blacksmith to teach him, and the man throws him *out*.",
-   "clips": [
-    423.8,
-    430.0,
-    440.0
-   ]
-  },
-  {
-   "say": "Now Grid is stuck in this village, broke and *hopeless*.",
-   "clips": [
-    449.5,
-    456.5
-   ]
-  },
-  {
-   "say": "But the smith sees he is still hanging around, and gives him a chore. Chop some *firewood*.",
-   "clips": [
-    466.5,
-    473.9,
-    481.7
-   ]
-  },
-  {
-   "say": "It sounds easy, until his body feels like it will *break*.",
-   "clips": [
-    522.0,
-    527.5
-   ]
-  },
-  {
-   "say": "Then something odd happens. He is exhausted, yet he does not want to *stop*.",
-   "clips": [
-    539.6,
-    564.6
-   ]
-  },
-  {
-   "say": "And a new stat unlocks, *fortitude*, which gives him stamina.",
-   "clips": [
-    569.3,
-    570.9,
-    574.2
-   ]
-  },
-  {
-   "say": "By morning he has chopped a thousand *logs*.",
-   "clips": [
-    590.2,
-    594.1
-   ]
-  },
-  {
-   "say": "The smith is not impressed. Mine me some ore, and *maybe*.",
-   "clips": [
-    602.2,
-    608.9
-   ]
-  },
-  {
-   "say": "So Grid hauls out huge chunks of ore, in full armor, while the miners just *stare*.",
-   "clips": [
-    619.3,
-    624.0,
-    631.7
-   ]
-  },
-  {
-   "say": "Then he levels up. Grid is finally level *one*, and the penalty is gone.",
-   "clips": [
-    642.2,
-    651.0
-   ]
-  },
-  {
-   "orig": [
-    657.9,
-    660.6
-   ],
-   "text": "Guess who's finally level one?"
-  },
-  {
-   "say": "The smith's trust is now max, so he finally teaches him to make *arrows*.",
-   "clips": [
-    663.5,
-    683.5
-   ]
-  },
-  {
-   "say": "Yaffa ore melted into steel makes arrows that ignore part of enemy *defense*.",
-   "clips": [
-    686.2,
-    707.4
-   ]
-  },
-  {
-   "say": "Grid read up on refining before he logged in, and his class fixes the *rest*.",
-   "clips": [
-    718.3,
-    720.7,
-    722.6
-   ]
-  },
-  {
-   "say": "Hard work, plus a cheat code.",
-   "clips": [
-    748.8
-   ]
-  },
-  {
-   "say": "He melts the steel, tempers it, and pours everything he has into the *anvil*.",
-   "clips": [
-    747.2,
-    759.6,
-    771.9
-   ]
-  },
-  {
-   "say": "Then a purple glow, and an epic arrow *appears*.",
-   "clips": [
-    786.1,
-    794.5
-   ]
-  },
-  {
-   "orig": [
-    797.4,
-    799.0
-   ],
-   "text": "I made an epic."
-  },
-  {
-   "say": "He levels up again, and the smith calls him the second coming of *Pogma*.",
-   "clips": [
-    800.9,
-    804.95
-   ]
-  },
-  {
-   "say": "So Grid says goodbye and puts his arrows up for *auction*.",
-   "clips": [
-    814.9,
-    822.9,
-    836.2
-   ]
-  },
-  {
-   "say": "Far away, a guild is getting crushed by a stone *golem*.",
-   "clips": [
-    847.6,
-    855.5,
-    859.0
-   ]
-  },
-  {
-   "say": "Their archer buys one of Grid's arrows, and it sells in a *flash*.",
-   "clips": [
-    870.95,
-    879.0
-   ]
-  },
-  {
-   "say": "She takes one look and freezes. It is *epic*.",
-   "clips": [
-    889.4,
-    898.3,
-    901.1
-   ]
-  },
-  {
-   "say": "She asks the seller who made it, and he has no *idea*.",
-   "clips": [
-    912.4
-   ]
-  },
-  {
-   "say": "The furious guild swears to find the maker, and sends word to *everyone*.",
-   "clips": [
-    920.6,
-    927.9
-   ]
-  },
-  {
-   "say": "Meanwhile, back in the real world, Grid collapses from *exhaustion*.",
-   "clips": [
-    932.2,
-    935.3,
-    938.3
-   ]
-  },
-  {
-   "say": "His parents are worried sick, and his dad slips him some *cash*.",
-   "clips": [
-    950.3,
-    955.0,
-    960.6
-   ]
-  },
-  {
-   "say": "Then Grid counts it out. He earns nine thousand yen a *day*.",
-   "clips": [
-    975.3,
-    989.1
-   ]
-  },
-  {
-   "say": "But when he checks the auction, his arrows sold for ninety-two *silver* each.",
-   "clips": [
-    1005.5,
-    1010.4
-   ]
-  },
-  {
-   "say": "That is more than his whole *paycheck*.",
-   "clips": [
-    1017.4
-   ]
-  },
-  {
-   "say": "Look out, world. Grid is coming to secure the *bag*.",
-   "clips": [
-    1018.9
-   ]
-  },
-  {
-   "say": "He rides to Winston Village to find a blacksmith and make *more*.",
-   "clips": [
-    1020.9,
-    1043.1,
-    1052.3
-   ]
-  },
-  {
-   "say": "But the only forge in town is *closed*.",
-   "clips": [
-    1065.7,
-    1079.8,
-    1087.0
-   ]
-  },
-  {
-   "say": "The old smith, Khan, says he had a son Grid's age, but he cannot *help*.",
-   "clips": [
-    1094.1,
-    1104.5
-   ]
-  },
-  {
-   "say": "The Merrow Company is buying up his materials, and then its thugs storm *in*.",
-   "clips": [
-    1122.3,
-    1131.7,
-    1134.7
-   ]
-  },
-  {
-   "say": "They tell him to sign the shop away, and that he is the last of his line, now his son is *dead*.",
-   "clips": [
-    1138.7,
-    1144.7
-   ]
-  },
-  {
-   "say": "That is cruel, even for a thug.",
-   "clips": [
-    1157.6
-   ]
-  },
-  {
-   "say": "Khan reminds Grid of his own *grandpa*.",
-   "clips": [
-    1164.4,
-    1167.2
-   ]
-  },
-  {
-   "say": "So Grid steps in, and tells the thugs to step *off*.",
-   "clips": [
-    1173.3,
-    1184.2
-   ]
-  },
-  {
-   "say": "He hands them a fresh arrow, and a legendary quest *starts*.",
-   "clips": [
-    1188.6,
-    1190.6,
-    1194.5
-   ]
-  },
-  {
-   "say": "It goes badly. His weapon breaks, and Grid is nearly *dead*.",
-   "clips": [
-    1206.1,
-    1209.4,
-    1228.8
-   ]
-  },
-  {
-   "orig": [
-    1235.5,
-    1238.4
-   ],
-   "text": "Hey, old dude, you want to protect your legacy, right?"
-  },
-  {
-   "say": "Khan says yes, so Grid borrows his *gear*.",
-   "clips": [
-    1243.2,
-    1244.9,
-    1248.6
-   ]
-  },
-  {
-   "say": "The thugs laugh. Hide in all the gear you want, you are *fake*.",
-   "clips": [
-    1251.3,
-    1256.3
-   ]
-  },
-  {
-   "orig": [
-    1260.0,
-    1263.0
-   ],
-   "text": "Yeah, I know. And everybody will probably laugh at me."
-  },
-  {
-   "say": "But the only way to get stronger is to be *overgeared*.",
-   "clips": [
-    1268.8
-   ]
-  },
-  {
-   "say": "One swing, and the whole gang is *wiped out*.",
-   "clips": [
-    1275.5
-   ]
-  },
-  {
-   "say": "Quest cleared. Grid jumps to level twenty-*one*.",
-   "clips": [
-    1279.2,
-    1283.1
-   ]
-  },
-  {
-   "say": "Khan knows who made those weapons. He knew Grid all *along*.",
-   "clips": [
-    1287.0,
-    1290.6
-   ]
-  },
-  {
-   "say": "Then Khan hits the floor, and Grid begs him to *stay*.",
-   "clips": [
-    1299.3
-   ]
-  },
-  {
-   "say": "Far away, a man at dinner hears his mercenaries went *missing*.",
-   "clips": [
-    1314.4,
-    1321.6
-   ]
-  },
-  {
-   "say": "He turns to his best killer. Rabbit, it is your *turn*.",
-   "clips": [
-    1323.5,
-    1326.2
-   ]
-  }
- ]
+  "title": "A Level One Blacksmith In Borrowed Armor Just Wiped Out A Whole Gang . . . (Episode 2)",
+  "source": "source.mp4",
+  "caption": "Grid is level negative three and can't even afford a carriage ride. Overgeared, episode 2: one epic arrow starts a hunt for the maker, and an old smith's forge becomes a battlefield. Follow for episode 3!\n\n#overgeared #anime #animerecap #animeexplained #fyp",
+  "comment": "Would you have helped Khan, or kept your arrows and walked away? Why?",
+  "music": "../../music/Kamin_EMIN_JONY.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Anime: Overgeared (Episode 2)",
+  "watermark": "@AnimeRewindRecap",
+  "header": "../../brand/anime-rewind/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "kokoro_voice": "am_liam",
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "segments": [
+    {
+      "say": "A low level blacksmith in borrowed *armor* just wiped out an entire gang with one swing.",
+      "clips": [
+        1263.9,
+        1272.6,
+        1275.5
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to the day after the temple *fell*.",
+      "clips": [
+        42.3
+      ]
+    },
+    {
+      "say": "Yura won that fight, and the game company is watching. One executive can't stop thinking about the guy who *lost*.",
+      "clips": [
+        52.7,
+        36.9,
+        58.6
+      ]
+    },
+    {
+      "say": "Grid logs back in, and the system says he is now an enemy of the Yatan *cult*.",
+      "clips": [
+        166.6,
+        170.2
+      ]
+    },
+    {
+      "say": "Worse, he is level negative three, in a town packed with level one hundred *players*.",
+      "clips": [
+        182.3,
+        186.5,
+        190.4
+      ]
+    },
+    {
+      "say": "So he tries to hire a carriage out of there, but the ride costs ten *gold*.",
+      "clips": [
+        203.2,
+        204.9
+      ]
+    },
+    {
+      "say": "Grid has none. He begs, the driver does not care, and he gets thrown *out*.",
+      "clips": [
+        216.3,
+        218.8,
+        223.3
+      ]
+    },
+    {
+      "say": "Nobody helps a broke man, so Grid pulls himself *together*.",
+      "clips": [
+        226.7
+      ]
+    },
+    {
+      "say": "Then it hits him. He is a legendary *blacksmith*, and he can craft any item he wants.",
+      "clips": [
+        237.9,
+        249.0,
+        257.2
+      ]
+    },
+    {
+      "say": "So he designs a greatsword with stats over ten *million*, a meteor on every swing.",
+      "clips": [
+        269.5,
+        276.7
+      ]
+    },
+    {
+      "say": "And it looks like a *shark*. Grid stares at it like a proud father.",
+      "clips": [
+        280.5,
+        282.5,
+        285.0
+      ]
+    },
+    {
+      "say": "Even the system warns him he went a little *overboard*.",
+      "clips": [
+        295.5,
+        303.3,
+        307.3
+      ]
+    },
+    {
+      "say": "Eighteen hundred attack, before he adds a single *upgrade*.",
+      "clips": [
+        310.8,
+        317.4,
+        330.5
+      ]
+    },
+    {
+      "say": "Feeling good, he walks up to a high level party, and they tell him he can't *join*.",
+      "clips": [
+        340.3,
+        353.0
+      ]
+    },
+    {
+      "say": "They guess he is level sixty. He says one hundred, and they take it as an *insult*.",
+      "clips": [
+        342.5,
+        359.4
+      ]
+    },
+    {
+      "say": "Then Ragus, the holy fist, offers to test his *skills*.",
+      "clips": [
+        373.5,
+        379.2
+      ]
+    },
+    {
+      "say": "Grid takes one look at the shirtless fighter and says *no thanks*.",
+      "clips": [
+        392.3,
+        395.5,
+        405.2
+      ]
+    },
+    {
+      "say": "Smart. He would have lost.",
+      "clips": [
+        397.4
+      ]
+    },
+    {
+      "say": "Instead, he begs a village blacksmith to teach him, and the man throws him *out*.",
+      "clips": [
+        427.5,
+        430.0,
+        440.0
+      ]
+    },
+    {
+      "say": "Now Grid is stuck in this village, broke and *hopeless*.",
+      "clips": [
+        449.5,
+        456.5
+      ]
+    },
+    {
+      "say": "But the smith sees he is still hanging around, and gives him a chore. Chop some *firewood*.",
+      "clips": [
+        466.5,
+        473.9,
+        481.7
+      ]
+    },
+    {
+      "say": "It sounds easy, until his body feels like it will *break*.",
+      "clips": [
+        522.0,
+        527.5
+      ]
+    },
+    {
+      "say": "Then something odd happens. He is exhausted, yet he does not want to *stop*.",
+      "clips": [
+        539.6,
+        564.6
+      ]
+    },
+    {
+      "say": "And a new stat unlocks, *fortitude*, which gives him stamina.",
+      "clips": [
+        569.3,
+        570.9,
+        574.2
+      ]
+    },
+    {
+      "say": "By morning he has chopped a thousand *logs*.",
+      "clips": [
+        590.2,
+        594.1
+      ]
+    },
+    {
+      "say": "The smith is not impressed. Mine me some ore, and *maybe*.",
+      "clips": [
+        602.2,
+        608.9
+      ]
+    },
+    {
+      "say": "So Grid hauls out huge chunks of ore, in full armor, while the miners just *stare*.",
+      "clips": [
+        619.3,
+        624.0,
+        631.7
+      ]
+    },
+    {
+      "say": "Then he levels up. Grid is finally level *one*, and the penalty is gone.",
+      "clips": [
+        642.2,
+        651.0
+      ]
+    },
+    {
+      "orig": [
+        657.9,
+        660.6
+      ],
+      "text": "Guess who's finally level one?"
+    },
+    {
+      "say": "The smith's trust is now max, so he finally teaches him to make *arrows*.",
+      "clips": [
+        663.5,
+        683.5
+      ]
+    },
+    {
+      "say": "Yaffa ore melted into steel makes arrows that ignore part of enemy *defense*.",
+      "clips": [
+        686.2,
+        707.4
+      ]
+    },
+    {
+      "say": "Grid read up on refining before he logged in, and his class fixes the *rest*.",
+      "clips": [
+        718.3,
+        720.7,
+        722.6
+      ]
+    },
+    {
+      "say": "Hard work, plus a cheat code. He tempers the steel and pours everything he has into the *anvil*.",
+      "clips": [
+        749.0,
+        760.0,
+        772.0
+      ]
+    },
+    {
+      "say": "Then a purple glow, and an epic arrow *appears*.",
+      "clips": [
+        786.1,
+        794.5
+      ]
+    },
+    {
+      "orig": [
+        797.4,
+        799.0
+      ],
+      "text": "I made an epic."
+    },
+    {
+      "say": "He levels up again, and the smith calls him the second coming of *Pogma*.",
+      "clips": [
+        800.9,
+        804.95
+      ]
+    },
+    {
+      "say": "So Grid says goodbye and puts his arrows up for *auction*.",
+      "clips": [
+        814.9,
+        822.9,
+        836.2
+      ]
+    },
+    {
+      "say": "Far away, a guild is getting crushed by a stone *golem*.",
+      "clips": [
+        847.6,
+        855.5,
+        859.0
+      ]
+    },
+    {
+      "say": "Their archer buys one of Grid's arrows, and it sells in a *flash*.",
+      "clips": [
+        870.95,
+        879.0
+      ]
+    },
+    {
+      "say": "She takes one look and freezes. It is *epic*.",
+      "clips": [
+        889.4,
+        898.3,
+        901.1
+      ]
+    },
+    {
+      "say": "She asks the seller who made it, and he has no *idea*.",
+      "clips": [
+        912.4
+      ]
+    },
+    {
+      "say": "The furious guild swears to find the maker, and sends word to *everyone*.",
+      "clips": [
+        920.6,
+        927.9
+      ]
+    },
+    {
+      "say": "Meanwhile, back in the real world, Grid collapses from *exhaustion*.",
+      "clips": [
+        932.2,
+        935.3,
+        938.3
+      ]
+    },
+    {
+      "say": "His parents are worried sick, and his dad slips him some cash, because Grid only earns nine thousand yen a *day*.",
+      "clips": [
+        950.3,
+        955.0,
+        989.1
+      ]
+    },
+    {
+      "say": "But when he checks the auction, his arrows sold for ninety-two *silver* each.",
+      "clips": [
+        1005.5,
+        1010.4
+      ]
+    },
+    {
+      "say": "That is more than his whole paycheck. Look out, world. Grid is coming to secure the *bag*.",
+      "clips": [
+        1017.4,
+        1018.9
+      ]
+    },
+    {
+      "say": "He rides to Winston Village to find a blacksmith and make *more*.",
+      "clips": [
+        1020.9,
+        1043.1,
+        1052.3
+      ]
+    },
+    {
+      "say": "But the only forge in town is *closed*.",
+      "clips": [
+        1065.7,
+        1079.8,
+        1087.0
+      ]
+    },
+    {
+      "say": "The old smith, Khan, says he had a son Grid's age, but he cannot *help*.",
+      "clips": [
+        1094.1,
+        1104.5
+      ]
+    },
+    {
+      "say": "The Merrow Company is buying up his materials, and then its thugs storm *in*.",
+      "clips": [
+        1122.3,
+        1131.7,
+        1134.7
+      ]
+    },
+    {
+      "say": "They tell him to sign the shop away, and that he is the last of his line, now his son is *dead*.",
+      "clips": [
+        1138.7,
+        1144.7
+      ]
+    },
+    {
+      "say": "That is cruel, even for a thug.",
+      "clips": [
+        1157.6
+      ]
+    },
+    {
+      "say": "Khan reminds Grid of his own *grandpa*.",
+      "clips": [
+        1164.4,
+        1167.2
+      ]
+    },
+    {
+      "say": "So Grid steps in, and tells the thugs to step *off*.",
+      "clips": [
+        1173.3,
+        1184.2
+      ]
+    },
+    {
+      "say": "He hands them a fresh arrow, and a legendary quest *starts*.",
+      "clips": [
+        1188.6,
+        1190.6,
+        1194.5
+      ]
+    },
+    {
+      "say": "It goes badly. His weapon breaks, and Grid is nearly *dead*.",
+      "clips": [
+        1206.1,
+        1221.5,
+        1229.0
+      ]
+    },
+    {
+      "orig": [
+        1235.5,
+        1238.4
+      ],
+      "text": "Hey, old dude, you want to protect your legacy, right?"
+    },
+    {
+      "say": "Khan says yes, so Grid borrows his *gear*.",
+      "clips": [
+        1239.6,
+        1245.0,
+        1247.0
+      ]
+    },
+    {
+      "say": "The thugs laugh. Hide in all the gear you want, you are a *fake*. Grid knows. Let them laugh.",
+      "clips": [
+        1251.3,
+        1256.3,
+        1260.0
+      ]
+    },
+    {
+      "say": "But the only way to get stronger is to be *overgeared*.",
+      "clips": [
+        1268.8
+      ]
+    },
+    {
+      "say": "One swing, and the whole gang is *wiped out*.",
+      "clips": [
+        1275.5
+      ]
+    },
+    {
+      "say": "Quest cleared. Grid jumps to level twenty-*one*.",
+      "clips": [
+        1279.2,
+        1283.1,
+        1287.0
+      ]
+    },
+    {
+      "say": "Khan knew who made those weapons all along. Then he hits the floor, and Grid begs him to *stay*.",
+      "clips": [
+        1290.8,
+        1300.0
+      ]
+    },
+    {
+      "say": "Far away, a man at dinner hears his mercenaries went *missing*.",
+      "clips": [
+        1314.4,
+        1321.6
+      ]
+    },
+    {
+      "say": "He turns to his best killer. Rabbit, it is your *turn*.",
+      "clips": [
+        1323.5,
+        1326.2
+      ]
+    }
+  ]
 }

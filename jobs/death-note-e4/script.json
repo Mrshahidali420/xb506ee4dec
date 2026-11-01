@@ -109,11 +109,11 @@
       ]
     },
     {
-      "say": "Ryuk just grins. He only wanted Jack to know the deal *existed*.",
+      "say": "Ryuk just grins. He only wanted Jack to know the deal *existed*. Classic Ryuk, always stirring the pot.",
       "clips": [
         [
           221.8,
-          2.5
+          4.5
         ],
         [
           231.2,
@@ -739,7 +739,7 @@
       ]
     },
     {
-      "say": "The agent is sure Jack isn't Kira. Kira would just give the gunman a heart *attack*.",
+      "say": "The agent is sure Jack isn't Kira. Kira would just give the gunman a heart *attack*. Wrong. He is sitting right next to Kira.",
       "clips": [
         [
           1010.1,
@@ -748,6 +748,10 @@
         [
           1018.4,
           3.0
+        ],
+        [
+          1073.5,
+          2.5
         ]
       ]
     },
