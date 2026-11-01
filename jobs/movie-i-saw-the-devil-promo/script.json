@@ -24,8 +24,8 @@
   {
    "say": "A secret agent finds the man who *murdered* his fiancee. And what he does next is *cold*.",
    "clips": [
-    3012.0,
-    3060.0
+    3060.0,
+    3099.5
    ]
   },
   {
@@ -43,66 +43,70 @@
    ]
   },
   {
-   "say": "Daniel finally *finds* him. Alone, in the dark.",
+   "say": "Daniel finally *finds* him, alone in a greenhouse.",
    "clips": [
-    2962.0
-   ]
-  },
-  {
-   "say": "Victor is tough, but Daniel is *stronger*. The fight ends in seconds.",
-   "clips": [
-    2907.2,
-    2879.7
+    3036.5,
+    3001.0
    ]
   },
   {
    "say": "Victor laughs. The cops found me this *quick*? You do not know who you are dealing with.",
    "clips": [
-    3036.0,
+    3025.0,
     3040.0
    ]
   },
   {
    "say": "Daniel just stands there. Calm. No *rage*. That is what makes it scary.",
    "clips": [
-    2974.5
+    3015.0
    ]
   },
   {
    "say": "Victor thinks he has the upper hand. That was his first *mistake*.",
    "clips": [
-    3056.0
+    3056.0,
+    3064.0
+   ]
+  },
+  {
+   "say": "Victor is tough, but Daniel is *stronger*. The fight ends in seconds.",
+   "clips": [
+    3066.5,
+    3070.8,
+    3074.2
    ]
   },
   {
    "say": "Daniel forces a small *capsule* into his mouth. And Victor has no choice but to *swallow* it.",
    "clips": [
-    3073.9,
-    3067.5
+    3082.9,
+    3086.5
    ]
   },
   {
    "say": "It holds a GPS and a *microphone*. Now Daniel can follow him, and hear every *word*.",
    "clips": [
-    3082.8
+    3094.5
    ]
   },
   {
    "say": "Then he just walks *away*. No police. No handcuffs.",
    "clips": [
-    3087.7
+    3120.0,
+    3105.7
    ]
   },
   {
    "say": "Why would he let a killer go? Because a quick end is not what Daniel *wants*.",
    "clips": [
-    3090.9
+    3108.5
    ]
   },
   {
    "say": "The full story is on our page.",
    "clips": [
-    2921.6
+    3088.5
    ]
   }
  ]
