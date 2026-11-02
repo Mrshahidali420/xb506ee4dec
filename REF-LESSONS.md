@@ -28,6 +28,18 @@ One line per lesson: the rule, then [seen in: refs, count]. A repeat bumps the c
 - Never state guilt; end after the arrest on a half-heard line that suggests a different crime. [seen in: intrigue-ref1, 1]
 - Music plan (measured, Demucs): silent for the first 8 s, bed in at about 8 dB under the voice, dips to 12-14 dB under on reasoning beats, almost out (20-34 dB under) for the dread scene, swells back to about 6 dB under at the final cut instead of fading. [seen in: intrigue-ref1, 1]
 
+## Conversion (original to recap)
+
+From the full-original comparison of cry-ref1 (Bad Thief, Good Thief, episode 2, 2 Nov 2026):
+
+- Move the most charming late scene to the front as the hook, then tell the cause as flashback after one reveal line; the original had them the other way round. [seen in: cry-ref1, 1]
+- Keep one emotional arc of 3-5 beats whole and in order (name, bench, leave, run back, hug); delete everything between its setup and its payoff. [seen in: cry-ref1, 1]
+- Squeeze an hour of plot into two plain facts ("not his biological son", "lost his parents") instead of showing the scenes. [seen in: cry-ref1, 1]
+- A long dialogue scene becomes one original line plus gestures (sword, name change, "Don't get sick"); the rest is cut. [seen in: cry-ref1, 1]
+- Narration may simplify motives and numbers (one test becomes "every test") but must not contradict what the viewer sees. [seen in: cry-ref1, 1]
+- Compression was about 4:1 on footage used and about 27:1 on story span; plan about 7 minutes of source for a 3-minute clip. [seen in: cry-ref1, 1]
+- Check the music boundary against the real emotional peak before locking it; here the notes had it ending 10 s before the hug (open, unmeasured). [seen in: cry-ref1, 1]
+
 ## Action
 
 ## Romance
@@ -43,3 +55,5 @@ For Shahid to approve (nothing applied):
 2. End on a punchline or mid-scene on a cut-off line that points at the next part; no sign-off.
 3. Narration pace 155-190 words per minute.
 4. Music bed stays ducked under the voice at all times; do not leave it exposed in gaps. Measured reference: about 8 dB under the voice (ours is 12), with dips and a swell at the end (see Thriller).
+
+Watching (1 sighting each, not strong yet): the Conversion lessons above. Propose when a second reference repeats one.
