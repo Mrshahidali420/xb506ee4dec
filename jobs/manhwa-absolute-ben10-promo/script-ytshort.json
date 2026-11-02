@@ -1,0 +1,167 @@
+{
+ "title": "He Swallowed A Giant Laser Blast . . . Then Gave It Back (Absolute Ben 10 highlight)",
+ "caption": "He Swallowed A Giant Laser Blast . . . Then Gave It Back\nFull story is on our channel 👉 https://youtu.be/I4VWHIYCGwE\n\n#absoluteben10 #ben10 #webtoon #comicrecap #recap #fyp",
+ "source": "source.mp4",
+ "frame": "full",
+ "music": "../../music/Shinigami_Draven_Godrics.mp3",
+ "music_db_under_voice": 9,
+ "credit": "Webtoon: Absolute Ben 10 (Danboywonder & Duckzart)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "edge",
+  "orpheus",
+  "kokoro"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "comment": "Full story: https://youtu.be/I4VWHIYCGwE",
+ "header": "../../brand/manhwa-x/header.png",
+ "segments": [
+  {
+   "say": "Ben swallowed a giant laser blast, and then he gave it *back*.",
+   "clips": [
+    1104.1,
+    [
+     1107.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Ben Tennyson is fifteen, and a strange watch just locked onto his *wrist*.",
+   "clips": [
+    345.1,
+    [
+     351.1,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "It turns him into aliens, and a giant bounty hunter named *Kraab* wants that watch.",
+   "clips": [
+    678.1,
+    [
+     684.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Kraab grabs Ben's cousin Gwen, and she *punches* him in the face.",
+   "clips": [
+    696.1,
+    [
+     708.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then Gwen goes missing, and Ben finds her phone on the *ground*.",
+   "clips": [
+    765.1,
+    [
+     789.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Kraab yells, come out, kid! I am done waiting on this stinky *planet*.",
+   "clips": [
+    795.1,
+    [
+     798.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Ben thinks, maybe I am the *help*.",
+   "clips": [
+    804.1,
+    [
+     810.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Kraab fires a giant laser, and Ben slams the watch and vanishes in the *smoke*.",
+   "clips": [
+    822.1,
+    [
+     828.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "This time he is a black alien with long *cables* for arms.",
+   "clips": [
+    849.1,
+    [
+     852.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Kraab throws Ben around like a toy, and stabs his own cable into *him*.",
+   "clips": [
+    888.1,
+    [
+     912.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then he electrocutes him, and Ben is *losing*.",
+   "clips": [
+    924.1
+   ]
+  },
+  {
+   "say": "Meanwhile Gwen escapes a burning cabin with magic nobody knew she *had*.",
+   "clips": [
+    966.1,
+    [
+     981.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Kraab sees her running, and aims right at *her*.",
+   "clips": [
+    1038.1,
+    [
+     1047.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Ben screams no, and his cables catch the *blast*.",
+   "clips": [
+    1050.1,
+    [
+     1080.1,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    1164.1
+   ]
+  }
+ ]
+}

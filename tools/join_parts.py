@@ -28,8 +28,9 @@ def stamp(seconds: float) -> str:
 
 def main() -> None:
     meta, out, parts = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3:]
-    names = [n.strip() for n in (meta / "parts.txt").read_text(encoding="utf-8").splitlines() if n.strip()]
-    if len(names) != len(parts):
+    parts_file = meta / "parts.txt"  # absent for a single video (a Short): no chapters
+    names = [n.strip() for n in parts_file.read_text(encoding="utf-8").splitlines() if n.strip()] if parts_file.exists() else []
+    if parts_file.exists() and len(names) != len(parts) or not parts_file.exists() and len(parts) != 1:
         sys.exit(f"{len(parts)} videos but {len(names)} names in parts.txt")
     out.mkdir(parents=True, exist_ok=True)
     infos = [probe(p) for p in parts]

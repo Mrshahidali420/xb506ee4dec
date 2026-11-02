@@ -4,6 +4,7 @@ run-name: YouTube ${{ inputs.meta }}
 # Joins the videos of finished build runs and uploads the result to YouTube (private unless public=true).
 # Start with: gh workflow run youtube.yml -f runs="<id1> <id2>" -f meta=jobs/<name>-full
 # meta folder: title.txt, description.txt ({chapters} is filled in), tags.txt, thumbnail.jpg, playlists.txt, parts.txt
+# A Short: one run, no parts.txt and no thumbnail.jpg (both optional).
 on:
   workflow_dispatch:
     inputs:
@@ -63,5 +64,6 @@ jobs:
           m="${{ inputs.meta }}"
           args=(); while IFS= read -r p; do [ -n "$p" ] && args+=(--playlist "$p"); done < "$m/playlists.txt"
           [ "${{ inputs.public }}" = "true" ] && args+=(--public)
+          [ -f "$m/thumbnail.jpg" ] && args+=(--thumb "$m/thumbnail.jpg")   # a Short has no thumbnail
           python3 tools/post_yt.py "${{ inputs.channel }}" out/joined.mp4 "$(cat "$m/title.txt")" "@out/description.txt" \
-            --tags "$(cat "$m/tags.txt")" --thumb "$m/thumbnail.jpg" "${args[@]}" --go
+            --tags "$(cat "$m/tags.txt")" "${args[@]}" --go
