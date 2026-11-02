@@ -10,6 +10,15 @@ Method (chosen after comparing options, see REF-STUDY.md step 4):
   3. Gemini vision + google_search grounding: the 8 frames plus the transcript (names, places, plot) go in one call;
      it must name the title, year, country, confidence and evidence. This is the live-action method.
   Reverse image search (Yandex/Bing/Google Lens) was rejected: no free key-less API, scrapers break behind captchas.
+
+Cascade (research and sources: refs/FIND-SHOW-RESEARCH.md), cheapest and most reliable first:
+  0. Post caption / description / TikTok+YouTube comments (yt-dlp info.json): recap pages often write "Title/Credit - X".
+     Facebook comments are not exposed by yt-dlp (0 returned on 2 Nov 2026).
+  1. trace.moe (anime). 2. Gemini frames + caption + transcript + search. 3. If unsure, a plot-only search pass (no frames).
+  4. VERIFY the top two guesses with a second search call; documentaries and plot mismatches are demoted.
+  5. Only when the env var exists: TMDB_API_KEY (free) confirms the title and prints cast.
+  NOT active (paid): SERPAPI_KEY (Google Lens, from $25/mo for 1000 searches), AWS_ACCESS_KEY_ID (Rekognition
+  RecognizeCelebrities, about $0.001/image). Gemini will not name people from faces, so actors come from text and search.
 Writes refs/<name>/find_show.json and prints the top guesses. A guess below 0.6 confidence stays "unsure".
 """
 from __future__ import annotations
@@ -21,6 +30,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -32,7 +42,9 @@ truststore.inject_into_ssl()
 
 N_FRAMES = 8
 CANDIDATE_EVERY = 4        # seconds between candidate frames
-GEMINI_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"]
+GEMINI_PREFER = ["gemini-2.5-flash", "gemini-3.5-flash", "gemini-3.6-flash", "gemini-flash-latest"]  # tried first if listed
+_models: list[str] = []
+_state = {"exhausted": False}
 ANIME_OK = 0.90            # trace.moe similarity that counts as a match
 SURE = 0.6
 
@@ -130,29 +142,97 @@ def transcript_hint(d: Path) -> str:
             f"Transcript (English voice-over, names may be changed):\n{plain[:3500]}")
 
 
-PROMPT = """These {n} frames come from one short recap clip of an ORIGINAL movie, TV drama or anime. A narrator re-tells it, so the
-names in the voice-over may be localised or invented. Identify the original work. Use Google Search to check candidates
-against the plot, cast and setting. Reply with ONLY a JSON object:
+def caption_hint(d: Path) -> str:
+    """Post caption (hashtags stripped) and, where yt-dlp can read them, the top comments. Recap pages often name the show."""
+    try:
+        info = json.loads((d / "info.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return ""
+    text = re.sub(r"#\S+", "", info.get("description") or "").strip()
+    comments = info.get("comments") or fetch_comments(info.get("webpage_url", ""), d)
+    top = [c.get("text", "")[:160] for c in sorted(comments, key=lambda c: -(c.get("like_count") or 0))[:15]]
+    out = f"Post uploader: {info.get('uploader')}\nPost caption: {text}\n"
+    return out + ("Top comments:\n- " + "\n- ".join(top) + "\n" if top else "")
+
+
+def fetch_comments(url: str, d: Path) -> list[dict]:
+    """TikTok / YouTube only: yt-dlp returns no comments for Facebook (tested 2 Nov 2026)."""
+    if not re.search(r"tiktok\.com|youtube\.com|youtu\.be", url):
+        return []
+    tmp = d / "_comments"
+    r = subprocess.run(["yt-dlp", "--skip-download", "--write-comments", "--write-info-json", "-o", str(tmp / "c"), url],
+                       capture_output=True, text=True)
+    try:
+        return json.loads(next(tmp.glob("*.info.json")).read_text(encoding="utf-8")).get("comments") or []
+    except (StopIteration, OSError, json.JSONDecodeError):
+        print(f"comments: none ({r.stderr[-120:].strip()})", file=sys.stderr)
+        return []
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+PROMPT = """These {n} frames come from one short recap clip of an ORIGINAL movie, TV drama or anime (K-drama, Chinese or short
+drama, Hollywood, Japanese, Thai, Indian...). The clip may be English-dubbed with RENAMED characters, cropped, mirrored,
+zoomed, with captions and watermarks, so judge by the story, setting, era, props and any on-screen text, not by the
+voice-over names. Read every caption, logo and watermark in the frames. Search Google (also in Korean/Chinese/Japanese
+if the setting suggests it) for candidates and check each against the plot, cast and setting. The original is a scripted
+film or series: reject documentaries, news and reality shows. Do not name anyone from their face; take actor names only
+from text or search results. Reply with ONLY a JSON object:
 {{"guesses":[{{"title":"","original_title":"","year":"","country":"","type":"film|series|anime","confidence":0.0,
-"evidence":"short, concrete: which plot points, actors, locations or on-screen text matched","episode_or_scene_hint":""}}],
+"actors":[""],"evidence":"concrete: plot points, locations, on-screen text, search result that matched","episode_or_scene_hint":""}}],
 "language_of_original":"","notes":""}}
-Give up to 3 guesses ordered by confidence (0-1). If you cannot find a match backed by search results, return a low
-confidence and say so; never invent a title.
+Up to 3 guesses ordered by confidence (0-1). No match backed by search results means low confidence; never invent a title.
 
 {hint}"""
 
+PLOT_PROMPT = """Below is the narration of a recap clip of a scripted movie or TV drama (characters may be renamed) and the
+post caption. Search Google for the original: try the plot in English, Korean and Chinese and check MyDramaList, TMDb,
+Wikipedia, AsianWiki and Douban. Dramas of any year count (2010-2025 as much as 2026); do not favour new releases.
+Give up to 5 candidates ranked by how well the premise fits; a weak fit is still listed, with low confidence, so it can be
+checked. Reject documentaries and news. Reply with ONLY JSON:
+{{"guesses":[{{"title":"","original_title":"","year":"","country":"","type":"","confidence":0.0,"actors":[""],"evidence":""}}]}}
 
-def gemini(frames: list[Path], hint: str) -> dict:
-    parts = [{"text": PROMPT.format(n=len(frames), hint=hint)}]
-    for f in frames:
-        parts.append({"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}})
+{hint}"""
+
+VERIFY_PROMPT = """Check one candidate. Candidate: "{title}" ({original}, {year}, {country}). Search for its official synopsis and
+cast, then compare with this clip summary. Is it a scripted film/series whose plot fits the summary? The voice-over
+names are invented by the dubber: NEVER count a name difference as a contradiction. A plot point missing from a short
+synopsis is not a contradiction either; only a clear conflict is (wrong genre, gender, era, country, or an event the
+synopsis rules out). Anthology or multi-case series: check each case/episode title and say which one fits. If the title is shared by several productions, find the one that fits (country, year, cast) and name it. Reply
+with ONLY JSON: {{"match":true,"is_documentary_or_news":false,"matched_points":[""],"contradictions":[""],
+"synopsis_source":"url","confidence":0.0,"best_title":"","original_title":"","year":"","country":"","episode_hint":""}}
+
+Clip summary:
+{hint}"""
+
+
+def gemini_models() -> list[str]:
+    """Ask the API which models this key can call (hard-coded names go dead: gemini-2.0-flash 404'd on 2 Nov 2026)."""
+    if not _models:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models?pageSize=100",
+                         headers={"x-goog-api-key": gemini_key()}, timeout=30).json()
+        ok = [m["name"].split("/")[-1] for m in r.get("models", [])
+              if "generateContent" in m.get("supportedGenerationMethods", [])
+              and re.fullmatch(r"gemini-[\d.]+-flash(-preview)?|gemini-flash-latest", m["name"].split("/")[-1])]
+        _models.extend([m for m in GEMINI_PREFER if m in ok] + sorted(m for m in ok if m not in GEMINI_PREFER))
+    return _models
+
+
+def gemini_call(parts: list) -> dict:
+    """Walk the working flash models: 429 (no free quota) or 404 skips a model, 503 (busy) is retried twice."""
     body = {"contents": [{"parts": parts}], "tools": [{"google_search": {}}], "generationConfig": {"temperature": 0.2}}
     last = ""
-    for model in GEMINI_MODELS:
-        r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                          headers={"x-goog-api-key": gemini_key()}, json=body, timeout=180)
+    if _state["exhausted"]:
+        return {"error": "all Gemini models out of quota or busy this run"}
+    for model in gemini_models():
+        for attempt in range(3):
+            r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                              headers={"x-goog-api-key": gemini_key()}, json=body, timeout=180)
+            if r.status_code != 503:
+                break
+            time.sleep(6 * (attempt + 1))
         if r.status_code != 200:
-            last = f"{model}: HTTP {r.status_code} {r.text[:200]}"
+            last = f"{model}: HTTP {r.status_code} {r.text[:120]}"
             print(last, file=sys.stderr)
             continue
         cand = r.json()["candidates"][0]
@@ -166,7 +246,81 @@ def gemini(frames: list[Path], hint: str) -> dict:
         out["model"] = model
         out["search_sources"] = sources[:8]
         return out
+    _state["exhausted"] = True  # every model failed: stop spending calls on the verify steps
     return {"error": last}
+
+
+def gemini(frames: list[Path], hint: str) -> dict:
+    parts = [{"text": PROMPT.format(n=len(frames), hint=hint)}]
+    for f in frames:
+        parts.append({"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(f.read_bytes()).decode()}})
+    return gemini_call(parts)
+
+
+def gemini_plot(hint: str) -> dict:
+    return gemini_call([{"text": PLOT_PROMPT.format(hint=hint)}])
+
+
+def verify(guess: dict, hint: str) -> dict:
+    """Second, independent search call on a guess; a documentary or a plot mismatch demotes it."""
+    q = VERIFY_PROMPT.format(title=guess.get("title"), original=guess.get("original_title"), year=guess.get("year"),
+                             country=guess.get("country"), hint=hint[:3000])
+    v = gemini_call([{"text": q}])
+    if v.get("error"):
+        guess["verified"] = {"error": v["error"][:100]}
+        guess["confidence"] = min(float(guess.get("confidence") or 0), 0.5)  # never "sure" without the check
+        guess["evidence"] = "UNVERIFIED (verify call failed), check by hand: " + str(guess.get("evidence", ""))
+        return guess
+    conf = float(guess.get("confidence") or 0)
+    if v.get("is_documentary_or_news") or v.get("match") is False:
+        guess["confidence"] = min(conf, 0.3)
+    elif v.get("match"):
+        guess["confidence"] = max(conf, 0.8 if float(v.get("confidence") or 0) >= 0.6 else 0.5)
+    if v.get("match") and v.get("original_title"):
+        guess.update({k: v[k] for k in ("original_title", "year", "country") if v.get(k)})
+    guess["verified"] = {k: v.get(k) for k in ("match", "matched_points", "contradictions", "synopsis_source", "best_title", "episode_hint")}
+    return guess
+
+
+def tmdb_check(title: str) -> dict:
+    """Optional: runs only with TMDB_API_KEY (free key at themoviedb.org). Confirms the title exists and lists billed cast."""
+    key = os.environ.get("TMDB_API_KEY")
+    if not key or not title:
+        return {}
+    r = requests.get("https://api.themoviedb.org/3/search/multi", params={"api_key": key, "query": title}, timeout=30).json()
+    hit = next((x for x in r.get("results", []) if x.get("media_type") in ("movie", "tv")), None)
+    if not hit:
+        return {"found": False}
+    kind = hit["media_type"]
+    cast = requests.get(f"https://api.themoviedb.org/3/{kind}/{hit['id']}/credits", params={"api_key": key},
+                        timeout=30).json().get("cast", [])[:6]
+    return {"found": True, "tmdb": f"{kind}/{hit['id']}", "overview": hit.get("overview", "")[:200],
+            "cast": [c["name"] for c in cast]}
+
+
+def caption_title(cap: str) -> str:
+    """'Title/Credit - The truth', 'Movie: X', 'Name of drama - X': recap pages often state it. Returns '' if absent."""
+    m = re.search(r"(?:title|credit|movie|drama|film|series|name)[^\n:\-]{0,12}[:\-]+\s*([^\n]{2,60})", cap, re.I)
+    return re.sub(r"^[\W_]+|[\W_]+$", "", m.group(1)) if m else ""
+
+
+def identify(frames: list[Path], hint: str) -> dict:
+    """Gemini frames pass, then a plot-only pass if unsure, then verify the top two."""
+    g = gemini(frames, hint)
+    ct = caption_title(hint)
+    if ct and not any(ct.lower() in str(x.get("title", "")).lower() for x in g.get("guesses", [])):  # strong lead: a bare caption title is often ambiguous ("The truth"), so it is verified like any guess
+        g.setdefault("guesses", []).append({"title": ct, "confidence": 0.55, "evidence": "named in the post caption"})
+    best = max(g.get("guesses", []), key=lambda x: float(x.get("confidence") or 0), default={})
+    if float(best.get("confidence") or 0) < SURE:
+        g["plot_pass"] = gemini_plot(hint)
+        g["guesses"] = g.get("guesses", []) + g["plot_pass"].get("guesses", [])
+    g["guesses"] = sorted((x for x in g.get("guesses", []) if x.get("title")),
+                          key=lambda x: -float(x.get("confidence") or 0))
+    for x in g["guesses"][:5]:
+        verify(x, hint)
+        x["tmdb"] = tmdb_check(x["title"])
+    g["guesses"].sort(key=lambda x: -float(x.get("confidence") or 0))
+    return g
 
 
 GROQ_TEXT = "openai/gpt-oss-120b"
@@ -240,9 +394,10 @@ def main() -> None:
     print(f"frames: {[f.name for f in frames]}")
     anime = trace_moe(frames)
     print(f"trace.moe confident hits: {len(anime)}")
-    hint = transcript_hint(d)
-    g = gemini(frames, hint) if gemini_key_or_none() else groq_fallback(frames, hint)
-    result = {"frames": [f.name for f in frames], "trace_moe": anime, "gemini": g}
+    cap = caption_hint(d)
+    hint = cap + transcript_hint(d)
+    g = identify(frames, hint) if gemini_key_or_none() else groq_fallback(frames, hint)
+    result = {"frames": [f.name for f in frames], "caption": cap, "trace_moe": anime, "gemini": g}
     (d / "find_show.json").write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
     for a in anime[:3]:
         print(f"ANIME  {a['title']} ep {a['episode']} @ {a['at_s']}s  sim {a['similarity']}  ({a['frame']})")
