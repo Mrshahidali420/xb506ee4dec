@@ -26,6 +26,7 @@ One line per lesson: the rule, then [seen in: refs, count]. A repeat bumps the c
 - Deduction ladder: one clue, one door closed every 3-5 s until one suspect is left, so the viewer plays detective. [seen in: intrigue-ref1, 1]
 - Plant a physical clue early (bite marks, fish smell) and pay it off late by tying it to an earlier scene (bag smell 2:05 = bags on the victims 2:10). [seen in: intrigue-ref1, 1]
 - Never state guilt; end after the arrest on a half-heard line that suggests a different crime. [seen in: intrigue-ref1, 1]
+- Reasoning ladder keeps the original's own order of elimination and drops the weakest rung (plumbers merged into electricians, 5 trades to 4) and the thinnest clue (no wood shavings on victims). [seen in: intrigue-ref1, 1]
 - Music plan (measured, Demucs): silent for the first 8 s, bed in at about 8 dB under the voice, dips to 12-14 dB under on reasoning beats, almost out (20-34 dB under) for the dread scene, swells back to about 6 dB under at the final cut instead of fading. [seen in: intrigue-ref1, 1]
 
 ## Conversion (original to recap)
@@ -33,12 +34,17 @@ One line per lesson: the rule, then [seen in: refs, count]. A repeat bumps the c
 From the full-original comparison of cry-ref1 (Bad Thief, Good Thief, episode 2, 2 Nov 2026):
 
 - Move the most charming late scene to the front as the hook, then tell the cause as flashback after one reveal line; the original had them the other way round. [seen in: cry-ref1, 1]
-- Keep one emotional arc of 3-5 beats whole and in order (name, bench, leave, run back, hug); delete everything between its setup and its payoff. [seen in: cry-ref1, 1]
-- Squeeze an hour of plot into two plain facts ("not his biological son", "lost his parents") instead of showing the scenes. [seen in: cry-ref1, 1]
-- A long dialogue scene becomes one original line plus gestures (sword, name change, "Don't get sick"); the rest is cut. [seen in: cry-ref1, 1]
+- Keep one emotional arc of 3-5 beats whole and in order (name, bench, leave, run back, hug); delete everything between its setup and its payoff. [seen in: cry-ref1, intrigue-ref1 (ladder kept in original order, 4.5 min of side thread cut between two beats), 2]
+- Squeeze an hour of plot into two plain facts ("not his biological son", "lost his parents") instead of showing the scenes. [seen in: cry-ref1, intrigue-ref1 (a 5-minute canvass becomes "two crews, two records, one left"), 2]
+- A long dialogue scene becomes one original line plus gestures (sword, name change, "Don't get sick"); the rest is cut. [seen in: cry-ref1, intrigue-ref1 (a 3-minute briefing lecture becomes about 35 s of ladder over cutaway shots), 2]
 - Narration may simplify motives and numbers (one test becomes "every test") but must not contradict what the viewer sees. [seen in: cry-ref1, 1]
-- Compression was about 4:1 on footage used and about 27:1 on story span; plan about 7 minutes of source for a 3-minute clip. [seen in: cry-ref1, 1]
+- Compression was about 4:1 on footage used (cry-ref1 4:1, intrigue-ref1 4.2:1) and 6:1 to 27:1 on story span; plan about 7 to 10 minutes of source for a 2-3 minute clip. [seen in: cry-ref1, intrigue-ref1, 2]
 - Check the music boundary against the real emotional peak before locking it; here the notes had it ending 10 s before the hug (open, unmeasured). [seen in: cry-ref1, 1]
+
+- Two clue threads that meet in the original (cigarette habit to trade, ligature snare to livestock farm) become one: keep the thread the viewer can follow in one sentence per step, drop the other. [seen in: intrigue-ref1, 1]
+- A lecture by the expert becomes the young hero's deed ("went to the sites", "made a bold guess"); the narrator gives the deduction a doer. [seen in: intrigue-ref1, 1]
+- Stop the clip on a false suspect: it ends 8 to 11 minutes before the original's own twist (the real killer found by DNA), so the clip's last question is a decoy the source later answers. Check what the source says next before ending on a "maybe". [seen in: intrigue-ref1, 1]
+- Illustration may be borrowed from a later scene (night stalk shots from the episode end stand in for the victims); fine only if the narration does not claim more than the shot shows. [seen in: intrigue-ref1, 1]
 
 ## Action
 
