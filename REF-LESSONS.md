@@ -38,13 +38,16 @@ From the full-original comparison of cry-ref1 (Bad Thief, Good Thief, episode 2,
 - Squeeze an hour of plot into two plain facts ("not his biological son", "lost his parents") instead of showing the scenes. [seen in: cry-ref1, intrigue-ref1 (a 5-minute canvass becomes "two crews, two records, one left"), 2]
 - A long dialogue scene becomes one original line plus gestures (sword, name change, "Don't get sick"); the rest is cut. [seen in: cry-ref1, intrigue-ref1 (a 3-minute briefing lecture becomes about 35 s of ladder over cutaway shots), 2]
 - Narration may simplify motives and numbers (one test becomes "every test") but must not contradict what the viewer sees. [seen in: cry-ref1, 1]
-- Compression was about 4:1 on footage used (cry-ref1 4:1, intrigue-ref1 4.2:1) and 6:1 to 27:1 on story span; plan about 7 to 10 minutes of source for a 2-3 minute clip. [seen in: cry-ref1, intrigue-ref1, 2]
+- Compression was about 4:1 on footage used (cry-ref1 4:1 per part, about 5:1 over its whole 3:06 with about 11.7 min of source; intrigue-ref1 4.2:1) and 6:1 to 27:1 on story span (cry-ref1 whole clip about 21:1); plan about 7 to 12 minutes of source for a 2-3 minute clip. [seen in: cry-ref1, intrigue-ref1, 2]
 - Check the music boundary against the real emotional peak before locking it; here the notes had it ending 10 s before the hug (open, unmeasured). [seen in: cry-ref1, 1]
 
 - Two clue threads that meet in the original (cigarette habit to trade, ligature snare to livestock farm) become one: keep the thread the viewer can follow in one sentence per step, drop the other. [seen in: intrigue-ref1, 1]
 - A lecture by the expert becomes the young hero's deed ("went to the sites", "made a bold guess"); the narrator gives the deduction a doer. [seen in: intrigue-ref1, 1]
 - Stop the clip on a false suspect: it ends 8 to 11 minutes before the original's own twist (the real killer found by DNA), so the clip's last question is a decoy the source later answers. Check what the source says next before ending on a "maybe". [seen in: intrigue-ref1, 1]
 - Illustration may be borrowed from a later scene (night stalk shots from the episode end stand in for the victims); fine only if the narration does not claim more than the shot shows. [seen in: intrigue-ref1, 1]
+- A 60-90 s conflict scene becomes one 3 s image plus one narrated line (debt collectors); a long row keeps only 3-4 original lines and one object that carries it (the foil dumpling box). [seen in: cry-ref1, 1]
+- The narrator writes the motive and the other person's feelings ("never told his wife", "doesn't blame her") over faces; the original only shows the action. [seen in: cry-ref1, 1]
+- The clip stops on the listener's reaction mid-scene, about 50 s before the original scene ends; the next beat is left unshown. [seen in: cry-ref1, 1]
 
 ## Action
 
