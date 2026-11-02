@@ -1,0 +1,739 @@
+{
+ "title": "A Schoolgirl Dodged A Train By Leaping Through Time, And It Cost Her The Boy She Loved . . .",
+ "source": "source.mp4",
+ "caption": "Makoto Konno survives a train crash by leaping through time in The Girl Who Leapt Through Time. 😱 One girl, one strange power, and a summer that changes everything.\n\n#thegirlwholeaptthroughtime #anime #animemovie #animerecap #fyp",
+ "comment": "Would you have used your last leap to save Kosuke, or saved it for yourself? Why?",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_test": true,
+ "music_db_under_voice": 8,
+ "music_delay": 8,
+ "music_end": "swell",
+ "credit": "Anime: The Girl Who Leapt Through Time (2006)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "A schoolgirl flies off her bike, and a speeding train comes straight at her, and nobody can *stop* it.",
+   "clips": [
+    882.0,
+    [
+     898.0,
+     8
+    ],
+    [
+     904.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to one ordinary *morning* in July.",
+   "clips": [
+    172.0
+   ]
+  },
+  {
+   "say": "Makoto Kono oversleeps again, and her little sister cannot *wake* her up, no matter how hard she tries.",
+   "clips": [
+    178.5
+   ]
+  },
+  {
+   "say": "So she jumps on her bike and races to *school*, late as always, with her bag flapping behind her.",
+   "clips": [
+    247.0,
+    [
+     272.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Her two best friends, Chiaki and Kosuke, wait for her every day to play *catch*.",
+   "clips": [
+    279.0,
+    [
+     771.0,
+     4
+    ],
+    [
+     767.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "One afternoon, Makoto carries a stack of notebooks up to the science *lab*, all by herself.",
+   "clips": [
+    488.0,
+    [
+     508.5,
+     3
+    ],
+    [
+     563.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Suddenly she hears a noise, as if someone is hiding *inside*.",
+   "clips": [
+    590.0,
+    [
+     600.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "On the floor, she spots a strange little *walnut*, rolling in a patch of sunlight.",
+   "clips": [
+    596.0,
+    [
+     598.2,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "She trips over it, and the whole room turns *white*.",
+   "clips": [
+    613.0,
+    [
+     617.0,
+     1
+    ],
+    [
+     624.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Her body drops through a tunnel of light and *time*, spinning like a leaf.",
+   "clips": [
+    636.0,
+    [
+     667.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "She wakes up on the lab floor, dizzy and *confused*, with no idea what just happened.",
+   "clips": [
+    693.0
+   ]
+  },
+  {
+   "say": "Her friends laugh it off, then drag her out to play *catch*, as if nothing happened.",
+   "clips": [
+    699.5,
+    [
+     702.0,
+     2
+    ],
+    [
+     782.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Soon she heads home on her bike, and then her brakes give *out*, right on a steep hill.",
+   "clips": [
+    836.8,
+    [
+     840.9,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "She squeezes the brakes with all her strength, but nothing *happens*, and the bike keeps speeding up.",
+   "clips": [
+    850.8,
+    [
+     853.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Ahead of her, the railway crossing lights flash *red*, and a train is rushing in.",
+   "clips": [
+    857.2,
+    [
+     867.8,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "She is thrown from her bike, high into the air, straight toward the *train*.",
+   "clips": [
+    880.0,
+    [
+     891.0,
+     6
+    ],
+    [
+     901.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Her whole life flashes before her eyes, and she thinks this is the *end*.",
+   "clips": [
+    907.5,
+    [
+     911.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then everything goes black, and she is sitting in the *road*, wide awake.",
+   "clips": [
+    913.5,
+    [
+     922.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "The train screams past, and Makoto is *alive*.",
+   "clips": [
+    965.5,
+    [
+     960.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "She was seconds from death, and now she has only a few *bruises*.",
+   "clips": [
+    936.0
+   ]
+  },
+  {
+   "say": "Confused, she runs to her aunt, the one everyone calls *Auntie Witch*.",
+   "clips": [
+    998.5,
+    [
+     1026.0,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Makoto spills the whole story, while her aunt calmly bites into a *peach*.",
+   "clips": [
+    1040.0,
+    [
+     1033.4,
+     8
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1034.4,
+    1036.6
+   ],
+   "text": "What you experienced was a time leap."
+  },
+  {
+   "say": "Her aunt says she did not go back in time. She jumped *through* it.",
+   "clips": [
+    1080.0,
+    [
+     1100.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "That night, her little sister thinks she is trying to die, and begs her to *stop*.",
+   "clips": [
+    1176.3,
+    [
+     1185.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Makoto runs to the river, and tests it, running as hard as she *can*.",
+   "clips": [
+    1218.0,
+    [
+     1265.5,
+     6
+    ],
+    [
+     1276.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She launches off the ground, and the world around her *warps*.",
+   "clips": [
+    1273.8,
+    [
+     1296.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "She lands back in her house, a whole day *earlier*.",
+   "clips": [
+    1325.0,
+    [
+     1331.2,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The pudding her sister ate is sitting in the fridge, *untouched*, and Makoto cannot believe her luck.",
+   "clips": [
+    1334.5,
+    [
+     1340.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Makoto grins. She can leap through time, and nobody else *knows*.",
+   "clips": [
+    1451.5,
+    [
+     1438.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "So she uses it for everything. Karaoke, again and *again*. Very responsible.",
+   "clips": [
+    1600.0,
+    [
+     1625.0,
+     6
+    ],
+    [
+     1645.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She leaps back to eat dinner *twice*, and to catch every ball her friends throw.",
+   "clips": [
+    1702.2,
+    [
+     1709.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Nobody told her every leap has a *price*.",
+   "clips": [
+    1809.0
+   ]
+  },
+  {
+   "say": "Then her best friend Chiaki suddenly asks her to go *out* with him.",
+   "clips": [
+    1985.0,
+    [
+     2022.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Makoto panics, does not want to ruin the friendship, and leaps *back* to before he said it.",
+   "clips": [
+    1996.0,
+    [
+     2053.3,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "This time she dodges him, and the confession never *happens*.",
+   "clips": [
+    2060.0,
+    [
+     2080.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Three girls from the volunteer club corner Makoto and ask if she is dating *Kosuke*.",
+   "clips": [
+    3055.0,
+    [
+     3064.0,
+     6
+    ],
+    [
+     3123.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Makoto keeps leaping to patch things up, and the number on her arm keeps *dropping*.",
+   "clips": [
+    3192.0,
+    [
+     3254.5,
+     4
+    ],
+    [
+     3036.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She has no idea what the number even *means*.",
+   "clips": [
+    3424.5,
+    [
+     3435.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then Kosuke borrows her broken bike, and rides off with a girl on the *back*.",
+   "clips": [
+    3633.0,
+    [
+     3884.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Makoto knows the brakes will fail, so she sprints toward the *tracks*, as fast as she can.",
+   "clips": [
+    3656.5,
+    [
+     3664.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She calls Chiaki for help, but he asks her one strange *question*.",
+   "clips": [
+    3736.0,
+    [
+     3810.0,
+     7
+    ]
+   ]
+  },
+  {
+   "orig": [
+    3805.2,
+    3808.2
+   ],
+   "text": "Have you been... time leaping?"
+  },
+  {
+   "say": "Makoto freezes. Chiaki knows her secret, and the number on her arm is *zero*.",
+   "clips": [
+    3823.3,
+    [
+     3862.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "With no leaps left, Makoto can only chase them and *scream*, but the crash is already happening.",
+   "clips": [
+    3912.8,
+    [
+     3947.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then time snaps back, and Chiaki is standing in the crowd right in front of *her*.",
+   "clips": [
+    3985.5,
+    [
+     4036.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He tells her the truth. He is from the *future*.",
+   "clips": [
+    4154.5,
+    [
+     4157.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He came all this way just to see one painting, one the future *lost*.",
+   "clips": [
+    4192.0,
+    [
+     4215.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "But he spent his last leap saving Kosuke, so he cannot go *home*.",
+   "clips": [
+    4241.0,
+    [
+     4249.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He should have left weeks ago, but he loved being with his *friends*.",
+   "clips": [
+    4252.0,
+    [
+     4259.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then he is gone, and Makoto cannot find him in the *crowd*.",
+   "clips": [
+    4386.0,
+    [
+     4423.0,
+     4
+    ],
+    [
+     4445.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "At school, the rumors fly, and everyone has a different *story*.",
+   "clips": [
+    4495.0,
+    [
+     4499.0,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Makoto blames herself for never taking his words *seriously*.",
+   "clips": [
+    4530.0,
+    [
+     4597.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Her aunt tells her about a love she lost to bad *timing*.",
+   "clips": [
+    4699.0,
+    [
+     4708.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "If a boy is late, her aunt says, you go and *find* him.",
+   "clips": [
+    4719.0,
+    [
+     4712.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Makoto looks at her arm one last time. The number reads *one*.",
+   "clips": [
+    4780.5,
+    [
+     4777.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She still has one leap left, and she runs out into the *night*.",
+   "clips": [
+    4795.8,
+    [
+     4811.5,
+     6
+    ],
+    [
+     4820.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "She dives into the light, and her whole summer with Chiaki flashes *by*.",
+   "clips": [
+    4833.4,
+    [
+     4852.0,
+     7
+    ],
+    [
+     4863.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "She lands in the lab, right before everything *began*.",
+   "clips": [
+    4911.0,
+    [
+     4920.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "She finds the strange walnut and holds it in her *hand*.",
+   "clips": [
+    4926.0,
+    [
+     4929.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "She races to the field, where Chiaki waits *alone*.",
+   "clips": [
+    5135.5,
+    [
+     5160.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "She hands him the walnut and tells him she knows everything about *him*.",
+   "clips": [
+    5183.0,
+    [
+     5192.0,
+     6
+    ]
+   ]
+  },
+  {
+   "orig": [
+    5179.2,
+    5182.0
+   ],
+   "text": "About how you came here from the future."
+  },
+  {
+   "say": "Makoto promises to protect the painting, so he can see it in his *time*.",
+   "clips": [
+    5270.0,
+    [
+     5305.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Chiaki says he will wait for her in the *future*.",
+   "clips": [
+    5385.9,
+    [
+     5412.0,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Makoto smiles through her tears and promises to come *running*.",
+   "clips": [
+    5451.0,
+    [
+     5495.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He ruffles her hair and *vanishes* into the sky.",
+   "clips": [
+    5507.0,
+    [
+     5522.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Makoto goes back to the field and smiles up at the *sky*.",
+   "clips": [
+    5583.0,
+    [
+     5640.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Someday, she will run all the way to the *future* to find him.",
+   "clips": [
+    5656.5,
+    [
+     5659.8,
+     3
+    ]
+   ]
+  }
+ ]
+}

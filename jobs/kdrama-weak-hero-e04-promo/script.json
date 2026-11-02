@@ -1,0 +1,116 @@
+{
+  "title": "A Gangster Pulls A Knife On Sam . . . And Max Runs Straight Into It (highlight)",
+  "caption": "In Weak Hero Class 1, episode 4, Rex pulls a knife on Sam. Then Max runs straight in. Full recap is on our page 👉 link in the comments\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+  "output": "final_short.mp4",
+  "source": "source.mp4",
+  "crop_bottom": 0,
+  "music": "../../music/Lordly_Feder.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Series: Weak Hero Class 1 (2022)",
+  "watermark": "@SpoilerRoomRecap",
+  "header": "../../brand/spoiler-room/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "kokoro_voice": "am_liam",
+  "comment": "Full recap: https://www.facebook.com/1458251662923544",
+  "segments": [
+    {
+      "say": "Rex pulls a *knife* on Sam, and there is nowhere left to run.",
+      "clips": [
+        1090.0,
+        1122.0
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to the theme park, where a real officer shows up, gun *drawn*.",
+      "clips": [
+        977.0,
+        988.0
+      ]
+    },
+    {
+      "say": "But Rex smooths it over. A misunderstanding, he says. Didn't we play *soccer* together?",
+      "clips": [
+        991.0,
+        994.5,
+        998.8
+      ]
+    },
+    {
+      "say": "Of course he knew a *cop*.",
+      "clips": [
+        1000.6
+      ]
+    },
+    {
+      "say": "While they talk, Rex slips away, and Sam runs after *him*.",
+      "clips": [
+        1007.5,
+        1015.8,
+        1019.8
+      ]
+    },
+    {
+      "say": "Deep in the park, Sam finally catches up with him. Not this kid *again*, Rex groans.",
+      "clips": [
+        1052.0,
+        1057.6,
+        1060.5
+      ]
+    },
+    {
+      "say": "Rex knocks him down, and pulls a *knife*.",
+      "clips": [
+        1080.6
+      ]
+    },
+    {
+      "orig": [
+        1090.0,
+        1092.6
+      ],
+      "text": "How should I stab you?"
+    },
+    {
+      "say": "Then someone shouts. It's *Max*, running in.",
+      "clips": [
+        1097.0
+      ]
+    },
+    {
+      "say": "There's no other way, he says. You need a good *beating*.",
+      "clips": [
+        1104.0,
+        1111.0
+      ]
+    },
+    {
+      "say": "It gets ugly fast. Rex chokes Max, and Sam ends up flat on the *ground*.",
+      "clips": [
+        1122.0,
+        1145.6,
+        1162.4
+      ]
+    },
+    {
+      "say": "Rex pins Max down and keeps *hitting*. But Max still has one more move left in him.",
+      "clips": [
+        1171.0,
+        1183.0
+      ]
+    },
+    {
+      "say": "Episode 4 is on our page.",
+      "clips": [
+        1195.0
+      ]
+    }
+  ]
+}

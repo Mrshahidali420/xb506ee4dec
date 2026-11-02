@@ -1,0 +1,134 @@
+{
+  "title": "A Hijacker Screams At A Monster Nobody Else Can See . . . (highlight)",
+  "caption": "In Death Note episode 4, a bus hijacker stares at the back seat and screams at a monster nobody else can see. Full recap is on our page 👉 link in the comments\n\n#deathnote #anime #animerecap #recap #animerewind",
+  "source": "source.mp4",
+  "music": "../../music/Kamin_EMIN_JONY.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Anime: Death Note (Episode 4)",
+  "watermark": "@AnimeRewindRecap",
+  "header": "../../brand/anime-rewind/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "kokoro_voice": "am_liam",
+  "comment": "Full recap: https://www.facebook.com/2949382448776893",
+  "segments": [
+    {
+      "say": "A hijacker on a bus stares at the back seat and screams at a monster nobody else can *see*.",
+      "clips": [
+        1126.1,
+        1129.2,
+        1140.9
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to Jack, riding the bus with a *stalker* on his tail.",
+      "clips": [
+        777.2,
+        855.5,
+        863.8
+      ]
+    },
+    {
+      "say": "Jack needs that man's name, and a bus full of strangers is his *plan*.",
+      "clips": [
+        780.6,
+        787.4
+      ]
+    },
+    {
+      "say": "At the next stop, a drug addict climbs *aboard*.",
+      "clips": [
+        906.7,
+        909.6
+      ]
+    },
+    {
+      "say": "He walks up the aisle and pulls out a *gun*.",
+      "clips": [
+        912.2,
+        920.05
+      ]
+    },
+    {
+      "orig": [
+        922.7,
+        925.7
+      ],
+      "text": "Stay in your seats unless you want to die!"
+    },
+    {
+      "say": "He wants all of yesterday's cash from the park, or every passenger *dies*.",
+      "clips": [
+        934.2,
+        945.0,
+        952.8
+      ]
+    },
+    {
+      "say": "Jack slips the girl a *note* with his plan.",
+      "clips": [
+        976.5,
+        972.1,
+        977.7
+      ]
+    },
+    {
+      "say": "But the stalker leans in. Too risky, he whispers. He will handle it *himself*.",
+      "clips": [
+        982.1,
+        986.1
+      ]
+    },
+    {
+      "say": "So Jack turns on him. How does he know this man isn't the gunman's *partner*?",
+      "clips": [
+        988.2,
+        998.7,
+        1006.1
+      ]
+    },
+    {
+      "say": "The stalker flashes his FBI *badge* to prove it. That was his first mistake.",
+      "clips": [
+        1027.15,
+        1029.9
+      ]
+    },
+    {
+      "say": "Then the gunman storms to the back, and Jack lets the note *drop*.",
+      "clips": [
+        1080.5,
+        1077.75,
+        1078.6
+      ]
+    },
+    {
+      "say": "The gunman grabs it, reads the plan, and *laughs*.",
+      "clips": [
+        1084.3,
+        1087.3,
+        1092.9
+      ]
+    },
+    {
+      "say": "Then he looks up, and he *freezes*. Something sits in the back.",
+      "clips": [
+        1112.7,
+        1117.5
+      ]
+    },
+    {
+      "say": "Episode 4 is on our page.",
+      "clips": [
+        1097.6
+      ]
+    }
+  ]
+}

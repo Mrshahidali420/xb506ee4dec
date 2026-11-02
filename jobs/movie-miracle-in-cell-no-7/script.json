@@ -1,0 +1,631 @@
+{
+ "title": "He Went To Prison For A Crime He Never Did . . . Then His Daughter Walked In",
+ "caption": "Miracle in Cell No. 7 (2013): a simple, loving father is framed for the death of the police chief's daughter, and his little girl is smuggled into his prison cell. Can the truth ever clear his name?\n\n#miracleincellno7 #koreanmovie #movierecap #kmovie #spoilerroom",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Film: Miracle in Cell No. 7 (2013)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Would you have signed the confession to protect your child? Why?",
+ "segments": [
+  {
+   "say": "A guard drags a father away from his little girl, and she screams for him through the *bars*.",
+   "clips": [
+    7032.2,
+    [
+     7042.4,
+     6
+    ],
+    [
+     7053.4,
+     12
+    ]
+   ]
+  },
+  {
+   "orig": [
+    7056.3,
+    7059.0
+   ],
+   "text": "Don't cry, dad. Don't say save me."
+  },
+  {
+   "say": "To see how it got here, go back to a toy *store*.",
+   "clips": [
+    492.9,
+    [
+     500.2,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Sam is a simple man with the heart of a child, and Lily is his whole *world*.",
+   "clips": [
+    508.59999999999997,
+    [
+     590.4,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She wants one thing, a Sailor Moon *bag*, but they can't afford it.",
+   "clips": [
+    504.5,
+    [
+     519.4,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then a rich man's wife grabs the last one, and the two dads start *shoving*.",
+   "clips": [
+    528.1999999999999,
+    [
+     554.1999999999999,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Sam promises Lily he will get her that bag. The next day he goes back to *work*.",
+   "clips": [
+    633.0,
+    [
+     660.8,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "That's when he spots a girl wearing the exact same *bag*.",
+   "clips": [
+    686.0,
+    [
+     690.4,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He chases after her, but she slips and hits her *head*.",
+   "clips": [
+    697.8,
+    [
+     730.1999999999999,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Sam does the only thing he knows. He starts pressing on her *chest*.",
+   "clips": [
+    732.6,
+    [
+     735.1999999999999,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then her mother sees a stranger on top of her daughter and screams *kidnapper*.",
+   "clips": [
+    739.9,
+    [
+     744.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The girl, Amy, was the police chief's *daughter*.",
+   "clips": [
+    4787.4,
+    [
+     4793.4,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "He is a powerful man, and he wants someone to *pay*.",
+   "clips": [
+    4778.0,
+    [
+     4820.4,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "So the cops beat Sam until he signs a confession for a crime he never *committed*.",
+   "clips": [
+    797.1,
+    [
+     804.6,
+     5
+    ],
+    [
+     786.3,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Sam never stood a chance.",
+   "clips": [
+    801.8
+   ]
+  },
+  {
+   "say": "Meanwhile Lily sits alone at home, watching the clock and waiting for her *dad*.",
+   "clips": [
+    820.1999999999999,
+    [
+     827.1999999999999,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "They drag Sam through a screaming mob for a crime scene *reenactment*.",
+   "clips": [
+    870.6999999999999,
+    [
+     876.9,
+     4
+    ],
+    [
+     873.6,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Lily runs after the police van, crying out for her *father*.",
+   "clips": [
+    953.8,
+    [
+     985.9,
+     6
+    ]
+   ]
+  },
+  {
+   "orig": [
+    997.7,
+    1000.5
+   ],
+   "text": "Dad! Dad!"
+  },
+  {
+   "say": "Sam ends up in Cell Seven, with five hardened *criminals*.",
+   "clips": [
+    1205.4,
+    [
+     1227.2,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "When they hear what he's accused of, they go for his *throat*.",
+   "clips": [
+    1327.0,
+    [
+     1336.6000000000001,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But it doesn't take long to see the truth. This man couldn't hurt a *fly*.",
+   "clips": [
+    1255.0,
+    [
+     1270.8000000000002,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "These killers turned out softer than the cops.",
+   "clips": [
+    1296.4
+   ]
+  },
+  {
+   "say": "Underneath the tattoos, they are just fathers who miss their *kids*.",
+   "clips": [
+    1996.4,
+    [
+     1984.4,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "So when Sam cries for his daughter, the cell makes a *plan*.",
+   "clips": [
+    1344.4,
+    [
+     1738.9,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "A prisoner wheels a big box past the guards, and nobody looks *inside*.",
+   "clips": [
+    1753.9,
+    [
+     1781.4,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Inside the box, curled up asleep, is *Lily*.",
+   "clips": [
+    1807.3000000000002,
+    [
+     1814.5,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Sam holds his girl and can't stop *sobbing*.",
+   "clips": [
+    1841.6000000000001,
+    [
+     1845.7,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Now six men have to hide a little girl from the *guards*.",
+   "clips": [
+    1873.4,
+    [
+     1906.1000000000001,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They feed her, dress her, and teach her to *laugh* again.",
+   "clips": [
+    1959.3000000000002,
+    [
+     2058.3,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Lily draws pictures on the walls, and Sam learns to write her *name*.",
+   "clips": [
+    4850.2,
+    [
+     4866.2,
+     4
+    ],
+    [
+     4873.599999999999,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then the head guard, Hale, catches them at *night*.",
+   "clips": [
+    2743.7000000000003,
+    [
+     2768.9,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "He yells at the whole cell, and they stand in a line with their hands up, saying *nothing*.",
+   "clips": [
+    2800.4,
+    [
+     2809.6,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then a fire tears through the block, and Hale goes down in the *smoke*.",
+   "clips": [
+    2929.3,
+    [
+     3016.4,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Sam runs straight into the flames and starts pressing on Hale's *chest*.",
+   "clips": [
+    3054.1,
+    [
+     3077.7000000000003,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Hale wakes up in the hospital and learns who saved his *life*.",
+   "clips": [
+    3113.5,
+    [
+     3143.7000000000003,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Now Hale owed Sam everything.",
+   "clips": [
+    3150.1
+   ]
+  },
+  {
+   "say": "So he looks the other way, and Lily starts *school*.",
+   "clips": [
+    3164.7000000000003,
+    [
+     3248.3,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Every day she comes home to her father in a prison *cell*.",
+   "clips": [
+    3260.3,
+    [
+     3254.9,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "At night she falls asleep in his arms, and for a little while the prison feels like *home*.",
+   "clips": [
+    2000.8000000000002,
+    [
+     2088.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "But the police chief never *forgets*.",
+   "clips": [
+    4830.599999999999,
+    [
+     4845.0,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "He sends a prosecutor to Sam with a simple *threat*.",
+   "clips": [
+    5031.5,
+    [
+     5060.7,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Confess, or the chief will go after your *daughter*.",
+   "clips": [
+    5050.599999999999,
+    [
+     5054.799999999999,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "So to protect Lily, Sam signs the *confession*.",
+   "clips": [
+    4967.299999999999,
+    [
+     4971.4,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "He gave up his whole life for her.",
+   "clips": [
+    4976.9
+   ]
+  },
+  {
+   "say": "In court the judge asks if he did it. Sam looks down and says *yes*.",
+   "clips": [
+    5311.299999999999,
+    [
+     5319.099999999999,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Lily watches from the crowd, not understanding why her dad is *lying*.",
+   "clips": [
+    5329.299999999999,
+    [
+     5331.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The judge doesn't blink. Sam is sentenced to *death*.",
+   "clips": [
+    5547.0,
+    [
+     5538.9,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "The cellmates and Hale know time is short, so they plan one wild last day for Sam and Lily.",
+   "clips": [
+    5942.2,
+    [
+     6015.9,
+     6
+    ],
+    [
+     6028.099999999999,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "They sneak her into the yard, and Sam and Lily float up over the prison walls in a *balloon*.",
+   "clips": [
+    6323.0,
+    [
+     6391.2,
+     6
+    ],
+    [
+     6491.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Sam grins from the basket, and for a few minutes the whole prison forgets where it *is*.",
+   "clips": [
+    6367.799999999999,
+    [
+     6494.299999999999,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "On Lily's birthday, they share a bowl of seaweed soup, laughing like nothing is *wrong*.",
+   "clips": [
+    6525.7,
+    [
+     6529.599999999999,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "But the next morning, the guards come for *Sam*.",
+   "clips": [
+    6931.599999999999,
+    [
+     6935.5,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Lily grabs the bars and begs them to *stop*.",
+   "clips": [
+    6937.799999999999,
+    [
+     6965.5,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Sam holds his little girl one last time and tells her not to *cry*.",
+   "clips": [
+    7061.4,
+    [
+     7066.7,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Years later, Lily is a lawyer, standing in the same *court*.",
+   "clips": [
+    7130.799999999999,
+    [
+     7266.7,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "She proves the old statements were forged, and Sam never touched *Amy*.",
+   "clips": [
+    7188.599999999999,
+    [
+     7217.5,
+     4
+    ],
+    [
+     7227.9,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The court finally clears his *name*.",
+   "clips": [
+    7239.599999999999,
+    [
+     7283.5,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Too late for Sam, but not too late for the truth.",
+   "clips": [
+    7291.5
+   ]
+  },
+  {
+   "say": "And in the snow, Lily looks up at the sky and remembers the day they *flew*.",
+   "clips": [
+    7320.599999999999,
+    [
+     7338.9,
+     5
+    ],
+    [
+     7346.4,
+     11
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+  "title": "Her Son Slips Under An Icy River And Stops Moving . . . (highlight)",
+  "caption": "In Wolf Children, Hana raises two wolf kids alone in the mountains. Then her son slips under an icy river and stops moving. Full recap is on our page 👉 link in the comments\n\n#wolfchildren #anime #animemovie #recap #animerewind",
+  "source": "source.mp4",
+  "music": "../../music/Kamin_EMIN_JONY.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Anime: Wolf Children (2012)",
+  "watermark": "@AnimeRewindRecap",
+  "header": "../../brand/anime-rewind/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "kokoro_voice": "am_liam",
+  "comment": "Full recap: https://www.facebook.com/2350278079082640",
+  "segments": [
+    {
+      "say": "Hana plunges into an icy river, and her son is not *moving*.",
+      "clips": [
+        3415.0,
+        3441.0
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to the day she moves her wolf kids to the *mountains*.",
+      "clips": [
+        1788.0,
+        1810.0
+      ]
+    },
+    {
+      "say": "The house is a wreck, but the kids love the *yard*, and Hana scrubs every floor herself.",
+      "clips": [
+        1838.0,
+        1898.0
+      ]
+    },
+    {
+      "say": "She makes one rule. Being wolf children is their little *secret*.",
+      "clips": [
+        2052.0,
+        2135.0
+      ]
+    },
+    {
+      "say": "Then her tomatoes die, and the grumpy farmer next door calls her a damn *fool*.",
+      "clips": [
+        2473.5,
+        2518.0
+      ]
+    },
+    {
+      "say": "But he keeps bossing her around, until she learns to dig, plant, and *grow*.",
+      "clips": [
+        2634.0,
+        2659.0
+      ]
+    },
+    {
+      "say": "Soon the whole village pitches in, and she has more potatoes than three people can *eat*.",
+      "clips": [
+        2890.0,
+        3033.5
+      ]
+    },
+    {
+      "say": "Then winter comes, and Yuki and Ame race through the snow as *wolves*.",
+      "clips": [
+        3311.5,
+        3338.0
+      ]
+    },
+    {
+      "say": "Hana laughs right behind them. Nothing can go *wrong*.",
+      "clips": [
+        3363.5
+      ]
+    },
+    {
+      "say": "But then the icy river pulls Ame *under*.",
+      "clips": [
+        3385.5,
+        3428.5
+      ]
+    },
+    {
+      "say": "Hana drags him out, and he is not *moving*.",
+      "clips": [
+        3454.4
+      ]
+    },
+    {
+      "say": "She screams at him to open his *eyes*.",
+      "clips": [
+        3457.0
+      ]
+    },
+    {
+      "say": "The full story is on our page.",
+      "clips": [
+        1745.0
+      ]
+    }
+  ]
+}

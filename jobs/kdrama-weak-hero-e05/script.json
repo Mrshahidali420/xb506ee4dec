@@ -1,0 +1,473 @@
+{
+ "title": "He Bought Drinks For The Gang That Beat Him . . . Then Unfollowed His Best Friend (Episode 5)",
+ "caption": "Weak Hero Class 1, episode 5: Bobby's old bullies spot him at a karaoke bar, and he stops answering his phone.\nSam and Max force an apology out of them, but Bobby walks away and ends up drinking with the gang that beat him. Follow for episode 6!\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Weak Hero Class 1 (2022)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Would you forgive Bobby for choosing those boys over Sam and Max? Why?",
+ "kokoro_voice": "am_liam",
+ "segments": [
+  {
+   "say": "They stomp Bobby in a parking garage, so he buys them *drinks*, and unfollows his best friend.",
+   "clips": [
+    1891.4,
+    1872.0,
+    1953.5,
+    2056.0
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to a week when Bobby was *happy*.",
+   "clips": [
+    65.5,
+    58.5
+   ]
+  },
+  {
+   "say": "Sam, Max and Bobby had just beaten the Free Money gang, so the whole school wanted *details*.",
+   "clips": [
+    21.0,
+    26.5,
+    30.0
+   ]
+  },
+  {
+   "say": "Bobby was rich, and he loved paying. Lunch is on me today, he says, and nobody *argues*.",
+   "clips": [
+    100.5,
+    127.5,
+    135.0
+   ]
+  },
+  {
+   "say": "Amy, the girl who ran away from home, was now staying at Max's place, and Max took her *everywhere*.",
+   "clips": [
+    331.0,
+    346.0,
+    379.0
+   ]
+  },
+  {
+   "say": "That night Bobby lay on his bed and scrolled through Max's page. Dinner with grandma. Hamburgers from *Sam*.",
+   "clips": [
+    195.5,
+    234.5,
+    246.0
+   ]
+  },
+  {
+   "say": "Everyone looked so happy, and Bobby just watched. Something already felt *off*.",
+   "clips": [
+    231.0,
+    240.0,
+    252.0
+   ]
+  },
+  {
+   "say": "Then came karaoke night. Max sings a love song with Amy, and the whole room is *laughing*.",
+   "clips": [
+    528.0,
+    534.0,
+    540.0
+   ]
+  },
+  {
+   "say": "Bobby slips out for a drink. That's when two boys down the hall spot him and shout his *name*.",
+   "clips": [
+    577.0,
+    586.5,
+    599.5
+   ]
+  },
+  {
+   "say": "One look and Bobby goes pale. He knows these boys, and he does not want them *here*.",
+   "clips": [
+    590.9,
+    593.2,
+    605.5
+   ]
+  },
+  {
+   "say": "Then his phone rings, and Amy picks it up. A boy on the line asks which room they are *in*.",
+   "clips": [
+    635.0,
+    641.8
+   ]
+  },
+  {
+   "say": "Bobby snaps at her. Why did you answer my phone? Amy storms off, and Max goes after *her*.",
+   "clips": [
+    643.5,
+    675.0,
+    666.0
+   ]
+  },
+  {
+   "say": "Then the bullies stroll in like old friends. Our little Bobby, they say. We *missed* you.",
+   "clips": [
+    703.0,
+    710.0,
+    720.5
+   ]
+  },
+  {
+   "say": "They leave with a warning: pick up when we call. Bobby does not say a *word*.",
+   "clips": [
+    738.0,
+    744.0,
+    750.0
+   ]
+  },
+  {
+   "say": "Sam asks who those kids were. Bobby says it's nothing, and that is a *lie*.",
+   "clips": [
+    757.0,
+    765.0
+   ]
+  },
+  {
+   "say": "Next day at school, Bobby stares at his desk while a boy nearby *laughs*.",
+   "clips": [
+    777.0,
+    791.0,
+    802.0
+   ]
+  },
+  {
+   "say": "Bobby thinks it's about him. He grabs the boy by the collar. Do you want to *die*?",
+   "clips": [
+    808.0,
+    845.0,
+    860.0
+   ]
+  },
+  {
+   "say": "Sam pulls him off, and the whole class stares. Bobby has never acted like *this*.",
+   "clips": [
+    866.0,
+    871.0,
+    884.0
+   ]
+  },
+  {
+   "say": "Back home, his phone lights up again and again. Fifteen missed calls, then sixteen, then *seventeen*.",
+   "clips": [
+    895.0,
+    908.0,
+    914.5
+   ]
+  },
+  {
+   "say": "He doesn't answer a single one. He just lies there and lets it *ring*.",
+   "clips": [
+    921.0,
+    903.0
+   ]
+  },
+  {
+   "say": "Sam cannot reach Bobby either, so Max decides to teach him a few *basics*.",
+   "clips": [
+    954.0,
+    1005.0,
+    1011.5
+   ]
+  },
+  {
+   "say": "Keep your chin tucked, arms up, and watch the shoulders. When they come at you, grab the knees and *drop* them.",
+   "clips": [
+    1025.0,
+    1031.0,
+    1043.5
+   ]
+  },
+  {
+   "say": "But the real lesson is simple. Don't hit anyone. Run, and never look *back*. Easy advice to give.",
+   "clips": [
+    1049.0,
+    1055.0,
+    1063.5
+   ]
+  },
+  {
+   "say": "After training, they go to Bobby's house, and it looks like a *palace*.",
+   "clips": [
+    1077.0,
+    1117.0,
+    1164.5
+   ]
+  },
+  {
+   "say": "Max looks at the family photos on the wall. Your family looks so *happy*, he says.",
+   "clips": [
+    1138.0,
+    1157.0
+   ]
+  },
+  {
+   "orig": [
+    1143.2,
+    1146.0
+   ],
+   "text": "That's not my family."
+  },
+  {
+   "say": "His father adopted him in public, only to look good for the *voters*.",
+   "clips": [
+    1150.0,
+    1174.0
+   ]
+  },
+  {
+   "say": "Then Sam asks about the karaoke, and Bobby finally breaks. At his old school, they bullied him until he ended up in the *hospital*.",
+   "clips": [
+    1189.0,
+    1205.5,
+    1226.5
+   ]
+  },
+  {
+   "say": "They kicked him around because they could. They bond by picking on kids, he says, and he did *nothing* wrong.",
+   "clips": [
+    1214.5,
+    1218.2,
+    1242.0
+   ]
+  },
+  {
+   "say": "His friends tell him it's not his fault. Call them, one says. I'll get you an *apology*. That is what real friends do.",
+   "clips": [
+    1309.7,
+    1301.5,
+    1314.0
+   ]
+  },
+  {
+   "say": "So Bobby calls the gang himself. They are singing at karaoke, and they tell him to *come*.",
+   "clips": [
+    1328.5,
+    1333.5,
+    1342.0
+   ]
+  },
+  {
+   "say": "Bobby walks in with his friends. The bullies go quiet. Did you bring *friends*?",
+   "clips": [
+    1366.0,
+    1378.0,
+    1403.0
+   ]
+  },
+  {
+   "say": "Their leader, Dean, laughs it off. We were friends, he says. We were just *playing* around.",
+   "clips": [
+    1419.6,
+    1437.0,
+    1446.0
+   ]
+  },
+  {
+   "say": "Sam and Max stand behind Bobby and do not *blink*.",
+   "clips": [
+    1459.5,
+    1474.5,
+    1489.5
+   ]
+  },
+  {
+   "say": "Dean says sorry twice, but Bobby is not *buying* it.",
+   "clips": [
+    1513.5,
+    1518.0
+   ]
+  },
+  {
+   "orig": [
+    1525.4,
+    1528.2
+   ],
+   "text": "Let me hit you once."
+  },
+  {
+   "say": "Bobby hits him once, hard. Then the whole room explodes into a *brawl*.",
+   "clips": [
+    1548.5,
+    1559.5,
+    1581.8
+   ]
+  },
+  {
+   "say": "Sam finally shuts it down. Don't call Bobby again, he warns, and they back *off*.",
+   "clips": [
+    1604.0,
+    1612.5
+   ]
+  },
+  {
+   "say": "Outside, Bobby turns on his friend. You're smothering me, he screams. Why do you always boss me *around*?",
+   "clips": [
+    1637.0,
+    1649.5,
+    1672.5
+   ]
+  },
+  {
+   "say": "His friend shouts back that he took time off work to help. Bobby asks if he should pay *wages*.",
+   "clips": [
+    1661.0,
+    1665.0
+   ]
+  },
+  {
+   "say": "Then Bobby storms off, and nobody can stop him. That was the first *crack*.",
+   "clips": [
+    1696.0,
+    1704.0,
+    1716.0
+   ]
+  },
+  {
+   "say": "He switches his phone off, and Sam only hears, the number cannot be *reached*.",
+   "clips": [
+    1728.0,
+    1749.0,
+    1757.0
+   ]
+  },
+  {
+   "say": "Alone in the street, Bobby walks straight into the old gang. No glasses today, one of them *grins*.",
+   "clips": [
+    1781.0,
+    1788.5,
+    1801.0
+   ]
+  },
+  {
+   "orig": [
+    1827.8,
+    1829.6
+   ],
+   "text": "You're rich, right?"
+  },
+  {
+   "say": "They drag him into an empty parking garage. Rich boy, they sneer, let's have a little *chat*.",
+   "clips": [
+    1840.0,
+    1850.5,
+    1857.0
+   ]
+  },
+  {
+   "say": "They make him take out his phone and check how much money he *has*.",
+   "clips": [
+    1863.5,
+    1866.5
+   ]
+  },
+  {
+   "say": "Bobby glares at them, and that is all it takes. They throw him down and *stomp*.",
+   "clips": [
+    1872.0,
+    1883.0,
+    1891.4
+   ]
+  },
+  {
+   "say": "Dean says they're finished, and everyone heads out for a *drink*. Bobby just lies there.",
+   "clips": [
+    1903.0,
+    1912.0,
+    1916.5
+   ]
+  },
+  {
+   "say": "Then Bobby does what nobody expects. He follows them to a club and says the drinks are on *him*.",
+   "clips": [
+    1942.0,
+    1950.0,
+    1957.0
+   ]
+  },
+  {
+   "say": "They make him hold up the cash for a photo. Five hundred thousand won, and they *cheer*.",
+   "clips": [
+    1961.0,
+    1965.2,
+    1967.5
+   ]
+  },
+  {
+   "say": "They clink glasses and he drinks with them. He's choosing the people who *hurt* him.",
+   "clips": [
+    1974.0,
+    1990.0,
+    2030.0
+   ]
+  },
+  {
+   "say": "They ask for his Instagram, and he follows them back one by *one*.",
+   "clips": [
+    1994.0,
+    2003.0,
+    2007.5
+   ]
+  },
+  {
+   "say": "Then he scrolls to Max's profile, and taps *unfollow*.",
+   "clips": [
+    2046.5,
+    2056.0
+   ]
+  },
+  {
+   "say": "That hurt more than any stomping. He just cut off the friend who came to his *house*.",
+   "clips": [
+    2073.5,
+    2078.0
+   ]
+  },
+  {
+   "say": "The gang jokes around, hunting for a girl for him. Bobby keeps *drinking*.",
+   "clips": [
+    2021.0,
+    2084.5,
+    2089.5
+   ]
+  },
+  {
+   "say": "At last he gets up and walks over to a table of girls. Are you having fun? Drink with *us*.",
+   "clips": [
+    2096.0,
+    2124.0
+   ]
+  },
+  {
+   "say": "He drinks until his head spins and his eyes close. Is this really what he *wants*?",
+   "clips": [
+    2148.0,
+    2157.5,
+    2160.5
+   ]
+  },
+  {
+   "say": "Sam still cannot reach him, and Bobby just joined the *wrong* side.",
+   "clips": [
+    2163.5,
+    2166.0
+   ]
+  }
+ ]
+}

@@ -1,0 +1,129 @@
+{
+  "title": "She Never Saw The Killer's Face . . . But She Remembers His Hands (highlight)",
+  "caption": "In Memories of Murder, a survivor never saw the killer's face. But she remembers one thing about his hands. Full recap is on our page 👉 link in the comments\n\n#memoriesofmurder #koreanmovie #movierecap #recap #spoilerroom",
+  "output": "final_short.mp4",
+  "source": "source.mp4",
+  "crop_bottom": 0,
+  "music": "../../music/Lordly_Feder.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Film: Memories of Murder (2003)",
+  "watermark": "@SpoilerRoomRecap",
+  "header": "../../brand/spoiler-room/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "kokoro_voice": "am_liam",
+  "comment": "Full recap: https://www.facebook.com/1841202303790571",
+  "segments": [
+    {
+      "say": "She never saw the killer's face, but one woman remembers his *hands*.",
+      "clips": [
+        4849.0,
+        4817.5
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to a lead that sends Ryan to a *school*.",
+      "clips": [
+        4472.0
+      ]
+    },
+    {
+      "say": "There, he hears about a crying *woman*.",
+      "clips": [
+        4493.0,
+        4625.0
+      ]
+    },
+    {
+      "say": "He finds her. She is a *survivor*.",
+      "clips": [
+        4716.0,
+        4763.0,
+        4806.0
+      ]
+    },
+    {
+      "say": "Ryan listens close. She never saw the man's *face*.",
+      "clips": [
+        4849.0
+      ]
+    },
+    {
+      "orig": [
+        4859.2,
+        4862.0
+      ],
+      "text": "His hands were very soft."
+    },
+    {
+      "say": "Ryan runs back to the station. Jack is about to *sign* a confession from the wrong man.",
+      "clips": [
+        4903.0,
+        4924.0,
+        4926.5
+      ]
+    },
+    {
+      "say": "Ryan blocks him, and the whole station *erupts*.",
+      "clips": [
+        4953.0,
+        4975.0,
+        4990.0
+      ]
+    },
+    {
+      "say": "That same night, another girl is *dead*. And Sam was in a cell the whole time.",
+      "clips": [
+        5055.0,
+        5090.0
+      ]
+    },
+    {
+      "say": "At last a postcard leads them to a quiet factory worker named *Peter*.",
+      "clips": [
+        5196.0,
+        5206.0
+      ]
+    },
+    {
+      "say": "Ryan looks down at Peter's hands. Soft, clean *hands*.",
+      "clips": [
+        5303.0,
+        5316.0
+      ]
+    },
+    {
+      "say": "He admits he sent the postcards. He swears he knows nothing about the *murders*.",
+      "clips": [
+        5331.0,
+        5360.0
+      ]
+    },
+    {
+      "say": "Ryan describes the killer's night in horrible detail. Peter does not *flinch*.",
+      "clips": [
+        5393.0,
+        5398.5
+      ]
+    },
+    {
+      "say": "This man is ice *cold*.",
+      "clips": [
+        5355.0
+      ]
+    },
+    {
+      "say": "The full story is on our page.",
+      "clips": [
+        5456.0
+      ]
+    }
+  ]
+}
