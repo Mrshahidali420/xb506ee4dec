@@ -496,8 +496,12 @@ def main() -> None:
         last = duration(joined) - video_length(segs[-1])
         out = (f",afade=t=out:st={max(last - MUSIC_OUT, 0):.2f}:d={MUSIC_OUT}"
                if cfg.get("music_off_last", True) and len(segs) > 1 else "")
+        if cfg.get("music_end") == "swell":  # music rises under the last line instead of going quiet
+            out = f",volume=2dB:enable='gte(t,{last:.2f})'"
+        delay = float(cfg.get("music_delay", 0))  # voice alone for the hook, music comes in after N seconds
+        lead = f"adelay={delay * 1000:.0f}:all=1," if delay else ""
         audio = ["-stream_loop", "-1", "-ss", f"{start:.2f}", "-i", str(music), "-filter_complex",
-                 f"[1:a]volume={gain:.1f}dB,afade=t=in:d=0.05{out}[m];"
+                 f"[1:a]{lead}volume={gain:.1f}dB,afade=t=in:st={delay:.2f}:d=0.05{out}[m];"
                  "[0:a][m]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5[a]",
                  "-map", "0:v", "-map", "[a]"]
     else:
