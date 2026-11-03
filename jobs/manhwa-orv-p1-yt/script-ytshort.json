@@ -1,0 +1,233 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Omniscient Reader's Viewpoint (Singshong / Sleepy-C / UMI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Dokja crushes a living bug in his fist, and then he realizes he is smiling . . . (highlight)",
+ "segments": [
+  {
+   "say": "Dokja crushes a living bug in his fist, and then he realizes he is *smiling*.",
+   "clips": [
+    1281,
+    [
+     1275,
+     5
+    ],
+    [
+     1278,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Dokja Kim is twenty-eight, a contract worker with a third-rate degree and no *friends*.",
+   "clips": [
+    54,
+    [
+     42,
+     5
+    ],
+    [
+     45,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "His only hobby is a web novel called *Three Ways to Survive the Apocalypse*.",
+   "clips": [
+    126,
+    [
+     129,
+     5
+    ],
+    [
+     138,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Through school and the army, this one story was the only thing that never *left* him.",
+   "clips": [
+    147,
+    [
+     150,
+     5
+    ],
+    [
+     144,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He has read it for ten years, and by the end he is the only *reader* left.",
+   "clips": [
+    159,
+    [
+     162,
+     6
+    ],
+    [
+     168,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "So when the epilogue drops today, he sends the author a thank-you *message*.",
+   "clips": [
+    156,
+    [
+     171,
+     4
+    ],
+    [
+     174,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then Sanga from work sits next to him, and the whole ride turns *awkward*.",
+   "clips": [
+    72,
+    [
+     75,
+     5
+    ],
+    [
+     78,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She asks what he is reading, and he lies and says he is studying *Korean*.",
+   "clips": [
+    105,
+    [
+     111,
+     5
+    ],
+    [
+     114,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "He can never tell her this story is the one thing that *saved* him.",
+   "clips": [
+    120,
+    [
+     135,
+     5
+    ],
+    [
+     141,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He figures Sanga would be the heroine of any novel, and he is just a *reader*.",
+   "clips": [
+    195,
+    [
+     198,
+     5
+    ],
+    [
+     249,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "She says he inspires her, and that is the last *peaceful* moment of his life.",
+   "clips": [
+    255,
+    [
+     258,
+     5
+    ],
+    [
+     261,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then his phone buzzes, and the author himself writes back. Dokja nearly *drops* it.",
+   "clips": [
+    264,
+    [
+     276,
+     5
+    ],
+    [
+     273,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The author says Dokja's comments helped him finish, and he even won a *contest*.",
+   "clips": [
+    279,
+    [
+     282,
+     5
+    ],
+    [
+     285,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "As thanks, he wants to send Dokja a special *present*.",
+   "clips": [
+    291,
+    [
+     300,
+     3
+    ],
+    [
+     303,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    291,
+    [
+     300,
+     3
+    ],
+    [
+     303,
+     7
+    ]
+   ]
+  }
+ ]
+}

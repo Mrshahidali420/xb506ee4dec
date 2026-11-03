@@ -1,0 +1,233 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "The Lazy Lord Masters the Sword (Dodomoon / Doip / Second Star)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "The Lazy Lord just ran until his legs quit, and now four hundred recruits watch him collapse . . . (highlight)",
+ "segments": [
+  {
+   "say": "The Lazy Lord just ran until his legs quit, and now four hundred *recruits* watch him collapse.",
+   "clips": [
+    1371,
+    [
+     1389,
+     4
+    ],
+    [
+     1455,
+     8
+    ],
+    [
+     1461,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "A stranger walks into a tiny village, says nothing, and *swings* a sword every single day.",
+   "clips": [
+    0,
+    [
+     42,
+     5
+    ],
+    [
+     54,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "The villagers gossip, but the old man writing this diary couldn't care *less*.",
+   "clips": [
+    15,
+    [
+     48,
+     4
+    ],
+    [
+     18,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Years pass. He marries a girl named Rema, and they have a daughter, *Laura*.",
+   "clips": [
+    87,
+    [
+     102,
+     5
+    ],
+    [
+     135,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Thirty-seven years later the gate is rotting and the village has changed, but the stranger *hasn't*.",
+   "clips": [
+    195,
+    [
+     207,
+     5
+    ],
+    [
+     210,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "One morning the old man pushes the gate open and *freezes*.",
+   "clips": [
+    213,
+    [
+     216,
+     4
+    ],
+    [
+     219,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The stranger died on his knees with his sword in his hands, so the old man closes his *eyes* for him.",
+   "clips": [
+    234,
+    [
+     237,
+     7
+    ],
+    [
+     243,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Damn. That is *dedication*.",
+   "clips": [
+    240,
+    [
+     231,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Then a boy wakes up laughing like a lunatic, and that boy is Airen *Farreira*.",
+   "clips": [
+    252,
+    [
+     255,
+     5
+    ],
+    [
+     261,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Everyone calls him the Lazy Lord, because since his mother died he has done nothing but *sleep*. That's one way to waste a decade.",
+   "clips": [
+    288,
+    [
+     291,
+     8
+    ],
+    [
+     294,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "The guards gush that his little sister Kiril became a royal sorcerer at eleven, so you can guess who gets all the *attention*.",
+   "clips": [
+    270,
+    [
+     273,
+     8
+    ],
+    [
+     279,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Kiril hears the guards gossip about her brother and tears into them, until her mother, Baroness Amelia, *calms* her down.",
+   "clips": [
+    315,
+    [
+     324,
+     7
+    ],
+    [
+     330,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "But Airen wakes up that night shaking and drenched in sweat, because the dream felt way too *real*.",
+   "clips": [
+    363,
+    [
+     369,
+     6
+    ],
+    [
+     378,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "His hands won't stop trembling, and one word fills his head, *sword*.",
+   "clips": [
+    381,
+    [
+     384,
+     4
+    ],
+    [
+     375,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    381,
+    [
+     384,
+     4
+    ],
+    [
+     375,
+     8
+    ]
+   ]
+  }
+ ]
+}
