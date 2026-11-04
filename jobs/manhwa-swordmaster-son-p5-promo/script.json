@@ -1,0 +1,130 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Fight_Beatbrothers.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Swordmaster's Youngest Son (Hwangze Penguin / Mr. Big / AZI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_vertical.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Jin blows up a whole inn with a spell nobody his age should have, then plays the scared survivor . . . (highlight)",
+ "segments": [
+  {
+   "say": "Jin blows up a whole inn with a spell nobody his age should have, then plays the *scared* survivor.",
+   "clips": [
+    1188,
+    1206,
+    1224
+   ]
+  },
+  {
+   "say": "Jin stays calm. He says he only attacks people he can *beat*, and he can't beat Jed. Yet.",
+   "clips": [
+    45,
+    33
+   ]
+  },
+  {
+   "say": "Jed grins, then bursts out *laughing* in front of the whole class.",
+   "clips": [
+    60,
+    63
+   ]
+  },
+  {
+   "say": "Then he says fine, your claim is *acknowledged*. Main-character energy, honestly.",
+   "clips": [
+    69,
+    84
+   ]
+  },
+  {
+   "say": "That night Jin goes home, where Gilly waits and Murakhan, a dragon pretending to be a *cat*, sits on his sword.",
+   "clips": [
+    99,
+    102
+   ]
+  },
+  {
+   "say": "Jin tells her he cut down a cadet who stood beside the Tona twins. Gilly looks *horrified*.",
+   "clips": [
+    117,
+    108
+   ]
+  },
+  {
+   "say": "Turns out that cadet belonged to his sisters' *faction*. Oops.",
+   "clips": [
+    123,
+    135
+   ]
+  },
+  {
+   "say": "The rule is simple. Flagbearers only fight other flagbearers, so his sisters can't touch him *directly*.",
+   "clips": [
+    132,
+    150
+   ]
+  },
+  {
+   "say": "So they'll mess with his *missions* instead, and Jin loves that. Nobody watches a solo mission, so he can use all his power.",
+   "clips": [
+    153,
+    162
+   ]
+  },
+  {
+   "say": "He tells Murakhan he's not taking him along, and the cat gets lifted like a *laundry* bag.",
+   "clips": [
+    168,
+    174
+   ]
+  },
+  {
+   "say": "Next morning Elder Jed shows the cadets the family *secret* training.",
+   "clips": [
+    195,
+    210
+   ]
+  },
+  {
+   "say": "The Runcandel style has no set moves. It's just a blessed bloodline and a body built to *crush*.",
+   "clips": [
+    216,
+    219
+   ]
+  },
+  {
+   "say": "The tool is a singing *stone*. Hit it softly and it thuds, hit it perfectly and it chimes.",
+   "clips": [
+    255,
+    267
+   ]
+  },
+  {
+   "say": "Hit it too hard and it *explodes*. Jed shows them, and the yard goes up in smoke.",
+   "clips": [
+    315,
+    324
+   ]
+  },
+  {
+   "say": "The full story is on our page.",
+   "clips": [
+    315,
+    324
+   ]
+  }
+ ],
+ "caption": "Jin blows up a whole inn with a spell nobody his age should have, then plays the scared survivor. Full recap is on our page 👉 link in the comments"
+}
