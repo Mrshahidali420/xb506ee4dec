@@ -24,7 +24,7 @@ def prep(args: argparse.Namespace) -> None:
     folder = ROOT / job
     folder.mkdir(parents=True, exist_ok=True)
     save(folder / "source.json", {"type": "anime", "title": args.title.lower(), "episode": args.episode, "lang": args.lang})
-    save(folder / "meta.json", {"kind": "clip", "page": args.page, "title": args.title, "episode": args.episode})
+    save(folder / "clip.json", {"kind": "clip", "page": args.page, "title": args.title, "episode": args.episode})
     push(f"Clip job {job}")
     run = dispatch(job)
     print(f"prep run {run}", flush=True)
