@@ -119,13 +119,13 @@ print('URL=https://kisskh.co/Drama/x?id=' + str(h.id)); print('TITLE=' + h.title
     return next(l[4:] for l in out.stdout.splitlines() if l.startswith("URL="))
 
 
-def transcribe(job: Path) -> None:
+def transcribe(job: Path, language: str = "en") -> None:
     """English audio -> work/english.txt ('<second> <line>'), for sources without a subtitle file."""
     audio = job / "work" / "audio.mp3"
     sh(["ffmpeg", "-v", "error", "-y", "-i", str(job / "source.mp4"), "-vn", "-ac", "1", "-ar", "16000",
         "-b:a", "24k", str(audio)])
     out = job / "work" / "transcript.json"
-    sh([*UV, "--with", "groq", "--with", "truststore", "python", "tools/groq_transcribe.py", str(audio), str(out), "en"])
+    sh([*UV, "--with", "groq", "--with", "truststore", "python", "tools/groq_transcribe.py", str(audio), str(out), language])
     segs = json.loads(out.read_text(encoding="utf-8")).get("segments", [])
     (job / "work" / "english.txt").write_text(
         "".join(f"{s['start']:7.1f} {s['text'].strip()}\n" for s in segs), encoding="utf-8")
@@ -190,9 +190,9 @@ def main() -> None:
             "\n".join(f"{a:.2f} {b:.2f}" for a, b in zip(cuts, cuts[1:]) if b - a > 0.3), encoding="utf-8")
     if src["type"] not in ("webtoon", "manga") and not any(job.glob("script*.json")):  # prep run: help write the script
         film_sheets(job)
-        if src["type"] == "anime" and src.get("lang", "dub") == "dub" and not (job / "work" / "english.txt").exists():
-            try:
-                transcribe(job)
+        if src["type"] == "anime" and not (job / "work" / "english.txt").exists():
+            try:  # a dub is English already; a sub is Japanese speech, translated to English text
+                transcribe(job, "en" if src.get("lang", "dub") == "dub" else "translate")
             except (subprocess.CalledProcessError, OSError, ValueError) as err:
                 print(f"no transcript: {err}", flush=True)
     if src.get("shot_sheets") and not (job / "work" / "shot_sheet_01.jpg").exists():

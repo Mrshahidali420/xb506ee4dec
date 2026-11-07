@@ -32,13 +32,17 @@ def main() -> None:
     language = sys.argv[3] if len(sys.argv) > 3 else None
     client = Groq(api_key=load_key())
     with open(audio, "rb") as fh:
-        result = client.audio.transcriptions.create(
-            file=(os.path.basename(audio), fh.read()),
-            model="whisper-large-v3",
-            response_format="verbose_json",
-            timestamp_granularities=["word", "segment"],
-            language=language,
-        )
+        if language == "translate":  # foreign speech -> English text (sub-only anime); no word times
+            result = client.audio.translations.create(
+                file=(os.path.basename(audio), fh.read()), model="whisper-large-v3", response_format="verbose_json")
+        else:
+            result = client.audio.transcriptions.create(
+                file=(os.path.basename(audio), fh.read()),
+                model="whisper-large-v3",
+                response_format="verbose_json",
+                timestamp_granularities=["word", "segment"],
+                language=language,
+            )
     data = result.model_dump() if hasattr(result, "model_dump") else dict(result)
     keep = {
         "text": data.get("text", ""),
