@@ -22,10 +22,10 @@
   {
    "say": "The one woman who can expose Jack walks right up to him, and he *smiles*.",
    "clips": [
-    1255.6,
+    1264.0,
     [
-     1264.0,
-     8
+     1255.6,
+     4
     ],
     [
      1273.5,
@@ -81,7 +81,7 @@
    "text": "If I were Kira, you'd be dead."
   },
   {
-   "say": "It is a test. He wants them to guard their names like their *lives*.",
+   "say": "It is a test. He wants them to guard their names like their *lives*. Cold, but smart.",
    "clips": [
     132.8,
     [
@@ -199,7 +199,7 @@
    ]
   },
   {
-   "say": "In those same days, Kira tested his power on prison inmates, to see how far he could control them *before* they died.",
+   "say": "In those same days, Kira tested his power on prison inmates, to see how far he could control them *first*.",
    "clips": [
     416.5,
     [
@@ -219,7 +219,7 @@
    ]
   },
   {
-   "say": "Meanwhile, Jack knows the hunters are circling. Nobody can ever learn he met Ray *Penber*.",
+   "say": "Meanwhile, Jack knows the hunters are circling. Nobody can ever learn he met Ray *Penber*. That is his weak spot.",
    "clips": [
     444.0,
     [
@@ -372,7 +372,7 @@
    ]
   },
   {
-   "say": "Of course, he slips a page of the Death Note in his pocket, just in *case*.",
+   "say": "Of course, he slips a page of the Death Note in his pocket, just in *case*. Careful, not careless.",
    "clips": [
     733.0,
     [
@@ -434,7 +434,7 @@
    ]
   },
   {
-   "say": "So Jack steps in. He tells her his father runs the entire Kira case, and he can pass on her *message*.",
+   "say": "So Jack steps in. He says his father runs the Kira case, and he can pass on her *message*.",
    "clips": [
     875.5,
     [
@@ -512,7 +512,7 @@
    ]
   },
   {
-   "say": "Jack hears the name Ray Penber and hides his *shock*.",
+   "say": "Jack hears the name Ray Penber and hides his *shock*. He is good at this.",
    "clips": [
     1091.5
    ]
@@ -520,9 +520,9 @@
   {
    "say": "Ray got caught in a bus hijacking, and Naomi believes Kira *staged* it.",
    "clips": [
-    1127.0,
+    1100.5,
     [
-     1132.0,
+     1106.8,
      8
     ]
    ]

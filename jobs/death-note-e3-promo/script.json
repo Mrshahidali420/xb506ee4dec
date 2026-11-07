@@ -1,0 +1,136 @@
+{
+  "title": "The Whole Task Force Quit Because Kira Might Know Their Faces . . . (highlight)",
+  "caption": "In Death Note episode 3, the entire police task force walks out on the case, afraid Kira knows their faces. Full recap is on our page 👉 link in the comments\n\n#deathnote #anime #animerecap #recap #animerewind",
+  "source": "source.mp4",
+  "music": "../../music/Kamin_EMIN_JONY.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Anime: Death Note (Episode 3)",
+  "watermark": "@AnimeRewindRecap",
+  "header": "../../brand/anime-rewind/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "kokoro_voice": "am_liam",
+  "comment": "Full recap: https://www.facebook.com/1428301448891720",
+  "segments": [
+    {
+      "say": "The entire task force walks out on the case, because Kira might know their *faces*.",
+      "clips": [
+        800.0,
+        [
+          842.0,
+          6
+        ],
+        848.9
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to Jack, plotting with *Ryuk*.",
+      "clips": [
+        696.0,
+        [
+          722.0,
+          10
+        ]
+      ]
+    },
+    {
+      "say": "He left fifty criminals alive on purpose, so L would suspect the *police*.",
+      "clips": [
+        690.5,
+        [
+          705.0,
+          8
+        ]
+      ]
+    },
+    {
+      "say": "His real goal is to get close to L, and then *eliminate* him.",
+      "clips": [
+        698.0,
+        700.3
+      ]
+    },
+    {
+      "say": "Ryuk asks how. Jack says nobody in this world truly trusts *anyone*.",
+      "clips": [
+        701.9,
+        [
+          706.1,
+          6
+        ]
+      ]
+    },
+    {
+      "say": "Ryuk grins while Jack explains. L will investigate the police, and the police will resent *L*.",
+      "clips": [
+        725.1,
+        [
+          740.4,
+          9
+        ]
+      ]
+    },
+    {
+      "orig": [
+        749.8,
+        752.4
+      ],
+      "text": "I can let the police do that for me."
+    },
+    {
+      "say": "Right on cue, a row of detectives stands before the chief and demands a different *case*.",
+      "clips": [
+        780.5,
+        787.0
+      ]
+    },
+    {
+      "orig": [
+        781.3,
+        784.3
+      ],
+      "text": "Isn't it clear? It's because we value our lives, sir."
+    },
+    {
+      "say": "They say Kira can kill from anywhere, and they refuse to be his next *victims*.",
+      "clips": [
+        791.9,
+        796.6
+      ]
+    },
+    {
+      "say": "L's last request was the real warning. Every victim's face had been on *television*.",
+      "clips": [
+        816.9,
+        [
+          824.8,
+          9
+        ]
+      ]
+    },
+    {
+      "say": "And the police wear IDs with their names and faces on them. Anyone with a computer can find *them*.",
+      "clips": [
+        830.5,
+        [
+          836.2,
+          12
+        ]
+      ]
+    },
+    {
+      "orig": [
+        841.1,
+        844.1
+      ],
+      "text": "The truth is we could be killed by killer at any time."
+    }
+  ]
+}

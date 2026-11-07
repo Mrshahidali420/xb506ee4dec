@@ -1,0 +1,154 @@
+{
+  "title": "A Man On Live TV Said He Was L, Then Dropped Dead . . . (highlight)",
+  "caption": "In Death Note episode 2, a man on live TV claims to be the great detective L, and drops dead seconds after Jack writes his name. Full recap is on our page 👉 link in the comments\n\n#deathnote #anime #animerecap #recap #animerewind",
+  "source": "source.mp4",
+  "music": "../../music/Kamin_EMIN_JONY.mp3",
+  "music_db_under_voice": 12,
+  "credit": "Anime: Death Note (Episode 2)",
+  "watermark": "@AnimeRewindRecap",
+  "header": "../../brand/anime-rewind/header.png",
+  "voice_chain": [
+    "kokoro",
+    "edge"
+  ],
+  "edge_voice": "en-US-GuyNeural",
+  "edge_rate": "+30%",
+  "edge_pitch": "+10Hz",
+  "speed": 1.0,
+  "bed_volume": 0,
+  "kokoro_voice": "am_liam",
+  "comment": "Full recap: https://www.facebook.com/29023132443987658",
+  "segments": [
+    {
+      "say": "Jack writes one name, and a man drops dead on live TV in front of *millions*.",
+      "clips": [
+        990.5,
+        [
+          1019.0,
+          6
+        ],
+        1022.3
+      ]
+    },
+    {
+      "say": "To see how it got here, go back to a man on live TV who swears he will stop *Kira*.",
+      "clips": [
+        930.5,
+        [
+          934.0,
+          14
+        ]
+      ]
+    },
+    {
+      "say": "Jack watches. Why would the greatest detective ever show his *face*?",
+      "clips": [
+        960.0,
+        [
+          962.0,
+          8
+        ]
+      ]
+    },
+    {
+      "say": "Then a name flashes on the screen. Lind L. Tailor.",
+      "clips": [
+        965.0,
+        [
+          968.0,
+          6
+        ]
+      ]
+    },
+    {
+      "say": "Jack does not wait. He writes it down and counts the *seconds*.",
+      "clips": [
+        991.0,
+        [
+          1000.0,
+          8
+        ]
+      ]
+    },
+    {
+      "say": "Seconds pass and nothing happens. Then the man clutches his *chest*.",
+      "clips": [
+        1019.5,
+        [
+          1021.5,
+          7
+        ]
+      ]
+    },
+    {
+      "say": "Then the screen goes dark. One white *letter* glows on it.",
+      "clips": [
+        1050.0,
+        1054.0
+      ]
+    },
+    {
+      "say": "A cold voice says, I am the real L. That man was a *decoy*.",
+      "clips": [
+        1056.0,
+        [
+          1060.0,
+          10
+        ]
+      ]
+    },
+    {
+      "say": "Lind L. Tailor was a criminal on death row. L planned it *all*.",
+      "clips": [
+        1065.0,
+        [
+          1070.0,
+          8
+        ]
+      ]
+    },
+    {
+      "say": "L says Kira kills with a face and a *name*.",
+      "clips": [
+        1076.0,
+        [
+          1079.0,
+          9
+        ]
+      ]
+    },
+    {
+      "say": "The broadcast only aired in the Kanto *region*.",
+      "clips": [
+        1112.0,
+        [
+          1116.0,
+          6
+        ]
+      ]
+    },
+    {
+      "say": "Kira killed him within seconds, so Kira must live in that *region*.",
+      "clips": [
+        1140.0,
+        [
+          1143.0,
+          10
+        ]
+      ]
+    },
+    {
+      "say": "Kira is not hiding in some far country. He is *close*.",
+      "clips": [
+        1144.2
+      ]
+    },
+    {
+      "say": "Jack freezes. L just shrank the entire world down to one small *map*.",
+      "clips": [
+        1170.0,
+        1174.0
+      ]
+    }
+  ]
+}

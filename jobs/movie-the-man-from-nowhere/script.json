@@ -1,0 +1,538 @@
+{
+ "title": "He Was Just A Quiet Pawnbroker . . . Until A Gang Took The Little Girl Next Door (The Man from Nowhere)",
+ "source": "source.mp4",
+ "caption": "In The Man from Nowhere (2010), a silent pawnbroker's only friend is the lonely little girl next door. When a drug gang takes her and her mother, he comes out of hiding. Follow for more movie recaps!\n\n#themanfromnowhere #koreanmovie #movierecap #thriller #spoilerroom",
+ "output": "final_short.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Film: The Man from Nowhere (2010)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Would you have gone after a whole gang for your neighbor's kid? Why?",
+ "segments": [
+  {
+   "say": "A man stands covered in blood in the dark. A little girl looks up and asks him one thing.",
+   "clips": [
+    6502.0,
+    6560.2,
+    6574.2
+   ]
+  },
+  {
+   "orig": [
+    6553.0,
+    6555.8
+   ],
+   "text": "Mister, are you here to save me?"
+  },
+  {
+   "say": "To see how it got here, go back to a tiny *pawnshop*.",
+   "clips": [
+    359.7,
+    362.5
+   ]
+  },
+  {
+   "say": "Jack runs it alone. He keeps his hood up, his mouth shut, and nobody bothers him.",
+   "clips": [
+    374.7,
+    394.2
+   ]
+  },
+  {
+   "say": "Only one person gets through. A lonely little girl next door named *Lily*.",
+   "clips": [
+    467.3,
+    472.2
+   ]
+  },
+  {
+   "say": "She eats at his counter and tells him her dream. She wants to open a *nail shop*.",
+   "clips": [
+    485.5,
+    495.8,
+    520.9
+   ]
+  },
+  {
+   "say": "Once she pays him with her favorite trading card. Jack keeps it, and that says a lot.",
+   "clips": [
+    1333.0,
+    1361.7,
+    1364.0
+   ]
+  },
+  {
+   "say": "Jack barely answers her. But he never sends her *away*.",
+   "clips": [
+    498.7,
+    514.6
+   ]
+  },
+  {
+   "say": "Her mother, Anna, is a mess, and she is mixed up with a *drug gang*.",
+   "clips": [
+    548.9,
+    554.6,
+    558.9
+   ]
+  },
+  {
+   "say": "One night Anna steals a bag of *heroin* from that gang.",
+   "clips": [
+    178.5,
+    183.1,
+    190.8
+   ]
+  },
+  {
+   "say": "Their boss finds out. He wants it back, and he wants someone to *pay*.",
+   "clips": [
+    722.0,
+    728.5
+   ]
+  },
+  {
+   "say": "He gives two brothers, Mike and Sam, a short deadline. Find the thief, or *else*.",
+   "clips": [
+    731.9,
+    708.5,
+    740.2
+   ]
+  },
+  {
+   "say": "Soon, thugs drag Anna and Lily out into the night. Taking the girl next door was their first *mistake*.",
+   "clips": [
+    1483.7,
+    1486.1,
+    1490.1
+   ]
+  },
+  {
+   "say": "Then they turn to Jack, the quiet man next door. They have a job for him.",
+   "clips": [
+    1494.5,
+    1509.2,
+    1582.5
+   ]
+  },
+  {
+   "say": "Do one delivery, and Anna and Lily live. Say no, and they *die*.",
+   "clips": [
+    1649.7,
+    1652.9
+   ]
+  },
+  {
+   "say": "Jack gives in. He will do whatever they ask, as long as the girl stays *safe*.",
+   "clips": [
+    1853.2,
+    1868.2
+   ]
+  },
+  {
+   "say": "So Jack becomes their courier. He drives a bag of drugs across town in the *rain*.",
+   "clips": [
+    1925.0,
+    1998.5,
+    2005.0
+   ]
+  },
+  {
+   "say": "The drop is a golf range office. A man named Oh waits there with his Chinese *buyers*.",
+   "clips": [
+    2059.3,
+    2090.1,
+    2120.8
+   ]
+  },
+  {
+   "say": "Jack hands the package over, and then the whole deal blows up in their *faces*.",
+   "clips": [
+    2143.1,
+    2152.7,
+    2153.7
+   ]
+  },
+  {
+   "say": "Cops roll in. The boss's men turn on Jack, and he *runs*.",
+   "clips": [
+    2172.5,
+    2262.0,
+    2284.5
+   ]
+  },
+  {
+   "say": "A crowd of armed men chases him across the lot. Bad *idea*.",
+   "clips": [
+    2379.4,
+    2381.5,
+    2395.5
+   ]
+  },
+  {
+   "say": "Then comes the worst news. Anna is dead. The gang took her organs and sold *them*.",
+   "clips": [
+    2531.9,
+    2545.8,
+    2564.8
+   ]
+  },
+  {
+   "say": "A detective named Ford looks Jack up. His record is locked, and nobody has ever seen a civilian file like *that*.",
+   "clips": [
+    2569.9,
+    2571.3,
+    2575.3
+   ]
+  },
+  {
+   "say": "Meanwhile Ford's bosses try to hand the case to the secret service. Ford refuses to let *go*.",
+   "clips": [
+    3935.2,
+    3951.7,
+    3956.1
+   ]
+  },
+  {
+   "say": "Ford digs deeper and finds the truth. Jack was a *special agent*, trained to kill.",
+   "clips": [
+    3160.7,
+    3163.1,
+    3176.0
+   ]
+  },
+  {
+   "say": "The pawnshop was just a *hiding place*.",
+   "clips": [
+    1016.5,
+    1026.4
+   ]
+  },
+  {
+   "say": "Years earlier, Jack had a wife who was about to have his *baby*.",
+   "clips": [
+    4059.3,
+    4067.7,
+    4075.0
+   ]
+  },
+  {
+   "say": "Then enemies from his old job found her, and Jack was too late to stop *it*.",
+   "clips": [
+    4128.8,
+    4134.7,
+    4150.9
+   ]
+  },
+  {
+   "say": "She died in front of him, and so did the future he had *planned*.",
+   "clips": [
+    4191.3,
+    4200.2
+   ]
+  },
+  {
+   "say": "After that, he hid in a pawnshop and felt nothing. Until a little girl wouldn't leave him *alone*.",
+   "clips": [
+    4220.4,
+    1370.7,
+    1404.6
+   ]
+  },
+  {
+   "say": "Now Jack is hurt and burning with fever. He hides in a junkyard with an old friend who *helps*.",
+   "clips": [
+    4236.8,
+    4259.8,
+    4297.4
+   ]
+  },
+  {
+   "say": "Then he shaves his head, and the quiet pawnbroker is *gone*.",
+   "clips": [
+    4402.3,
+    4408.2,
+    4419.0
+   ]
+  },
+  {
+   "say": "A phone call tells him what he needs to hear. Lily is still *alive*.",
+   "clips": [
+    4498.5,
+    4502.8,
+    4515.1
+   ]
+  },
+  {
+   "say": "That is all he needs. One man, no backup, against a whole *gang*.",
+   "clips": [
+    4519.1,
+    4533.4,
+    4546.1
+   ]
+  },
+  {
+   "say": "Meanwhile Lily sits in a dark room with Ryan and an old woman. They tell her to behave, and she will see her *mom*.",
+   "clips": [
+    4593.7,
+    4603.6,
+    4627.2
+   ]
+  },
+  {
+   "say": "Jack starts at a nightclub, where the gang's dealers hang *out*.",
+   "clips": [
+    3281.5,
+    3283.2,
+    3329.9
+   ]
+  },
+  {
+   "say": "He corners a young dealer in the men's room and asks one question. Where are Mike and *Sam*?",
+   "clips": [
+    3569.5,
+    3576.9,
+    3581.0
+   ]
+  },
+  {
+   "say": "Before he gets an answer, a hired killer named Ryan steps in with a *gun*.",
+   "clips": [
+    3609.2,
+    3621.2,
+    3625.6
+   ]
+  },
+  {
+   "say": "The fight wrecks the bathroom, but Jack gets *away*.",
+   "clips": [
+    3658.1,
+    3650.3,
+    3670.3
+   ]
+  },
+  {
+   "say": "Jack finally gets Mike on the phone. And Mike brags about what they did to *Anna*.",
+   "clips": [
+    3869.6,
+    3855.3,
+    3881.9
+   ]
+  },
+  {
+   "say": "Then Jack asks about Lily. Mike says she is alive. For *now*.",
+   "clips": [
+    3885.9,
+    3890.7,
+    3893.5
+   ]
+  },
+  {
+   "say": "The trail leads to a port, where Jack shakes down a street dealer. He shows him Lily's *photo*.",
+   "clips": [
+    4658.3,
+    4723.4,
+    4741.9
+   ]
+  },
+  {
+   "say": "The dealer talks. The gang buys kids from desperate families and uses them as drug *runners*.",
+   "clips": [
+    4784.0,
+    4788.7,
+    4796.7
+   ]
+  },
+  {
+   "say": "Next stop is a hidden clinic, where the gang cuts organs out of people for *money*.",
+   "clips": [
+    5051.9,
+    5057.4,
+    5067.6
+   ]
+  },
+  {
+   "say": "Jack takes out every man in the building, one at a *time*.",
+   "clips": [
+    5237.6,
+    5253.2,
+    5262.4
+   ]
+  },
+  {
+   "say": "But Lily isn't there. So Jack grabs Sam, Mike's little *brother*.",
+   "clips": [
+    5371.1,
+    5392.9,
+    5405.0
+   ]
+  },
+  {
+   "say": "Then he calls Mike. Bring Lily here in one hour. No more *deals*.",
+   "clips": [
+    5316.6,
+    5322.3,
+    5329.6
+   ]
+  },
+  {
+   "say": "Mike screams threats back. He has no idea who he is *dealing* with.",
+   "clips": [
+    5337.3,
+    5344.6,
+    5348.7
+   ]
+  },
+  {
+   "say": "Behind Jack, a whole building goes up in a fireball. Jack does not do *subtle*.",
+   "clips": [
+    5521.4,
+    5525.7,
+    5534.4
+   ]
+  },
+  {
+   "say": "Mike waits in his marble mansion with a small army. Jack walks in *alone*.",
+   "clips": [
+    5735.6,
+    5743.8,
+    5760.8
+   ]
+  },
+  {
+   "say": "Mike asks who the hell he is.",
+   "clips": [
+    5747.7,
+    5750.0
+   ]
+  },
+  {
+   "orig": [
+    5757.0,
+    5759.8
+   ],
+   "text": "Neighbour."
+  },
+  {
+   "say": "Mike wants his brother back. Jack wants Lily *first*.",
+   "clips": [
+    5770.9,
+    5773.6,
+    5784.4
+   ]
+  },
+  {
+   "say": "Then Mike gives the order. Kill *him*.",
+   "clips": [
+    5843.9,
+    5855.3,
+    5863.8
+   ]
+  },
+  {
+   "say": "A dozen men rush Jack at once. He fights them all with guns, knives, and bare *hands*.",
+   "clips": [
+    5916.5,
+    5977.8,
+    5998.3
+   ]
+  },
+  {
+   "say": "When the dust settles, Jack is bleeding from head to toe, and the floor is covered in men. Mike picked the wrong *fight*.",
+   "clips": [
+    6045.2,
+    6066.2,
+    6075.4
+   ]
+  },
+  {
+   "say": "Then Ryan steps up, the gang's hired killer. They fight blade to blade, and Jack *wins*.",
+   "clips": [
+    6159.6,
+    6169.5,
+    6186.0
+   ]
+  },
+  {
+   "say": "Mike hides in a bulletproof car in the garage and screams for the *police*.",
+   "clips": [
+    6286.7,
+    6326.9,
+    6334.9
+   ]
+  },
+  {
+   "say": "But Jack still has one bullet. It is all he *needs*.",
+   "clips": [
+    6380.0,
+    6454.7,
+    6460.0
+   ]
+  },
+  {
+   "say": "Jack staggers out of the garage, bleeding from his eye, and Lily is standing in the *dark*.",
+   "clips": [
+    6475.0,
+    6537.7,
+    6543.0
+   ]
+  },
+  {
+   "say": "Jack tells her to stay back, because he is covered in blood. She runs into his arms *anyway*.",
+   "clips": [
+    6578.6,
+    6603.9,
+    6609.0
+   ]
+  },
+  {
+   "say": "Later, Lily is safe. Jack lost an eye to get her *back*.",
+   "clips": [
+    6727.3,
+    6733.9,
+    6738.9
+   ]
+  },
+  {
+   "orig": [
+    6742.0,
+    6744.9
+   ],
+   "text": "I am sorry that I turned away back then."
+  },
+  {
+   "say": "For the first time, Lily sees him *smile*.",
+   "clips": [
+    6764.6,
+    6785.7,
+    6802.0
+   ]
+  },
+  {
+   "say": "Then he asks if he can hug her. And the hardest man in the city starts to *cry*.",
+   "clips": [
+    6812.9,
+    6829.7,
+    6853.4
+   ]
+  },
+  {
+   "say": "A man with nothing left to lose found one little girl worth killing *for*.",
+   "clips": [
+    6857.2
+   ]
+  }
+ ]
+}
