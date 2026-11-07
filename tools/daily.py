@@ -21,6 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PLAN, TODAY = ROOT / "daily" / "plan.json", ROOT / "daily" / "today.json"
+DROPPED = ("jobs/manhwa-lazy-lord",)  # series we stopped (Lazy Lord: Facebook blocks it, 7 Nov 2026); no new parts or promos
 PAGES = ("anime", "spoiler", "manhwax")
 WAIT_MINUTES = 90
 
@@ -91,7 +92,7 @@ def promo_job(page: str) -> tuple[str, dict, dict] | None:
         series = re.sub(r"-[ep]\d+$", "", job)
         older = series != job and series in seen
         seen.add(series)
-        if older or job.endswith("-promo") or (ROOT / f"{job}-promo").exists() or not (ROOT / job / "script.json").exists():
+        if older or job.startswith(DROPPED) or job.endswith("-promo") or (ROOT / f"{job}-promo").exists() or not (ROOT / job / "script.json").exists():
             continue
         src = json.loads((ROOT / job / "source.json").read_text(encoding="utf-8"))
         return f"{job}-promo", src, {"parent": job, "parent_post": f"https://www.facebook.com/{item['post']}"}
