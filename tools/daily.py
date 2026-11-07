@@ -12,8 +12,8 @@ from __future__ import annotations
 
 import datetime as dt
 import json
-import shutil
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -85,9 +85,13 @@ def movie_job(slot: dict) -> tuple[str, dict] | None:
 def promo_job(page: str) -> tuple[str, dict, dict] | None:
     """Newest full video of this page that is posted and has no promo yet (any series, episode or movie)."""
     posted = [i for i in queue_items(page) if i.get("posted_at") and i.get("post") and i.get("job")]
+    seen = set()  # a promo only for a series' newest posted episode: an old episode's promo looks like going backwards
     for item in sorted(posted, key=lambda i: i["posted_at"], reverse=True):
         job = item["job"]
-        if job.endswith("-promo") or (ROOT / f"{job}-promo").exists() or not (ROOT / job / "script.json").exists():
+        series = re.sub(r"-[ep]\d+$", "", job)
+        older = series != job and series in seen
+        seen.add(series)
+        if older or job.endswith("-promo") or (ROOT / f"{job}-promo").exists() or not (ROOT / job / "script.json").exists():
             continue
         src = json.loads((ROOT / job / "source.json").read_text(encoding="utf-8"))
         return f"{job}-promo", src, {"parent": job, "parent_post": f"https://www.facebook.com/{item['post']}"}
