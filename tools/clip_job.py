@@ -12,9 +12,11 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import sys
 from pathlib import Path
 
-from daily import ROOT, dispatch, push, save, sh, slug, wait
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # python -I does not add the script folder
+from daily import ROOT, dispatch, push, save, sh, slug, wait  # noqa: E402
 
 
 def prep(args: argparse.Namespace) -> None:
