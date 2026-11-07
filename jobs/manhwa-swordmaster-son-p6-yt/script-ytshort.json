@@ -1,0 +1,138 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Fight_Beatbrothers.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Swordmaster's Youngest Son (Hwangze Penguin / Mr. Big / AZI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "A monster with a human face looks up at Jin, begs him to kill it, and Jin does . . . (highlight)",
+ "segments": [
+  {
+   "say": "A monster with a human face looks up at Jin, begs him to *kill* it, and Jin does.",
+   "clips": [
+    1380,
+    1389,
+    1398
+   ]
+  },
+  {
+   "say": "In the yard, lowborn cadets whisper that Jin is only a four-star who gets all the *luck*.",
+   "clips": [
+    270,
+    279
+   ]
+  },
+  {
+   "say": "Their leader Kazine Romero wants somebody to do something about it. Somebody turns around. It's *Jin*.",
+   "clips": [
+    291,
+    294,
+    297
+   ]
+  },
+  {
+   "say": "Jin asks how Kazine's arm is. Kazine thanks him for chopping it off so *cleanly*, because it made reattaching easier.",
+   "clips": [
+    300,
+    303,
+    306
+   ]
+  },
+  {
+   "say": "Kazine says Jin only has to say the word to get him *whipped*. Jin says he'd never. Kazine says he's being insolent on purpose.",
+   "clips": [
+    315,
+    309,
+    324
+   ]
+  },
+  {
+   "say": "Jin points out that Kazine is a five-star, one of the best cadets in the class, so why talk behind his *back*?",
+   "clips": [
+    339,
+    345
+   ]
+  },
+  {
+   "say": "Then he lifts his sword and says don't go easy, go *all-out*. Main-character energy, honestly.",
+   "clips": [
+    351,
+    354
+   ]
+  },
+  {
+   "say": "Kazine says you'll regret it and swings with everything he's got. That was *his* first mistake.",
+   "clips": [
+    360,
+    366,
+    369
+   ]
+  },
+  {
+   "say": "Steel clashes, but Jin can see every move. He has seen this swing *before*.",
+   "clips": [
+    393,
+    402,
+    405
+   ]
+  },
+  {
+   "say": "Kazine's last trick is an aura attack that kills any four-star knight, and Jin takes it *head-on*.",
+   "clips": [
+    432,
+    435,
+    441
+   ]
+  },
+  {
+   "say": "Jin was a five-star the whole time. At fifteen. He only fights when he knows he can *win*.",
+   "clips": [
+    450,
+    453,
+    459
+   ]
+  },
+  {
+   "say": "The word spreads fast. Two cadets stare across the hall and ask if Jin really beat *Kazine*. No way.",
+   "clips": [
+    465,
+    468,
+    471
+   ]
+  },
+  {
+   "say": "Kazine's boss isn't buying it either. She asks if he was *bribed* to lose, and he swears he'd never.",
+   "clips": [
+    477,
+    480,
+    483
+   ]
+  },
+  {
+   "say": "Everyone in the hall saw that aura. Jin has shown the whole clan his *teeth*, so she sends some of her own people along on his next *mission*.",
+   "clips": [
+    495,
+    498
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    495,
+    498
+   ]
+  }
+ ]
+}

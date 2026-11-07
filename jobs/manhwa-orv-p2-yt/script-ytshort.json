@@ -1,0 +1,217 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Omniscient Reader's Viewpoint (Singshong / Sleepy-C / UMI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Dokja borrows his dead enemy's power, and one stab drops a screaming zombie . . . (highlight)",
+ "segments": [
+  {
+   "say": "Dokja borrows his dead enemy's power, and one stab drops a screaming *zombie*.",
+   "clips": [
+    1083,
+    [
+     1086,
+     6
+    ],
+    [
+     1089,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "But Dokja read this kid's whole story, and he *hated* the guy.",
+   "clips": [
+    45,
+    [
+     27,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "So Namwoon says get out of my way, he has business with that *granny*, but Dokja grabs his wrist.",
+   "clips": [
+    33,
+    [
+     36,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Namwoon sneers that Dokja is playing hero, and the game says he now *despises* him.",
+   "clips": [
+    42,
+    [
+     48,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then Namwoon wakes his skill, and one slam sends Dokja crashing *backward*.",
+   "clips": [
+    57,
+    [
+     63,
+     5
+    ],
+    [
+     72,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then Dokja's head starts pounding, and a message says he just unlocked *Omniscient Reader's Viewpoint*.",
+   "clips": [
+    84,
+    [
+     87,
+     7
+    ],
+    [
+     90,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Now he reads Namwoon's moves, and the kid can't land a single *hit*. Bro is basically Neo.",
+   "clips": [
+    108,
+    [
+     114,
+     8
+    ],
+    [
+     117,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "So Namwoon eyes the old lady, because if she dies he clears the scenario, and he *throws* a knife.",
+   "clips": [
+    153,
+    [
+     156,
+     10
+    ],
+    [
+     159,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Dokja dives in front of her and carries her away, and the blade burns his *skin*.",
+   "clips": [
+    165,
+    [
+     168,
+     7
+    ],
+    [
+     174,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The strong eat the weak, Namwoon says, and Dokja admits it. If he hesitates, he *dies*.",
+   "clips": [
+    189,
+    [
+     183,
+     8
+    ],
+    [
+     192,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Dokja asks if an insect egg counts as an organism, then crushes the sack in his *fist*.",
+   "clips": [
+    195,
+    [
+     198,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The system dings like crazy, because a grasshopper lays over a hundred eggs at a time. That was *savage*.",
+   "clips": [
+    207,
+    [
+     231,
+     6
+    ],
+    [
+     210,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Dokja puts twenty-seven hundred coins into stamina, and Namwoon's knife suddenly can't *touch* him.",
+   "clips": [
+    216,
+    [
+     222,
+     9
+    ],
+    [
+     228,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Namwoon swings and screams, why won't you die? Dokja says it's *Namwoon* who will.",
+   "clips": [
+    243,
+    [
+     246,
+     7
+    ],
+    [
+     234,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    243,
+    [
+     246,
+     7
+    ],
+    [
+     234,
+     10
+    ]
+   ]
+  }
+ ]
+}

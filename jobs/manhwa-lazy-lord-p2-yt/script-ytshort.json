@@ -1,0 +1,265 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "The Lazy Lord Masters the Sword (Dodomoon / Doip / Second Star)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Airen throws away the whole exam to haul a drowning girl out of the lake . . . (highlight)",
+ "segments": [
+  {
+   "say": "Airen throws away the whole exam to haul a drowning girl out of the *lake*.",
+   "clips": [
+    297,
+    [
+     309,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then Airen lifts the big sword and drops a vertical slash, and the blades *clash*.",
+   "clips": [
+    1074,
+    [
+     1080,
+     4
+    ],
+    [
+     1092,
+     8
+    ],
+    [
+     1095,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Lloyd's blade stops at his throat, and the duel is *over*. Still, a month with a sword is wild.",
+   "clips": [
+    1098,
+    [
+     1104,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then the classes are read out. Illia, Lloyd and Judith all land in Class A, and Airen lands in Class *F*.",
+   "clips": [
+    1116,
+    [
+     1122,
+     5
+    ],
+    [
+     1146,
+     10
+    ],
+    [
+     1149,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Judith rants about that arrogant Lloyd, then blushes, panics, and *punches* Airen. Classic tsundere.",
+   "clips": [
+    1155,
+    [
+     1167,
+     4
+    ],
+    [
+     1170,
+     7
+    ],
+    [
+     1173,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "That night Lloyd can't sleep, because he keeps replaying that vertical *slash*.",
+   "clips": [
+    1185,
+    [
+     1188,
+     3
+    ],
+    [
+     1197,
+     6
+    ],
+    [
+     1203,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "In Class F, Ron Tarhall asks Airen what he is missing. Airen says effort, but Ron says it's *talent*.",
+   "clips": [
+    1230,
+    [
+     1239,
+     5
+    ],
+    [
+     1242,
+     10
+    ],
+    [
+     1248,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then Ron makes a bet. Master the basic sword skills in a week, and Airen moves up to Class *C*.",
+   "clips": [
+    1257,
+    [
+     1260,
+     7
+    ],
+    [
+     1263,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "So Airen swings all day, every day, until even Ron admits he never improved this *fast*.",
+   "clips": [
+    1278,
+    [
+     1281,
+     4
+    ],
+    [
+     1290,
+     8
+    ],
+    [
+     1293,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "On the last day Judith watches his swing and gives him a thumbs up, and Airen is *promoted* to Class C.",
+   "clips": [
+    1302,
+    [
+     1311,
+     5
+    ],
+    [
+     1317,
+     10
+    ],
+    [
+     1329,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "At lunch Judith inhales a mountain of food, and Lloyd's friends call her a hippo. She asks the loudest guy if he has a *crush*.",
+   "clips": [
+    1335,
+    [
+     1344,
+     6
+    ],
+    [
+     1350,
+     12
+    ],
+    [
+     1353,
+     19
+    ]
+   ]
+  },
+  {
+   "say": "Judith asks if Airen and Illia had a fight. Illia is still number one, and rumor says she trains alone every *night*.",
+   "clips": [
+    1368,
+    [
+     1380,
+     6
+    ],
+    [
+     1398,
+     11
+    ],
+    [
+     1404,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "So Judith spars with him, and Airen eats her storm of attacks. Then he throws his vertical slash, and her eyes *pop*.",
+   "clips": [
+    1425,
+    [
+     1437,
+     6
+    ],
+    [
+     1446,
+     11
+    ],
+    [
+     1449,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "She grins that he's improved, but he's not at her level *yet*. And it's dark, so Illia is probably training *alone*.",
+   "clips": [
+    1458,
+    [
+     1479,
+     7
+    ],
+    [
+     1488,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    1458,
+    [
+     1479,
+     7
+    ],
+    [
+     1488,
+     14
+    ]
+   ]
+  }
+ ]
+}
