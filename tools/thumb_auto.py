@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PANEL_SECONDS = 3
 W, H = 1280, 720
 FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
-SMART_URL = "https://raw.githubusercontent.com/fralapo/smart-thumbnailer/main/thumbnailer.py"
+SMART_URL = "https://raw.githubusercontent.com/fralapo/smart-thumbnailer/master/thumbnailer.py"
 CASCADE_URL = "https://raw.githubusercontent.com/nagadomi/lbpcascade_animeface/master/lbpcascade_animeface.xml"
 CACHE = Path.home() / ".cache" / "thumb_auto"
 WEIGHTS = {"visual": 0.20, "face": 0.20, "story": 0.25, "frame": 0.15, "words": -0.10}
@@ -50,6 +50,7 @@ VARIETY = 0.10
 LOOK = {"color": 0.25, "sharp": 0.20, "contrast": 0.15, "natural": 0.10, "exposure": 0.12, "salient": 0.10}
 DHASH_MIN = 10        # bits apart for two panels to count as different
 POOL = 14             # best panels the sets are built from
+SPREAD = 15           # split and trio panels at least this many panels apart: different moments, not one scene thrice
 TALL = 1.25           # height / width above this: the scene shows the panel whole ("contain")
 LOW_SCORE = 45        # best scene under this: ask for a hand pick
 THREATS = ("golem", "monster", "zombie", "serpent", "dragon", "demon", "beast", "boss", "king", "giant", "goblin",
@@ -181,9 +182,9 @@ def ocr_texts(job: Path) -> dict[int, str]:
 def story_map(segs: list[dict]) -> tuple[dict[int, float], dict[int, str]]:
     story, line = {}, {}
     for i, seg in enumerate(segs):
-        for c in seg["clips"]:
+        for n, c in enumerate(seg["clips"]):
             p = int(float(c[0] if isinstance(c, list) else c) // PANEL_SECONDS)
-            value = 100.0 if i == 0 else min(90.0, 30 + 20 * seg["say"].count("*") / 2)
+            value = (100.0 if n == 0 else 80.0) if i == 0 else min(75.0, 30 + 20 * seg["say"].count("*") / 2)
             if value > story.get(p, 0):
                 story[p], line[p] = value, seg["say"]
     return story, line
@@ -254,7 +255,7 @@ def best_set(pool: list[dict], n: int, ordered: bool, need=None) -> list[dict]:
     """The n panels that work together best: mean score plus the variety bonus, not just the n top scores."""
     best, value = pool[:n], -1.0
     for combo in itertools.combinations(pool, n):
-        if need and not need(combo):
+        if need and not need(combo) or any(abs(a["panel"] - b["panel"]) < SPREAD for a, b in itertools.combinations(combo, 2)):
             continue
         variety = min(apart(a, b) for a, b in itertools.combinations(combo, 2))
         v = sum(p["score"] for p in combo) / n * (1 - VARIETY) + 100 * VARIETY * variety
@@ -304,7 +305,7 @@ def build_spec(job: Path, ranked: list[dict], segs: list[dict]) -> tuple[dict, d
                                "to": [round(0.53 + foe["target"][0] * 0.42, 3), 0.5]}]})
     reasons["split"] = [why(mc, "left"), why(foe, "right")]
 
-    trio = best_set(pool[:10], 3, True)
+    trio = best_set(pool, 3, True)
     big = max(trio, key=lambda p: p["signals"]["story"])
     i = trio.index(big)
     t3 = {"name": "auto-trio", "style": "trio", "panels": [p["second"] for p in trio],
