@@ -2,31 +2,31 @@
  "badge": "CH 31-35",
  "auto": true,
  "review": false,
- "confidence": 65,
+ "confidence": 73,
  "thumbs": [
   {
    "name": "auto-scene",
    "style": "scene",
-   "panel": 229,
+   "panel": 1393,
    "focus": [
     0.5,
-    0.31
+    0.2
    ],
    "fit": "contain",
    "sides": [
-    1393,
-    1684
+    67,
+    229
    ],
    "labels": [
     {
-     "text": "ALIVE",
+     "text": "PATH",
      "at": [
       0.2,
       0.86
      ],
      "to": [
-      0.542,
-      0.31
+      0.636,
+      0.08
      ]
     }
    ]

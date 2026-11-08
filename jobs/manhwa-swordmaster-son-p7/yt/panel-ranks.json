@@ -1,9 +1,9 @@
 {
  "reasons": {
   "scene": [
-   "main: panel 76 score 46.1 (best at frame 75, story 50; words -2)",
-   "side: panel 464 score 51.9 (best at story 100, frame 53; words -10)",
-   "side: panel 561 score 42.1 (best at frame 75, story 50; words -0)"
+   "main: panel 464 score 51.9 (best at story 100, frame 53; words -10)",
+   "side: panel 22 score 43.8 (best at frame 75, visual 57; words -0)",
+   "side: panel 76 score 46.1 (best at frame 75, story 50; words -2)"
   ],
   "split": [
    "left: panel 464 score 51.9 (best at story 100, frame 53; words -10)",
@@ -21,8 +21,8 @@
   "faces": "lbpcascade_animeface",
   "words": "OCR"
  },
- "confidence": 65,
- "seconds": 271.3,
+ "confidence": 73,
+ "seconds": 172.4,
  "panels": 575,
  "with_faces": 8,
  "manual_picks": [
