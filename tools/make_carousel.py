@@ -1,17 +1,21 @@
 """Make a swipe-through picture post (carousel) from a built manhwa part, by code.
 
 Usage: python make_carousel.py <job>
-Needs <job>/panels/*.png (the build made them) and <job>/script.json.
+Needs <job>/source.mp4 (the panel video: one panel per PANEL_SECONDS) and <job>/script.json.
 Writes <job>/posts/card_1.jpg ... card_N.jpg (4:5) and <job>/posts/post.json {caption, comment}.
 
 Cards: the hook panel, 4 panels spread over the story (each with its script line), and an end card.
 A clip number is a second of the source video; one panel is PANEL_SECONDS long (as in storyboard.py).
+The card shows the middle frame of that panel, taken from source.mp4 (the panel images are not kept between builds).
 """
 from __future__ import annotations
 
 import json
+import shutil
+import subprocess
 import sys
 import textwrap
+import tempfile
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -20,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 W, H = 1080, 1350
 PANEL_SECONDS = 3
 STORY_CARDS = 4
+FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
 FONTS = ["DejaVuSans-Bold.ttf", "arialbd.ttf", "Arial Bold.ttf"]
 
 
@@ -35,6 +40,11 @@ def font(size: int) -> ImageFont.FreeTypeFont:
 def first_clip(seg: dict) -> float:
     clip = seg["clips"][0]
     return float(clip[0] if isinstance(clip, list) else clip)
+
+
+def frame_at(video: Path, second: float, to: Path) -> Path:
+    subprocess.run([FFMPEG, "-v", "error", "-y", "-ss", f"{second:.2f}", "-i", str(video), "-frames:v", "1", str(to)], check=True)
+    return to
 
 
 def card(panel: Path, line: str) -> Image.Image:
@@ -66,9 +76,9 @@ def end_card(title: str) -> Image.Image:
 def main() -> None:
     job = ROOT / sys.argv[1]
     script = json.loads((job / "script.json").read_text(encoding="utf-8"))
-    panels = sorted((job / "panels").glob("p_*.png"))
-    if not panels:
-        sys.exit("no panels in this job: carousel skipped")
+    video = job / "source.mp4"
+    if not video.exists():
+        sys.exit("no source.mp4 in this job: carousel skipped")
     segs = script["segments"]
     body = segs[1:-1] or segs
     picks = [segs[0]] + [body[round(i * (len(body) - 1) / (STORY_CARDS - 1))] for i in range(STORY_CARDS)]
@@ -76,13 +86,15 @@ def main() -> None:
     out.mkdir(exist_ok=True)
     used = set()
     n = 0
-    for seg in picks:
-        idx = min(int(first_clip(seg) // PANEL_SECONDS), len(panels) - 1)
-        if idx in used:
-            continue
-        used.add(idx)
-        n += 1
-        card(panels[idx], seg["say"].replace("*", "")).save(out / f"card_{n}.jpg", quality=88)
+    with tempfile.TemporaryDirectory() as tmp:
+        for seg in picks:
+            panel = int(first_clip(seg) // PANEL_SECONDS)
+            if panel in used:
+                continue
+            used.add(panel)
+            n += 1
+            shot = frame_at(video, panel * PANEL_SECONDS + PANEL_SECONDS / 2, Path(tmp) / f"f{n}.png")
+            card(shot, seg["say"].replace("*", "")).save(out / f"card_{n}.jpg", quality=88)
     end_card(script["title"].split(" . . .")[0]).save(out / f"card_{n + 1}.jpg", quality=88)
     post = {"caption": script.get("caption", script["title"]), "comment": script.get("comment", ""), "cards": n + 1}
     (out / "post.json").write_text(json.dumps(post, ensure_ascii=False, indent=1), encoding="utf-8")
