@@ -1,6 +1,10 @@
 {
  "kind": "clip",
- "page": "whereanime",
- "title": "black clover season 2",
- "episode": 6
+ "pages": [
+  "whereanime"
+ ],
+ "title": "Black Clover Season 2",
+ "episode": 6,
+ "anilist_id": 195604,
+ "key": "195604-6"
 }
