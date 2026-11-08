@@ -1,1 +1,8 @@
-{"series": "The Youngest Son of a Master Swordsman", "word": "KILL ME", "badge": "CH 26-30", "panels": {"shock": 1389, "versus": 1374, "power": 1317}, "crop": [0, 0, 1, 0.74]}
+{"badge": "CH 26-30",
+ "thumbs": [
+  {"name": "scene", "style": "scene", "panel": 1389, "focus": [0.5, 0.3],
+   "labels": [{"text": "HE WAS HUMAN", "at": [0.25, 0.14], "to": [0.62, 0.3]}]},
+  {"name": "split", "style": "split", "panels": [1359, 1374], "focus": [[0.5, 0.5], [0.5, 0.35]],
+   "labels": [{"text": "MC", "at": [0.12, 0.85], "to": [0.28, 0.55]}, {"text": "GOLEM", "at": [0.86, 0.85], "to": [0.72, 0.45]}]},
+  {"name": "shock", "style": "shock", "panel": 1389, "word": "KILL ME", "hero": 1344}
+ ]}

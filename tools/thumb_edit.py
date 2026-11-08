@@ -1,29 +1,29 @@
 """Thumbnails for a manhwa long video, made by photo editing (no AI painting). Runs on GitHub (thumb.yml).
 
-Three different styles from the same part, so Shahid can pick (or A/B test in YouTube Studio):
-  shock   the part's most shocking panel blown up, red danger tone, one huge word, a red circle on the key spot
-  versus  the hero (cut out of the official cover, cyan) against the panel's threat (red), torn diagonal split
-  power   the hero with a huge glowing spectral copy behind him, RPG status window, level-up arrows,
-          enemies in the dark, the panel as the backdrop (Shahid's prompt, 8 Nov 2026)
-All have minimum text (1-3 words) and a small chapter badge.
+Styles copy what the top manhwa recap videos do (YouTube study, 8 Nov 2026: 16 thumbnails with 1-4.5M views):
+one bright full-bleed scene, small yellow role labels ("MC", "ENEMY", "MAX LEVEL") with curved arrows pointing at
+the people, strong emotion, very few words. Ours use the part's real panels instead of painted art.
 
-How: real panels come from the part's source.mp4 (one panel per 3 s; the build cache keeps it),
-rembg cuts characters out of the AniList art (BiRefNet, then the anime model), the layers are put together
-in HTML/CSS and Chromium (Playwright) takes the 1280x720 screenshot.
+  scene   one panel fills the frame; 1-3 labels with arrows
+  split   two panels side by side (the MC | the threat), a slanted cut between; labels on each
+  shock   the most shocking panel blown up, red danger tone, one huge word, optional hero cut out of a panel
 
 Usage: python thumb_edit.py <meta dir>
 <meta dir>/thumb.json:
-  {"series": "name for AniList", "word": "KILL ME", "badge": "CH 26-30",
-   "panels": {"shock": 1389, "versus": 1374, "power": 1317}   seconds in source.mp4 (from the panel sheets):
-                            shock = the most shocking face or moment, versus = the threat, power = a dark backdrop,
-   "spot": [0.5, 0.4]       where the red circle goes on the first panel, as fractions (optional),
-   "crop": [x0,y0,x1,y1]    fractions of the cover, to cut its printed title off (optional)}
-The job folder is the parent of <meta dir>. Writes thumb-shock.jpg, thumb-versus.jpg, thumb-power.jpg there.
+  {"badge": "CH 26-30",
+   "thumbs": [
+     {"name": "scene", "style": "scene", "panel": 1389, "focus": [0.6, 0.4],
+      "labels": [{"text": "MC?", "at": [0.08, 0.12], "to": [0.55, 0.3]}]},
+     {"name": "split", "style": "split", "panels": [1359, 1374], "focus": [[0.5, 0.4], [0.5, 0.3]], "labels": [...]},
+     {"name": "shock", "style": "shock", "panel": 1389, "word": "KILL ME", "hero": 1359}
+   ]}
+  panel = a second in the part's source.mp4 (pick it from the panel sheets); focus = which point of the panel stays in view;
+  label "at" = where the label sits, "to" = where its arrow points, both as fractions of the 1280x720 frame.
+The job folder is the parent of <meta dir>. Writes thumb-<name>.jpg there and panel-<second>.png into <meta dir>.
 """
 from __future__ import annotations
 
 import html
-import io
 import json
 import shutil
 import subprocess
@@ -31,39 +31,15 @@ import sys
 import tempfile
 from pathlib import Path
 
-import requests
 from PIL import Image
 from playwright.sync_api import sync_playwright
-from rembg import new_session, remove
 
 W, H = 1280, 720
 PANEL_SECONDS = 3
 FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
-MODELS = ("birefnet-general", "isnet-anime", "isnet-general-use")
-QUERY = ("query($s:String){Media(search:$s,type:MANGA){coverImage{extraLarge} "
-         "characters(sort:ROLE,perPage:4){nodes{image{large}}}}}")
 
 
-def fetch(url: str) -> Image.Image:
-    return Image.open(io.BytesIO(requests.get(url, timeout=30).content)).convert("RGB")
-
-
-def cutout(img: Image.Image, sessions: dict) -> Image.Image:
-    """The figure without its background. A model that keeps almost all or almost none of it failed: try the next."""
-    best = None
-    for name in MODELS:
-        sessions.setdefault(name, new_session(name))
-        cut = remove(img, session=sessions[name], post_process_mask=True).convert("RGBA")
-        kept = sum(cut.getchannel("A").point(lambda v: 1 if v > 128 else 0).getdata()) / (img.width * img.height)
-        print(f"  {name}: keeps {kept:.0%}")
-        best = best or cut
-        if 0.08 < kept < 0.75:
-            best = cut
-            break
-    return best.crop(best.getbbox() or (0, 0, best.width, best.height))
-
-
-def panel(video: Path, second: float, to: Path) -> Path:
+def panel(video: Path, second: float, to: Path) -> str:
     """The middle frame of the panel shown at `second`, with the video's black letterbox cut off."""
     mid = int(second // PANEL_SECONDS) * PANEL_SECONDS + PANEL_SECONDS / 2
     subprocess.run([FFMPEG, "-v", "error", "-y", "-ss", f"{mid:.2f}", "-i", str(video), "-frames:v", "1", str(to)], check=True)
@@ -72,110 +48,126 @@ def panel(video: Path, second: float, to: Path) -> Path:
     if box and box[2] - box[0] > img.width // 3:
         img = img.crop(box)
     img.save(to)
-    return to
+    return to.name
+
+
+def hero_cut(src: Path, to: Path) -> str:
+    """The hero cut out of a panel (rembg: BiRefNet, then the anime model)."""
+    from rembg import new_session, remove
+
+    img = Image.open(src).convert("RGB")
+    for name in ("birefnet-general", "isnet-anime"):
+        cut = remove(img, session=new_session(name), post_process_mask=True).convert("RGBA")
+        kept = sum(cut.getchannel("A").point(lambda v: 1 if v > 128 else 0).getdata()) / (img.width * img.height)
+        if 0.08 < kept < 0.8:
+            break
+    cut.crop(cut.getbbox() or (0, 0, cut.width, cut.height)).save(to)
+    return to.name
 
 
 BASE = """<!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Luckiest+Guy&display=block" rel="stylesheet">
 <style>
  * {{ margin: 0; box-sizing: border-box; }}
- body {{ width: 1280px; height: 720px; overflow: hidden; background: #000; position: relative; font-family: Anton, Impact, sans-serif; }}
+ body {{ width: 1280px; height: 720px; overflow: hidden; background: #000; position: relative; }}
  .a {{ position: absolute; }}
- .word {{ white-space: nowrap; line-height: .95; -webkit-text-stroke: 10px #000; paint-order: stroke fill; letter-spacing: 1px; }}
- .badge {{ right: 30px; bottom: 26px; background: #ffd600; color: #000; font-size: 30px; padding: 3px 11px 1px;
+ .full {{ inset: 0; width: 1280px; height: 720px; object-fit: cover; filter: contrast(1.15) saturate(1.35) brightness(1.06); }}
+ .label {{ font-family: "Luckiest Guy", Anton, sans-serif; color: #ffd600; font-size: 64px; line-height: 1; white-space: nowrap;
+          -webkit-text-stroke: 9px #000; paint-order: stroke fill; transform: translate(-50%, -50%) rotate(-3deg);
+          filter: drop-shadow(0 4px 6px rgba(0,0,0,.6)); }}
+ .word {{ font-family: Anton, sans-serif; white-space: nowrap; line-height: .95; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }}
+ .badge {{ right: 26px; bottom: 22px; background: #ffd600; color: #000; font: 28px Anton, sans-serif; padding: 3px 10px 1px;
           border: 4px solid #000; border-radius: 8px; }}
+ svg.arrows {{ position: absolute; inset: 0; overflow: visible; filter: drop-shadow(0 3px 4px rgba(0,0,0,.6)); }}
  {css}
-</style></head><body>{body}<div class="a badge">{badge}</div></body></html>"""
+</style></head><body>{body}
+<svg class="arrows" width="1280" height="720"><defs>
+ <marker id="tip" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 z" fill="#ffd600" stroke="#000" stroke-width="1.6"/></marker></defs>{arrows}</svg>
+<div class="a badge">{badge}</div></body></html>"""
+
+SPLIT_CSS = """
+ .half { top: 0; height: 720px; width: 700px; overflow: hidden; }
+ .half img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.15) saturate(1.35) brightness(1.06); }
+ .l { left: 0; clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%); }
+ .r { right: 0; clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%); }
+ .cut { left: 618px; top: -20px; width: 14px; height: 780px; background: #fff; transform: skewX(-6.3deg); box-shadow: 0 0 18px #fff; }
+"""
 
 SHOCK_CSS = """
- .bg { inset: -40px; background: url(p-shock.png) center/cover; filter: blur(14px) brightness(.35) saturate(1.4); }
- .pic { right: 0; top: 0; height: 720px; width: 900px; object-fit: cover; object-position: center 35%;
-        filter: contrast(1.25) saturate(1.35) brightness(1.05); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%); }
+ .bg { inset: -40px; filter: blur(14px) brightness(.35) saturate(1.4); }
+ .pic { right: 0; top: 0; height: 720px; width: 920px; object-fit: cover; filter: contrast(1.25) saturate(1.35) brightness(1.05);
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%); }
  .red { inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, transparent 40%, rgba(120,0,0,.55) 100%),
         linear-gradient(90deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.6) 30%, transparent 45%); }
- .ring { width: 230px; height: 230px; border: 12px solid #ff1e1e; border-radius: 50%;
-         box-shadow: 0 0 0 5px #000, 0 0 30px #ff1e1e, inset 0 0 0 5px #000; }
- .hero { left: 10px; bottom: -10px; height: 470px; filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 22px rgba(255,40,40,.8)); }
+ .hero { left: 0; bottom: -10px; height: 480px; filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 22px rgba(255,40,40,.8)); }
  .word { left: 36px; top: 46px; color: #fff; font-size: 150px; text-shadow: 0 0 30px rgba(255,0,0,.7); }
 """
 
-VERSUS_CSS = """
- .left { left: 0; top: 0; width: 760px; height: 720px; background: radial-gradient(circle at 40% 50%, #0b4f86, #020a18 70%);
-         clip-path: polygon(0 0, 100% 0, 72% 100%, 0 100%); }
- .right { right: 0; top: 0; width: 760px; height: 720px; clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%); overflow: hidden; }
- .right img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: contrast(1.3) saturate(1.2) sepia(.35) hue-rotate(-25deg) brightness(.95); }
- .right:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(160,0,0,.55), rgba(60,0,0,.15)); mix-blend-mode: multiply; }
- .tear { left: 510px; top: -20px; width: 26px; height: 780px; background: #fff; transform: skewX(-19.5deg);
-         box-shadow: 0 0 25px #fff, 0 0 60px #28d2ff, 0 0 60px #ff2a2a; }
- .hero { left: 40px; bottom: -8px; height: 700px; filter: contrast(1.1) saturate(1.3) drop-shadow(0 0 3px #bff) drop-shadow(0 0 26px #28d2ff); }
- .word { left: 50%; bottom: 30px; transform: translateX(-50%); color: #ffd600; font-size: 120px; }
-"""
 
-POWER_CSS = """
- .bg { inset: -40px; background: url(p-power.png) center/cover; filter: blur(8px) brightness(.3) saturate(1.3); }
- .tone { inset: 0; background: radial-gradient(ellipse 45% 70% at 62% 55%, rgba(40,210,255,.35), transparent 70%),
-        linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.55) 30%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,.85) 100%); }
- .foe { top: 0; height: 290px; filter: brightness(.35) sepia(1) hue-rotate(-35deg) saturate(4) drop-shadow(0 0 10px rgba(255,40,60,.7)); }
- .ghost { height: 1080px; top: -230px; left: 790px; transform: translateX(-50%); opacity: .55; mix-blend-mode: screen;
-          filter: grayscale(1) brightness(1.6) sepia(1) hue-rotate(150deg) saturate(6) blur(1px) drop-shadow(0 0 40px #28d2ff); }
- .hero { height: 650px; bottom: -6px; left: 800px; transform: translateX(-50%);
-         filter: contrast(1.12) saturate(1.25) drop-shadow(0 0 2px #bff) drop-shadow(0 0 16px #28d2ff) drop-shadow(0 0 40px rgba(40,210,255,.6)); }
- .status { left: 1030px; top: 90px; width: 210px; height: 136px; border: 3px solid #28d2ff; border-radius: 12px;
-           background: rgba(8,50,110,.55); box-shadow: 0 0 22px #28d2ff, inset 0 0 18px rgba(40,210,255,.4); padding: 38px 15px 0; }
- .status:before { content: ""; position: absolute; left: 12px; right: 12px; top: 24px; height: 2px; background: #28d2ff; }
- .bar { height: 12px; border-radius: 6px; background: linear-gradient(90deg, #28d2ff, #9ff); margin: 0 0 16px; box-shadow: 0 0 8px #28d2ff; }
- .up { color: #7ef; font-size: 64px; font-family: sans-serif; text-shadow: 0 0 14px #28d2ff, 0 0 30px #28d2ff; }
- .word { left: 40px; top: 50%; transform: translateY(-50%); color: #fff; font-size: 128px; text-shadow: 0 0 30px rgba(40,210,255,.8); }
-"""
+def pos(f: list[float]) -> str:
+    return f"object-position: {f[0] * 100:.0f}% {f[1] * 100:.0f}%"
 
 
-def render(work: Path, css: str, body: str, badge: str, out: Path) -> None:
-    (work / "page.html").write_text(BASE.format(css=css, body=body, badge=html.escape(badge)), encoding="utf-8")
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch()
-        page = browser.new_page(viewport={"width": W, "height": H})
-        page.goto((work / "page.html").as_uri(), wait_until="networkidle")
-        page.evaluate("document.fonts.ready")
-        page.screenshot(path=str(work / "shot.png"))
-        browser.close()
-    Image.open(work / "shot.png").convert("RGB").save(out, quality=92)
-    print("made", out)
+def labels(items: list[dict]) -> tuple[str, str]:
+    """Label text and its curved arrow (an SVG quadratic curve, bent away from the straight line)."""
+    boxes, arrows = [], []
+    for it in items:
+        ax, ay = it["at"][0] * W, it["at"][1] * H
+        boxes.append(f'<div class="a label" style="left:{ax:.0f}px;top:{ay:.0f}px">{html.escape(it["text"])}</div>')
+        if "to" in it:
+            tx, ty = it["to"][0] * W, it["to"][1] * H
+            sx, sy = ax + (tx - ax) * 0.22, ay + (ty - ay) * 0.22  # start just outside the text
+            cx, cy = (sx + tx) / 2 - (ty - sy) * 0.3, (sy + ty) / 2 + (tx - sx) * 0.3
+            for color, width in (("#000", 17), ("#ffd600", 9)):
+                end = ' marker-end="url(#tip)"' if color != "#000" else ""
+                arrows.append(f'<path d="M{sx:.0f},{sy:.0f} Q{cx:.0f},{cy:.0f} {tx:.0f},{ty:.0f}" fill="none" stroke="{color}" '
+                              f'stroke-width="{width}" stroke-linecap="round"{end}/>')
+    return "".join(boxes), "".join(arrows)
+
+
+def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
+    video = job / "source.mp4"
+    boxes, arrows = labels(t.get("labels", []))
+    if t["style"] == "scene":
+        p = panel(video, t["panel"], work / f"p{t['panel']}.png")
+        return "", f'<img class="a full" src="{p}" style="{pos(t.get("focus", [0.5, 0.4]))}">{boxes}', arrows
+    if t["style"] == "split":
+        a, b = (panel(video, s, work / f"p{s}.png") for s in t["panels"])
+        fa, fb = t.get("focus", [[0.5, 0.4], [0.5, 0.4]])
+        return SPLIT_CSS, (f'<div class="a half l"><img src="{a}" style="{pos(fa)}"></div>'
+                           f'<div class="a half r"><img src="{b}" style="{pos(fb)}"></div><div class="a cut"></div>{boxes}'), arrows
+    p = panel(video, t["panel"], work / f"p{t['panel']}.png")
+    hero = ""
+    if t.get("hero"):
+        src = work / panel(video, t["hero"], work / f"p{t['hero']}.png")
+        hero = f'<img class="a hero" src="{hero_cut(src, work / "hero.png")}">'
+    return SHOCK_CSS, (f'<img class="a bg" src="{p}" style="width:1360px;height:800px;object-fit:cover">'
+                       f'<img class="a pic" src="{p}" style="{pos(t.get("focus", [0.5, 0.35]))}"><div class="a red"></div>{hero}'
+                       f'<div class="a word">{html.escape(t["word"].upper())}</div>{boxes}'), arrows
 
 
 def main() -> None:
     meta = Path(sys.argv[1])
     job = meta.parent
     spec = json.loads((meta / "thumb.json").read_text(encoding="utf-8"))
-    media = requests.post("https://graphql.anilist.co", json={"query": QUERY, "variables": {"s": spec["series"]}},
-                          timeout=30).json()["data"]["Media"]
-    art = fetch(media["coverImage"]["extraLarge"])
-    if spec.get("crop"):
-        x0, y0, x1, y1 = spec["crop"]
-        art = art.crop((round(art.width * x0), round(art.height * y0), round(art.width * x1), round(art.height * y1)))
-    sessions: dict = {}
-    word, badge = html.escape(spec["word"].upper()), spec["badge"]
-    with tempfile.TemporaryDirectory() as tmp:
+    with tempfile.TemporaryDirectory() as tmp, sync_playwright() as pw:
         work = Path(tmp)
-        for style in ("shock", "versus", "power"):
-            panel(job / "source.mp4", spec["panels"][style], work / f"p-{style}.png")
-            shutil.copy(work / f"p-{style}.png", meta / f"panel-{style}.png")  # kept to check the picks
-        cutout(art, sessions).save(work / "hero.png")
-        foes = [cutout(fetch(n["image"]["large"]), sessions) for n in media["characters"]["nodes"][1:3]]
-        for i, foe in enumerate(foes):
-            foe.save(work / f"foe{i}.png")
-
-        spot = spec.get("spot")  # a red circle only when a spot is given
-        ring = f'<div class="a ring" style="left:{380 + int(spot[0] * 900) - 115}px;top:{int(spot[1] * 720) - 115}px"></div>' if spot else ""
-        render(work, SHOCK_CSS, f"""<div class="a bg"></div><img class="a pic" src="p-shock.png"><div class="a red"></div>{ring}
-            <img class="a hero" src="hero.png"><div class="a word">{word}</div>""", badge, job / "thumb-shock.jpg")
-        render(work, VERSUS_CSS, f"""<div class="a left"></div><div class="a right"><img src="p-versus.png"></div><div class="a tear"></div>
-            <img class="a hero" src="hero.png"><div class="a word">{word}</div>""", badge, job / "thumb-versus.jpg")
-        foe_html = "".join(f'<img class="a foe" src="foe{i}.png" style="left:{x}px">' for i, x in zip(range(len(foes)), (430, 1010)))
-        ups = "".join(f'<div class="a up" style="left:{x}px;top:{y}px">&#8963;</div>' for x, y in ((560, 260), (1150, 300), (620, 470), (1100, 500)))
-        render(work, POWER_CSS, f"""<div class="a bg"></div>{foe_html}<img class="a ghost" src="hero.png"><div class="a tone"></div>
-            <img class="a hero" src="hero.png"><div class="a status"><div class="bar" style="width:84%"></div><div class="bar" style="width:58%"></div>
-            <div class="bar" style="width:93%"></div></div>{ups}<div class="a word">{word}</div>""", badge, job / "thumb-power.jpg")
+        browser = pw.chromium.launch()
+        for t in spec["thumbs"]:
+            css, body, arrows = make(work, job, t)
+            (work / "page.html").write_text(BASE.format(css=css, body=body, arrows=arrows, badge=html.escape(spec["badge"])),
+                                            encoding="utf-8")
+            page = browser.new_page(viewport={"width": W, "height": H})
+            page.goto((work / "page.html").as_uri(), wait_until="networkidle")
+            page.evaluate("document.fonts.ready")
+            page.screenshot(path=str(work / "shot.png"))
+            page.close()
+            Image.open(work / "shot.png").convert("RGB").save(job / f"thumb-{t['name']}.jpg", quality=92)
+            print("made", job / f"thumb-{t['name']}.jpg")
+        browser.close()
+        for p in work.glob("p*.png"):  # the panels, kept to check the picks and the focus
+            shutil.copy(p, meta / f"panel-{p.stem[1:]}.png")
 
 
 if __name__ == "__main__":

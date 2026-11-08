@@ -1,1 +1,8 @@
-{"series": "Omniscient Reader", "word": "STOLEN", "badge": "CH 6-10", "panels": {"shock": 1065, "versus": 1017, "power": 1098}, "crop": [0.42, 0, 1, 1]}
+{"badge": "CH 6-10",
+ "thumbs": [
+  {"name": "scene", "style": "scene", "panel": 1098, "focus": [0.5, 0.3],
+   "labels": [{"text": "MC", "at": [0.14, 0.2], "to": [0.42, 0.32]}, {"text": "STOLEN SKILL", "at": [0.8, 0.86], "to": [0.78, 0.55]}]},
+  {"name": "split", "style": "split", "panels": [1098, 1065], "focus": [[0.5, 0.3], [0.5, 0.45]],
+   "labels": [{"text": "MC", "at": [0.12, 0.85], "to": [0.28, 0.5]}, {"text": "ZOMBIE", "at": [0.86, 0.85], "to": [0.7, 0.5]}]},
+  {"name": "shock", "style": "shock", "panel": 1065, "word": "STOLEN SKILL", "hero": 1098}
+ ]}
