@@ -7,8 +7,10 @@ the people, strong emotion, very few words. Ours use the part's real panels inst
   scene   one panel fills the frame; 1-3 labels with arrows
   split   two panels side by side (the MC | the threat), a slanted cut between; labels on each
   shock   the most shocking panel blown up, red danger tone, one huge word, optional hero cut out of a panel
+  trio    three panels in slanted strips (build-up | turn | payoff), labels on any of them
+  cover   the official AniList cover on a blurred copy of itself: the fallback when the part's panels are gone
 
-Usage: python thumb_edit.py <meta dir>
+Usage: python thumb_edit.py <meta dir> [spec file name, default thumb.json]   (thumb_auto.py writes thumb-auto.json)
 <meta dir>/thumb.json:
   {"badge": "CH 26-30",
    "thumbs": [
@@ -25,6 +27,7 @@ The job folder is the parent of <meta dir>. Writes thumb-<name>.jpg there and pa
 from __future__ import annotations
 
 import html
+import io
 import json
 import shutil
 import subprocess
@@ -98,6 +101,21 @@ SPLIT_CSS = """
  .cut { left: 618px; top: -20px; width: 14px; height: 780px; background: #fff; transform: skewX(-6.3deg); box-shadow: 0 0 18px #fff; }
 """
 
+TRIO_CSS = """
+ .strip { top: 0; height: 720px; width: 500px; overflow: hidden; }
+ .strip img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.15) saturate(1.35) brightness(1.06); }
+ .s0 { left: 0; clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%); }
+ .s1 { left: 390px; clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%); }
+ .s2 { right: 0; width: 500px; clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%); }
+ .line { top: -20px; width: 12px; height: 780px; background: #fff; transform: skewX(-6.3deg); box-shadow: 0 0 16px #fff; }
+"""
+
+COVER_CSS = """
+ .bg { inset: -40px; filter: blur(22px) brightness(.45) saturate(1.3); width: 1360px; height: 800px; object-fit: cover; }
+ .cov { left: 50%; top: 0; height: 720px; transform: translateX(-50%); border-left: 8px solid #fff; border-right: 8px solid #fff;
+        filter: contrast(1.1) saturate(1.25) drop-shadow(0 0 30px #000); }
+"""
+
 SHOCK_CSS = """
  .bg { inset: -40px; filter: blur(14px) brightness(.35) saturate(1.4); }
  .pic { right: 0; top: 0; height: 720px; width: 920px; object-fit: cover; filter: contrast(1.25) saturate(1.35) brightness(1.05);
@@ -130,9 +148,28 @@ def labels(items: list[dict]) -> tuple[str, str]:
     return "".join(boxes), "".join(arrows)
 
 
+def anilist_cover(name: str, to: Path) -> str:
+    """The series' official cover from AniList (no key needed)."""
+    import requests
+
+    query = "query($s:String){Media(search:$s,type:MANGA){coverImage{extraLarge}}}"
+    r = requests.post("https://graphql.anilist.co", json={"query": query, "variables": {"s": name}}, timeout=30).json()
+    url = r["data"]["Media"]["coverImage"]["extraLarge"]
+    Image.open(io.BytesIO(requests.get(url, timeout=30).content)).convert("RGB").save(to)
+    return to.name
+
+
 def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
     video = job / "source.mp4"
     boxes, arrows = labels(t.get("labels", []))
+    if t["style"] == "cover":
+        c = anilist_cover(t["series"], work / "cover.png")
+        return COVER_CSS, f'<img class="a bg" src="{c}"><img class="a cov" src="{c}">{boxes}', arrows
+    if t["style"] == "trio":
+        pics = [panel(video, s, work / f"p{s}.png") for s in t["panels"]]
+        focus = t.get("focus", [[0.5, 0.4]] * 3)
+        strips = "".join(f'<div class="a strip s{i}"><img src="{p}" style="{pos(f)}"></div>' for i, (p, f) in enumerate(zip(pics, focus)))
+        return TRIO_CSS, (f'{strips}<div class="a line" style="left:440px"></div><div class="a line" style="left:830px"></div>{boxes}'), arrows
     if t["style"] == "scene":
         p = panel(video, t["panel"], work / f"p{t['panel']}.png")
         if t.get("fit") == "contain":  # a tall panel shown whole in the middle, two more panels of the part fill the sides
@@ -160,25 +197,62 @@ def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
                        f'<div class="a word">{html.escape(t["word"].upper())}</div>{boxes}'), arrows
 
 
+def fallback(work: Path, job: Path, t: dict, badge: str, out: Path) -> None:
+    """The browser failed: the main panel full frame with the badge, drawn by quickthumb (sjquant/quickthumb, MIT);
+    if quickthumb is missing too, by Pillow alone. No labels: a plain good panel beats no thumbnail."""
+    first = t.get("panel") or (t.get("panels") or [None])[0]
+    src = work / (panel(job / "source.mp4", first, work / f"p{first}.png") if first is not None
+                  else anilist_cover(t["series"], work / "cover.png"))
+    try:
+        from quickthumb import Canvas, Stroke
+
+        (Canvas(W, H).background(color="#000000")
+         .image(path=str(src), position=(0, 0), width=W, height=H, fit="cover")
+         .text(badge, size=34, color="#ffd600", effects=[Stroke(width=4, color="#000000")], position=("97%", "4%"), align=("right", "top"))
+         .render(str(work / "shot.png")))
+        Image.open(work / "shot.png").convert("RGB").save(out, quality=92)
+        print("  (quickthumb fallback)")
+    except Exception as exc:
+        print(f"  quickthumb failed ({exc}): Pillow fallback")
+        from PIL import ImageOps
+
+        ImageOps.fit(Image.open(src).convert("RGB"), (W, H), centering=(0.5, 0.4)).save(out, quality=92)
+
+
+def render(browser, work: Path, job: Path, t: dict, badge: str) -> None:
+    css, body, arrows = make(work, job, t)
+    (work / "page.html").write_text(BASE.format(css=css, body=body, arrows=arrows, badge=html.escape(badge)), encoding="utf-8")
+    page = browser.new_page(viewport={"width": W, "height": H})
+    page.goto((work / "page.html").as_uri(), wait_until="networkidle")
+    page.evaluate("document.fonts.ready")
+    page.screenshot(path=str(work / "shot.png"))
+    page.close()
+    Image.open(work / "shot.png").convert("RGB").save(job / f"thumb-{t['name']}.jpg", quality=92)
+
+
 def main() -> None:
     meta = Path(sys.argv[1])
     job = meta.parent
-    spec = json.loads((meta / "thumb.json").read_text(encoding="utf-8"))
+    spec = json.loads((meta / (sys.argv[2] if len(sys.argv) > 2 else "thumb.json")).read_text(encoding="utf-8"))
     with tempfile.TemporaryDirectory() as tmp, sync_playwright() as pw:
         work = Path(tmp)
-        browser = pw.chromium.launch()
+        try:
+            browser = pw.chromium.launch()
+        except Exception as exc:
+            print(f"::warning::no browser ({exc}): fallback renderer")
+            browser = None
         for t in spec["thumbs"]:
-            css, body, arrows = make(work, job, t)
-            (work / "page.html").write_text(BASE.format(css=css, body=body, arrows=arrows, badge=html.escape(spec["badge"])),
-                                            encoding="utf-8")
-            page = browser.new_page(viewport={"width": W, "height": H})
-            page.goto((work / "page.html").as_uri(), wait_until="networkidle")
-            page.evaluate("document.fonts.ready")
-            page.screenshot(path=str(work / "shot.png"))
-            page.close()
-            Image.open(work / "shot.png").convert("RGB").save(job / f"thumb-{t['name']}.jpg", quality=92)
-            print("made", job / f"thumb-{t['name']}.jpg")
-        browser.close()
+            out = job / f"thumb-{t['name']}.jpg"
+            try:
+                if browser is None:
+                    raise RuntimeError("no browser")
+                render(browser, work, job, t, spec["badge"])
+            except Exception as exc:
+                print(f"::warning::{t['name']}: {exc}")
+                fallback(work, job, t, spec["badge"], out)
+            print("made", out)
+        if browser:
+            browser.close()
         for p in work.glob("p*.png"):  # the panels, kept to check the picks and the focus
             shutil.copy(p, meta / f"panel-{p.stem[1:]}.png")
 
