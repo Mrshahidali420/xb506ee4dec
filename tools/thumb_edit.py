@@ -12,7 +12,7 @@ Usage: python thumb_edit.py <meta dir>
 <meta dir>/thumb.json:
   {"badge": "CH 26-30",
    "thumbs": [
-     {"name": "scene", "style": "scene", "panel": 1389, "focus": [0.6, 0.4],
+     {"name": "scene", "style": "scene", "panel": 1389, "focus": [0.6, 0.4],   ("fit": "contain" shows a tall panel whole)
       "labels": [{"text": "MC?", "at": [0.08, 0.12], "to": [0.55, 0.3]}]},
      {"name": "split", "style": "split", "panels": [1359, 1374], "focus": [[0.5, 0.4], [0.5, 0.3]], "labels": [...]},
      {"name": "shock", "style": "shock", "panel": 1389, "word": "KILL ME", "hero": 1359}
@@ -134,6 +134,10 @@ def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
     boxes, arrows = labels(t.get("labels", []))
     if t["style"] == "scene":
         p = panel(video, t["panel"], work / f"p{t['panel']}.png")
+        if t.get("fit") == "contain":  # a tall panel shown whole: sharp in the middle, a blurred copy fills the sides
+            return "", (f'<img class="a full" src="{p}" style="filter: blur(18px) brightness(.55) saturate(1.4); transform: scale(1.1)">'
+                        f'<img class="a" src="{p}" style="left:50%;top:0;height:720px;transform:translateX(-50%);'
+                        f'filter: contrast(1.15) saturate(1.35) drop-shadow(0 0 24px #000)">{boxes}'), arrows
         return "", f'<img class="a full" src="{p}" style="{pos(t.get("focus", [0.5, 0.4]))}">{boxes}', arrows
     if t["style"] == "split":
         a, b = (panel(video, s, work / f"p{s}.png") for s in t["panels"])

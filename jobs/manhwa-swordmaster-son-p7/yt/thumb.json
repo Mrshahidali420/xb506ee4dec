@@ -1,8 +1,8 @@
 {"badge": "CH 31-35",
  "thumbs": [
-  {"name": "scene", "style": "scene", "panel": 1392, "focus": [0.5, 0.72],
-   "labels": [{"text": "TOO STRONG", "at": [0.75, 0.14], "to": [0.55, 0.45]}]},
-  {"name": "split", "style": "split", "panels": [1392, 1383], "focus": [[0.5, 0.75], [0.5, 0.45]],
+  {"name": "scene", "style": "scene", "panel": 1410, "fit": "contain",
+   "labels": [{"text": "TOO STRONG", "at": [0.2, 0.18], "to": [0.45, 0.55]}]},
+  {"name": "split", "style": "split", "panels": [1392, 1386], "focus": [[0.5, 0.78], [0.5, 0.4]],
    "labels": [{"text": "MC", "at": [0.12, 0.85], "to": [0.3, 0.55]}, {"text": "ICE PRINCESS", "at": [0.78, 0.88], "to": [0.68, 0.5]}]},
-  {"name": "shock", "style": "shock", "panel": 1392, "word": "OH NO", "focus": [0.5, 0.72]}
+  {"name": "shock", "style": "shock", "panel": 1395, "word": "OH NO", "focus": [0.5, 0.5]}
  ]}
