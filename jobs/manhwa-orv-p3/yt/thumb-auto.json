@@ -1,13 +1,13 @@
 {
  "badge": "CH 11-15",
  "auto": true,
- "review": true,
- "confidence": 35,
+ "review": false,
+ "confidence": 72,
  "thumbs": [
   {
    "name": "auto-scene",
    "style": "scene",
-   "panel": 280,
+   "panel": 400,
    "focus": [
     0.5,
     0.6
@@ -15,18 +15,18 @@
    "fit": "contain",
    "sides": [
     7,
-    400
+    412
    ],
    "labels": [
     {
-     "text": "DOESN'T",
+     "text": "SWALLOWS",
      "at": [
-      0.78,
-      0.86
+      0.2,
+      0.14
      ],
      "to": [
-      0.423,
-      0.619
+      0.582,
+      0.805
      ]
     }
    ]

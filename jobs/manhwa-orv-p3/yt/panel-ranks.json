@@ -1,9 +1,9 @@
 {
  "reasons": {
   "scene": [
-   "main: panel 93 score 39.2 (best at frame 75, story 50; words -28)",
+   "main: panel 133 score 51.7 (best at story 100, frame 74; words -25)",
    "side: panel 2 score 41.1 (best at frame 74, story 50; words -3)",
-   "side: panel 133 score 51.7 (best at story 100, frame 74; words -25)"
+   "side: panel 137 score 47.6 (best at story 80, frame 74; words -6)"
   ],
   "split": [
    "left: panel 133 score 51.7 (best at story 100, frame 74; words -25)",
@@ -15,16 +15,14 @@
    "strip 3: panel 133 score 51.7 (best at story 100, frame 74; words -25)"
   ]
  },
- "flags": [
-  "best scene panel scores 39.2 (< 45)"
- ],
+ "flags": [],
  "tools": {
   "metrics": "smart-thumbnailer",
   "faces": "lbpcascade_animeface",
   "words": "OCR"
  },
- "confidence": 35,
- "seconds": 103.6,
+ "confidence": 72,
+ "seconds": 117.5,
  "panels": 359,
  "with_faces": 8,
  "manual_picks": [
