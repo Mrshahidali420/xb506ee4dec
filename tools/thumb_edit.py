@@ -37,9 +37,25 @@ def fetch(url: str) -> Image.Image:
     return Image.open(io.BytesIO(requests.get(url, timeout=30).content)).convert("RGB")
 
 
-def cutout(img: Image.Image, session) -> Image.Image:
-    cut = remove(img, session=session).convert("RGBA")
-    return cut.crop(cut.getbbox() or (0, 0, cut.width, cut.height))
+MODELS = ("birefnet-general", "isnet-anime", "isnet-general-use")
+
+
+def cutout(img: Image.Image, sessions: dict) -> Image.Image:
+    """The figure without its background. A model that keeps almost all (or almost none) of the picture failed:
+    try the next one. A busy cover can fool one model and not another."""
+    best = None
+    for name in MODELS:
+        if name not in sessions:
+            sessions[name] = new_session(name)
+        cut = remove(img, session=sessions[name], post_process_mask=True).convert("RGBA")
+        alpha = cut.getchannel("A")
+        kept = sum(alpha.point(lambda v: 1 if v > 128 else 0).getdata()) / (img.width * img.height)
+        print(f"  {name}: keeps {kept:.0%}")
+        if 0.08 < kept < 0.75:
+            best = cut
+            break
+        best = best or cut
+    return best.crop(best.getbbox() or (0, 0, best.width, best.height))
 
 
 PAGE = """<!doctype html><html><head><meta charset="utf-8">
@@ -65,7 +81,7 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8">
  .up {{ width: 0; height: 0; filter: drop-shadow(0 0 8px #28d2ff); }}
  .up svg {{ overflow: visible; }}
  .words {{ left: 42px; top: 50%; transform: translateY(-50%); width: 520px; }}
- .words div {{ line-height: 1.02; -webkit-text-stroke: 8px #000; paint-order: stroke fill; text-shadow: 0 6px 18px rgba(0,0,0,.9); letter-spacing: 1px; }}
+ .words div {{ white-space: nowrap; line-height: 1.02; -webkit-text-stroke: 8px #000; paint-order: stroke fill; text-shadow: 0 6px 18px rgba(0,0,0,.9); letter-spacing: 1px; }}
  .badge {{ right: 40px; bottom: 34px; background: #ffd600; color: #000; font-size: 34px; padding: 4px 13px 2px;
           border: 4px solid #000; border-radius: 8px; }}
 </style></head><body>
@@ -86,7 +102,7 @@ ARROW = ('<div class="abs up" style="left:{x}px;top:{y}px"><svg width="1" height
 
 
 def build_page(spec: dict, foes: int) -> str:
-    sizes = [118 if len(t) <= 9 else 96 if len(t) <= 13 else 78 for t in spec["labels"]]
+    sizes = [min(124, int(560 / (0.47 * max(len(t), 1)))) for t in spec["labels"]]  # each line fits on one row
     colors = ["#ffd600", "#ffffff", "#ffd600"]
     words = "".join(f'<div style="font-size:{s}px;color:{c}">{html.escape(t)}</div>'
                     for t, s, c in zip(spec["labels"], sizes, colors))
@@ -108,14 +124,14 @@ def main() -> None:
         art = art.crop((round(art.width * x0), round(art.height * y0), round(art.width * x1), round(art.height * y1)))
     people = [fetch(n["image"]["large"]) for n in media["characters"]["nodes"]]
     hero_src = people[spec["hero"]] if isinstance(spec.get("hero"), int) else art
-    session = new_session("isnet-anime")
+    sessions: dict = {}
     with tempfile.TemporaryDirectory() as tmp:
         work = Path(tmp)
         (fetch(media["bannerImage"]) if media.get("bannerImage") else art).save(work / "bg.png")
-        cutout(hero_src, session).save(work / "hero.png")
+        cutout(hero_src, sessions).save(work / "hero.png")
         side = [p for i, p in enumerate(people) if i != spec.get("hero", -1)][1:3]
         for i, person in enumerate(side):
-            cutout(person, session).save(work / f"foe{i}.png")
+            cutout(person, sessions).save(work / f"foe{i}.png")
         (work / "page.html").write_text(build_page(spec, len(side)), encoding="utf-8")
         with sync_playwright() as pw:
             browser = pw.chromium.launch()
@@ -125,6 +141,9 @@ def main() -> None:
             page.screenshot(path=str(work / "shot.png"))
             browser.close()
         Image.open(work / "shot.png").convert("RGB").save(meta / "thumbnail.jpg", quality=92)
+        for name in ("hero.png", "foe0.png", "foe1.png"):  # kept next to the thumbnail, to check the cut-outs
+            if (work / name).exists():
+                Image.open(work / name).save(meta / f"cut-{name}")
     print("thumbnail:", meta / "thumbnail.jpg")
 
 
