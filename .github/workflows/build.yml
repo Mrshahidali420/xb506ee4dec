@@ -129,6 +129,21 @@ jobs:
               --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
           done
 
+      # A manhwa part also becomes a swipe-through picture post (tools/make_carousel.py). No panels = no carousel.
+      - name: Make the carousel
+        if: contains(inputs.script, 'script.json')
+        continue-on-error: true
+        run: |
+          pip install -q pillow
+          python3 tools/make_carousel.py "${{ inputs.job }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: carousel
+          path: ${{ inputs.job }}/posts
+          if-no-files-found: ignore
+          retention-days: 1
+
       # Every finished video is kept for good in the private assets repo, one release per series
       # (jobs/kdrama-weak-hero-e03 -> release archive-kdrama-weak-hero, file e03-final_short.mp4),
       # so whole-series compilations can be cut later without rebuilding.
@@ -198,6 +213,19 @@ jobs:
             echo "$out: ${len}s"
             awk -v l="$len" 'BEGIN { exit !(l >= 120 && l <= 540) }' || { echo "length outside 120-540 s, not queued"; exit 1; }
           done
+      - uses: actions/download-artifact@v4
+        continue-on-error: true  # no carousel for this job (no panels)
+        with:
+          name: carousel
+          path: extra/${{ inputs.queue }}/${{ github.run_id }}
+      - name: Add the carousel to the picture queue
+        continue-on-error: true
+        run: |
+          d="extra/${{ inputs.queue }}/${{ github.run_id }}"
+          [ -f "$d/post.json" ] || { echo "no carousel"; exit 0; }
+          pip install -q requests truststore
+          name=$(basename "${{ inputs.job }}"); rm -rf "extra/${{ inputs.queue }}/$name"; mv "$d" "extra/${{ inputs.queue }}/$name"
+          python3 tools/post_extra.py add "${{ inputs.queue }}" "extra/${{ inputs.queue }}/$name"
       - name: Add to the queue
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
@@ -207,6 +235,6 @@ jobs:
             out=$(jq -r '.output // "final_short.mp4"' "$f"); cap=$(jq -r '.caption // .title' "$f"); com=$(jq -r '.comment // ""' "$f")
             python3 tools/queue_post.py add "${{ inputs.queue }}" "${{ inputs.job }}/$out" "$cap" "$com"
           done
-          git add queue && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}"
+          git add queue extra && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}"
           # other builds and the daily run push too: rebase and try again instead of failing
           for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && exit 0; sleep $((i * 7)); done; exit 1

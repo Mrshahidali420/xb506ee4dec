@@ -1,0 +1,54 @@
+name: Post pictures
+run-name: Pictures ${{ inputs.page || 'all pages' }}${{ inputs.dry_run && ' (dry run)' || '' }}
+
+# Posts the next queued carousel (tools/post_extra.py) to each Facebook Page and its Instagram.
+# Runs every 30 minutes; the script keeps carousels EXTRA_GAP_MINUTES apart (default 240).
+# Real posts only when the repo variable <PAGE>_EXTRA_ENABLED is 'true'.
+on:
+  schedule:
+    - cron: '23,53 * * * *'
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Page short name (manhwax)
+        default: manhwax
+      dry_run:
+        description: Only show what would be posted
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    strategy:
+      max-parallel: 1
+      matrix:
+        page: ${{ fromJSON(inputs.page && format('["{0}"]', inputs.page) || '["manhwax"]') }}
+    concurrency:
+      group: post-${{ matrix.page }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PAGE: ${{ matrix.page }}
+      MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
+      MANHWAX_FB_PAGE_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
+      EXTRA_GAP_MINUTES: ${{ vars.EXTRA_GAP_MINUTES }}
+      IG_POST_ENABLED: ${{ vars.IG_POST_ENABLED }}
+      ALL_VARS: ${{ toJSON(vars) }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests truststore
+      - name: Post next carousel
+        run: |
+          [ -f "queue/$PAGE-extra.json" ] || { echo "no picture queue for $PAGE"; exit 0; }
+          enabled=$(echo "$ALL_VARS" | jq -r --arg k "${PAGE^^}_EXTRA_ENABLED" '.[$k] // ""')
+          GO=""
+          if [ "${{ inputs.dry_run }}" != "true" ] && [ "$enabled" = "true" ]; then GO="--go"; fi
+          python3 tools/post_extra.py next "$PAGE" $GO
+      - name: Save the queue record
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add queue 2>/dev/null; git diff --cached --quiet || (git commit -qm "Queue: carousel posted to $PAGE" && git pull -q --rebase && git push -q)
