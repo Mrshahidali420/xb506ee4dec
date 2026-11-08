@@ -134,7 +134,7 @@ jobs:
         if: contains(inputs.script, 'script.json')
         continue-on-error: true
         run: |
-          pip install -q pillow
+          pip install -q pillow requests
           python3 tools/make_carousel.py "${{ inputs.job }}"
 
       - uses: actions/upload-artifact@v4

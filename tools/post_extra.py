@@ -3,7 +3,7 @@
   python post_extra.py add <page> <dir>        queue the cards in <dir> (card_*.jpg + post.json), dir is under extra/
   python post_extra.py next <page> [--go]      post the next queued carousel if the gap allows (on GitHub)
 
-Instagram gets the whole carousel; Facebook gets one picture (the first card).
+Instagram gets the whole carousel; Facebook gets, in turn: the title cover, one panel card, a text question.
 
 The queue is queue/<page>-extra.json. The cards live in the repo (extra/<page>/<name>/), so Instagram can fetch
 them from raw.githubusercontent.com. EXTRA_GAP_MINUTES (default 240) keeps carousels apart.
@@ -49,16 +49,25 @@ def add(page: str, folder: str) -> None:
     if any(i["dir"] == folder for i in queue["items"]):
         print(f"{folder} is queued already")
         return
+    kinds = ["cover", "panel", "text"]  # what Facebook gets, in turn (Instagram always gets the carousel)
+    fb = kinds[len(queue["items"]) % len(kinds)]
+    fb = "panel" if fb == "cover" and not post.get("cover") else fb
     queue["items"].append({"dir": folder, "caption": post["caption"], "comment": post.get("comment", ""),
-                           "cards": post["cards"], "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                           "cards": post["cards"], "fb": fb, "text": post.get("text", post["caption"]), "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                            "posted_at": None, "post": None})
     save(page, queue)
     print(f"queued {folder}")
 
 
 def post_facebook(page_id: str, token: str, item: dict) -> str:
-    """Facebook has no swipe carousel for a page post (many photos show as a grid), so it gets one picture: the hook card."""
-    with (ROOT / item["dir"] / "card_1.jpg").open("rb") as fh:
+    """Facebook cannot swipe a page post (many photos show as a grid), so it gets one thing per turn:
+    the official title cover, one panel card, or a text question. Instagram gets the whole carousel."""
+    kind = item.get("fb", "panel")
+    if kind == "text":
+        return post_fb.check(requests.post(f"{GRAPH}/{page_id}/feed", data={"message": item["text"], "access_token": token},
+                                           timeout=120), "text post")["id"]
+    name = "cover.jpg" if kind == "cover" else "card_1.jpg"
+    with (ROOT / item["dir"] / name).open("rb") as fh:
         r = post_fb.check(requests.post(f"{GRAPH}/{page_id}/photos", data={"message": item["caption"], "published": "true",
                                                                            "access_token": token},
                                         files={"source": fh}, timeout=120), "photo post")

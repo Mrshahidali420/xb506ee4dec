@@ -10,7 +10,9 @@ The card shows the middle frame of that panel, taken from source.mp4 (the panel 
 """
 from __future__ import annotations
 
+import io
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -18,6 +20,7 @@ import textwrap
 import tempfile
 from pathlib import Path
 
+import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -76,6 +79,29 @@ def end_card(title: str) -> Image.Image:
     return page
 
 
+def title_cover(name: str) -> Image.Image | None:
+    """The official cover of the series from AniList (the same source as our thumbnails). None if not found."""
+    query = "query($s:String){Media(search:$s,type:MANGA){coverImage{extraLarge}}}"
+    try:
+        r = requests.post("https://graphql.anilist.co", json={"query": query, "variables": {"s": name}}, timeout=30).json()
+        url = r["data"]["Media"]["coverImage"]["extraLarge"]
+        return Image.open(io.BytesIO(requests.get(url, timeout=30).content)).convert("RGB")
+    except Exception as exc:  # no cover is fine: the page then posts a panel instead
+        print(f"no cover for {name}: {exc}")
+        return None
+
+
+def cover_card(art: Image.Image, label: str) -> Image.Image:
+    back = art.resize((W, H)).filter(ImageFilter.GaussianBlur(30)).point(lambda v: int(v * 0.5))
+    scale = min((W - 160) / art.width, (H - 300) / art.height)  # covers are small: scale up to fill the space
+    sharp = art.resize((round(art.width * scale), round(art.height * scale)), Image.LANCZOS)
+    back.paste(sharp, ((W - sharp.width) // 2, 40 + (H - 300 - sharp.height) // 2))
+    band = Image.new("RGBA", (W, 200), (0, 0, 0, 185))
+    back.paste(band, (0, H - 200), band)
+    ImageDraw.Draw(back).text((W // 2, H - 100), label, font=font(56), fill=(255, 196, 70), anchor="mm")
+    return back
+
+
 def main() -> None:
     job = ROOT / sys.argv[1]
     script = json.loads((job / "script.json").read_text(encoding="utf-8"))
@@ -100,6 +126,15 @@ def main() -> None:
             card(shot, seg["say"].replace("*", "")).save(out / f"card_{n}.jpg", quality=88)
     end_card(script["title"].split(" . . .")[0]).save(out / f"card_{n + 1}.jpg", quality=88)
     post = {"caption": script.get("caption", script["title"]), "comment": script.get("comment", ""), "cards": n + 1}
+    source = json.loads((job / "source.json").read_text(encoding="utf-8")) if (job / "source.json").exists() else {}
+    part = re.search(r"-p(\d+)$", job.name)
+    art = title_cover(script.get("credit", "").split(" (")[0])
+    if art:
+        label = " - ".join(x for x in (f"PART {part.group(1)}" if part else "", f"CH {source['chapters']}" if source.get("chapters") else "", "OUT NOW") if x)
+        cover_card(art, label).save(out / "cover.jpg", quality=88)
+        post["cover"] = True
+    hook = segs[0]["say"].replace("*", "")
+    post["text"] = "\n\n".join(x for x in (hook, script.get("comment", "")) if x)
     (out / "post.json").write_text(json.dumps(post, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{job.name}: {n + 1} cards")
 
