@@ -119,6 +119,12 @@ def main() -> None:
     if len(args) == 2 and args[0] == "auth":
         auth(args[1].lower())
         return
+    if len(args) == 4 and args[0] == "thumb":  # thumb <channel> <video id> <image>: set the thumbnail of a video already up
+        from googleapiclient.http import MediaFileUpload
+        yt = login(args[1].lower())
+        yt.thumbnails().set(videoId=args[2], media_body=MediaFileUpload(args[3])).execute()
+        print("thumbnail set")
+        return
     flags: dict[str, list[str]] = {}
     plain = []
     rest = iter(args)
