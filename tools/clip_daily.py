@@ -5,8 +5,8 @@
 
 How it picks: AniList lists every episode that aired in the last 48 hours. The one whose show is trending
 the most (then the most popular) wins, unless it was clipped already or failed twice. WhereAnime takes any
-show. Manhwa Index takes only a show made from a manhwa or manhua (its source work comes from Korea or China,
-or the show is a Chinese donghua), so the same episode may go to both Pages: one job, two logo copies.
+show. Manhwa Index takes only a show adapted from a manhwa or manhua (its source work comes from Korea or China;
+the post links that comic's page), so the same episode may go to both Pages: one job, two logo copies.
 Nothing here posts. clips/state.json is the memory, committed by the workflow.
 """
 from __future__ import annotations
@@ -29,7 +29,7 @@ FORMATS = {"TV", "TV_SHORT", "ONA"}
 KOREA_CHINA = {"KR", "CN"}
 QUERY = """query($from:Int,$to:Int){Page(perPage:50){airingSchedules(airingAt_greater:$from,airingAt_lesser:$to,sort:TIME_DESC){
 airingAt episode media{id title{romaji english} format trending popularity isAdult countryOfOrigin
-relations{edges{relationType node{type countryOfOrigin}}}}}}}"""
+relations{edges{relationType node{id type countryOfOrigin}}}}}}}"""
 
 
 def anilist(variables: dict) -> list[dict]:
@@ -38,11 +38,12 @@ def anilist(variables: dict) -> list[dict]:
     return json.loads(urllib.request.urlopen(req, timeout=60).read())["data"]["Page"]["airingSchedules"]
 
 
-def from_manhwa(media: dict) -> bool:
-    """A donghua, or an anime adapted from a Korean or Chinese comic or novel."""
-    if media.get("countryOfOrigin") == "CN":
-        return True
-    return any(e["relationType"] == "ADAPTATION" and e["node"].get("countryOfOrigin") in KOREA_CHINA for e in media["relations"]["edges"])
+def manhwa_id(media: dict) -> int | None:
+    """The AniList id of the Korean or Chinese comic or novel this anime is adapted from (Manhwa Index lists that one), else None."""
+    for e in media["relations"]["edges"]:
+        if e["relationType"] == "ADAPTATION" and e["node"].get("countryOfOrigin") in KOREA_CHINA:
+            return e["node"]["id"]
+    return None
 
 
 def state() -> dict:
@@ -67,7 +68,7 @@ def candidates(now: int) -> list[dict]:
             continue
         out.append({"key": f"{m['id']}-{r['episode']}", "anilist_id": m["id"], "episode": r["episode"], "aired": r["airingAt"],
                     "title": m["title"]["english"] or m["title"]["romaji"], "romaji": m["title"]["romaji"],
-                    "trending": m["trending"] or 0, "popularity": m["popularity"] or 0, "manhwa": from_manhwa(m)})
+                    "trending": m["trending"] or 0, "popularity": m["popularity"] or 0, "manga_id": manhwa_id(m)})
     return sorted(out, key=lambda c: (c["trending"], c["popularity"]), reverse=True)
 
 
@@ -82,12 +83,12 @@ def pick() -> None:
         print("no new trending episode", file=sys.stderr)
         return
     best = usable[0]
-    pages = ["whereanime"] + (["manhwaindex"] if best["manhwa"] else [])
+    pages = ["whereanime"] + (["manhwaindex"] if best["manga_id"] else [])
     job = ROOT / "jobs" / f"clip-{slug(best['title'])}-e{best['episode']:02d}"
     job.mkdir(parents=True, exist_ok=True)
     (job / "source.json").write_text(json.dumps({"type": "anime", "title": best["title"], "episode": best["episode"], "lang": "sub"}, indent=1))
     (job / "clip.json").write_text(json.dumps({"kind": "clip", "pages": pages, "title": best["title"], "episode": best["episode"],
-                                               "anilist_id": best["anilist_id"], "key": best["key"]}, indent=1))
+                                               "anilist_id": best["anilist_id"], "manga_id": best["manga_id"], "key": best["key"]}, indent=1))
     print(f"picked {best['title']} episode {best['episode']} (trending {best['trending']}) for {', '.join(pages)}", file=sys.stderr)
     print(f"job=jobs/{job.name}")
 
