@@ -3,6 +3,8 @@
   python post_extra.py add <page> <dir>        queue the cards in <dir> (card_*.jpg + post.json), dir is under extra/
   python post_extra.py next <page> [--go]      post the next queued carousel if the gap allows (on GitHub)
 
+Instagram gets the whole carousel; Facebook gets one picture (the first card).
+
 The queue is queue/<page>-extra.json. The cards live in the repo (extra/<page>/<name>/), so Instagram can fetch
 them from raw.githubusercontent.com. EXTRA_GAP_MINUTES (default 240) keeps carousels apart.
 """
@@ -55,16 +57,12 @@ def add(page: str, folder: str) -> None:
 
 
 def post_facebook(page_id: str, token: str, item: dict) -> str:
-    """One unpublished photo per card, then one feed post that holds them all."""
-    media = []
-    for n in range(1, item["cards"] + 1):
-        with (ROOT / item["dir"] / f"card_{n}.jpg").open("rb") as fh:
-            r = post_fb.check(requests.post(f"{GRAPH}/{page_id}/photos", data={"published": "false", "access_token": token},
-                                            files={"source": fh}, timeout=120), f"photo {n}")
-        media.append({"media_fbid": r["id"]})
-    data = {"message": item["caption"], "access_token": token}
-    data.update({f"attached_media[{i}]": json.dumps(m) for i, m in enumerate(media)})
-    return post_fb.check(requests.post(f"{GRAPH}/{page_id}/feed", data=data, timeout=120), "feed post")["id"]
+    """Facebook has no swipe carousel for a page post (many photos show as a grid), so it gets one picture: the hook card."""
+    with (ROOT / item["dir"] / "card_1.jpg").open("rb") as fh:
+        r = post_fb.check(requests.post(f"{GRAPH}/{page_id}/photos", data={"message": item["caption"], "published": "true",
+                                                                           "access_token": token},
+                                        files={"source": fh}, timeout=120), "photo post")
+    return r.get("post_id") or r["id"]
 
 
 def post_instagram(page_id: str, token: str, item: dict) -> str:
