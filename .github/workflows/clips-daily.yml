@@ -73,6 +73,6 @@ jobs:
           result=fail; [ "${{ needs.clip.result }}" = "success" ] && result=done
           python3 tools/clip_daily.py mark "${{ needs.pick.outputs.job }}" $result
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
-          git add clips
+          git add autopilot
           git diff --cached --quiet || git commit -qm "Clips: ${{ needs.pick.outputs.job }} $result"
           git pull -q --rebase && git push -q

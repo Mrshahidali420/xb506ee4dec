@@ -20,7 +20,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-STATE = ROOT / "clips" / "state.json"
+STATE = ROOT / "autopilot" / "clips-state.json"
 WINDOW_HOURS = 48
 MIN_AGE_HOURS = 3          # a fresh release needs time to reach the stream site
 MAX_TRIES = 2
