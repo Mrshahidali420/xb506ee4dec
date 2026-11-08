@@ -53,6 +53,7 @@ POOL = 14             # best panels the sets are built from
 SPREAD = 15           # split and trio panels at least this many panels apart: different moments, not one scene thrice
 TALL = 1.25           # height / width above this: the scene shows the panel whole ("contain")
 LOW_SCORE = 45        # best scene under this: ask for a hand pick
+FACE_SLACK = 5        # points a face panel may trail the best panel and still be the scene
 THREATS = ("golem", "monster", "zombie", "serpent", "dragon", "demon", "beast", "boss", "king", "giant", "goblin",
            "dokkaebi", "regressor", "witch", "knight", "assassin", "princess", "father", "patriarch", "brother")
 STOP = {"The", "Then", "But", "And", "When", "So", "He", "She", "His", "Her", "It", "They", "A", "To", "In", "On",
@@ -277,7 +278,9 @@ def build_spec(job: Path, ranked: list[dict], segs: list[dict]) -> tuple[dict, d
     faced = [p for p in pool if p["faces"]]
     reasons, thumbs = {}, []
 
-    best = (faced or pool)[0]
+    # a face wins only when it is near the top: the cascade finds few manhwa faces (2-5% of panels, 8 Nov 2026 test),
+    # so forcing one would trade the key moment for a weak panel
+    best = faced[0] if faced and faced[0]["score"] >= pool[0]["score"] - FACE_SLACK else pool[0]
     scene = {"name": "auto-scene", "style": "scene", "panel": best["second"], "focus": [0.5, max(0.2, min(0.6, best["target"][1]))]}
     reasons["scene"] = [why(best, "main")]
     if best["h"] / best["w"] > TALL:
