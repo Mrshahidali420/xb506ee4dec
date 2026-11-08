@@ -72,24 +72,34 @@ def candidates(now: int) -> list[dict]:
     return sorted(out, key=lambda c: (c["trending"], c["popularity"]), reverse=True)
 
 
+def today() -> str:
+    return time.strftime("%Y-%m-%d", time.gmtime())
+
+
+def made_today(st: dict, page: str) -> int:
+    return st["days"].get(today(), {}).get(page, 0)
+
+
 def pick() -> None:
+    """WhereAnime: the most trending episode. Manhwa Index: the most trending anime made from a manhwa or manhua,
+    even when it is not first overall (its own cap of 1 a day). One job per run, with the Pages it is for."""
     st = state()
-    today = time.strftime("%Y-%m-%d", time.gmtime())
-    if st["days"].get(today, 0) >= PER_DAY:
-        print(f"{PER_DAY} clips already made today", file=sys.stderr)
-        return
     usable = [c for c in candidates(int(time.time())) if c["key"] not in st["done"] and st["failed"].get(c["key"], 0) < MAX_TRIES]
-    if not usable:
-        print("no new trending episode", file=sys.stderr)
+    best = usable[0] if usable and made_today(st, "whereanime") < PER_DAY else None
+    manhwa = next((c for c in usable if c["manga_id"]), None) if made_today(st, "manhwaindex") < 1 else None
+    if best and best["manga_id"] and manhwa is None:
+        manhwa = best
+    chosen = best or manhwa
+    if not chosen:
+        print("nothing to clip now", file=sys.stderr)
         return
-    best = usable[0]
-    pages = ["whereanime"] + (["manhwaindex"] if best["manga_id"] else [])
-    job = ROOT / "jobs" / f"clip-{slug(best['title'])}-e{best['episode']:02d}"
+    pages = (["whereanime"] if chosen is best else []) + (["manhwaindex"] if manhwa and (chosen is manhwa or best is manhwa) else [])
+    job = ROOT / "jobs" / f"clip-{slug(chosen['title'])}-e{chosen['episode']:02d}"
     job.mkdir(parents=True, exist_ok=True)
-    (job / "source.json").write_text(json.dumps({"type": "anime", "title": best["title"], "episode": best["episode"], "lang": "sub"}, indent=1))
-    (job / "clip.json").write_text(json.dumps({"kind": "clip", "pages": pages, "title": best["title"], "episode": best["episode"],
-                                               "anilist_id": best["anilist_id"], "manga_id": best["manga_id"], "key": best["key"]}, indent=1))
-    print(f"picked {best['title']} episode {best['episode']} (trending {best['trending']}) for {', '.join(pages)}", file=sys.stderr)
+    (job / "source.json").write_text(json.dumps({"type": "anime", "title": chosen["title"], "episode": chosen["episode"], "lang": "sub"}, indent=1))
+    (job / "clip.json").write_text(json.dumps({"kind": "clip", "pages": pages, "title": chosen["title"], "episode": chosen["episode"],
+                                               "anilist_id": chosen["anilist_id"], "manga_id": chosen["manga_id"], "key": chosen["key"]}, indent=1))
+    print(f"picked {chosen['title']} episode {chosen['episode']} (trending {chosen['trending']}) for {', '.join(pages)}", file=sys.stderr)
     print(f"job=jobs/{job.name}")
 
 
@@ -98,8 +108,10 @@ def mark(job: str, result: str) -> None:
     st, key = state(), meta["key"]
     if result == "done":
         st["done"] = (st["done"] + [key])[-500:]
-        today = time.strftime("%Y-%m-%d", time.gmtime())
-        st["days"] = {today: st["days"].get(today, 0) + 1}
+        day = st["days"].get(today(), {})
+        for page in meta["pages"]:
+            day[page] = day.get(page, 0) + 1
+        st["days"] = {today(): day}
     else:
         st["failed"][key] = st["failed"].get(key, 0) + 1
     save(st)
