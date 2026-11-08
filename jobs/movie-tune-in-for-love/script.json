@@ -1,0 +1,419 @@
+{
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "music_db_under_voice": 12,
+ "title": "She Spent Twenty Years Missing The Boy Who Ate Tofu . . . (Tune In for Love)",
+ "caption": "Tune In for Love (2019): a bakery girl and a boy fresh out of juvenile detention keep missing each other for twenty years.\nA slow, gentle Korean love story about timing. Follow for more movie recaps!\n\n#tuneinforlove #koreanmovie #movierecap #romance #spoilerroom",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "credit": "Film: Tune in for Love (2019)",
+ "comment": "Would you run across the city for someone like Mia did? Why?",
+ "segments": [
+  {
+   "say": "Twenty years of missing each other, and now Mia is *running*.",
+   "clips": [
+    6897.5,
+    6915.5,
+    6936.5
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to 1994, and a tiny *bakery*.",
+   "clips": [
+    236.0,
+    241.5
+   ]
+  },
+  {
+   "say": "Mia works the counter at Misu Bakery with her best friend *Ruby*.",
+   "clips": [
+    583.0,
+    551.0,
+    576.3
+   ]
+  },
+  {
+   "say": "One morning a stiff boy in a school uniform walks in and asks for something made with *soybeans*.",
+   "clips": [
+    98.0,
+    106.4,
+    123.5
+   ]
+  },
+  {
+   "say": "Ruby takes one look at him. I bet he just got out of *jail*.",
+   "clips": [
+    180.5,
+    184.0,
+    186.0
+   ]
+  },
+  {
+   "say": "She is right. Henry spent his teens in a juvenile *detention* center.",
+   "clips": [
+    449.9,
+    464.2
+   ]
+  },
+  {
+   "say": "In there, a late-night radio show was the only thing that kept him *sane*.",
+   "clips": [
+    434.7,
+    446.7
+   ]
+  },
+  {
+   "say": "Out here, he spots a sign in the window. Part-timer *wanted*.",
+   "clips": [
+    204.0,
+    196.0
+   ]
+  },
+  {
+   "say": "Mia gives him the job, and soon Henry is kneading *dough*.",
+   "clips": [
+    521.7,
+    529.0,
+    532.6
+   ]
+  },
+  {
+   "say": "He says he hates bread. But he keeps showing up, just to stand near *Mia*.",
+   "clips": [
+    774.5,
+    780.0,
+    787.5
+   ]
+  },
+  {
+   "say": "Then Christmas comes, and the little bakery glows with *lights*.",
+   "clips": [
+    835.5,
+    843.3,
+    945.3
+   ]
+  },
+  {
+   "say": "That's when Henry's old crew from the detention center walk in, loud, and drag him *out*.",
+   "clips": [
+    971.5,
+    999.8,
+    1043.8
+   ]
+  },
+  {
+   "say": "They pull him into a bar, and one drink turns into a whole *night*.",
+   "clips": [
+    1181.4,
+    1196.7,
+    1207.0
+   ]
+  },
+  {
+   "say": "The night ends badly, and Henry disappears. Soon a sign goes up on the door. *Closed*.",
+   "clips": [
+    1302.2,
+    1322.5
+   ]
+  },
+  {
+   "say": "Three years later, Mia is a college student, desperate for a *job*.",
+   "clips": [
+    1363.2,
+    1380.8,
+    1392.0
+   ]
+  },
+  {
+   "say": "A part-time spot at a radio station opens up. Only two months, but it's *hers*.",
+   "clips": [
+    1397.5,
+    1404.0
+   ]
+  },
+  {
+   "say": "She celebrates with Ruby, who now runs a noodle *restaurant*.",
+   "clips": [
+    1543.3,
+    1583.5,
+    1615.3
+   ]
+  },
+  {
+   "say": "Walking home that night, Mia runs into *Henry*.",
+   "clips": [
+    1756.0,
+    1783.0
+   ]
+  },
+  {
+   "say": "He's heading into the army tomorrow. So they stay up all *night*.",
+   "clips": [
+    1807.0,
+    1814.6,
+    1962.9
+   ]
+  },
+  {
+   "say": "She patches him up in her tiny room, and they talk like no time has *passed*.",
+   "clips": [
+    1995.7,
+    2018.4,
+    2004.4
+   ]
+  },
+  {
+   "say": "She lends him Ruby's old clothes, and they fit him *perfectly*.",
+   "clips": [
+    2077.6,
+    2098.2
+   ]
+  },
+  {
+   "say": "In the morning, he makes her promise to write. Check your inbox, he *says*.",
+   "clips": [
+    2315.8,
+    2357.9,
+    2398.2
+   ]
+  },
+  {
+   "say": "Henry writes from the army, and Mia writes back every *night*.",
+   "clips": [
+    2301.4,
+    2297.9,
+    2659.1
+   ]
+  },
+  {
+   "say": "But the replies slow down, and her inbox sits *unread*.",
+   "clips": [
+    2679.1,
+    2666.8,
+    2674.9
+   ]
+  },
+  {
+   "say": "Silence hurts more than a goodbye.",
+   "clips": [
+    2695.6
+   ]
+  },
+  {
+   "say": "Years later, the bakery where they met is torn *down*.",
+   "clips": [
+    2686.4,
+    2690.5
+   ]
+  },
+  {
+   "say": "By the year 2000, Henry is back in the city, working at a gym and chatting with Mia online *again*.",
+   "clips": [
+    2887.5,
+    2829.0,
+    2841.6
+   ]
+  },
+  {
+   "say": "She calls him from work just to hear his *voice*.",
+   "clips": [
+    2934.0,
+    2952.0,
+    2965.0
+   ]
+  },
+  {
+   "say": "But then money goes missing at his job, and everyone blames *Henry*.",
+   "clips": [
+    3050.2,
+    3052.0,
+    3072.0
+   ]
+  },
+  {
+   "say": "He starts a message to Mia, then deletes every word, and goes *silent*.",
+   "clips": [
+    3155.5,
+    3166.5,
+    3173.5
+   ]
+  },
+  {
+   "say": "Mia tells herself she hates him. Then she cries on the *bus*.",
+   "clips": [
+    3185.2,
+    3199.1,
+    3215.8
+   ]
+  },
+  {
+   "say": "Two people, one phone call apart.",
+   "clips": [
+    3237.1
+   ]
+  },
+  {
+   "say": "Years go by. Mia becomes a writer at a radio *station*.",
+   "clips": [
+    3283.5,
+    3286.2,
+    3328.3
+   ]
+  },
+  {
+   "say": "Then Henry sees an ad. A visual radio show needs a camera *operator*.",
+   "clips": [
+    4655.2,
+    4686.7,
+    4696.6
+   ]
+  },
+  {
+   "say": "Somehow, they find each other again. For a while it is soft and *easy*.",
+   "clips": [
+    3867.8,
+    3945.9,
+    4285.1
+   ]
+  },
+  {
+   "say": "They cook together, read in bed, and tease each other about the old *days*.",
+   "clips": [
+    4324.4,
+    4351.7,
+    4339.8
+   ]
+  },
+  {
+   "say": "Mia still dreams of reopening the old bakery. She sketches the shop she *wants*.",
+   "clips": [
+    4931.5,
+    4964.8,
+    4989.0
+   ]
+  },
+  {
+   "say": "But Henry won't talk about his past, and Mia can feel the *wall*.",
+   "clips": [
+    4069.5,
+    4095.2
+   ]
+  },
+  {
+   "orig": [
+    5351.8,
+    5354.6
+   ],
+   "text": "I wish you had told me."
+  },
+  {
+   "orig": [
+    5712.7,
+    5715.6
+   ],
+   "text": "I always prayed to God to let me live a normal life."
+  },
+  {
+   "say": "Then his old crew pulls him back into a dark garage, and the fight gets *ugly*.",
+   "clips": [
+    5801.5,
+    5887.8,
+    5908.8
+   ]
+  },
+  {
+   "say": "Henry sprints through the streets after Mia's *car*.",
+   "clips": [
+    6294.5,
+    6319.7,
+    6405.1
+   ]
+  },
+  {
+   "say": "He catches her, and they hold each other in the middle of the *road*.",
+   "clips": [
+    6430.1,
+    6433.4
+   ]
+  },
+  {
+   "orig": [
+    6439.7,
+    6442.5
+   ],
+   "text": "I love you, Mia."
+  },
+  {
+   "say": "But she gets back in the car, and Henry is left alone on the *street*.",
+   "clips": [
+    6493.5,
+    6504.0,
+    6517.0
+   ]
+  },
+  {
+   "say": "Mia ends up at Ruby's noodle shop, drinking alone, thinking about the tofu boy she can't *forget*.",
+   "clips": [
+    6581.0,
+    6638.1,
+    6700.0
+   ]
+  },
+  {
+   "say": "She never stopped waiting for him.",
+   "clips": [
+    6667.0
+   ]
+  },
+  {
+   "say": "At her desk, Mia listens to a radio show, and the host asks, whose name comes to *mind*?",
+   "clips": [
+    6843.4,
+    6853.0,
+    6870.5
+   ]
+  },
+  {
+   "say": "She drops everything and *runs*, across the city, past the river, up the steps.",
+   "clips": [
+    6897.5,
+    6920.5,
+    6940.5
+   ]
+  },
+  {
+   "say": "At the radio station, Henry is behind a camera when she steps into *view*.",
+   "clips": [
+    6946.6,
+    6959.6,
+    6962.6
+   ]
+  },
+  {
+   "say": "She finds him, and for the first time in years, neither of them has to *run*.",
+   "clips": [
+    6970.1,
+    6974.7,
+    6991.6
+   ]
+  },
+  {
+   "say": "Some love stories take a lifetime to line *up*.",
+   "clips": [
+    6982.0
+   ]
+  }
+ ]
+}

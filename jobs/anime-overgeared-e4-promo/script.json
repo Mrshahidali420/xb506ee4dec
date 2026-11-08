@@ -1,0 +1,179 @@
+{
+ "title": "A Level 21 Blacksmith Just Faced A Level 180 Knight With One Tiny Dagger . . . (highlight)",
+ "source": "source.mp4",
+ "caption": "In Overgeared episode 4, a level 21 blacksmith has five minutes to save his friend, and a knight above level 180 blocks the hall. Full recap is on our page 👉 link in the comments\n\n#overgeared #anime #animerecap #animeexplained #animerewind",
+ "comment": "Full recap: https://www.facebook.com/29150913997897317",
+ "music": "../../music/Fight_Beatbrothers.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Overgeared (Episode 4)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "A level twenty-one blacksmith faces a knight over level one-eighty, with nothing but a tiny *dagger*.",
+   "clips": [
+    824.5,
+    [
+     828.0,
+     9
+    ],
+    [
+     839.5,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to the dungeon, where Grid is breaking out with a girl in a cat *hood*.",
+   "clips": [
+    720.5,
+    [
+     723.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The guards close in, and Grid has nothing but a cheap little *dagger*.",
+   "clips": [
+    726.5,
+    [
+     740.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Mid-fight, he unlocks a new skill, and slices a blade of wind through the *guards*.",
+   "clips": [
+    732.5,
+    [
+     743.8,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "He begs Euphemina for help, and she smirks, because she does not work for *free*.",
+   "clips": [
+    752.0,
+    [
+     755.5,
+     5
+    ],
+    [
+     760.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "When Grid finally begs, she lifts her hands, and half the guards *vanish*.",
+   "clips": [
+    764.0,
+    [
+     768.0,
+     8
+    ],
+    [
+     770.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "But she holds back, because a stronger skill could bring the whole dungeon *down*.",
+   "clips": [
+    777.5,
+    [
+     790.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So Grid runs to find Hu-Roy, with five minutes *left*.",
+   "clips": [
+    780.5,
+    [
+     805.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He races down the corridor, and every second *counts*.",
+   "clips": [
+    810.5,
+    [
+     809.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then a knight blocks the hall. Sir Leo, the hero of Winston, far above Grid's *level*.",
+   "clips": [
+    823.8,
+    [
+     832.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That is not a fair *fight*.",
+   "clips": [
+    818.5
+   ]
+  },
+  {
+   "say": "Grid does not run. His blacksmith's wrath kicks in, and he glows *blue*.",
+   "clips": [
+    838.0,
+    [
+     839.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Leo lifts his flaming *sword*.",
+   "clips": [
+    858.8,
+    [
+     852.5,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Grid grips his tiny dagger and *charges*.",
+   "clips": [
+    848.0
+   ]
+  },
+  {
+   "orig": [
+    861.7,
+    864.5
+   ]
+  },
+  {
+   "say": "Episode 4 is on our page.",
+   "clips": [
+    815.5
+   ]
+  }
+ ]
+}

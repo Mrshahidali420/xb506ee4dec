@@ -1,0 +1,71 @@
+[
+ {
+  "start": 574.7,
+  "end": 664.91,
+  "short_start": 601.0,
+  "short_end": 661.0,
+  "title": "Black Clover S2E6: Noropechika unleashes blood magic in a chaotic clash",
+  "caption": "The battle erupts as Noropechika goes berserk! 🌟\nWill Noelle survive the red beast?\n#BlackClover #Season2 #Episode6 #AnimeFight #MagicMayhem",
+  "comment": "What do you think Noropechika's next move will be?",
+  "why": "Shows a key power reveal.",
+  "score": 0.672,
+  "signals": [
+   "loud",
+   "swell",
+   "speech",
+   "bass",
+   "cuts",
+   "motion",
+   "subs"
+  ],
+  "oped": "fallback",
+  "file": "clip_01.mp4",
+  "short": "short_01.mp4"
+ },
+ {
+  "start": 825.32,
+  "end": 913.95,
+  "short_start": 828.0,
+  "short_end": 888.0,
+  "title": "Black Clover S2E6: Revenge-fueled blood magic showdown",
+  "caption": "A vengeful clash ignites! ⚔️\nWho will claim victory?\n#BlackClover #Season2 #Episode6 #BloodMagic #Kaiju",
+  "comment": "Which character's revenge drives the fight?",
+  "why": "Highlights emotional stakes.",
+  "score": 0.624,
+  "signals": [
+   "loud",
+   "swell",
+   "speech",
+   "bass",
+   "cuts",
+   "motion",
+   "subs"
+  ],
+  "oped": "fallback",
+  "file": "clip_02.mp4",
+  "short": "short_02.mp4"
+ },
+ {
+  "start": 923.8,
+  "end": 1014.05,
+  "short_start": 937.0,
+  "short_end": 997.0,
+  "title": "Black Clover S2E6: Noelle faces a deadly confrontation",
+  "caption": "Noelle's fate hangs by a thread! 😱\nCan she turn the tide?\n#BlackClover #Season2 #Episode6 #Noelle #Cliffhanger",
+  "comment": "Do you think Noelle can survive this?",
+  "why": "Builds tension for the climax.",
+  "score": 0.681,
+  "signals": [
+   "loud",
+   "swell",
+   "speech",
+   "bass",
+   "cuts",
+   "motion",
+   "subs"
+  ],
+  "oped": "fallback",
+  "file": "clip_03.mp4",
+  "short": "short_03.mp4"
+ }
+]

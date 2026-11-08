@@ -1,0 +1,187 @@
+{
+ "title": "A Math Nerd Solved One Puzzle And The Whole World Called Him A Hacker . . . (highlight)",
+ "source": "source.mp4",
+ "caption": "In Summer Wars, a shy math nerd solves a puzzle text from a stranger overnight, and wakes up as the world's most wanted hacker. Full recap is on our page 👉 link in the comments\n\n#summerwars #anime #animemovie #animerecap #animerewind",
+ "comment": "Full recap: https://www.facebook.com/1783790129393731",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Summer Wars (movie)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "A shy math nerd solves a puzzle from a stranger, and the whole world calls him a *hacker*.",
+   "clips": [
+    1534.5,
+    [
+     1568.5,
+     6
+    ],
+    [
+     1700.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to a night when Kenji cannot *sleep*.",
+   "clips": [
+    1376.0,
+    [
+     1393.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then his phone buzzes with a text from a stranger. It is just a wall of *numbers*.",
+   "clips": [
+    1400.5,
+    [
+     1405.0,
+     10
+    ],
+    [
+     1409.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Kenji cannot ignore a puzzle, so he grabs a pen and *solves* it.",
+   "clips": [
+    1403.5,
+    [
+     1418.0,
+     6
+    ],
+    [
+     1424.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He works until dawn, cracks it, hits send, and gets a *thank you*.",
+   "clips": [
+    1451.0,
+    [
+     1457.0,
+     7
+    ],
+    [
+     1465.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then he sleeps, proud, with no idea what he *did*.",
+   "clips": [
+    1476.0,
+    [
+     1506.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "The next morning, the kids drag him to the TV, and his face is on the *news*.",
+   "clips": [
+    1521.0,
+    [
+     1527.5,
+     8
+    ],
+    [
+     1534.5,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Someone broke Oz, the online world everyone uses, in a single *night*.",
+   "clips": [
+    1541.0,
+    [
+     1556.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The police say the hacker is young, and the picture looks just like *him*.",
+   "clips": [
+    1537.5,
+    [
+     1573.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Kenji panics, but his account is *locked*.",
+   "clips": [
+    1599.0,
+    [
+     1604.5,
+     3
+    ],
+    [
+     1656.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then a friend calls. Oz's unbreakable security was cracked overnight by a 2056 digit *puzzle*.",
+   "clips": [
+    1673.0,
+    [
+     1688.0,
+     6
+    ],
+    [
+     1695.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Kenji goes pale. The puzzle he solved was the lock on the whole *system*.",
+   "clips": [
+    1692.5,
+    [
+     1700.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "And whoever sent that text is only getting *started*.",
+   "clips": [
+    1727.0,
+    [
+     1739.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our page.",
+   "clips": [
+    1752.0
+   ]
+  }
+ ]
+}

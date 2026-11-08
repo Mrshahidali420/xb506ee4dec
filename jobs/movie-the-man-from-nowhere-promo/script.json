@@ -1,0 +1,124 @@
+{
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "music_db_under_voice": 12,
+ "title": "One Man Walks Into A Gang Boss's Mansion . . . Alone (highlight)",
+ "caption": "In The Man from Nowhere (2010), Jack walks alone into a gang boss's mansion, and a dozen armed men rush him. Full recap is on our page 👉 link in the comments\n\n#themanfromnowhere #koreanmovie #movierecap #thriller #spoilerroom",
+ "music": "../../music/Lordly_Feder.mp3",
+ "credit": "Film: The Man from Nowhere (2010)",
+ "comment": "Full recap: https://www.facebook.com/1441128927995405",
+ "segments": [
+  {
+   "say": "A dozen armed men rush one man at once, and he takes on every *one*.",
+   "clips": [
+    5977.8,
+    5998.3
+   ]
+  },
+  {
+   "say": "It started with a phone call. Jack tells a gang boss, bring Lily here in one hour. No more *deals*.",
+   "clips": [
+    5316.6,
+    5322.3,
+    5329.6
+   ]
+  },
+  {
+   "say": "Mike screams threats back. He has no idea who he is *dealing* with.",
+   "clips": [
+    5337.3,
+    5344.6,
+    5348.7
+   ]
+  },
+  {
+   "say": "Jack is holding Mike's little brother, Sam, and he is not *bluffing*.",
+   "clips": [
+    5371.1,
+    5392.9,
+    5405.0
+   ]
+  },
+  {
+   "say": "Behind Jack, a whole building goes up in a fireball. Jack does not do *subtle*.",
+   "clips": [
+    5521.4,
+    5525.7,
+    5534.4
+   ]
+  },
+  {
+   "say": "Next, he walks into Mike's marble mansion. Alone.",
+   "clips": [
+    5735.6,
+    5743.8,
+    5760.8
+   ]
+  },
+  {
+   "say": "Mike asks who the hell he is.",
+   "clips": [
+    5747.7,
+    5750.0
+   ]
+  },
+  {
+   "orig": [
+    5757.0,
+    5759.8
+   ],
+   "text": "Neighbour."
+  },
+  {
+   "say": "Mike wants his brother back. Jack wants Lily *first*.",
+   "clips": [
+    5770.9,
+    5773.6,
+    5784.4
+   ]
+  },
+  {
+   "say": "Then Mike gives the order. Kill *him*.",
+   "clips": [
+    5843.9,
+    5855.3,
+    5863.8
+   ]
+  },
+  {
+   "say": "A dozen men rush Jack at once. Guns, knives, and bare *hands*.",
+   "clips": [
+    5916.5,
+    5977.8,
+    5998.3
+   ]
+  },
+  {
+   "say": "When the dust settles, Jack is bleeding head to toe, and the floor is covered in *men*.",
+   "clips": [
+    6045.2,
+    6066.2,
+    6075.4
+   ]
+  },
+  {
+   "say": "The full story is on our page.",
+   "clips": [
+    4546.1
+   ]
+  }
+ ]
+}

@@ -1,0 +1,467 @@
+{
+ "title": "They Stomped Him Until He Stopped Moving . . . And Nobody Called For Help (Episode 7)",
+ "caption": "Weak Hero Class 1, episode 7: Max walks into a boxing gym to make Bobby apologize to Sam and Amy.\nBobby paid a fighter named Wolf to beat him, and the fight ends with Max on the mat, not breathing. Follow for episode 8!\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "comment": "Is Bobby too far gone to forgive after this? Why?",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "credit": "Series: Weak Hero Class 1 (2022)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "kokoro_voice": "am_liam",
+ "segments": [
+  {
+   "say": "Max lies flat in a boxing ring, and one of the boys whispers, he isn't *breathing*.",
+   "clips": [
+    1852.6,
+    1866.8,
+    1873.5
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to the night Sam woke up in an *ambulance*.",
+   "clips": [
+    9.1,
+    28.5
+   ]
+  },
+  {
+   "say": "The police ask who did this to him. Sam just says, I was *alone*.",
+   "clips": [
+    33.5,
+    44.0,
+    49.1
+   ]
+  },
+  {
+   "say": "Amy hears him cover for her. He tells her, never tell Max what happened *today*.",
+   "clips": [
+    53.5,
+    63.5
+   ]
+  },
+  {
+   "say": "At home, Max sits next to a birthday cake and a phone that never *rings*.",
+   "clips": [
+    76.0,
+    79.1,
+    97.0
+   ]
+  },
+  {
+   "say": "Sam steps outside and calls Bobby. He has one thing to *say*.",
+   "clips": [
+    106.5,
+    121.0
+   ]
+  },
+  {
+   "orig": [
+    135.8,
+    138.8
+   ],
+   "text": "Stop this. Now. Leave Max alone."
+  },
+  {
+   "say": "Back at Sam's house, his parents turn on each other. Where were you when he got *hurt*?",
+   "clips": [
+    259.9,
+    264.7,
+    266.8
+   ]
+  },
+  {
+   "say": "Sam hides in his room while they scream through the *door*.",
+   "clips": [
+    280.5,
+    286.0,
+    290.6
+   ]
+  },
+  {
+   "say": "In the hospital, his dad asks if it was the same *guys*.",
+   "clips": [
+    335.4,
+    344.0,
+    349.2
+   ]
+  },
+  {
+   "say": "Sam says he fell down the stairs. His dad cuts him off. You're transferring *schools*.",
+   "clips": [
+    353.5,
+    358.1
+   ]
+  },
+  {
+   "say": "Then Sam finally asks. Since when have you cared about me so *much*?",
+   "clips": [
+    371.6,
+    379.4
+   ]
+  },
+  {
+   "say": "Fair question, honestly.",
+   "clips": [
+    375.6
+   ]
+  },
+  {
+   "say": "Meanwhile Bobby's father, an assemblyman, has his aide fix everything. The police, the principal, a school in the *Philippines*.",
+   "clips": [
+    435.5,
+    444.4,
+    447.7
+   ]
+  },
+  {
+   "say": "Bobby sits alone in his room, waiting to be shipped *out*.",
+   "clips": [
+    397.8,
+    467.5
+   ]
+  },
+  {
+   "say": "At school, Max sleeps through class, because Sam hasn't answered a single *call*.",
+   "clips": [
+    504.8,
+    514.6,
+    523.6
+   ]
+  },
+  {
+   "say": "Then Sam texts him. Something came up at home, I won't be in for a *while*.",
+   "clips": [
+    533.0,
+    545.1,
+    548.9
+   ]
+  },
+  {
+   "say": "Max doesn't buy it. Finals are tomorrow, but first he goes looking for Bobby's *friends*.",
+   "clips": [
+    608.8,
+    618.9,
+    635.5
+   ]
+  },
+  {
+   "say": "They say Bobby's phone is off. Max says Bobby owes him eight hundred thousand won for the *scooter*.",
+   "clips": [
+    643.7,
+    650.0,
+    661.9
+   ]
+  },
+  {
+   "say": "Up on the roof, Bobby's friends panic. We need to take care of *Max*.",
+   "clips": [
+    683.0,
+    695.5,
+    709.3
+   ]
+  },
+  {
+   "say": "Then Max walks up, and they talk fast. Bobby used Amy as bait, and Sam showed up *instead*.",
+   "clips": [
+    732.0,
+    744.6
+   ]
+  },
+  {
+   "say": "Bobby paid someone to beat Sam up. We were just *bystanders*.",
+   "clips": [
+    762.2,
+    769.6
+   ]
+  },
+  {
+   "say": "That's what cowards always say.",
+   "clips": [
+    748.6
+   ]
+  },
+  {
+   "say": "Max goes straight to Amy. Where is Sam? Which *hospital*?",
+   "clips": [
+    790.5,
+    794.3,
+    807.5
+   ]
+  },
+  {
+   "say": "She begs him to stay out of it. Sam didn't want you to *know*.",
+   "clips": [
+    821.5,
+    831.0
+   ]
+  },
+  {
+   "say": "That night, Max rings Sam's door, dressed as a delivery *boy*.",
+   "clips": [
+    848.5,
+    855.0,
+    869.0
+   ]
+  },
+  {
+   "say": "Sam is studying with his arm in a *cast*.",
+   "clips": [
+    836.0,
+    839.0
+   ]
+  },
+  {
+   "say": "Max only asks for water, and whether Sam will be at finals tomorrow. Sam says, I need to *be*.",
+   "clips": [
+    901.0,
+    913.0,
+    931.0
+   ]
+  },
+  {
+   "say": "Max says nothing about what he knows. He just walks out, and that is when the *anger* starts.",
+   "clips": [
+    946.5,
+    962.0
+   ]
+  },
+  {
+   "say": "Across town, Bobby's father catches him and loses *it*.",
+   "clips": [
+    1011.2,
+    1014.5,
+    1028.1
+   ]
+  },
+  {
+   "say": "You will study abroad, he says. Just never tell anyone I'm your *son*.",
+   "clips": [
+    1035.8,
+    1043.7
+   ]
+  },
+  {
+   "say": "Bobby bolts for the street, jumps in a car, and tells the driver, just *drive*.",
+   "clips": [
+    1070.0,
+    1085.0,
+    1094.0
+   ]
+  },
+  {
+   "say": "His phone fills with missed calls. Then one message. Answer, or I will kill your *friends*.",
+   "clips": [
+    1115.0,
+    1121.6
+   ]
+  },
+  {
+   "say": "Max has been *busy*. He grabs Bobby's friends one by one, asking where Bobby is hiding.",
+   "clips": [
+    1144.2,
+    1155.7,
+    1166.1
+   ]
+  },
+  {
+   "say": "Then he calls Bobby himself. Where are you? Stop *hiding*.",
+   "clips": [
+    1178.5,
+    1182.5,
+    1191.0
+   ]
+  },
+  {
+   "say": "Bobby panics and calls Wolf, a fighter who hits for *money*. Let's get Max, I'll pay.",
+   "clips": [
+    1228.2,
+    1241.3,
+    1252.0
+   ]
+  },
+  {
+   "say": "Bobby just made the worst call.",
+   "clips": [
+    1195.0
+   ]
+  },
+  {
+   "say": "Sam hears Max went dark. He wouldn't go after Bobby, would *he*?",
+   "clips": [
+    1287.7,
+    1305.0
+   ]
+  },
+  {
+   "say": "Max walks into a boxing gym where Bobby's whole gang is *waiting*.",
+   "clips": [
+    1339.0,
+    1343.0,
+    1345.5
+   ]
+  },
+  {
+   "say": "Bobby finally shows up. Max stays calm. You should have taken it out on me, not those *kids*.",
+   "clips": [
+    1406.7,
+    1416.8,
+    1429.3
+   ]
+  },
+  {
+   "say": "Max says sorry for upsetting him. Now *apologize* to Sam and Amy. Bobby says no.",
+   "clips": [
+    1445.1,
+    1459.0
+   ]
+  },
+  {
+   "say": "So Max says he will beat him until he comes to his *senses*.",
+   "clips": [
+    1488.0,
+    1491.9
+   ]
+  },
+  {
+   "say": "But Bobby paid for this. Wolf is the fighter Max beat in middle school, and he wants *revenge*, live on camera.",
+   "clips": [
+    1539.3,
+    1566.8,
+    1578.6
+   ]
+  },
+  {
+   "say": "The fight starts. Max puts Wolf on the *mat*.",
+   "clips": [
+    1600.2,
+    1623.3,
+    1633.6
+   ]
+  },
+  {
+   "say": "But Wolf gets back up, and the fight turns *ugly*.",
+   "clips": [
+    1647.2,
+    1658.5
+   ]
+  },
+  {
+   "say": "Then Max goes *down*, and he stays down.",
+   "clips": [
+    1667.8,
+    1675.0
+   ]
+  },
+  {
+   "orig": [
+    1712.8,
+    1715.6
+   ],
+   "text": "Now who's the pathetic one?"
+  },
+  {
+   "say": "Bobby leans over him. You always looked down on *me*, he says.",
+   "clips": [
+    1720.6,
+    1728.7
+   ]
+  },
+  {
+   "say": "Max tells him from the floor. Stop blaming *others*, Bobby.",
+   "clips": [
+    1746.5,
+    1750.9
+   ]
+  },
+  {
+   "say": "That's when Bobby snaps. His friends jump in, and the stomping *starts*.",
+   "clips": [
+    1759.0,
+    1769.8,
+    1781.2
+   ]
+  },
+  {
+   "say": "Max never stood a chance.",
+   "clips": [
+    1757.0
+   ]
+  },
+  {
+   "say": "They keep going until Max stops *answering*.",
+   "clips": [
+    1795.0,
+    1798.2
+   ]
+  },
+  {
+   "say": "Someone shakes him. Hey, he isn't *breathing*.",
+   "clips": [
+    1847.9,
+    1852.6,
+    1866.8
+   ]
+  },
+  {
+   "say": "A man in a suit walks in, Bobby's father's aide. Stay here, he says. If you run, it gets *worse*.",
+   "clips": [
+    1879.5,
+    1884.0
+   ]
+  },
+  {
+   "say": "Bobby drops next to Max, shaking, and *begs* him to wake up.",
+   "clips": [
+    1899.3,
+    1935.6
+   ]
+  },
+  {
+   "orig": [
+    1944.0,
+    1946.8
+   ],
+   "text": "Max, please look at me."
+  },
+  {
+   "say": "The gang drags Bobby away while Max's eyes stay *closed*.",
+   "clips": [
+    1957.4,
+    1971.4
+   ]
+  },
+  {
+   "say": "Across town, Sam and Amy search an empty garage for *Max*.",
+   "clips": [
+    1976.2,
+    1981.0,
+    1985.0
+   ]
+  },
+  {
+   "say": "Where is Max? He isn't here. Sam keeps calling, and nobody *answers*.",
+   "clips": [
+    1988.5,
+    1994.1
+   ]
+  },
+  {
+   "say": "And back in the empty ring, Max lies completely still. Is he still *alive*?",
+   "clips": [
+    2013.0
+   ]
+  }
+ ]
+}

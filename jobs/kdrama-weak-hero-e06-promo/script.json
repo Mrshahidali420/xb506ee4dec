@@ -1,0 +1,129 @@
+{
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "music_db_under_voice": 12,
+ "title": "They Trapped Him In A Dark Parking Garage . . . And The Wrong Boy Walked In (highlight)",
+ "caption": "In Weak Hero Class 1, episode 6, Sam walks into a dark parking garage alone, and Bobby's whole gang is waiting. Full recap is on our page 👉 link in the comments\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+ "music": "../../music/Lordly_Feder.mp3",
+ "credit": "Series: Weak Hero Class 1 (2022)",
+ "comment": "Full recap: https://www.facebook.com/1636459364691962",
+ "segments": [
+  {
+   "say": "Sam walks alone into a dark parking garage, and Amy is already *there*.",
+   "clips": [
+    1851.0,
+    1864.0
+   ]
+  },
+  {
+   "say": "It started at Max's birthday party, with balloons, pizza, and a missing *guest*.",
+   "clips": [
+    1335.8,
+    1348.0,
+    1354.5
+   ]
+  },
+  {
+   "say": "Amy slipped out to meet Bobby at a cafe, all alone, and soon her phone went *dead*.",
+   "clips": [
+    1439.0,
+    1574.1,
+    1607.9
+   ]
+  },
+  {
+   "say": "Then a picture of Amy popped up on a phone, with an *address*.",
+   "clips": [
+    1632.5,
+    1663.5,
+    1687.0
+   ]
+  },
+  {
+   "say": "Sam told everyone he was going to the shop, and walked out *alone*.",
+   "clips": [
+    1698.9,
+    1701.0,
+    1723.5
+   ]
+  },
+  {
+   "say": "In the garage, Bobby was grilling Amy. Are you dating *Max*?",
+   "clips": [
+    1744.2,
+    1750.8,
+    1760.0
+   ]
+  },
+  {
+   "say": "Then a boy walked in, and it was not *Max*.",
+   "clips": [
+    1851.0,
+    1864.0
+   ]
+  },
+  {
+   "orig": [
+    1884.9,
+    1887.0
+   ],
+   "text": "Where's Ahn Su-ho?"
+  },
+  {
+   "say": "Amy shoved Sam toward the stairs. You go first. I'll get the *police*.",
+   "clips": [
+    1893.5,
+    1899.3,
+    1912.5
+   ]
+  },
+  {
+   "say": "Sam grabbed a pipe, and for a minute he actually *won*.",
+   "clips": [
+    1933.4,
+    1945.5,
+    1961.9
+   ]
+  },
+  {
+   "say": "Then Wolf strolled in, and he was not *impressed*.",
+   "clips": [
+    1988.1,
+    1999.6,
+    2007.6
+   ]
+  },
+  {
+   "orig": [
+    2056.5,
+    2059.0
+   ],
+   "text": "I said let him go. I only need Su-ho."
+  },
+  {
+   "say": "The gang circles Sam. And he is all out of *tricks*.",
+   "clips": [
+    2076.3
+   ]
+  },
+  {
+   "say": "Episode 6 is on our page.",
+   "clips": [
+    2242.5
+   ]
+  }
+ ]
+}
