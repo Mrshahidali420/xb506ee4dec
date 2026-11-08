@@ -50,11 +50,14 @@ def frame_at(video: Path, second: float, to: Path) -> Path:
 def card(panel: Path, line: str) -> Image.Image:
     """Blurred copy of the panel as the backdrop, the sharp panel on top, the script line on a dark band."""
     art = Image.open(panel).convert("RGB")
+    box = art.convert("L").point(lambda v: 255 if v > 22 else 0).getbbox()  # the video letterboxes the panel in black
+    if box and (box[2] - box[0]) > W // 3 and (box[3] - box[1]) > H // 5:
+        art = art.crop(box)
     back = art.resize((W, H)).filter(ImageFilter.GaussianBlur(28))
     sharp = art.copy()
     sharp.thumbnail((W, H - 260))
     page = back.point(lambda v: int(v * 0.45))
-    page.paste(sharp, ((W - sharp.width) // 2, 30))
+    page.paste(sharp, ((W - sharp.width) // 2, 30 + (H - 260 - sharp.height) // 2))
     band = Image.new("RGBA", (W, 250), (0, 0, 0, 175))
     page.paste(band, (0, H - 250), band)
     draw = ImageDraw.Draw(page)
