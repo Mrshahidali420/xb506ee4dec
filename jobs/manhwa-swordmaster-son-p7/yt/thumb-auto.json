@@ -1,32 +1,32 @@
 {
  "badge": "CH 31-35",
  "auto": true,
- "review": true,
- "confidence": 60,
+ "review": false,
+ "confidence": 65,
  "thumbs": [
   {
    "name": "auto-scene",
    "style": "scene",
-   "panel": 1393,
+   "panel": 229,
    "focus": [
     0.5,
-    0.2
+    0.31
    ],
    "fit": "contain",
    "sides": [
-    67,
-    1411
+    1393,
+    1684
    ],
    "labels": [
     {
-     "text": "PATH",
+     "text": "ALIVE",
      "at": [
       0.2,
       0.86
      ],
      "to": [
-      0.636,
-      0.08
+      0.542,
+      0.31
      ]
     }
    ]
@@ -36,7 +36,7 @@
    "style": "split",
    "panels": [
     1393,
-    754
+    1111
    ],
    "focus": [
     [
@@ -45,7 +45,7 @@
     ],
     [
      0.5,
-     0.586
+     0.305
     ]
    ],
    "labels": [
@@ -61,13 +61,13 @@
      ]
     },
     {
-     "text": "PATRIARCH",
+     "text": "ENEMY",
      "at": [
       0.82,
       0.86
      ],
      "to": [
-      0.822,
+      0.717,
       0.5
      ]
     }
@@ -77,22 +77,22 @@
    "name": "auto-trio",
    "style": "trio",
    "panels": [
-    58,
-    754,
-    1393
+    229,
+    1393,
+    1684
    ],
    "focus": [
     [
      0.5,
-     0.508
-    ],
-    [
-     0.5,
-     0.586
+     0.31
     ],
     [
      0.5,
      0.2
+    ],
+    [
+     0.5,
+     0.57
     ]
    ],
    "labels": [
@@ -103,7 +103,7 @@
       0.86
      ],
      "to": [
-      0.95,
+      0.668,
       0.08
      ]
     }
