@@ -1,0 +1,140 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Fight_Beatbrothers.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Swordmaster's Youngest Son (Hwangze Penguin / Mr. Big / AZI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "The last body is still alive, and it's crying. Please. Kill me . . . (highlight)",
+ "segments": [
+  {
+   "say": "The last body is still alive, and it's crying. *Please. Kill me.*",
+   "clips": [
+    1380,
+    1386,
+    1389
+   ]
+  },
+  {
+   "say": "The team stops to rest and eat. Jin passes around food, and every one of them *chews*.",
+   "clips": [
+    1086,
+    1092,
+    1098
+   ]
+  },
+  {
+   "say": "One minute later they are swaying on their feet. Jin smiles, says it's *just* a sleeping drug, and goes in alone.",
+   "clips": [
+    1107,
+    1110
+   ]
+  },
+  {
+   "say": "At the warehouse two guards chat about girls and drinks, until Jin drops from the shadows and *wrecks* them.",
+   "clips": [
+    1140,
+    1146,
+    1152
+   ]
+  },
+  {
+   "say": "Two guards, no alarms, and a plain padlock. Jin pops it open and walks *in*.",
+   "clips": [
+    1170,
+    1176,
+    1182
+   ]
+  },
+  {
+   "say": "Inside is a magic circle written in blood. It only opens for *human* blood, so he cuts a guard and uses *that*.",
+   "clips": [
+    1188,
+    1200,
+    1206
+   ]
+  },
+  {
+   "say": "The circle lights up red, and it turns out the guard wasn't *human* anymore.",
+   "clips": [
+    1209,
+    1218,
+    1227
+   ]
+  },
+  {
+   "say": "The two knocked-out guards swell into red-eyed giants with muscles on top of their muscles. *Damn*.",
+   "clips": [
+    1224,
+    1239,
+    1260
+   ]
+  },
+  {
+   "say": "Jin goes for the head. They get right back up. He goes for the heart. They *regenerate*.",
+   "clips": [
+    1254,
+    1257,
+    1284
+   ]
+  },
+  {
+   "say": "Jin smirks. These are biological golems, forbidden magic, and each one has a core in the head, the heart, or the *abdomen*.",
+   "clips": [
+    1317,
+    1320,
+    1323
+   ]
+  },
+  {
+   "say": "He checks them one at a time. Head, nothing. Heart, nothing. Only the abdomen is *left*.",
+   "clips": [
+    1338,
+    1344,
+    1347
+   ]
+  },
+  {
+   "say": "He shatters the first core, then slices through the second, and the red glow finally *dies*.",
+   "clips": [
+    1353,
+    1362,
+    1365
+   ]
+  },
+  {
+   "say": "Jin stabs through its core and says one word. *I will.*",
+   "clips": [
+    1395,
+    1398,
+    1401
+   ]
+  },
+  {
+   "say": "Nobody would ever choose to become a golem, he says, and they get thrown away the second they change.",
+   "clips": [
+    1413,
+    1416
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    1413,
+    1416
+   ]
+  }
+ ]
+}

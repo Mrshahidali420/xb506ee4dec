@@ -1,0 +1,217 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Omniscient Reader's Viewpoint (Singshong / Sleepy-C / UMI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Dokja whispers, activate bookmark number one, and a purple flood of the dead kid's power pours in . . . (highlight)",
+ "segments": [
+  {
+   "say": "Dokja whispers, activate bookmark number one, and a purple flood of the dead kid's power *pours* in.",
+   "clips": [
+    1068,
+    [
+     1074,
+     6
+    ],
+    [
+     1077,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "That's a rare trick, even in the novel. But when Dokja tries to read Sanga's profile, his skill gets *blocked*.",
+   "clips": [
+    936,
+    [
+     939,
+     10
+    ],
+    [
+     945,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Then someone yells *behind you*, and a demon crashes in, wearing a name tag that says Namwoon Kim.",
+   "clips": [
+    951,
+    [
+     957,
+     7
+    ],
+    [
+     969,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Of course it's him. And Dokja's skill fails, because a zombie has no *mind* left to read.",
+   "clips": [
+    975,
+    [
+     978,
+     5
+    ],
+    [
+     981,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The bridge only takes two, but there are three of them, so one has to stay behind and *die*.",
+   "clips": [
+    984,
+    [
+     987,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Mr. Han grabs Sanga and drags her across, and Dokja is left *behind*, alone. Real friendly, Mr. Han.",
+   "clips": [
+    990,
+    [
+     999,
+     5
+    ],
+    [
+     1002,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Dokja is alone with fifteen minutes left, and when the goblin asks who'll bless this poor guy, nobody *answers*.",
+   "clips": [
+    1023,
+    [
+     1029,
+     3
+    ],
+    [
+     1032,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Zombies close in, Dokja wishes for one combat skill, and then a new skill, *Bookmark*, lights up.",
+   "clips": [
+    1020,
+    [
+     1044,
+     3
+    ],
+    [
+     1050,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "In three thousand chapters of the novel, he never read about it, but he somehow *knows* how it works.",
+   "clips": [
+    1065,
+    [
+     1056,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "It saves characters he understands, and Namwoon Kim sits in slot number *one*.",
+   "clips": [
+    1062,
+    [
+     1059,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then he stabs the zombie with Namwoon's own skill, and the monster *drops*.",
+   "clips": [
+    1080,
+    [
+     1086,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Namwoon croaks that he doesn't want to die, while Dokja just *stares* at him, glowing purple.",
+   "clips": [
+    1092,
+    [
+     1095,
+     9
+    ],
+    [
+     1098,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Dokja's skill shuts off, the clock says ten minutes, and he's waiting on one man who should be here *already*.",
+   "clips": [
+    1104,
+    [
+     1110,
+     6
+    ],
+    [
+     1116,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then a shockwave rips through the horde, and zombies fly in every *direction*.",
+   "clips": [
+    1122,
+    [
+     1125,
+     7
+    ],
+    [
+     1128,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    1122,
+    [
+     1125,
+     7
+    ],
+    [
+     1128,
+     10
+    ]
+   ]
+  }
+ ]
+}
