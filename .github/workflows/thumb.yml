@@ -1,0 +1,53 @@
+name: Make thumbnail
+run-name: Thumbnail ${{ inputs.meta }}
+
+# Makes <meta>/thumbnail.jpg with tools/thumb_edit.py (cut-outs + HTML/CSS layers, no AI painting),
+# commits it, and, when a video id is given, sets it on that YouTube video.
+on:
+  workflow_dispatch:
+    inputs:
+      meta:
+        description: Folder with thumb.json, e.g. jobs/manhwa-orv-p2/yt
+        required: true
+      video:
+        description: YouTube video id to set the thumbnail on (empty = only make it)
+        default: ''
+      channel:
+        description: Channel short name (login secret)
+        default: manhwax
+
+permissions:
+  contents: write
+
+jobs:
+  thumb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: |
+          pip install -q "rembg[cpu]" pillow requests playwright google-api-python-client google-auth-oauthlib google-auth-httplib2
+          python -m playwright install --with-deps chromium > /dev/null
+      - name: Make the thumbnail
+        run: python3 tools/thumb_edit.py "${{ inputs.meta }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thumbnail
+          path: ${{ inputs.meta }}/thumbnail.jpg
+          retention-days: 7
+      - name: Set it on YouTube
+        if: inputs.video != ''
+        env:
+          YT_TOKEN: ${{ secrets.YT_MANHWAX_TOKEN }}
+          YT_CLIENT: ${{ secrets.YT_CLIENT_SECRET_JSON }}
+        run: |
+          mkdir -p ~/.config/watch
+          printf '%s' "$YT_TOKEN" > ~/.config/watch/yt-${{ inputs.channel }}.json
+          printf '%s' "$YT_CLIENT" > ~/.config/watch/yt_client_secret.json
+          python3 tools/post_yt.py thumb "${{ inputs.channel }}" "${{ inputs.video }}" "${{ inputs.meta }}/thumbnail.jpg"
+      - name: Save the thumbnail
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add "${{ inputs.meta }}/thumbnail.jpg" && git commit -qm "Thumbnail: ${{ inputs.meta }}" || exit 0
+          for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
