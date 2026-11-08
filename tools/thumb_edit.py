@@ -12,7 +12,8 @@ Usage: python thumb_edit.py <meta dir>
 <meta dir>/thumb.json:
   {"badge": "CH 26-30",
    "thumbs": [
-     {"name": "scene", "style": "scene", "panel": 1389, "focus": [0.6, 0.4],   ("fit": "contain" shows a tall panel whole)
+     {"name": "scene", "style": "scene", "panel": 1389, "focus": [0.6, 0.4],   ("fit": "contain" shows a tall panel whole,
+                                                                          "sides": [left second, right second] fill the sides)
       "labels": [{"text": "MC?", "at": [0.08, 0.12], "to": [0.55, 0.3]}]},
      {"name": "split", "style": "split", "panels": [1359, 1374], "focus": [[0.5, 0.4], [0.5, 0.3]], "labels": [...]},
      {"name": "shock", "style": "shock", "panel": 1389, "word": "KILL ME", "hero": 1359}
@@ -79,7 +80,7 @@ BASE = """<!doctype html><html><head><meta charset="utf-8">
           -webkit-text-stroke: 9px #000; paint-order: stroke fill; transform: translate(-50%, -50%) rotate(-3deg);
           filter: drop-shadow(0 4px 6px rgba(0,0,0,.6)); }}
  .word {{ font-family: Anton, sans-serif; white-space: nowrap; line-height: .95; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }}
- .badge {{ right: 26px; bottom: 22px; background: #ffd600; color: #000; font: 28px Anton, sans-serif; padding: 3px 10px 1px;
+ .badge {{ right: 26px; top: 22px; background: #ffd600; color: #000; font: 28px Anton, sans-serif; padding: 3px 10px 1px;
           border: 4px solid #000; border-radius: 8px; }}
  svg.arrows {{ position: absolute; inset: 0; overflow: visible; filter: drop-shadow(0 3px 4px rgba(0,0,0,.6)); }}
  {css}
@@ -134,10 +135,14 @@ def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
     boxes, arrows = labels(t.get("labels", []))
     if t["style"] == "scene":
         p = panel(video, t["panel"], work / f"p{t['panel']}.png")
-        if t.get("fit") == "contain":  # a tall panel shown whole: sharp in the middle, a blurred copy fills the sides
-            return "", (f'<img class="a full" src="{p}" style="filter: blur(18px) brightness(.55) saturate(1.4); transform: scale(1.1)">'
+        if t.get("fit") == "contain":  # a tall panel shown whole in the middle, two more panels of the part fill the sides
+            left, right = (panel(video, s, work / f"p{s}.png") for s in t.get("sides", [t["panel"] - 3, t["panel"] + 3]))
+            side = "top:0;height:720px;width:470px;object-fit:cover;filter: contrast(1.1) saturate(1.3) brightness(.8)"
+            return "", (f'<img class="a" src="{left}" style="left:0;{side};object-position:{t.get("side_focus", ["50% 40%", "50% 40%"])[0]}">'
+                        f'<img class="a" src="{right}" style="right:0;{side};object-position:{t.get("side_focus", ["50% 40%", "50% 40%"])[1]}">'
                         f'<img class="a" src="{p}" style="left:50%;top:0;height:720px;transform:translateX(-50%);'
-                        f'filter: contrast(1.15) saturate(1.35) drop-shadow(0 0 24px #000)">{boxes}'), arrows
+                        f'border-left:8px solid #fff;border-right:8px solid #fff;'
+                        f'filter: contrast(1.15) saturate(1.35) drop-shadow(0 0 30px #000)">{boxes}'), arrows
         return "", f'<img class="a full" src="{p}" style="{pos(t.get("focus", [0.5, 0.4]))}">{boxes}', arrows
     if t["style"] == "split":
         a, b = (panel(video, s, work / f"p{s}.png") for s in t["panels"])
