@@ -194,7 +194,11 @@ def score_panels(job: Path, work: Path, segs: list[dict]) -> tuple[list[dict], d
     story, line = story_map(segs)
     smart = smart_metrics()
     cascade_path = fetch(CASCADE_URL, "lbpcascade_animeface.xml")
-    cascade = cv2.CascadeClassifier(str(cascade_path)) if cascade_path else None
+    try:  # a broken OpenCV install (two cv2 packages over each other) has no cascades: aim by saliency then
+        cascade = cv2.CascadeClassifier(str(cascade_path)) if cascade_path else None
+    except Exception as exc:
+        print(f"  no face finder ({exc})")
+        cascade = None
     cascade = None if cascade is None or cascade.empty() else cascade
     panels, used = [], Counter()
     for k, f in enumerate(frames(job / "source.mp4", work)):
