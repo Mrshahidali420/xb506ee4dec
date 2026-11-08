@@ -14,7 +14,8 @@ in HTML/CSS and Chromium (Playwright) takes the 1280x720 screenshot.
 Usage: python thumb_edit.py <meta dir>
 <meta dir>/thumb.json:
   {"series": "name for AniList", "word": "KILL ME", "badge": "CH 26-30",
-   "panels": [1380, 1188]   seconds in source.mp4: the shocking moment first, a second strong one next,
+   "panels": {"shock": 1389, "versus": 1374, "power": 1317}   seconds in source.mp4 (from the panel sheets):
+                            shock = the most shocking face or moment, versus = the threat, power = a dark backdrop,
    "spot": [0.5, 0.4]       where the red circle goes on the first panel, as fractions (optional),
    "crop": [x0,y0,x1,y1]    fractions of the cover, to cut its printed title off (optional)}
 The job folder is the parent of <meta dir>. Writes thumb-shock.jpg, thumb-versus.jpg, thumb-power.jpg there.
@@ -87,7 +88,7 @@ BASE = """<!doctype html><html><head><meta charset="utf-8">
 </style></head><body>{body}<div class="a badge">{badge}</div></body></html>"""
 
 SHOCK_CSS = """
- .bg { inset: -40px; background: url(p0.png) center/cover; filter: blur(14px) brightness(.35) saturate(1.4); }
+ .bg { inset: -40px; background: url(p-shock.png) center/cover; filter: blur(14px) brightness(.35) saturate(1.4); }
  .pic { right: 0; top: 0; height: 720px; width: 900px; object-fit: cover; object-position: center 35%;
         filter: contrast(1.25) saturate(1.35) brightness(1.05); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22%); }
  .red { inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, transparent 40%, rgba(120,0,0,.55) 100%),
@@ -111,7 +112,7 @@ VERSUS_CSS = """
 """
 
 POWER_CSS = """
- .bg { inset: -40px; background: url(p1.png) center/cover; filter: blur(8px) brightness(.3) saturate(1.3); }
+ .bg { inset: -40px; background: url(p-power.png) center/cover; filter: blur(8px) brightness(.3) saturate(1.3); }
  .tone { inset: 0; background: radial-gradient(ellipse 45% 70% at 62% 55%, rgba(40,210,255,.35), transparent 70%),
         linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.55) 30%, transparent 50%),
         radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,.85) 100%); }
@@ -156,20 +157,19 @@ def main() -> None:
     word, badge = html.escape(spec["word"].upper()), spec["badge"]
     with tempfile.TemporaryDirectory() as tmp:
         work = Path(tmp)
-        seconds = (spec.get("panels") or [0, 0]) + [0]
-        for i, sec in enumerate(seconds[:2]):
-            panel(job / "source.mp4", sec, work / f"p{i}.png")
-            shutil.copy(work / f"p{i}.png", meta / f"panel-{i}.png")  # kept to check the picks
+        for style in ("shock", "versus", "power"):
+            panel(job / "source.mp4", spec["panels"][style], work / f"p-{style}.png")
+            shutil.copy(work / f"p-{style}.png", meta / f"panel-{style}.png")  # kept to check the picks
         cutout(art, sessions).save(work / "hero.png")
         foes = [cutout(fetch(n["image"]["large"]), sessions) for n in media["characters"]["nodes"][1:3]]
         for i, foe in enumerate(foes):
             foe.save(work / f"foe{i}.png")
 
-        sx, sy = spec.get("spot", [0.5, 0.4])
-        render(work, SHOCK_CSS, f"""<div class="a bg"></div><img class="a pic" src="p0.png"><div class="a red"></div>
-            <div class="a ring" style="left:{380 + int(sx * 900) - 115}px;top:{int(sy * 720) - 115}px"></div>
+        spot = spec.get("spot")  # a red circle only when a spot is given
+        ring = f'<div class="a ring" style="left:{380 + int(spot[0] * 900) - 115}px;top:{int(spot[1] * 720) - 115}px"></div>' if spot else ""
+        render(work, SHOCK_CSS, f"""<div class="a bg"></div><img class="a pic" src="p-shock.png"><div class="a red"></div>{ring}
             <img class="a hero" src="hero.png"><div class="a word">{word}</div>""", badge, job / "thumb-shock.jpg")
-        render(work, VERSUS_CSS, f"""<div class="a left"></div><div class="a right"><img src="p0.png"></div><div class="a tear"></div>
+        render(work, VERSUS_CSS, f"""<div class="a left"></div><div class="a right"><img src="p-versus.png"></div><div class="a tear"></div>
             <img class="a hero" src="hero.png"><div class="a word">{word}</div>""", badge, job / "thumb-versus.jpg")
         foe_html = "".join(f'<img class="a foe" src="foe{i}.png" style="left:{x}px">' for i, x in zip(range(len(foes)), (430, 1010)))
         ups = "".join(f'<div class="a up" style="left:{x}px;top:{y}px">&#8963;</div>' for x, y in ((560, 260), (1150, 300), (620, 470), (1100, 500)))
