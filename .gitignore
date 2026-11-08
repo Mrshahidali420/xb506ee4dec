@@ -6,6 +6,7 @@
 !/autopilot/
 !/jobs/
 !/queue/
+!/extra/
 !/README.md
 tools/*.v1.py
 jobs/**/*.mp4

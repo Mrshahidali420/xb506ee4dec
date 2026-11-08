@@ -2,6 +2,8 @@
 
   python post_extra.py add <page> <dir>        queue the cards in <dir> (card_*.jpg + post.json), dir is under extra/
   python post_extra.py next <page> [--go]      post the next queued carousel if the gap allows (on GitHub)
+  python post_extra.py thumbs <page> <job> <youtube link>   queue each of the job's YouTube thumbnails (thumb-*.jpg)
+                                               as its own Facebook photo post with the link (Facebook only)
 
 Instagram gets the whole carousel; Facebook gets, in turn: the title cover, one panel card, a text question.
 
@@ -12,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import sys
 import time
 from datetime import datetime, timezone
@@ -59,9 +62,36 @@ def add(page: str, folder: str) -> None:
     print(f"queued {folder}")
 
 
+def add_thumbs(page: str, job: str, link: str) -> None:
+    """Every thumbnail made for a long video is a picture post that sends people to it (Shahid, 8 Nov 2026).
+    The images are copied to extra/<page>/<job>-thumbs/ so the queue never depends on the job folder."""
+    src = ROOT / job
+    title = (src / "yt" / "title.txt").read_text(encoding="utf-8").strip() if (src / "yt" / "title.txt").exists() else src.name
+    folder = f"extra/{page}/{src.name}-thumbs"
+    (ROOT / folder).mkdir(parents=True, exist_ok=True)
+    queue = load(page)
+    for style in ("scene", "split", "shock"):
+        img = src / f"thumb-{style}.jpg"
+        if not img.exists() or any(i.get("file") == f"{folder}/{img.name}" for i in queue["items"]):
+            continue
+        shutil.copy(img, ROOT / folder / img.name)
+        queue["items"].append({"kind": "photo", "dir": folder, "file": f"{folder}/{img.name}", "cards": 1,
+                               "caption": f"{title}\n\nWatch the full recap on YouTube 👉 {link}",
+                               "comment": f"Full video: {link}", "added": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                               "posted_at": None, "post": None})
+        print(f"queued {img.name}")
+    save(page, queue)
+
+
 def post_facebook(page_id: str, token: str, item: dict) -> str:
     """Facebook cannot swipe a page post (many photos show as a grid), so it gets one thing per turn:
     the official title cover, one panel card, or a text question. Instagram gets the whole carousel."""
+    if item.get("kind") == "photo":  # a YouTube thumbnail with the video link
+        with (ROOT / item["file"]).open("rb") as fh:
+            r = post_fb.check(requests.post(f"{GRAPH}/{page_id}/photos", data={"message": item["caption"], "published": "true",
+                                                                               "access_token": token},
+                                            files={"source": fh}, timeout=120), "photo post")
+        return r.get("post_id") or r["id"]
     kind = item.get("fb", "panel")
     if kind == "text":
         return post_fb.check(requests.post(f"{GRAPH}/{page_id}/feed", data={"message": item["text"], "access_token": token},
@@ -125,7 +155,7 @@ def next_post(page: str, go: bool) -> None:
     item["posted_at"], item["post"] = datetime.now(timezone.utc).isoformat(timespec="seconds"), post_id
     save(page, queue)
     print(f"posted https://www.facebook.com/{post_id}")
-    if os.environ.get("IG_POST_ENABLED") == "true":
+    if os.environ.get("IG_POST_ENABLED") == "true" and item.get("kind") != "photo":  # an Instagram link cannot be clicked
         try:
             item["ig"] = post_instagram(page_id, token, item)
             save(page, queue)
@@ -145,6 +175,8 @@ def main() -> None:
     cmd, page = sys.argv[1], sys.argv[2].lower()
     if cmd == "add" and len(sys.argv) == 4:
         add(page, sys.argv[3])
+    elif cmd == "thumbs" and len(sys.argv) == 5:
+        add_thumbs(page, sys.argv[3], sys.argv[4])
     elif cmd == "next":
         next_post(page, "--go" in sys.argv)
     else:
