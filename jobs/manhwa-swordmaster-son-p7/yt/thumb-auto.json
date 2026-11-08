@@ -1,0 +1,113 @@
+{
+ "badge": "CH 31-35",
+ "auto": true,
+ "review": true,
+ "confidence": 60,
+ "thumbs": [
+  {
+   "name": "auto-scene",
+   "style": "scene",
+   "panel": 1393,
+   "focus": [
+    0.5,
+    0.2
+   ],
+   "fit": "contain",
+   "sides": [
+    67,
+    1411
+   ],
+   "labels": [
+    {
+     "text": "PATH",
+     "at": [
+      0.2,
+      0.86
+     ],
+     "to": [
+      0.636,
+      0.08
+     ]
+    }
+   ]
+  },
+  {
+   "name": "auto-split",
+   "style": "split",
+   "panels": [
+    1393,
+    754
+   ],
+   "focus": [
+    [
+     0.5,
+     0.2
+    ],
+    [
+     0.5,
+     0.586
+    ]
+   ],
+   "labels": [
+    {
+     "text": "MC",
+     "at": [
+      0.13,
+      0.86
+     ],
+     "to": [
+      0.441,
+      0.5
+     ]
+    },
+    {
+     "text": "PATRIARCH",
+     "at": [
+      0.82,
+      0.86
+     ],
+     "to": [
+      0.822,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "auto-trio",
+   "style": "trio",
+   "panels": [
+    58,
+    754,
+    1393
+   ],
+   "focus": [
+    [
+     0.5,
+     0.508
+    ],
+    [
+     0.5,
+     0.586
+    ],
+    [
+     0.5,
+     0.2
+    ]
+   ],
+   "labels": [
+    {
+     "text": "PATH",
+     "at": [
+      0.2,
+      0.86
+     ],
+     "to": [
+      0.95,
+      0.08
+     ]
+    }
+   ]
+  }
+ ]
+}
