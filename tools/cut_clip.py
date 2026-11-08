@@ -5,8 +5,8 @@ Reads <job>/clips.json:
   [{"start": 312.0, "end": 371.5, "title": "...", "caption": "...", "comment": "..."}]
 Each end is moved to the nearest camera cut (work/shots.txt) within 2 s, so a clip never opens or stops mid-shot.
 A clip may also carry "short_start"/"short_end" (inside the clip): the best part, at most 75 s, for Reels.
-<job>/clip.json {"page": "whereanime"|"manhwaindex"} puts that Page's logo on the top band; no page = no logo.
-Writes <job>/clip_NN.mp4 (full), <job>/short_NN.mp4 (Reels size) and <job>/clips_out.json (the same list with the final times).
+<job>/clip.json {"pages": ["whereanime", "manhwaindex"]} puts each Page's logo on the top band, one copy per Page.
+Writes <job>/<page>_clip_NN.mp4 (full), <job>/<page>_short_NN.mp4 (Reels size) and <job>/clips_out.json (the same list with the final times).
 """
 from __future__ import annotations
 
@@ -67,17 +67,20 @@ def main() -> None:
     clips = json.loads((job / (sys.argv[2] if len(sys.argv) > 2 else "clips.json")).read_text(encoding="utf-8"))
     cuts, done = cuts_of(job), []
     meta = json.loads((job / "clip.json").read_text(encoding="utf-8")) if (job / "clip.json").exists() else {}
-    logo = BRANDS / f"{meta.get('page', '')}.png"
-    logo = logo if logo.exists() else None
+    pages = meta.get("pages") or [meta.get("page", "")]
     for i, clip in enumerate(clips, 1):
         a, b = snapped(clip, cuts)
-        src, dest = job / "source.mp4", job / f"clip_{i:02d}.mp4"
-        encode(src, a, b, dest, logo)
         sa, sb = short_of(clip, a, b)
-        encode(src, sa, sb, job / f"short_{i:02d}.mp4", logo)
-        done.append({**clip, "start": round(a, 2), "end": round(b, 2), "short_start": round(sa, 2), "short_end": round(sb, 2),
-                     "file": dest.name, "short": f"short_{i:02d}.mp4"})
-        print(f"clip {i}: {a:.1f}-{b:.1f}s ({b - a:.0f} s), short {sb - sa:.0f} s", flush=True)
+        files = {}
+        for page in pages:  # one branded copy per Page
+            logo = BRANDS / f"{page}.png"
+            logo = logo if logo.exists() else None
+            full, short = f"{page}_clip_{i:02d}.mp4", f"{page}_short_{i:02d}.mp4"
+            encode(job / "source.mp4", a, b, job / full, logo)
+            encode(job / "source.mp4", sa, sb, job / short, logo)
+            files[page] = {"full": full, "short": short}
+        done.append({**clip, "start": round(a, 2), "end": round(b, 2), "short_start": round(sa, 2), "short_end": round(sb, 2), "files": files})
+        print(f"clip {i}: {a:.1f}-{b:.1f}s ({b - a:.0f} s), short {sb - sa:.0f} s, pages {', '.join(pages)}", flush=True)
     (job / "clips_out.json").write_text(json.dumps(done, indent=1, ensure_ascii=False), encoding="utf-8")
 
 

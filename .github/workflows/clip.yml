@@ -10,9 +10,28 @@ on:
       job:
         description: Job folder, e.g. jobs/clip-black-clover-s2-e06
         required: true
+      publish:
+        description: "true = also hand the clips to the Page posters (recap-assets release + manifest)"
+        type: boolean
+        default: false
       pick:
         description: "auto = pick the clips here with signals + Groq (no Claude), written to clips_auto.json; empty = cut the clips.json already in the job"
         default: ''
+
+  workflow_call:
+    inputs:
+      job:
+        type: string
+        required: true
+      pick:
+        type: string
+        default: ''
+      ref:
+        type: string
+        default: ''
+      publish:
+        type: boolean
+        default: false
 
 jobs:
   cut:
@@ -20,6 +39,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.ref_name }}
 
       - name: Restore cached source
         id: cache
@@ -53,12 +74,21 @@ jobs:
       - name: Cut
         run: python3 tools/cut_clip.py "${{ inputs.job }}" ${{ inputs.pick == 'auto' && 'clips_auto.json' || 'clips.json' }}
 
+      - name: Hand the clips to the Page posters
+        if: inputs.publish
+        env:
+          GH_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          [ -n "$GH_TOKEN" ] || { echo "no ARCHIVE_TOKEN"; exit 1; }
+          python3 tools/publish_clips.py "${{ inputs.job }}"
+
       - uses: actions/upload-artifact@v4
         with:
           name: clips
           path: |
-            ${{ inputs.job }}/clip_*.mp4
-            ${{ inputs.job }}/short_*.mp4
+            ${{ inputs.job }}/*_clip_*.mp4
+            ${{ inputs.job }}/*_short_*.mp4
             ${{ inputs.job }}/clips_auto.json
             ${{ inputs.job }}/clips_out.json
           retention-days: 1

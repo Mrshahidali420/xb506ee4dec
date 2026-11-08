@@ -1,0 +1,78 @@
+name: Clips daily
+run-name: Clips daily
+
+# No human in the loop, no paid AI. Picks the most trending episode of the last 48 hours (AniList),
+# build.yml downloads it and makes the speech text and camera cuts, clip.yml picks the hot stretches
+# (signals + Groq), cuts the branded clips and hands them to the Page posters (recap-assets release).
+# Nothing is posted here: where-build and mi-build post them when their `clip` post type is switched on.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 */6 * * *'
+
+concurrency:
+  group: clips-daily
+  cancel-in-progress: false
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      job: ${{ steps.pick.outputs.job }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick the trending episode
+        id: pick
+        run: |
+          out=$(python3 tools/clip_daily.py pick)
+          echo "$out"
+          echo "$out" | grep '^job=' >> "$GITHUB_OUTPUT" || true
+      - name: Commit the job folder
+        if: steps.pick.outputs.job != ''
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add "${{ steps.pick.outputs.job }}"
+          git commit -qm "Clips: pick ${{ steps.pick.outputs.job }}"
+          git pull -q --rebase && git push -q
+
+  prep:
+    needs: pick
+    if: needs.pick.outputs.job != ''
+    permissions:
+      contents: write
+    uses: ./.github/workflows/build.yml
+    with:
+      job: ${{ needs.pick.outputs.job }}
+      ref: ${{ github.ref_name }}
+    secrets: inherit
+
+  clip:
+    needs: [pick, prep]
+    uses: ./.github/workflows/clip.yml
+    with:
+      job: ${{ needs.pick.outputs.job }}
+      pick: auto
+      publish: true
+      ref: ${{ github.ref_name }}
+    secrets: inherit
+
+  mark:
+    needs: [pick, prep, clip]
+    if: always() && needs.pick.outputs.job != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Record the result
+        run: |
+          result=fail; [ "${{ needs.clip.result }}" = "success" ] && result=done
+          python3 tools/clip_daily.py mark "${{ needs.pick.outputs.job }}" $result
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add clips
+          git diff --cached --quiet || git commit -qm "Clips: ${{ needs.pick.outputs.job }} $result"
+          git pull -q --rebase && git push -q
