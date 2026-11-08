@@ -1,0 +1,181 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Omniscient Reader's Viewpoint (Singshong / Sleepy-C / UMI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "The regressor lets go of Dokja over a sea serpent, and the beast swallows him whole . . . (highlight)",
+ "segments": [
+  {
+   "say": "The regressor lets go of Dokja over a sea serpent, and the beast *swallows* him whole.",
+   "clips": [
+    399,
+    [
+     405,
+     5
+    ],
+    [
+     411,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He cuts through the dead like they are nothing, then grabs Dokja by the *throat*.",
+   "clips": [
+    6,
+    [
+     48,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He wants one thing. A name. Dokja Kim, comes the answer, and the stranger says what a strange *name*.",
+   "clips": [
+    78,
+    [
+     84,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "But Dokja knows exactly who this is. Junghyeok Yu, the *regressor*, the most dangerous man in the whole story.",
+   "clips": [
+    60,
+    [
+     99,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So Dokja tells the scariest guy alive he is older, so he should show some *respect*. Absolute madman energy.",
+   "clips": [
+    111,
+    [
+     114,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "A message pops up. Junghyeok has become *cautious* of you. Dokja just made the regressor nervous.",
+   "clips": [
+    117,
+    [
+     120,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then Dokja admits he is a fan. He read all three thousand episodes of Junghyeok's *journey*. He liked him, hated him, and cheered for him.",
+   "clips": [
+    123,
+    [
+     126,
+     8
+    ],
+    [
+     132,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "Junghyeok does not care. He will forgive the attitude, but he has one question. How did Dokja survive the *subway*?",
+   "clips": [
+    138,
+    [
+     141,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "If I tell you, will you let me live? Junghyeok says that depends on the *answer*.",
+   "clips": [
+    144,
+    [
+     147,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "So Dokja lies a little. He got lucky, he says, because he spotted the kid with the insects when the explosion made him *fall*.",
+   "clips": [
+    171,
+    [
+     174,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Junghyeok does not buy it. A newbie this calm must have killed Namwoon Kim, which makes him useful, and very *dangerous*.",
+   "clips": [
+    183,
+    [
+     186,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Dokja asks to be let go, because they are running out of time. Junghyeok says not so *fast*.",
+   "clips": [
+    189,
+    [
+     192,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He uses his Eye of the Sage to read Dokja's stats, and Dokja's Fourth Wall *blocks* it.",
+   "clips": [
+    198,
+    [
+     231,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Now Junghyeok is squeezing his neck and asking what the hell this guy *is*.",
+   "clips": [
+    216,
+    [
+     222,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    216,
+    [
+     222,
+     7
+    ]
+   ]
+  }
+ ]
+}

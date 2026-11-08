@@ -1,0 +1,217 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Dont_Stop_Slowed_GLXXMSTRIDER.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Swordmaster's Youngest Son (Hwangze Penguin / Mr. Big / AZI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "But his Blade Storm comes out wilder than he meant, and Jin screams oh no . . . (highlight)",
+ "segments": [
+  {
+   "say": "But his Blade Storm comes out wilder than he meant, and Jin screams *oh no*.",
+   "clips": [
+    1392,
+    [
+     1395,
+     5
+    ],
+    [
+     1410,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Siris smiles and says it is over, then buries the arena in an *avalanche*.",
+   "clips": [
+    1353,
+    [
+     1359,
+     5
+    ],
+    [
+     1362,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Siris tries to face the storm head on, and at the last second she *ducks*.",
+   "clips": [
+    1413,
+    [
+     1416,
+     5
+    ],
+    [
+     1419,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Jin rushes over, saying he almost killed her. She shakes, because she just learned she wants to *live*.",
+   "clips": [
+    1425,
+    [
+     1434,
+     6
+    ],
+    [
+     1437,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He tells her he would have ducked too, and there is no shame in *surviving*.",
+   "clips": [
+    1428,
+    [
+     1440,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She gives him ointment for the cut on his face and admits she only lived because of his *pity*.",
+   "clips": [
+    1452,
+    [
+     1455,
+     6
+    ],
+    [
+     1458,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "By the deal, they are meeting for the first time *today*. See you tomorrow, he says.",
+   "clips": [
+    1464,
+    [
+     1467,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Next day, Jin hunts for Zeifls his age to test his *magic*, and swears they will never mass-produce sorcerers.",
+   "clips": [
+    1482,
+    [
+     1491,
+     6
+    ],
+    [
+     1500,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Then Siris shows up cuddling his cat, and a white-haired boy leaps at Jin yelling *we finally meet*.",
+   "clips": [
+    1512,
+    [
+     1527,
+     6
+    ],
+    [
+     1530,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Jin has no idea who he is, so the guy gives hints until Jin sighs, *Veradeen* Zeifl.",
+   "clips": [
+    1545,
+    [
+     1560,
+     6
+    ],
+    [
+     1563,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Veradeen brags he is already a six-star sorcerer, and Jin knows this clown becomes the next Zeifl *patriarch*.",
+   "clips": [
+    1596,
+    [
+     1572,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then a poet named Bubarre scurries up with a pink box of love poems for Jin's sister *Luna*.",
+   "clips": [
+    1659,
+    [
+     1671,
+     6
+    ],
+    [
+     1674,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He says maybe he will call Jin his brother-in-*law*.",
+   "clips": [
+    1683,
+    [
+     1686,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Jin's smile drops. His boot slams down, and he says take him to the *arena*.",
+   "clips": [
+    1698,
+    [
+     1701,
+     5
+    ],
+    [
+     1707,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    1698,
+    [
+     1701,
+     5
+    ],
+    [
+     1707,
+     10
+    ]
+   ]
+  }
+ ]
+}

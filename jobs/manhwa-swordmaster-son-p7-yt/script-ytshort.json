@@ -1,0 +1,221 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Dont_Stop_Slowed_GLXXMSTRIDER.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Swordmaster's Youngest Son (Hwangze Penguin / Mr. Big / AZI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Jin's Blade Storm rips across the arena, and the girl who dared him to this duel stands right in its path . . . (highlight)",
+ "segments": [
+  {
+   "say": "Jin's Blade Storm rips across the arena, and the girl who dared him to this duel stands right in its *path*.",
+   "clips": [
+    1392,
+    [
+     1395,
+     7
+    ],
+    [
+     1410,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "He is furious, but this is no time to *burn* with anger. He still has a mission.",
+   "clips": [
+    3,
+    [
+     15,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Biological golems are strictly forbidden, so the Zeifls will deny everything. Jin grabs the relic stone as *proof*.",
+   "clips": [
+    21,
+    [
+     18,
+     6
+    ],
+    [
+     24,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Two guard spells protect the room, one simple, one nasty. Jin picks the *craziest* way through.",
+   "clips": [
+    42,
+    [
+     45,
+     5
+    ],
+    [
+     57,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He smashes fire and ice together and the whole place goes *boom*. Subtle? Never.",
+   "clips": [
+    60,
+    [
+     66,
+     5
+    ],
+    [
+     72,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Back home, his sister Luna slaps two brothers to the floor for sending Jin into *Zeifl* land.",
+   "clips": [
+    81,
+    [
+     84,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Flagbearers fight flagbearers, she snaps, so bullying a kid ten years younger is *pathetic*.",
+   "clips": [
+    87,
+    [
+     96,
+     5
+    ],
+    [
+     102,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Jin walks into Storm Castle, and Gilly bursts into tears because he came back *alive*.",
+   "clips": [
+    222,
+    [
+     228,
+     5
+    ],
+    [
+     234,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then he shows her the heart of a biological *golem*. Murakhan the cat goes pale.",
+   "clips": [
+    252,
+    [
+     261,
+     5
+    ],
+    [
+     270,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "First a Tomb Giant, now this. He keeps the giant to himself. That cat knows too *much*.",
+   "clips": [
+    276,
+    [
+     282,
+     6
+    ],
+    [
+     285,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Time skips ahead. The twins whisper Jin will become a reserve flagbearer, and he is *thrilled*.",
+   "clips": [
+    324,
+    [
+     339,
+     5
+    ],
+    [
+     348,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile the patriarch races home, because his youngest son keeps dragging him out of the Dark *Sea*.",
+   "clips": [
+    354,
+    [
+     360,
+     6
+    ],
+    [
+     363,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He hoped Jin would feed his men to a white *werewolf*, but the kid beat it alone. Or did he?",
+   "clips": [
+    405,
+    [
+     420,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "At the gate he spots Jin's new swords. Ran and Vuigo admit it was a deal, and Jin *took* them.",
+   "clips": [
+    465,
+    [
+     468,
+     7
+    ],
+    [
+     477,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    465,
+    [
+     468,
+     7
+    ],
+    [
+     477,
+     13
+    ]
+   ]
+  }
+ ]
+}

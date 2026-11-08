@@ -1,0 +1,193 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Omniscient Reader's Viewpoint (Singshong / Sleepy-C / UMI)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "Then he drives a stone hog thorn into the monster's insides, and the whole stomach sparks with lightning . . . (highlight)",
+ "segments": [
+  {
+   "say": "Then he drives a stone hog thorn into the monster's insides, and the whole stomach *sparks* with lightning.",
+   "clips": [
+    888,
+    [
+     891,
+     6
+    ],
+    [
+     894,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The Black Flame Dragon hates it and the Secretive Plotter is *curious*. Dokja says they will talk terms after he clears the scenario.",
+   "clips": [
+    771,
+    [
+     768,
+     8
+    ],
+    [
+     783,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "He smears the mucus on his skin, so the stomach acid cannot *melt* him.",
+   "clips": [
+    807,
+    [
+     933,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "On the fourth day, the monster finally *dies*.",
+   "clips": [
+    897,
+    [
+     906,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "The hidden scenario ends with nine thousand coins, plus a thousand more for being the first to hunt a tier seven *monster*.",
+   "clips": [
+    909,
+    [
+     912,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "He lived on the monster's own fluid, sipped through the thorn, and it was a test of pure *willpower*.",
+   "clips": [
+    936,
+    [
+     939,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Now the dokkaebi writes the contract. No sponsor, no other channel, and all profits *shared*.",
+   "clips": [
+    966,
+    [
+     969,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "But the contract forgot the ratio, so Dokja names it. Fifty-fifty? Nope, he takes all the *coins*.",
+   "clips": [
+    975,
+    [
+     987,
+     6
+    ],
+    [
+     1005,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "The dokkaebi begs for seventy percent, Dokja says all or nothing, and the constellations start complaining about the *ads*.",
+   "clips": [
+    1011,
+    [
+     1017,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So the dokkaebi gives in, and Dokja adds one more thing. Give me five thousand coins as a contract *fee*. Absolute menace.",
+   "clips": [
+    1020,
+    [
+     1023,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Four days inside a monster, and Dokja walks out into fresh *air*, richer than before.",
+   "clips": [
+    1032,
+    [
+     1035,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He even signed a stream contract with a dokkaebi. Not a bad *start*.",
+   "clips": [
+    1038,
+    [
+     1041,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then the dokkaebi tries to mess with his skills, and the Fourth Wall *blocks* even that.",
+   "clips": [
+    1050,
+    [
+     1053,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "A message says he has entered the second main scenario, and the air is full of *poison*.",
+   "clips": [
+    1062,
+    [
+     1065,
+     6
+    ],
+    [
+     1068,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    1062,
+    [
+     1065,
+     6
+    ],
+    [
+     1068,
+     11
+    ]
+   ]
+  }
+ ]
+}
