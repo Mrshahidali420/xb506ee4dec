@@ -1,6 +1,6 @@
 """Cut the clips a writer picked from an episode: any length, original sound, 9:16 with a blurred backdrop.
 
-Usage: python tools/cut_clip.py <job>      (needs <job>/source.mp4, so it runs on the build machine)
+Usage: python tools/cut_clip.py <job> [clips file]      (needs <job>/source.mp4, so it runs on the build machine)
 Reads <job>/clips.json:
   [{"start": 312.0, "end": 371.5, "title": "...", "caption": "...", "comment": "..."}]
 Each end is moved to the nearest camera cut (work/shots.txt) within 2 s, so a clip never opens or stops mid-shot.
@@ -64,7 +64,7 @@ def snapped(clip: dict, cuts: list[float]) -> tuple[float, float]:
 
 def main() -> None:
     job = Path(sys.argv[1])
-    clips = json.loads((job / "clips.json").read_text(encoding="utf-8"))
+    clips = json.loads((job / (sys.argv[2] if len(sys.argv) > 2 else "clips.json")).read_text(encoding="utf-8"))
     cuts, done = cuts_of(job), []
     meta = json.loads((job / "clip.json").read_text(encoding="utf-8")) if (job / "clip.json").exists() else {}
     logo = BRANDS / f"{meta.get('page', '')}.png"

@@ -10,6 +10,9 @@ on:
       job:
         description: Job folder, e.g. jobs/clip-black-clover-s2-e06
         required: true
+      pick:
+        description: "auto = pick the clips here with signals + Groq (no Claude), written to clips_auto.json; empty = cut the clips.json already in the job"
+        default: ''
 
 jobs:
   cut:
@@ -38,13 +41,24 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: python3 tools/fetch_source.py "${{ inputs.job }}"
 
+      - name: Pick the clips (signals + Groq, no Claude)
+        if: inputs.pick == 'auto'
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          pip install -q numpy scipy librosa soundfile
+          python3 tools/pick_clips.py "${{ inputs.job }}" clips_auto.json
+          cat "${{ inputs.job }}/clips_auto.json"
+
       - name: Cut
-        run: python3 tools/cut_clip.py "${{ inputs.job }}"
+        run: python3 tools/cut_clip.py "${{ inputs.job }}" ${{ inputs.pick == 'auto' && 'clips_auto.json' || 'clips.json' }}
 
       - uses: actions/upload-artifact@v4
         with:
           name: clips
           path: |
             ${{ inputs.job }}/clip_*.mp4
+            ${{ inputs.job }}/short_*.mp4
+            ${{ inputs.job }}/clips_auto.json
             ${{ inputs.job }}/clips_out.json
           retention-days: 1
