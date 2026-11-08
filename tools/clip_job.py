@@ -3,7 +3,8 @@
 python tools/clip_job.py prep "<show title>" <episode> [--lang sub|dub] [--page whereanime|manhwaindex]
     makes jobs/clip-<show>-e<NN>/ (source.json + meta.json), runs the prep build on GitHub (same as a recap prep:
     download, subtitles or translated speech, camera cuts, sheets) and downloads only the small sheets.
-python tools/clip_job.py cut <job>
+python tools/clip_job.py prepjob <job>      prep for a job folder that already exists (tools/clip_daily.py pick makes one)
+python tools/clip_job.py cut <job> [--publish]
     pushes <job>/clips.json, runs clip.yml, waits, downloads the clips into <job>/out/ for you to watch.
 The writer brief is daily/CLIPWRITER.md. Nothing here posts.
 """
@@ -25,6 +26,11 @@ def prep(args: argparse.Namespace) -> None:
     folder.mkdir(parents=True, exist_ok=True)
     save(folder / "source.json", {"type": "anime", "title": args.title.lower(), "episode": args.episode, "lang": args.lang})
     save(folder / "clip.json", {"kind": "clip", "page": args.page, "title": args.title, "episode": args.episode})
+    run_prep(job)
+
+
+def run_prep(job: str) -> None:
+    folder = ROOT / job
     push(f"Clip job {job}")
     run = dispatch(job)
     print(f"prep run {run}", flush=True)
@@ -40,7 +46,7 @@ def prep(args: argparse.Namespace) -> None:
 def cut(args: argparse.Namespace) -> None:
     job = args.job.rstrip("/")
     push(f"Clips for {job}")
-    sh("gh", "workflow", "run", "clip.yml", "-f", f"job={job}")
+    sh("gh", "workflow", "run", "clip.yml", "-f", f"job={job}", *(["-f", "publish=true"] if args.publish else []))
     run = sh("gh", "run", "list", "--workflow", "clip.yml", "--limit", "1", "--json", "databaseId", "--jq", ".[0].databaseId")
     result = wait({run: job}).get(run, "timeout")
     if result != "success":
@@ -61,8 +67,14 @@ def main() -> None:
     a.add_argument("--page", default="whereanime")
     c = sub.add_parser("cut")
     c.add_argument("job")
+    c.add_argument("--publish", action="store_true", help="also hand the clips to the Page posters")
+    j = sub.add_parser("prepjob")
+    j.add_argument("job")
     args = p.parse_args()
-    (prep if args.cmd == "prep" else cut)(args)
+    if args.cmd == "prepjob":
+        run_prep(args.job.rstrip("/"))
+    else:
+        (prep if args.cmd == "prep" else cut)(args)
 
 
 if __name__ == "__main__":
