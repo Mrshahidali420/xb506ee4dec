@@ -1,0 +1,8 @@
+{"badge": "CH 11-15",
+ "thumbs": [
+  {"name": "scene", "style": "scene", "panel": 405, "focus": [0.5, 0.45],
+   "labels": [{"text": "MC", "at": [0.16, 0.2], "to": [0.45, 0.42]}, {"text": "SWALLOWED", "at": [0.78, 0.86], "to": [0.68, 0.62]}]},
+  {"name": "split", "style": "split", "panels": [399, 405], "focus": [[0.5, 0.35], [0.5, 0.45]],
+   "labels": [{"text": "REGRESSOR", "at": [0.17, 0.86], "to": [0.3, 0.45]}, {"text": "MC", "at": [0.88, 0.14], "to": [0.72, 0.42]}]},
+  {"name": "shock", "style": "shock", "panel": 405, "word": "EATEN ALIVE", "focus": [0.5, 0.45]}
+ ]}
