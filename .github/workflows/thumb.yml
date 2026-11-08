@@ -1,16 +1,19 @@
 name: Make thumbnail
-run-name: Thumbnail ${{ inputs.meta }}
+run-name: Thumbnail ${{ inputs.meta }}${{ inputs.pick && format(' -> {0}', inputs.pick) || '' }}
 
-# Makes <meta>/thumbnail.jpg with tools/thumb_edit.py (cut-outs + HTML/CSS layers, no AI painting),
-# commits it, and, when a video id is given, sets it on that YouTube video.
+# Makes three thumbnails (shock, versus, power) for a manhwa part with tools/thumb_edit.py
+# (real panels + cut-outs + HTML/CSS layers, no AI painting). With a pick and a video id, it sets that one on YouTube.
 on:
   workflow_dispatch:
     inputs:
       meta:
-        description: Folder with thumb.json, e.g. jobs/manhwa-orv-p2/yt
+        description: Folder with thumb.json, e.g. jobs/manhwa-orv-p2/yt (the job folder is its parent)
         required: true
+      pick:
+        description: Style to put on YouTube (shock, versus, power); empty = only make the three
+        default: ''
       video:
-        description: YouTube video id to set the thumbnail on (empty = only make it)
+        description: YouTube video id for the pick
         default: ''
       channel:
         description: Channel short name (login secret)
@@ -22,24 +25,45 @@ permissions:
 jobs:
   thumb:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Find the job folder
+        id: job
+        run: echo "dir=$(dirname '${{ inputs.meta }}')" >> "$GITHUB_OUTPUT"
+      # the part's panel video, kept by build.yml (same paths and key, or the cache does not match)
+      - name: Restore the panel video
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            ${{ steps.job.outputs.dir }}/source.mp4
+            ${{ steps.job.outputs.dir }}/work
+          key: src-${{ steps.job.outputs.dir }}-${{ hashFiles(format('{0}/source.json', steps.job.outputs.dir)) }}
+          fail-on-cache-miss: true
       - name: Install tools
         run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
           pip install -q "rembg[cpu]" pillow requests playwright google-api-python-client google-auth-oauthlib google-auth-httplib2
           python -m playwright install --with-deps chromium > /dev/null
-      - name: Make the thumbnail
+      - name: Make the thumbnails
+        if: inputs.pick == ''
         run: python3 tools/thumb_edit.py "${{ inputs.meta }}"
       - uses: actions/upload-artifact@v4
+        if: inputs.pick == ''
         with:
-          name: thumbnail
+          name: thumbnails
           path: |
-            ${{ inputs.meta }}/thumbnail.jpg
-            ${{ inputs.meta }}/cut-*.png
+            ${{ steps.job.outputs.dir }}/thumb-*.jpg
+            ${{ inputs.meta }}/panel-*.png
           retention-days: 7
-      - name: Set it on YouTube
-        if: inputs.video != ''
+      - name: Save them
+        if: inputs.pick == ''
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add "${{ steps.job.outputs.dir }}"/thumb-*.jpg && git commit -qm "Thumbnails: ${{ steps.job.outputs.dir }}" || exit 0
+          for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
+      - name: Set the pick on YouTube
+        if: inputs.pick != '' && inputs.video != ''
         env:
           YT_TOKEN: ${{ secrets.YT_MANHWAX_TOKEN }}
           YT_CLIENT: ${{ secrets.YT_CLIENT_SECRET_JSON }}
@@ -47,9 +71,4 @@ jobs:
           mkdir -p ~/.config/watch
           printf '%s' "$YT_TOKEN" > ~/.config/watch/yt-${{ inputs.channel }}.json
           printf '%s' "$YT_CLIENT" > ~/.config/watch/yt_client_secret.json
-          python3 tools/post_yt.py thumb "${{ inputs.channel }}" "${{ inputs.video }}" "${{ inputs.meta }}/thumbnail.jpg"
-      - name: Save the thumbnail
-        run: |
-          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
-          git add "${{ inputs.meta }}/thumbnail.jpg" && git commit -qm "Thumbnail: ${{ inputs.meta }}" || exit 0
-          for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
+          python3 tools/post_yt.py thumb "${{ inputs.channel }}" "${{ inputs.video }}" "${{ steps.job.outputs.dir }}/thumb-${{ inputs.pick }}.jpg"
