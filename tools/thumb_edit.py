@@ -51,8 +51,9 @@ def panel(video: Path, second: float, to: Path) -> str:
     return to.name
 
 
-def hero_cut(src: Path, to: Path) -> str:
-    """The hero cut out of a panel (rembg: BiRefNet, then the anime model)."""
+def hero_cut(src: Path, to: Path) -> str | None:
+    """The hero cut out of a panel (rembg: BiRefNet, then the anime model). None when no model finds a clean figure:
+    a cut that keeps the whole panel looks like a pasted box, so the thumbnail goes without a hero."""
     from rembg import new_session, remove
 
     img = Image.open(src).convert("RGB")
@@ -61,6 +62,8 @@ def hero_cut(src: Path, to: Path) -> str:
         kept = sum(cut.getchannel("A").point(lambda v: 1 if v > 128 else 0).getdata()) / (img.width * img.height)
         if 0.08 < kept < 0.8:
             break
+    else:
+        return None
     cut.crop(cut.getbbox() or (0, 0, cut.width, cut.height)).save(to)
     return to.name
 
@@ -72,7 +75,7 @@ BASE = """<!doctype html><html><head><meta charset="utf-8">
  body {{ width: 1280px; height: 720px; overflow: hidden; background: #000; position: relative; }}
  .a {{ position: absolute; }}
  .full {{ inset: 0; width: 1280px; height: 720px; object-fit: cover; filter: contrast(1.15) saturate(1.35) brightness(1.06); }}
- .label {{ font-family: "Luckiest Guy", Anton, sans-serif; color: #ffd600; font-size: 64px; line-height: 1; white-space: nowrap;
+ .label {{ font-family: "Luckiest Guy", Anton, sans-serif; color: #ffd600; font-size: 82px; line-height: 1; white-space: nowrap;
           -webkit-text-stroke: 9px #000; paint-order: stroke fill; transform: translate(-50%, -50%) rotate(-3deg);
           filter: drop-shadow(0 4px 6px rgba(0,0,0,.6)); }}
  .word {{ font-family: Anton, sans-serif; white-space: nowrap; line-height: .95; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }}
@@ -141,7 +144,8 @@ def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
     hero = ""
     if t.get("hero"):
         src = work / panel(video, t["hero"], work / f"p{t['hero']}.png")
-        hero = f'<img class="a hero" src="{hero_cut(src, work / "hero.png")}">'
+        cut = hero_cut(src, work / "hero.png")
+        hero = f'<img class="a hero" src="{cut}">' if cut else ""
     return SHOCK_CSS, (f'<img class="a bg" src="{p}" style="width:1360px;height:800px;object-fit:cover">'
                        f'<img class="a pic" src="{p}" style="{pos(t.get("focus", [0.5, 0.35]))}"><div class="a red"></div>{hero}'
                        f'<div class="a word">{html.escape(t["word"].upper())}</div>{boxes}'), arrows
