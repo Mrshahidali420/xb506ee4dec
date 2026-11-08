@@ -1,0 +1,113 @@
+{
+ "badge": "CH 6-10",
+ "auto": true,
+ "review": true,
+ "confidence": 59,
+ "thumbs": [
+  {
+   "name": "auto-scene",
+   "style": "scene",
+   "panel": 1087,
+   "focus": [
+    0.5,
+    0.2
+   ],
+   "fit": "contain",
+   "sides": [
+    358,
+    1084
+   ],
+   "labels": [
+    {
+     "text": "ZOMBIE",
+     "at": [
+      0.78,
+      0.86
+     ],
+     "to": [
+      0.389,
+      0.086
+     ]
+    }
+   ]
+  },
+  {
+   "name": "auto-split",
+   "style": "split",
+   "panels": [
+    1087,
+    358
+   ],
+   "focus": [
+    [
+     0.5,
+     0.2
+    ],
+    [
+     0.5,
+     0.2
+    ]
+   ],
+   "labels": [
+    {
+     "text": "MC",
+     "at": [
+      0.13,
+      0.86
+     ],
+     "to": [
+      0.112,
+      0.5
+     ]
+    },
+    {
+     "text": "SERPENT",
+     "at": [
+      0.82,
+      0.86
+     ],
+     "to": [
+      0.848,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "auto-trio",
+   "style": "trio",
+   "panels": [
+    1084,
+    1087,
+    1090
+   ],
+   "focus": [
+    [
+     0.5,
+     0.555
+    ],
+    [
+     0.5,
+     0.2
+    ],
+    [
+     0.5,
+     0.664
+    ]
+   ],
+   "labels": [
+    {
+     "text": "ZOMBIE",
+     "at": [
+      0.78,
+      0.86
+     ],
+     "to": [
+      0.05,
+      0.555
+     ]
+    }
+   ]
+  }
+ ]
+}
