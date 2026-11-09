@@ -253,7 +253,7 @@ def norm_word(word: str) -> str:
     return re.sub(r"[^a-z0-9]", "", word.lower())
 
 
-def align_words(spoken: list[str], heard: list[tuple[float, float, str]]) -> list[tuple[float, float]] | None:
+def align_words(spoken: list[str], heard: list[tuple[float, float, str]], dur: float = 0.0) -> list[tuple[float, float]] | None:
     """Give every script word a start/end from Whisper's words. Words are matched by text (difflib), so one dropped or
     split word cannot shift every later caption; unmatched words are spread between their matched neighbours."""
     heard = [h for h in heard if norm_word(h[2])]
@@ -276,12 +276,21 @@ def align_words(spoken: list[str], heard: list[tuple[float, float, str]]) -> lis
         while j < len(times) and times[j] is None:
             j += 1
         start = times[i - 1][1] if i else 0.0
-        end = times[j][0] if j < len(times) else (times[i - 1][1] if i else 0.0)
+        end = times[j][0] if j < len(times) else max(dur, times[i - 1][1] if i else 0.0)  # trailing words Whisper dropped run to the line's end
         end = max(end, start)
         for k in range(i, j):
             times[k] = (start + (end - start) * (k - i) / (j - i), start + (end - start) * (k - i + 1) / (j - i))
         i = j
     return times
+
+
+def wav_seconds(wav: Path) -> float:
+    try:
+        import soundfile
+
+        return float(soundfile.info(str(wav)).duration)
+    except Exception:
+        return 0.0
 
 
 def local_words(wav: Path, words: list[str]) -> list[tuple[float, float]] | None:
@@ -293,7 +302,7 @@ def local_words(wav: Path, words: list[str]) -> list[tuple[float, float]] | None
 
             WHISPER = WhisperModel("small.en", device="cpu", compute_type="int8")
         segs, _ = WHISPER.transcribe(str(wav), word_timestamps=True, beam_size=1, condition_on_previous_text=False)
-        return align_words(words, [(w.start, w.end, w.word) for seg in segs for w in seg.words])
+        return align_words(words, [(w.start, w.end, w.word) for seg in segs for w in seg.words], wav_seconds(wav))
     except Exception as exc:  # timing is cosmetic; never fail the build on it
         print("  local word timing failed:", type(exc).__name__, str(exc)[:100])
         return None
@@ -307,7 +316,7 @@ def groq_words(wav: Path, words: list[str]) -> list[tuple[float, float]] | None:
             res = Groq(api_key=groq_key()).audio.transcriptions.create(
                 file=(wav.name, fh.read()), model="whisper-large-v3", response_format="verbose_json",
                 timestamp_granularities=["word"], language="en")
-        return align_words(words, [(w["start"], w["end"], w["word"]) for w in (res.model_dump().get("words") or [])])
+        return align_words(words, [(w["start"], w["end"], w["word"]) for w in (res.model_dump().get("words") or [])], wav_seconds(wav))
     except Exception as exc:  # timing is cosmetic; never fail the build on it
         print("  word timing fallback:", type(exc).__name__)
         return None
@@ -459,7 +468,10 @@ def depth_render(cmd: list[str], timeout: float) -> None:
     try:
         output, _ = p.communicate(timeout=timeout)
     except subprocess.TimeoutExpired:
-        os.killpg(p.pid, signal.SIGKILL)
+        try:
+            os.killpg(p.pid, signal.SIGKILL)
+        except ProcessLookupError:  # it ended on its own just now
+            pass
         p.communicate()
         DEPTH_PY = ""  # one hang means the rest of this video renders normal clips
         raise RuntimeError(f"render hung past {timeout:.0f}s; depth is off for the rest of this video")

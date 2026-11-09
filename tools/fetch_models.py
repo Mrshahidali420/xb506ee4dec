@@ -10,8 +10,10 @@ KOKORO_DIR = Path("voice-test/models")
 def kokoro() -> None:
     KOKORO_DIR.mkdir(parents=True, exist_ok=True)
     for name in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
-        if not (KOKORO_DIR / name).exists():
-            urllib.request.urlretrieve(KOKORO_URL + name, KOKORO_DIR / name)
+        if not (KOKORO_DIR / name).exists():  # via .part, so a cut-off download is never cached as the real file
+            part = KOKORO_DIR / (name + ".part")
+            urllib.request.urlretrieve(KOKORO_URL + name, part)
+            part.rename(KOKORO_DIR / name)
 
 
 def whisper() -> None:
