@@ -11,6 +11,8 @@ Reads <project_dir>/pages/*.jpg|png (in name order), writes:
 from __future__ import annotations
 
 import json
+import multiprocessing
+import os
 import shutil
 import subprocess
 import sys
@@ -92,30 +94,60 @@ def blank_bubbles(panel: np.ndarray) -> np.ndarray:
     return out
 
 
-def ocr_panels(pdir: Path, count: int, work: Path) -> None:
-    """Read the words on every panel into work/panels_text.json. Optional: no OCR package, no file."""
-    try:
+_ENGINE = None
+
+
+def _ocr_engine():
+    """One reader per process. Several run side by side, so each is held to one thread (no fighting over the cores)."""
+    global _ENGINE
+    if _ENGINE is None:
         from rapidocr_onnxruntime import RapidOCR
-        engine = RapidOCR()
+        try:
+            _ENGINE = RapidOCR(intra_op_num_threads=1, inter_op_num_threads=1)
+        except TypeError:  # an older rapidocr without the thread options
+            _ENGINE = RapidOCR()
+    return _ENGINE
+
+
+def _read_panel(job: tuple[str, int]) -> dict:
+    path, i = job
+    engine = _ocr_engine()
+    img = np.asarray(Image.open(path).convert("RGB"))
+    words = []
+    for y in range(0, img.shape[0], OCR_SLICE):  # slices come top to bottom, so the text stays in reading order
+        part = img[y:y + OCR_SLICE]
+        if part.shape[0] < OCR_SLICE:  # one slice shape for every call: odd shapes grow onnxruntime's memory arena
+            part = np.pad(part, ((0, OCR_SLICE - part.shape[0]), (0, 0), (0, 0)), constant_values=255)
+        try:
+            found, _ = engine(part)
+        except Exception as exc:  # OCR is only a helper for the script writer; a bad slice must not stop the video
+            print(f"OCR slice skipped (panel {i}): {str(exc)[:120]}", flush=True)
+            continue
+        lines = sorted((b[0][1], b[0][0], t) for b, t, score in (found or []) if float(score) >= OCR_MIN_SCORE)
+        words += [t for _, _, t in lines]
+    return {"panel": i, "t": round(i * SECONDS), "text": " ".join(words)}
+
+
+def ocr_panels(pdir: Path, count: int, work: Path) -> None:
+    """Read the words on every panel into work/panels_text.json. Optional: no OCR package, no file.
+    One process per core (9 Nov 2026: 1,599 panels took about 85 minutes in one process); if the pool fails, one process."""
+    try:
+        import rapidocr_onnxruntime  # noqa: F401
     except Exception as exc:
         print(f"OCR skipped: {exc}", flush=True)
         return
-    out = []
-    for i in range(count):
-        img = np.asarray(Image.open(pdir / f"p_{i:03d}.png").convert("RGB"))
-        words = []
-        for y in range(0, img.shape[0], OCR_SLICE):  # slices come top to bottom, so the text stays in reading order
-            part = img[y:y + OCR_SLICE]
-            if part.shape[0] < OCR_SLICE:  # one slice shape for every call: odd shapes grow onnxruntime's memory arena
-                part = np.pad(part, ((0, OCR_SLICE - part.shape[0]), (0, 0), (0, 0)), constant_values=255)
-            try:
-                found, _ = engine(part)
-            except Exception as exc:  # OCR is only a helper for the script writer; a bad slice must not stop the video
-                print(f"OCR slice skipped (panel {i}): {str(exc)[:120]}", flush=True)
-                continue
-            lines = sorted((b[0][1], b[0][0], t) for b, t, score in (found or []) if float(score) >= OCR_MIN_SCORE)
-            words += [t for _, _, t in lines]
-        out.append({"panel": i, "t": round(i * SECONDS), "text": " ".join(words)})
+    jobs = [(str(pdir / f"p_{i:03d}.png"), i) for i in range(count)]
+    workers = min(os.cpu_count() or 1, 4)
+    out = None
+    if workers > 1 and count > 20:
+        try:
+            with multiprocessing.Pool(workers) as pool:
+                out = list(pool.imap(_read_panel, jobs, chunksize=8))
+            print(f"OCR: {workers} workers", flush=True)
+        except Exception as exc:
+            print(f"OCR pool failed ({exc}): one process", flush=True)
+    if out is None:
+        out = [_read_panel(j) for j in jobs]
     (work / "panels_text.json").write_text(json.dumps(out, ensure_ascii=False, indent=0), encoding="utf-8")
     print(f"OCR: {sum(1 for o in out if o['text'])}/{count} panels have text", flush=True)
 

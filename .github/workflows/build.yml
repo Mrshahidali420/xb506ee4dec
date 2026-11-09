@@ -39,7 +39,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 330  # a whole-story build (70+ chapters) needs hours; GitHub's cap is 360
     permissions:
       contents: write   # the written script.json of an autopilot job is committed back
     steps:
