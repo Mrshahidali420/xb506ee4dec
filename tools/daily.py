@@ -134,7 +134,8 @@ def wait(runs: dict[str, str]) -> dict[str, str]:
 
 
 def prep() -> None:
-    today = dt.date.today().isoformat()
+    now = dt.date.today()
+    today = now.isoformat()
     state = load(TODAY)
     if state.get("date") != today:
         if state.get("jobs") and any(j["state"] in ("ready", "prep") for j in state["jobs"]):
@@ -145,7 +146,7 @@ def prep() -> None:
             for slot in plan[page]:
                 kind = slot["kind"]
                 extra: dict = {}
-                if "weekdays" in slot and dt.date.today().weekday() not in slot["weekdays"]:
+                if "weekdays" in slot and now.weekday() not in slot["weekdays"]:
                     continue  # a weekly slot: it only runs on its days (0 = Monday)
                 if kind == "story":  # one whole manhwa story (or the next bulk block of a long one), tools/story_pick.py
                     made = story_pick.story_job()
@@ -164,7 +165,7 @@ def prep() -> None:
                 job, src = made
                 folder = ROOT / job
                 folder.mkdir(parents=True, exist_ok=True)
-                if not (folder / "source.json").exists():
+                if kind == "story" or not (folder / "source.json").exists():  # a story block is re-read from the shelf each time
                     save(folder / "source.json", src)
                 ready = kind == "promo" or (folder / "script.json").exists()
                 jobs.append({"job": job, "page": page, "kind": kind, "slot": plan[page].index(slot),
@@ -231,7 +232,8 @@ def build(only: set[str] | None = None) -> None:
                 slot.update(slot["then"].pop(0), next=1)
         elif j["kind"] == "story":  # the block counts as covered only now that its build has started
             src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
-            story_pick.take_block(j["job"], src["story"], src["chapters"])
+            if src.get("story") and src.get("chapters"):
+                story_pick.take_block(j["job"], src["story"], src["chapters"])
         elif j["kind"] == "movie":
             src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
             slot["used"].append(src.get("search") or src.get("title"))

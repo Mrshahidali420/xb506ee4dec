@@ -88,7 +88,8 @@ def add(title: str, total: int | None = None) -> None:
     total = total or m["chapters"]
     if not total:  # ongoing titles often carry no chapter count on AniList: pass it by hand (`add "<title>" <chapters>`)
         sys.exit(f"{name}: AniList has no chapter count (status {m['status']}); run: story_pick.py add \"{title}\" <chapters>")
-    found = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "find_manhwa.py"), title], capture_output=True, text=True)
+    found = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "find_manhwa.py"), title], capture_output=True, text=True,
+                           encoding="utf-8", errors="replace")
     if found.returncode:
         sys.exit(f"{name}: find_manhwa failed: {found.stderr.strip()[-200:]}")
     out = found.stdout

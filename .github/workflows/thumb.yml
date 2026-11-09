@@ -59,7 +59,8 @@ jobs:
       - name: Hand picks?
         id: hand
         run: |
-          echo "has=$(python3 tools/thumb_auto.py --is-hand '${{ steps.job.outputs.dir }}')" >> "$GITHUB_OUTPUT"
+          has=$(python3 tools/thumb_auto.py --is-hand '${{ steps.job.outputs.dir }}')
+          echo "has=$has" >> "$GITHUB_OUTPUT"
       # old thumbnails are in the checkout: remove them so the last check only sees what this run made
       - name: Clear old thumbnails
         if: inputs.pick == ''
@@ -94,8 +95,10 @@ jobs:
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
           for f in "${{ steps.job.outputs.dir }}"/thumb-*.jpg "${{ steps.job.outputs.dir }}/yt"/thumb*.json "${{ steps.job.outputs.dir }}/yt"/panel-ranks.json "${{ steps.job.outputs.dir }}/yt"/shortlist.jpg; do [ -f "$f" ] && git add "$f"; done
+          git ls-files -z --deleted -- "${{ steps.job.outputs.dir }}" | xargs -0 -r git checkout --  # a thumbnail this run did not remake stays
           git commit -qm "Thumbnails: ${{ steps.job.outputs.dir }}" || exit 0
-          for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
+          for i in 1 2 3; do git pull -q --rebase --autostash && git push -q && exit 0; sleep 5; done
+          echo "::error::push failed"; exit 1
       - name: Set the pick on YouTube
         if: inputs.pick != '' && inputs.video != ''
         env:
