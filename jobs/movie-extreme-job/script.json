@@ -1,0 +1,900 @@
+{
+ "title": "Five Cops Take On 40 Gangsters With Only A Chicken Van . . . (Extreme Job)",
+ "caption": "Extreme Job (2019): a failing narcotics squad buys a fried chicken shop to spy on a drug gang across the street... and the chicken becomes a hit 🍗 Follow for more movie recaps!\n\n#extremejob #kmovie #movierecap #spoilerroom #fyp",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Film: Extreme Job (2019)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Was Ray right to risk his whole squad on one chicken shop? Why?",
+ "segments": [
+  {
+   "say": "Five cops walk into forty gangsters at a shipping port, and their only backup is a *chicken* van.",
+   "clips": [
+    5340.0,
+    [
+     5459.0,
+     10
+    ],
+    [
+     5630.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to the day a *drug bust* turned into a car wreck.",
+   "clips": [
+    285.5,
+    [
+     437.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Captain Ray runs a narcotics squad, and his team hangs off a roof to catch one *dealer* through a window.",
+   "clips": [
+    202.0,
+    [
+     278.0,
+     9
+    ],
+    [
+     250.5,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "But the dealer jumps out, grabs a *white car*, and the chase is on.",
+   "clips": [
+    266.5,
+    [
+     317.0,
+     5
+    ],
+    [
+     329.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "They sprint after him, and a scooter flattens Anna in the middle of the *street*.",
+   "clips": [
+    346.5,
+    [
+     376.8,
+     6
+    ],
+    [
+     407.8,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The thief crashes his stolen car, and *sixteen* cars pile up behind him.",
+   "clips": [
+    423.1,
+    [
+     435.0,
+     4
+    ],
+    [
+     439.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ray just stands there, and the whole crash goes *viral*.",
+   "clips": [
+    441.0,
+    [
+     491.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Chief Brown calls the squad in, and he is *furious*.",
+   "clips": [
+    450.5,
+    [
+     456.0,
+     5
+    ],
+    [
+     476.9,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile their rival Dan just got *promoted* for a huge drug bust.",
+   "clips": [
+    510.0,
+    [
+     532.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Ray had officially hit *rock bottom*.",
+   "clips": [
+    541.0
+   ]
+  },
+  {
+   "say": "Then Dan shows up in the hallway to *rub it in*.",
+   "clips": [
+    628.0,
+    [
+     645.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He says a transit bus caught Ray's perp, and the whole station *laughs*.",
+   "clips": [
+    667.2,
+    [
+     690.0,
+     6
+    ],
+    [
+     678.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "But over dinner, Dan hands Ray a *last chance*. The drug lord Vince is back in Korea.",
+   "clips": [
+    712.5,
+    [
+     761.0,
+     5
+    ],
+    [
+     805.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Vince's right hand man, Hank, got out six months ago, and now he is putting together a *gang*.",
+   "clips": [
+    764.0,
+    [
+     810.0,
+     8
+    ],
+    [
+     816.5,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Ray hates it, but this is his only way *back*.",
+   "clips": [
+    845.0,
+    [
+     848.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "So the squad parks outside Hank's hideout and *waits*.",
+   "clips": [
+    872.0,
+    [
+     875.2,
+     4
+    ],
+    [
+     903.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then a woman spots them and calls the *police* on the whole squad.",
+   "clips": [
+    914.5,
+    [
+     976.3,
+     4
+    ],
+    [
+     1001.0,
+     10
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1016.2,
+    1018.9
+   ],
+   "text": "You. Are. A. Stalker."
+  },
+  {
+   "say": "Their cover is almost blown, and Ray knows they need a better *spot*.",
+   "clips": [
+    1028.5,
+    [
+     1045.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Right across the street, there is a sad, empty *chicken joint*.",
+   "clips": [
+    1116.0,
+    [
+     1052.0,
+     6
+    ],
+    [
+     1060.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The squad orders chicken just to sit and watch, and they *complain* the whole time.",
+   "clips": [
+    1065.0,
+    [
+     1076.0,
+     6
+    ],
+    [
+     1081.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then Hank's men pull up outside, and the squad hits the *floor*.",
+   "clips": [
+    1119.0,
+    [
+     1123.5,
+     4
+    ],
+    [
+     1127.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ray says no warrant, no problem, he takes full *responsibility*.",
+   "clips": [
+    1172.5,
+    [
+     1189.5,
+     4
+    ],
+    [
+     1192.4,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "So he asks the owner if she *delivers* to the building across the street.",
+   "clips": [
+    1214.8,
+    [
+     1220.5,
+     5
+    ],
+    [
+     1229.0,
+     11
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1251.4,
+    1254.4
+   ],
+   "text": "You're the only customers I've had all week."
+  },
+  {
+   "say": "Then Ray comes up with a crazy idea. Buy the shop and *run it* as their cover.",
+   "clips": [
+    1292.0,
+    [
+     1295.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "His squad thinks he lost it, but nobody has a better *plan*.",
+   "clips": [
+    1297.7,
+    [
+     1299.5,
+     5
+    ],
+    [
+     1305.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "So they buy the shop and pose as two brothers and two married *couples*.",
+   "clips": [
+    1545.5,
+    [
+     1572.0,
+     6
+    ],
+    [
+     1577.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "In the back room, they set up screens to spy on Hank's whole *building*.",
+   "clips": [
+    1632.0,
+    [
+     1731.5,
+     4
+    ],
+    [
+     1778.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "This is either genius or *insane*.",
+   "clips": [
+    1802.0,
+    [
+     1812.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "On the monitors, Hank's gang picks fighters for a basement *fight club*.",
+   "clips": [
+    1840.0,
+    [
+     1858.0,
+     5
+    ],
+    [
+     1873.3,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The first real customers walk in, and the squad has no idea how to *cook*.",
+   "clips": [
+    1941.5,
+    [
+     1953.5,
+     6
+    ],
+    [
+     1976.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "So they fry a first batch from scratch, and everyone is shocked when it's actually *good*.",
+   "clips": [
+    2055.0,
+    [
+     2063.0,
+     6
+    ],
+    [
+     2090.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Word spreads fast, and the shop is suddenly *packed*.",
+   "clips": [
+    2263.0,
+    [
+     2378.0,
+     4
+    ],
+    [
+     2493.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Anna is wiping tables, taking orders, and *losing her mind*.",
+   "clips": [
+    2651.4,
+    [
+     2656.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The whole squad starts fighting about who works *harder*.",
+   "clips": [
+    2626.9,
+    [
+     2635.0,
+     5
+    ],
+    [
+     2669.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, Hank tells Vince to cut out the middleman, Ted Chang, and sell *directly*.",
+   "clips": [
+    2688.8,
+    [
+     2698.0,
+     7
+    ],
+    [
+     2776.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then Chief Brown storms in and says the narcotics squad will be *restructured*.",
+   "clips": [
+    2933.5,
+    [
+     2982.0,
+     6
+    ],
+    [
+     2989.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So they send chicken to the hideout and plant bugs in the office and *hallway*.",
+   "clips": [
+    3044.2,
+    [
+     3059.5,
+     5
+    ],
+    [
+     3064.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then the news calls their shop a *sensation*.",
+   "clips": [
+    3381.8,
+    [
+     3385.0,
+     3
+    ],
+    [
+     3389.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "A man in a suit puts a briefcase of cash on the *table*.",
+   "clips": [
+    3704.4,
+    [
+     3734.5,
+     5
+    ],
+    [
+     3750.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Soon there is a grand opening, with balloons, sashes, and the whole squad *cheering*.",
+   "clips": [
+    3961.9,
+    [
+     3994.5,
+     5
+    ],
+    [
+     4001.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then Ted Chang shows up, a smooth man in a cream suit and yellow *glasses*.",
+   "clips": [
+    4032.0,
+    [
+     4125.0,
+     8
+    ],
+    [
+     4160.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "His chicken chain has a delivery guy who runs the exact same *route* every day.",
+   "clips": [
+    4208.5,
+    [
+     4343.0,
+     7
+    ],
+    [
+     4393.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then Ben cracks it. The gang is moving drugs inside chicken *deliveries*.",
+   "clips": [
+    4378.0,
+    [
+     4471.0,
+     6
+    ],
+    [
+     4545.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Anna and Max dress up as internet repair workers to get inside the gang's *apartment*.",
+   "clips": [
+    4533.0,
+    [
+     4540.0,
+     6
+    ],
+    [
+     4573.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then a bug picks up their plan. Hand the company to Ted Chang and kill *Jim*.",
+   "clips": [
+    4650.0,
+    [
+     4670.0,
+     8
+    ],
+    [
+     4678.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "And the trap is simple. Lure the cops in and kill them *there*.",
+   "clips": [
+    4731.5,
+    [
+     4741.5,
+     5
+    ],
+    [
+     4749.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Ray hears it and says they can't let them get *away*.",
+   "clips": [
+    4797.5,
+    [
+     4803.0,
+     4
+    ],
+    [
+     4825.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "But then Tony vanishes, and all they have is his *phone*.",
+   "clips": [
+    4847.5,
+    [
+     4852.0,
+     5
+    ],
+    [
+     4877.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The squad tracks it to a warehouse, and it turns into a *brawl*.",
+   "clips": [
+    5033.0,
+    [
+     5047.0,
+     7
+    ],
+    [
+     5124.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "A line of vans rolls into a shipping port, just like the gang *planned*.",
+   "clips": [
+    5148.5,
+    [
+     5186.5,
+     6
+    ],
+    [
+     5222.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Vince and Ted Chang face off in the dark with their armies behind *them*.",
+   "clips": [
+    5240.0,
+    [
+     5251.0,
+     6
+    ],
+    [
+     5327.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "One wrong word, and the port turns into a *war zone*.",
+   "clips": [
+    5365.0,
+    [
+     5372.0,
+     5
+    ],
+    [
+     5391.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The squad hides behind the containers and lets the gangs kill *each other*.",
+   "clips": [
+    5383.5,
+    [
+     5386.0,
+     4
+    ],
+    [
+     5395.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then headlights cut through the smoke, and it's not the police. It's a *chicken van*.",
+   "clips": [
+    5444.5,
+    [
+     5457.0,
+     8
+    ],
+    [
+     5462.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The squad steps out and tells forty gangsters they are all under *arrest*.",
+   "clips": [
+    5517.0,
+    [
+     5525.0,
+     5
+    ],
+    [
+     5541.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then the biggest brawl of the movie *begins*.",
+   "clips": [
+    5598.0,
+    [
+     5614.0,
+     4
+    ],
+    [
+     5656.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Max used to be navy special forces, and you can *tell*.",
+   "clips": [
+    5626.0,
+    [
+     5663.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Anna is a Muay Thai champion, and she flattens every thug who touches *her*.",
+   "clips": [
+    5652.5,
+    [
+     5686.0,
+     7
+    ],
+    [
+     5691.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then the fight spills onto the *pier*, one on one.",
+   "clips": [
+    5762.0,
+    [
+     5800.0,
+     5
+    ],
+    [
+     5822.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ray corners the last boss, and he spits blood and asks what Ray even *is*.",
+   "clips": [
+    5975.5,
+    [
+     6033.0,
+     8
+    ],
+    [
+     6047.0,
+     12
+    ]
+   ]
+  },
+  {
+   "orig": [
+    6049.5,
+    6052.5
+   ],
+   "text": "Me? I'm a chicken man."
+  },
+  {
+   "say": "Then one last *punch* ends it.",
+   "clips": [
+    6063.0,
+    [
+     6112.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "By the time the sirens come, the whole gang is *down*.",
+   "clips": [
+    6243.0,
+    [
+     6250.0,
+     6
+    ],
+    [
+     6264.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Bloody and bruised, they get loaded into ambulances, and Ray's squad just broke the biggest drug ring in the *country*.",
+   "clips": [
+    6270.0,
+    [
+     6276.0,
+     6
+    ],
+    [
+     6305.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Weeks later, at an appointment ceremony, the squad stands tall in uniform and gets *promoted*.",
+   "clips": [
+    6421.0,
+    [
+     6427.0,
+     8
+    ],
+    [
+     6431.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Five cops, one chicken shop, and the bust of their lives. Wonder what we *spoil* next?",
+   "clips": [
+    6453.0,
+    [
+     6437.0,
+     6
+    ]
+   ]
+  }
+ ]
+}

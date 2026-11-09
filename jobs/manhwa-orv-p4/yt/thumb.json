@@ -1,0 +1,25 @@
+{
+ "badge": "CH 16-20",
+ "thumbs": [
+  {
+   "name": "scene",
+   "style": "scene",
+   "panel": 1344,
+   "fit": "contain",
+   "sides": [1365, 1320],
+   "labels": [
+    {"text": "TIER 7 DEMON", "at": [0.2, 0.86], "to": [0.45, 0.5]}
+   ]
+  },
+  {
+   "name": "split",
+   "style": "split",
+   "panels": [1365, 1344],
+   "focus": [[0.5, 0.45], [0.5, 0.4]],
+   "labels": [
+    {"text": "MC", "at": [0.15, 0.86], "to": [0.3, 0.5]},
+    {"text": "DEMON", "at": [0.85, 0.86], "to": [0.7, 0.5]}
+   ]
+  }
+ ]
+}

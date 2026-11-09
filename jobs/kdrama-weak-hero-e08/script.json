@@ -1,0 +1,457 @@
+{
+ "title": "Sam Walked Into Exam Day Covered In Blood And Went After Bobby . . . (Episode 8)",
+ "caption": "Weak Hero Class 1, episode 8: Max won't wake up, and Bobby's father covers the beating with a story about a training accident.\nSam hunts down Bobby's crew, beats Bobby in front of the whole school, then has to transfer to a new one. Follow for episode 9!\n\n#weakhero #kdrama #kdramarecap #recap #spoilerroom",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "comment": "Was Sam right to go after Bobby in front of everyone? Why?",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "credit": "Series: Weak Hero Class 1 (2022)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "kokoro_voice": "am_liam",
+ "segments": [
+  {
+   "say": "Sam walks into exam day covered in *blood*, and Bobby's whole crew panics.",
+   "clips": [
+    1442.1,
+    1485.6,
+    1491.3
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to a warm classroom, where Max jokes that Sam could *teach* better than their science teacher.",
+   "clips": [
+    34.5,
+    47.9,
+    63.95
+   ]
+  },
+  {
+   "say": "They plan to eat together tomorrow. Instead, Max ends up on a boxing ring *floor*.",
+   "clips": [
+    88.3,
+    138.5
+   ]
+  },
+  {
+   "say": "Bobby's father sends his aide. Detectives will arrive soon, he says, so just do as you're *told*.",
+   "clips": [
+    118.4,
+    128.4
+   ]
+  },
+  {
+   "say": "Then he hands the boys a story. Max was working out, took a break alone, and *passed out*.",
+   "clips": [
+    134.4,
+    143.0
+   ]
+  },
+  {
+   "say": "They even text Sam from Max's phone. I'm working out, I'll call you *later*.",
+   "clips": [
+    207.2,
+    211.9,
+    222.2
+   ]
+  },
+  {
+   "say": "Max is carried away on a stretcher, and Bobby's crew walks off like nothing *happened*.",
+   "clips": [
+    176.3,
+    181.6,
+    198.4
+   ]
+  },
+  {
+   "say": "That lie was built to hold.",
+   "clips": [
+    126.4
+   ]
+  },
+  {
+   "say": "At home, Bobby's father screams at him, then tells the aide to watch him day and night until the plane to the *Philippines*.",
+   "clips": [
+    322.3,
+    348.7,
+    343.6
+   ]
+  },
+  {
+   "say": "Sam sits his final exams with a cast on his arm, rereading Max's text. Working out, call you *later*.",
+   "clips": [
+    427.9,
+    458.9,
+    489.5
+   ]
+  },
+  {
+   "say": "Then Amy calls, and Sam finally picks up. Max isn't working out. He won't *wake up*.",
+   "clips": [
+    496.2,
+    539.5,
+    549.3
+   ]
+  },
+  {
+   "say": "Amy tells him the rest. Bobby's people offered to pay the hospital bills, and made Max's grandma sign a *contract*.",
+   "clips": [
+    561.4,
+    604.05,
+    584.0
+   ]
+  },
+  {
+   "say": "Sam stands over Max's bed, and for the first time he can't *speak*.",
+   "clips": [
+    633.8,
+    639.1,
+    664.6
+   ]
+  },
+  {
+   "say": "Then the aide corners him in the hallway. If you want Max to stay alive, do what your father *says*.",
+   "clips": [
+    785.8,
+    789.95,
+    794.7
+   ]
+  },
+  {
+   "say": "That was a threat, plain and simple.",
+   "clips": [
+    798.95
+   ]
+  },
+  {
+   "say": "Back at school, Sam grabs one of Bobby's friends and demands *answers*.",
+   "clips": [
+    875.9,
+    878.4,
+    882.8
+   ]
+  },
+  {
+   "say": "Where is the athlete? In the gym, the kid says. I wasn't there, I swear. I only saw the *video*.",
+   "clips": [
+    917.7,
+    923.2,
+    928.1
+   ]
+  },
+  {
+   "say": "Wolf filmed the whole beating, and it is already going around *school*.",
+   "clips": [
+    966.5,
+    976.8
+   ]
+  },
+  {
+   "say": "Then Amy throws herself in front of Bobby's car, and Sam screams at him to get *out*.",
+   "clips": [
+    1002.95,
+    1018.1,
+    1031.3
+   ]
+  },
+  {
+   "say": "The aide drags Amy off the road. Let's go, Bobby's father says. Deal with *her*.",
+   "clips": [
+    1014.2,
+    1049.2,
+    1058.2
+   ]
+  },
+  {
+   "say": "So Sam does the only thing left. He goes to the weight *room*.",
+   "clips": [
+    1080.9,
+    1093.2,
+    1098.5
+   ]
+  },
+  {
+   "say": "He puts on the gloves, and he hears Max's voice. Guard your *chin*.",
+   "clips": [
+    1119.8,
+    1124.95,
+    1131.5
+   ]
+  },
+  {
+   "say": "Max's advice was simple. If a fight comes, run. Sam looks at the gloves and says, no *way*.",
+   "clips": [
+    1135.6,
+    1174.2
+   ]
+  },
+  {
+   "say": "Then the athlete walks in, and the two of them go at it on the gym *floor*.",
+   "clips": [
+    1102.4,
+    1145.3,
+    1166.4
+   ]
+  },
+  {
+   "say": "When it ends, Sam is standing with blood on his shirt, and the athlete is *begging*.",
+   "clips": [
+    1235.4,
+    1243.4,
+    1247.6
+   ]
+  },
+  {
+   "say": "Wait, he cries. Bobby kept kicking Max in the *head*. I had nothing to do with it.",
+   "clips": [
+    1258.3,
+    1261.0
+   ]
+  },
+  {
+   "say": "Sam only says, don't apologize to *me*.",
+   "clips": [
+    1265.1,
+    1271.4
+   ]
+  },
+  {
+   "say": "That was only the warm-up.",
+   "clips": [
+    1277.4
+   ]
+  },
+  {
+   "say": "Meanwhile Bobby's father arrives at school, smiling at every teacher in the *line*.",
+   "clips": [
+    1318.2,
+    1332.2,
+    1335.2
+   ]
+  },
+  {
+   "say": "A teacher repeats the cover story. Max trained with friends, took a break, and passed out. An accident. Oh dear, says Bobby's father. Is that *so*?",
+   "clips": [
+    1342.6,
+    1344.9,
+    1350.3
+   ]
+  },
+  {
+   "say": "That man never even blinked.",
+   "clips": [
+    1360.0
+   ]
+  },
+  {
+   "say": "Then the exam room goes quiet. The teacher stops mid-sentence. What is all that *blood*, Sam?",
+   "clips": [
+    1431.1,
+    1433.1,
+    1442.1
+   ]
+  },
+  {
+   "say": "Bobby's crew panics. Calm down, they beg. We can *talk*.",
+   "clips": [
+    1448.1,
+    1452.9,
+    1454.6
+   ]
+  },
+  {
+   "say": "Then somebody grabs a fire extinguisher and swings it at *Sam*.",
+   "clips": [
+    1460.8,
+    1477.2,
+    1485.6
+   ]
+  },
+  {
+   "say": "It drops him, but Sam crawls back up and keeps *coming*.",
+   "clips": [
+    1491.3,
+    1498.4,
+    1513.8
+   ]
+  },
+  {
+   "say": "He grabs Bobby by the shirt in front of the entire *class*.",
+   "clips": [
+    1564.9,
+    1566.1,
+    1569.7
+   ]
+  },
+  {
+   "say": "Bobby tells him to just hit him. So Sam *does*.",
+   "clips": [
+    1551.1,
+    1573.5,
+    1597.1
+   ]
+  },
+  {
+   "say": "Why did you do it, Sam asks. I don't know, Bobby says. You should *understand* me.",
+   "clips": [
+    1603.1,
+    1607.8,
+    1625.2
+   ]
+  },
+  {
+   "orig": [
+    1609.1,
+    1612.1
+   ],
+   "text": "Yeah. I understand."
+  },
+  {
+   "say": "Then he keeps going. His fist is in a cast, and he is *crying* the whole time.",
+   "clips": [
+    1629.7,
+    1634.3,
+    1637.8
+   ]
+  },
+  {
+   "say": "Teachers and students pour in to pull him *off*.",
+   "clips": [
+    1650.7,
+    1660.3,
+    1671.95
+   ]
+  },
+  {
+   "say": "In the hallway, Sam finally breaks, crying in front of the whole *school*.",
+   "clips": [
+    1674.8,
+    1682.8,
+    1692.8
+   ]
+  },
+  {
+   "say": "He held it in too long.",
+   "clips": [
+    1709.0
+   ]
+  },
+  {
+   "say": "That night, Sam sits beside Max's bed and falls *asleep*.",
+   "clips": [
+    1727.3,
+    1770.95,
+    1783.4
+   ]
+  },
+  {
+   "orig": [
+    1801.0,
+    1803.8
+   ],
+   "text": "Si-eun. Taking a nap? Seriously?"
+  },
+  {
+   "say": "Max is awake. After everything, the first thing they tell each other is *sorry*.",
+   "clips": [
+    1822.0,
+    1828.1,
+    1857.1
+   ]
+  },
+  {
+   "say": "Sam tells him the rest. Bobby went abroad, and Amy said it was her fault before she *left*.",
+   "clips": [
+    2009.5,
+    1991.3
+   ]
+  },
+  {
+   "say": "But Sam is not free. Bobby's father threatens him with juvie unless he transfers and keeps his *mouth shut*.",
+   "clips": [
+    2032.4,
+    2036.1,
+    2047.95
+   ]
+  },
+  {
+   "say": "Thanks to that man's power, no school in Seoul will take him. The only one that does is *Eunjang*.",
+   "clips": [
+    2056.2,
+    2058.95,
+    2064.1
+   ]
+  },
+  {
+   "say": "Sam walks in alone, and his mother tells him, you did nothing *wrong*.",
+   "clips": [
+    2085.6,
+    2090.5,
+    2093.4
+   ]
+  },
+  {
+   "say": "His new class is a zoo. Boys scream, fight on desks, and nobody even looks up when the teacher walks *in*.",
+   "clips": [
+    2116.4,
+    2131.1,
+    2140.6
+   ]
+  },
+  {
+   "say": "The teacher introduces the new kid. Say hello. I'm Sam, he says. Nice to meet *you*.",
+   "clips": [
+    2147.2,
+    2153.3,
+    2159.7
+   ]
+  },
+  {
+   "say": "A smirking kid mocks his name. Are you a *girl*? You're our slave *now*.",
+   "clips": [
+    2163.8,
+    2199.5,
+    2212.9
+   ]
+  },
+  {
+   "say": "Wrong boy to pick on.",
+   "clips": [
+    2206.7
+   ]
+  },
+  {
+   "orig": [
+    2230.8,
+    2233.7
+   ],
+   "text": "How come you guys are always so predictable?"
+  },
+  {
+   "say": "The bully asks if he wants his *tongue* ripped out, and Sam doesn't blink.",
+   "clips": [
+    2246.9,
+    2259.0,
+    2262.5
+   ]
+  },
+  {
+   "say": "Somewhere else, a tattooed hand opens a photo of the new kid. He just beat one of our *candidates*, a voice says. So what do we do?",
+   "clips": [
+    2285.95,
+    2294.5
+   ]
+  }
+ ]
+}
