@@ -190,6 +190,7 @@ jobs:
             ${{ inputs.job }}/work/shot_sheet_*.jpg
             ${{ inputs.job }}/work/english.txt
             ${{ inputs.job }}/work/shots.txt
+            ${{ inputs.job }}/work/panels_text.json
           if-no-files-found: ignore
           retention-days: 1
 
