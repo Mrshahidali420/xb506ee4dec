@@ -5,7 +5,8 @@ python tools/daily.py prep    make today's job folders from daily/plan.json, sta
 python tools/daily.py build   push the written scripts and start the real builds, queued to each page
 python tools/daily.py post    ask GitHub to post each page's next queued video (queue_post.py keeps the gap)
 
-daily/plan.json  pages -> slots. A slot is a series (next episode or part), a movie pool, or a promo.
+daily/plan.json  pages -> slots. A slot is a series (next episode or part), a story (a whole manhwa, see story_pick.py),
+                 a movie pool, or a promo. A slot with "weekdays": [0] only runs on those days.
 daily/today.json today's jobs: job, page, kind, prep run, state (prep/ready/failed/built).
 """
 from __future__ import annotations
@@ -18,6 +19,9 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import story_pick  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 PLAN, TODAY = ROOT / "daily" / "plan.json", ROOT / "daily" / "today.json"
@@ -141,7 +145,11 @@ def prep() -> None:
             for slot in plan[page]:
                 kind = slot["kind"]
                 extra: dict = {}
-                if kind == "series":
+                if "weekdays" in slot and dt.date.today().weekday() not in slot["weekdays"]:
+                    continue  # a weekly slot: it only runs on its days (0 = Monday)
+                if kind == "story":  # one whole manhwa story (or the next bulk block of a long one), tools/story_pick.py
+                    made = story_pick.story_job()
+                elif kind == "series":
                     made = series_job(slot)
                 elif kind == "movie":
                     made = movie_job(slot)
