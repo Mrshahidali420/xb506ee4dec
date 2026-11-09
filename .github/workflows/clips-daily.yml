@@ -8,7 +8,7 @@ run-name: Clips daily
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 */6 * * *'
+    - cron: '30 */3 * * *'
 
 concurrency:
   group: clips-daily
