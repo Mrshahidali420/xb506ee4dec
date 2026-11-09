@@ -260,7 +260,7 @@ jobs:
       - name: Add to the queue
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
-          git pull -q --rebase
+          git pull -q --rebase --autostash  # the carousel step above leaves queue/extra changes open
           for s in ${{ inputs.script }}; do
             f="${{ inputs.job }}/$s"
             out=$(jq -r '.output // "final_short.mp4"' "$f"); cap=$(jq -r '.caption // .title' "$f"); com=$(jq -r '.comment // ""' "$f")
@@ -268,4 +268,4 @@ jobs:
           done
           git add queue extra && git commit -qm "Queue: add ${{ inputs.job }} to ${{ inputs.queue }}"
           # other builds and the daily run push too: rebase and try again instead of failing
-          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && exit 0; sleep $((i * 7)); done; exit 1
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash && git push -q && exit 0; sleep $((i * 7)); done; exit 1
