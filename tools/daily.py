@@ -149,6 +149,8 @@ def prep() -> None:
                     continue  # a weekly slot: it only runs on its days (0 = Monday)
                 if kind == "story":  # one whole manhwa story (or the next bulk block of a long one), tools/story_pick.py
                     made = story_pick.story_job()
+                    if made and any(j["job"] == made[0] for j in jobs):
+                        made = None  # a second story slot must not take the block the first one just offered
                 elif kind == "series":
                     made = series_job(slot)
                 elif kind == "movie":

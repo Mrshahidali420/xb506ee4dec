@@ -59,11 +59,15 @@ jobs:
       - name: Hand picks?
         id: hand
         run: |
-          f="${{ steps.job.outputs.dir }}/yt/thumb.json"
-          if [ -f "$f" ] && ! grep -q '"auto": true' "$f"; then echo "has=yes" >> "$GITHUB_OUTPUT"; else echo "has=no" >> "$GITHUB_OUTPUT"; fi
+          echo "has=$(python3 tools/thumb_auto.py --is-hand '${{ steps.job.outputs.dir }}')" >> "$GITHUB_OUTPUT"
+      # old thumbnails are in the checkout: remove them so the last check only sees what this run made
+      - name: Clear old thumbnails
+        if: inputs.pick == ''
+        run: rm -f "${{ steps.job.outputs.dir }}"/thumb-*.jpg
       - name: Pick panels by code
         continue-on-error: true  # the hand-picked thumbnails are made either way; the last check below catches an empty result
         if: inputs.pick == '' && (inputs.auto || steps.hand.outputs.has == 'no')
+        shell: bash  # pipefail: a thumb_auto crash must not hide behind tee
         run: |
           meta="${{ steps.job.outputs.dir }}/yt"
           python3 tools/thumb_auto.py "${{ steps.job.outputs.dir }}" | tee auto.log
@@ -73,7 +77,7 @@ jobs:
           python3 tools/thumb_edit.py "$meta" "$spec"
       - name: Make the thumbnails
         if: inputs.pick == '' && steps.hand.outputs.has == 'yes'
-        run: python3 tools/thumb_edit.py "${{ inputs.meta }}"
+        run: python3 tools/thumb_edit.py "${{ steps.job.outputs.dir }}/yt"
       - name: Check something was made
         if: inputs.pick == ''
         run: ls "${{ steps.job.outputs.dir }}"/thumb-*.jpg > /dev/null || { echo "::error::no thumbnail was made"; exit 1; }
@@ -83,13 +87,13 @@ jobs:
           name: thumbnails
           path: |
             ${{ steps.job.outputs.dir }}/thumb-*.jpg
-            ${{ inputs.meta }}/panel-*.png
+            ${{ steps.job.outputs.dir }}/yt/panel-*.png
           retention-days: 7
       - name: Save them
         if: inputs.pick == ''
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
-          for f in "${{ steps.job.outputs.dir }}"/thumb-*.jpg "${{ inputs.meta }}"/thumb*.json "${{ inputs.meta }}"/panel-ranks.json "${{ inputs.meta }}"/shortlist.jpg; do [ -f "$f" ] && git add "$f"; done
+          for f in "${{ steps.job.outputs.dir }}"/thumb-*.jpg "${{ steps.job.outputs.dir }}/yt"/thumb*.json "${{ steps.job.outputs.dir }}/yt"/panel-ranks.json "${{ steps.job.outputs.dir }}/yt"/shortlist.jpg; do [ -f "$f" ] && git add "$f"; done
           git commit -qm "Thumbnails: ${{ steps.job.outputs.dir }}" || exit 0
           for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
       - name: Set the pick on YouTube

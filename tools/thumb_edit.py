@@ -254,7 +254,11 @@ def main() -> None:
                 render(browser, work, job, t, spec["badge"])
             except Exception as exc:
                 print(f"::warning::{t['name']}: {exc}")
-                fallback(work, job, t, spec["badge"], out)
+                try:
+                    fallback(work, job, t, spec["badge"], out)
+                except Exception as exc2:  # one lost thumbnail must not stop the others
+                    print(f"::error::{t['name']}: no thumbnail ({exc2})")
+                    continue
             print("made", out)
         if browser:
             browser.close()

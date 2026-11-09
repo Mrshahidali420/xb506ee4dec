@@ -22,6 +22,7 @@ and thumb.yml then says to pick by hand. No panel video at all: one cover thumbn
 """
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import itertools
 import json
@@ -360,11 +361,20 @@ def badge(job: Path) -> str:
     return f"CH {source['chapters']}" if source.get("chapters") else "RECAP"
 
 
+def digest(thumbs: list) -> str:
+    return hashlib.sha1(json.dumps(thumbs, sort_keys=True).encode()).hexdigest()
+
+
+def is_auto(spec: dict) -> bool:
+    """A thumb.json is ours only while its picks are untouched: a writer who edits the panels makes it a hand pick."""
+    return bool(spec.get("auto")) and spec.get("auto_hash") == digest(spec.get("thumbs", []))
+
+
 def manual_ranks(job: Path, ranked: list[dict]) -> list[dict]:
     """Where the hand-picked panels land in the automatic ranking: the calibration check."""
     path = job / "yt" / "thumb.json"
     spec = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"auto": True}
-    if spec.get("auto"):
+    if is_auto(spec):
         return []
     order = {p["panel"]: n + 1 for n, p in enumerate(ranked)}
     out = []
@@ -377,6 +387,10 @@ def manual_ranks(job: Path, ranked: list[dict]) -> list[dict]:
 
 
 def main() -> None:
+    if sys.argv[1] == "--is-hand":  # for the workflow: does <job>/yt/thumb.json hold hand picks? prints yes or no
+        f = ROOT / sys.argv[2] / "yt" / "thumb.json"
+        print("yes" if f.exists() and not is_auto(json.loads(f.read_text(encoding="utf-8"))) else "no")
+        return
     started = time.time()
     job = ROOT / sys.argv[1]
     meta = job / "yt"
@@ -403,9 +417,9 @@ def main() -> None:
     (meta / "thumb-auto.json").write_text(json.dumps(spec, indent=1), encoding="utf-8")
     (meta / "panel-ranks.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     old = meta / "thumb.json"
-    if not old.exists() or json.loads(old.read_text(encoding="utf-8")).get("auto"):  # a new part, or last time's automatic picks
-        plain = {**spec, "thumbs": [{**t, "name": t["name"].removeprefix("auto-")} for t in spec["thumbs"]]}
-        (meta / "thumb.json").write_text(json.dumps(plain, indent=1), encoding="utf-8")
+    if not old.exists() or is_auto(json.loads(old.read_text(encoding="utf-8"))):  # a new part, or last time's untouched auto picks
+        thumbs = [{**t, "name": t["name"].removeprefix("auto-")} for t in spec["thumbs"]]
+        (meta / "thumb.json").write_text(json.dumps({**spec, "thumbs": thumbs, "auto_hash": digest(thumbs)}, indent=1), encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "ranked"}, indent=1))
     if spec["review"]:
         print("::warning::low confidence: pick the thumbnail panels by hand (" + "; ".join(report["flags"]) + ")")
