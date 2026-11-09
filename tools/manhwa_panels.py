@@ -174,7 +174,7 @@ def panel_clip(img: Path, out: Path) -> None:
               f"d={frames}:s={W}x{round(h * W / w) // 2 * 2}:fps={FPS}[fg];"
               f"[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,fps={FPS}")
         args = ["-loop", "1", "-t", f"{SECONDS}", "-i", str(img), "-filter_complex", vf]
-    subprocess.run([FFMPEG, "-v", "error", "-y", *args, "-frames:v", str(frames), "-c:v", "libx264",
+    subprocess.run([FFMPEG, "-v", "error", "-y", *args, "-frames:v", str(frames), "-threads", "1", "-filter_threads", "1", "-c:v", "libx264",
                     "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", str(out)], check=True)
 
 
@@ -204,10 +204,14 @@ def main() -> None:
     # one ffmpeg per panel, 4 at a time (9 Nov 2026: 1,599 panels one by one took 40+ silent minutes)
     with ThreadPoolExecutor(min(os.cpu_count() or 1, 4)) as pool:
         work_items = [pool.submit(panel_clip, pdir / f"p_{i:03d}.png", clips / f"c_{i:03d}.mp4") for i in spans]
-        for n, item in enumerate(work_items, 1):
-            item.result()  # an ffmpeg error stops the build here, as before
-            if n % 100 == 0 or n == count:
-                print(f"clips: {n}/{count} panels", flush=True)
+        try:
+            for n, item in enumerate(work_items, 1):
+                item.result()  # an ffmpeg error stops the build here, as before
+                if n % 100 == 0 or n == count:
+                    print(f"clips: {n}/{count} panels", flush=True)
+        except BaseException:
+            pool.shutdown(wait=True, cancel_futures=True)  # stop at once: do not make the 1,500 clips still queued
+            raise
     (work / "panels.txt").write_text("\n".join(listing) + "\n", encoding="utf-8")
     # silent track so the builder's audio mapping works like a film source
     subprocess.run([FFMPEG, "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(work / "panels.txt"),
