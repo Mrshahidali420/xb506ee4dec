@@ -62,115 +62,111 @@
   {
    "say": "Shi-woon Lee is a quiet high school kid, and Changho's gang uses him as a *punching* bag every single day.",
    "clips": [
-    183,
+    162,
     [
-     177,
+     168,
      10
     ]
    ]
   },
   {
-   "say": "Every hallway is a trap, and he comes home with a new *bruise* more often than he comes home with homework.",
+   "say": "Every hallway is a trap, and he comes home with a new *bruise* more often than homework.",
    "clips": [
     144,
     [
-     186,
-     10
-    ]
-   ]
-  },
-  {
-   "say": "Changho's gang demands sixty thousand won from him, and he has no idea how he is going to *pay* it.",
-   "clips": [
-    30
-   ]
-  },
-  {
-   "say": "Her name is Sae-hee, she is the girl he likes, and he is far too scared to ever *talk* to her.",
-   "clips": [
-    273
-   ]
-  },
-  {
-   "say": "Today she sees his battered face in the hallway, and she just stares in *shock*.",
-   "clips": [
-    33,
-    [
-     39,
+     171,
      8
     ]
    ]
   },
   {
-   "say": "He is so ashamed that he snaps at her to stay out of it, and rips his arm *away*.",
+   "say": "Today the gang wants sixty thousand won from him, and he has no clue how he will *pay* it.",
    "clips": [
-    192,
+    30
+   ]
+  },
+  {
+   "say": "Then Sae-hee, the girl he secretly likes, walks down the hallway and sees his battered *face*.",
+   "clips": [
+    33
+   ]
+  },
+  {
+   "say": "She asks what happened, and he is so ashamed that he can barely look at her.",
+   "clips": [
+    39
+   ]
+  },
+  {
+   "say": "He snaps at her to stay out of it, and he hates himself the second the words *leave* his mouth.",
+   "clips": [
+    42
+   ]
+  },
+  {
+   "say": "Meanwhile a new substitute teacher walks in wearing a flowery *shirt*, and asks a student where the school office is.",
+   "clips": [
+    9,
     [
-     42,
+     15,
      10
     ]
    ]
   },
   {
-   "say": "Then a new substitute teacher walks in wearing a flowery *shirt*, and asks a student where the school office is.",
+   "say": "His name is Han Chun-woo, and he looks like a washed-up beach *bum* who got lost on vacation.",
    "clips": [
-    15
-   ]
-  },
-  {
-   "say": "His name is Han Chun-woo, and he looks like a washed-up beach *bum* who got lost on the way to a vacation.",
-   "clips": [
-    9,
+    12,
     [
      45,
-     11
+     9
     ]
    ]
   },
   {
-   "say": "He spots Shi-woon's bruises and calls him a *coward* who cannot even hit back, which is a hell of a first impression.",
+   "say": "He spots the bruises and calls Shi-woon a *coward* who cannot hit back, which is a hell of an intro.",
    "clips": [
     21,
     [
-     144,
-     11
+     18,
+     10
     ]
    ]
   },
   {
    "say": "Rude, but not exactly *wrong*.",
    "clips": [
-    12
+    27
    ]
   },
   {
-   "say": "Han took a quiet job at a quiet school, hiding from his past, and he picked the worst possible *school*.",
+   "say": "Han took a quiet job at a quiet school to hide from his past, and he picked the worst *one*.",
    "clips": [
-    141
+    78
    ]
   },
   {
-   "say": "In class, Shi-woon keeps his head down and prays that nobody, especially the teacher, will notice *him*.",
+   "say": "In class, Shi-woon keeps his head down and prays that nobody, especially the new teacher, will notice *him*.",
    "clips": [
-    72,
+    51,
     [
      60,
-     8
+     9
     ]
    ]
   },
   {
-   "say": "Then Changho barks at the new teacher to stop screwing *around* and start the lesson, like he owns the place.",
+   "say": "Then Changho barks at the teacher to stop screwing around and start the lesson, like he *owns* the place.",
    "clips": [
     54,
     [
      63,
-     10
+     9
     ]
    ]
   },
   {
-   "say": "Han just grins and tells the whole class to open their *books*, and somehow Changho shuts up.",
+   "say": "Han just grins, tells the whole class to open their books, and somehow Changho *shuts* up.",
    "clips": [
     69,
     [
@@ -180,33 +176,15 @@
    ]
   },
   {
-   "say": "That night, outside a Muay Thai gym, a pack of thugs *surrounds* the strange new teacher.",
+   "say": "Nobody has ever made Changho *back* down before, and Shi-woon starts to wonder about this guy.",
    "clips": [
-    84,
-    [
-     108,
-     8
-    ]
+    57
    ]
   },
   {
-   "say": "Han takes one thug's insult as a *compliment*, then kicks the whole room across the floor like he is speedrunning a video game.",
+   "say": "That night, outside a Muay Thai gym, a pack of drunk thugs *surrounds* the strange new teacher.",
    "clips": [
-    105,
-    [
-     111,
-     8
-    ],
-    [
-     117,
-     15
-    ]
-   ]
-  },
-  {
-   "say": "Shi-woon watches from the doorway and realizes this clown in the flowery shirt is no ordinary *teacher*.",
-   "clips": [
-    90,
+    96,
     [
      99,
      8
@@ -214,23 +192,91 @@
    ]
   },
   {
-   "say": "Shi-woon starts to wonder who his teacher really is, and Han wants to keep it a *secret*.",
+   "say": "The thugs demand that Han pay up for a drink he never *ordered*, and he just smiles at them.",
    "clips": [
-    147,
+    102
+   ]
+  },
+  {
+   "say": "He thanks them for the lovely evening, and then the first chair goes *flying*.",
+   "clips": [
+    117,
     [
-     150,
+     120,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han takes one thug's insult as a *compliment*, then kicks the whole room across the floor like a video game.",
+   "clips": [
+    105,
+    [
+     111,
+     6
+    ],
+    [
+     114,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon has no idea yet, but the clown in the flowery shirt is no ordinary *teacher*.",
+   "clips": [
+    84,
+    [
+     90,
      8
     ]
    ]
   },
   {
-   "say": "The next day, Changho's boys drag Shi-woon aside, and a bully blows smoke in his face and tells him to shut up and *take* it.",
+   "say": "Meanwhile the vice principal is *fuming*, because a man in a flowery shirt is not his idea of a professional.",
    "clips": [
-    165,
+    129,
     [
-     174,
-     12
+     132,
+     10
     ]
+   ]
+  },
+  {
+   "say": "Even the new female teacher tries to flirt with him, and he dodges her like she is a *tax* collector.",
+   "clips": [
+    138,
+    [
+     135,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Han wants his past kept a *secret*, but Shi-woon has already seen too much.",
+   "clips": [
+    147
+   ]
+  },
+  {
+   "say": "At lunch Changho calls for Shi-woon, and the whole classroom goes *quiet*.",
+   "clips": [
+    150
+   ]
+  },
+  {
+   "say": "Changho's boys are not done with Shi-woon, and the next morning they drag him into the *bathroom*.",
+   "clips": [
+    153,
+    [
+     156,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "One bully blows smoke in his face and tells him to shut up and *take* it.",
+   "clips": [
+    165
    ]
   },
   {
@@ -244,31 +290,55 @@
    ]
   },
   {
-   "say": "Nobody helps, everybody *watches*, and the girl he likes sees every second of it.",
+   "say": "Then they leave him there laughing, and remind him not to forget the money next *week*.",
    "clips": [
-    186,
+    177
+   ]
+  },
+  {
+   "say": "He drags himself back into the hallway, and every student *watches*, including the girl he likes.",
+   "clips": [
+    180,
     [
-     198,
-     7
+     186,
+     8
     ]
+   ]
+  },
+  {
+   "say": "Sae-hee runs up and asks if he is okay, and he rips his arm *away* from her.",
+   "clips": [
+    189,
+    [
+     192,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He yells that it does not concern her, and she just stands there *stunned*.",
+   "clips": [
+    198
+   ]
+  },
+  {
+   "say": "He knows she is the one person who actually *cares*, and that makes it hurt more.",
+   "clips": [
+    195
    ]
   },
   {
    "say": "That is the moment Shi-woon decides the world would be better off without *him*.",
    "clips": [
-    210,
-    [
-     213,
-     7
-    ]
+    210
    ]
   },
   {
    "say": "Up on the school roof, he starts to think the only way out of this life is *down*.",
    "clips": [
-    216,
+    213,
     [
-     219,
+     222,
      9
     ]
    ]
@@ -280,119 +350,403 @@
    ]
   },
   {
-   "say": "And who hears him? The weird substitute, who yells at him to hurry up and *jump*, if he is going to.",
+   "say": "And who hears him? The weird substitute, who tells him to hurry up and *jump*.",
    "clips": [
     228,
     [
-     234,
-     10
+     231,
+     7
     ]
    ]
   },
   {
-   "say": "Han yanks him up, makes him promise never to jump again, and then the rusty railing *snaps*.",
+   "say": "For a second, Han's face goes serious, because this is no *prank*.",
    "clips": [
-    243,
+    237
+   ]
+  },
+  {
+   "say": "Han yanks him up, and makes him promise he will never jump from this roof *again*.",
+   "clips": [
+    234,
     [
-     255,
+     243,
      8
     ]
+   ]
+  },
+  {
+   "say": "Then the rusty railing *snaps*, because of course it does.",
+   "clips": [
+    252
    ]
   },
   {
    "say": "They both fall off the roof and crash straight onto the vice principal's brand new *car*.",
    "clips": [
-    258,
+    255,
+    [
+     258,
+     5
+    ],
     [
      261,
-     8
+     10
     ]
    ]
   },
   {
    "say": "Shi-woon gets up with barely a scratch, and has no idea how he is *alive*.",
    "clips": [
-    279,
-    [
-     270,
-     8
-    ]
+    279
    ]
   },
   {
-   "say": "Even Han looks confused about it.",
+   "say": "Even Han looks confused, and wonders why he bothered to save this *kid*.",
    "clips": [
     264
    ]
   },
   {
-   "say": "The vice principal's car is totaled, and he grills the whole school, asking if anybody *saw* anything.",
+   "say": "The vice principal's car is totaled, and he grills the whole school about who did *it*.",
    "clips": [
-    285,
+    270,
     [
-     282,
+     285,
      8
     ]
    ]
   },
   {
-   "say": "But the bullying does not stop, and Changho now wants Sae-hee *delivered* to his gang behind the school gym.",
+   "say": "Students whisper about the fall, and the vice principal sniffs through the wreck like a *detective*.",
+   "clips": [
+    288,
+    [
+     300,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Han just smiles and swears he saw absolutely *nothing*, which is a lie, and a beautiful one.",
+   "clips": [
+    291
+   ]
+  },
+  {
+   "say": "Then the vice principal locks the roof for good, and swears he will find whoever did *this*.",
+   "clips": [
+    294,
+    [
+     303,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Han takes a phone call that night, and the voice on the other end he calls *master*.",
+   "clips": [
+    306,
+    [
+     309,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Master has one rule for him, which is that nobody at this school can ever learn who he *is*.",
+   "clips": [
+    312
+   ]
+  },
+  {
+   "say": "Next morning, Shi-woon gets called to the teachers' office, and the whole fight gets dragged *out*.",
+   "clips": [
+    333,
+    [
+     336,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "His teacher slaps him across the face and demands to know who beat him *up*.",
+   "clips": [
+    339,
+    [
+     342,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then Changho walks in, smiles, and says it was just a little *misunderstanding*.",
+   "clips": [
+    345,
+    [
+     348,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The teacher forces both sides to shake hands, and declares the whole thing *settled*.",
+   "clips": [
+    357,
+    [
+     363,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Changho shakes his hand with a smile, and whispers that he will be *seeing* him again.",
+   "clips": [
+    369,
+    [
+     360,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "That smile is not a truce, that smile is a *warning*.",
+   "clips": [
+    348
+   ]
+  },
+  {
+   "say": "At home his mom drops off some groceries for five minutes, then leaves for work *again*.",
+   "clips": [
+    372,
+    [
+     381,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He asks if he can change schools, and she asks if something happened *there*.",
+   "clips": [
+    384,
+    [
+     387,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He says no, because what kind of son adds more trouble to a mom who is already *tired*?",
+   "clips": [
+    393
+   ]
+  },
+  {
+   "say": "So he swallows it all, and does what he does best, which is *nothing*.",
+   "clips": [
+    399
+   ]
+  },
+  {
+   "say": "At night he lies awake with his phone, hoping that someone, anyone, will *call*.",
+   "clips": [
+    396
+   ]
+  },
+  {
+   "say": "At school he hides on a bench during break, hoping the gang will not *find* him.",
+   "clips": [
+    420,
+    [
+     423,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "They find him anyway, and Changho asks where his *girlfriend* is.",
+   "clips": [
+    426,
+    [
+     429,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Then he orders Shi-woon to bring Sae-hee behind the gym after class, or else you know what *happens*.",
    "clips": [
     432
    ]
   },
   {
-   "say": "Terrified, Shi-woon runs back to the new teacher and *begs* him for help, because he has nobody else.",
+   "say": "Terrified, Shi-woon runs to the one adult who has any strength, the flowery shirt *teacher*.",
    "clips": [
-    459,
+    453,
     [
-     453,
+     444,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He begs for help, because he has nobody *else*.",
+   "clips": [
+    483
+   ]
+  },
+  {
+   "say": "Han says he is only a temporary teacher, gone in two months, so it is not his *problem*.",
+   "clips": [
+    489,
+    [
+     486,
      9
     ]
    ]
   },
   {
-   "say": "Han says he is only a temporary teacher, and he will be gone in two *months*, so it is not his problem.",
+   "say": "He tells Shi-woon to solve his own problems, then walks off with his hands in his *pockets*.",
    "clips": [
-    489,
-    [
-     486,
-     11
-    ]
-   ]
-  },
-  {
-   "say": "He tells Shi-woon to solve his own problems, and just walks *away*, hands in his pockets.",
-   "clips": [
-    492,
-    [
-     477,
-     8
-    ]
+    492
    ]
   },
   {
    "say": "Shi-woon screams that he is a coward, and that is exactly *why* he is asking for help.",
    "clips": [
-    495,
+    495
+   ]
+  },
+  {
+   "say": "He asks him straight out if he is a martial arts master, and Han panics and *denies* everything.",
+   "clips": [
+    462,
     [
-     498,
-     8
+     471,
+     9
     ]
    ]
   },
   {
-   "say": "So he fights Changho's boys alone, loses again, and crawls back to Han on his *knees*.",
+   "say": "Han keeps walking, and Shi-woon is left alone in the *hallway*.",
+   "clips": [
+    501,
+    [
+     498,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "The next day, Sae-hee tells him that if there is anything she can do, she wants to *help*.",
+   "clips": [
+    528,
+    [
+     522,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He looks down, and he cannot make himself tell her the *truth*.",
+   "clips": [
+    531,
+    [
+     537,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile the vice principal threatens to fire Han by the end of the day, and Han just keeps *smiling*.",
+   "clips": [
+    552,
+    [
+     546,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "So that afternoon he does the bravest and dumbest thing he has ever *done*.",
+   "clips": [
+    504
+   ]
+  },
+  {
+   "say": "The gang waits behind the gym, and asks where Sae-hee *is*.",
+   "clips": [
+    564,
+    [
+     561,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He walks behind the gym alone, and tells the gang that Sae-hee is *not* coming.",
+   "clips": [
+    570,
+    [
+     579,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Changho's boys show him exactly how much that sentence will *cost*.",
+   "clips": [
+    582,
+    [
+     588,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He swings back, screaming that he is going to *change*, and it is the first punch he has ever thrown.",
+   "clips": [
+    600,
+    [
+     612,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "His eyes finally change, and he stops looking like a *victim*.",
+   "clips": [
+    597
+   ]
+  },
+  {
+   "say": "Then he loses badly, and lies there bleeding, but he does not *regret* it.",
+   "clips": [
+    609,
+    [
+     636,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He lies on the ground laughing through the blood, because for once he hit *back*.",
+   "clips": [
+    630
+   ]
+  },
+  {
+   "say": "Bloody and limping, he crawls back to Han and drops to his *knees*.",
    "clips": [
     648,
     [
      651,
-     8
+     6
     ]
    ]
   },
   {
-   "say": "He begs Han to teach him martial arts, so he can finally stand up to those *punks*.",
+   "say": "He tells him he fought back, and that is why he wants to learn how to *fight*.",
    "clips": [
     660,
     [
@@ -404,37 +758,69 @@
   {
    "say": "That took more guts than any punch.",
    "clips": [
-    501
+    657
    ]
   },
   {
-   "say": "Han finally says yes, but only if Shi-woon is willing to risk his *life*, because a fighter's body is not worth much without it.",
+   "say": "Han finally says yes, but only if Shi-woon is willing to risk his *life*.",
    "clips": [
     675,
     [
-     687,
-     12
+     678,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han asks if he still wants to learn after hearing that, and Shi-woon says *yes*.",
+   "clips": [
+    681,
+    [
+     690,
+     7
     ]
    ]
   },
   {
    "say": "Then he drives the boy to a bridge at night, and tells him to *jump*.",
    "clips": [
+    684,
+    [
+     687,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon stares down at the water, shaking, and for a second he thinks it is *over*.",
+   "clips": [
     693,
     [
-     684,
+     699,
      8
     ]
    ]
   },
   {
-   "say": "Shi-woon jumps, and for one long second, he is *sure* he is dead.",
+   "say": "He asks one last question, will Han really teach him if he jumps, and Han *panics* a little inside.",
    "clips": [
-    705,
+    702,
     [
-     699,
-     6
+     708,
+     9
     ]
+   ]
+  },
+  {
+   "say": "Then he jumps, and for one long second he is *sure* he is dead.",
+   "clips": [
+    705
+   ]
+  },
+  {
+   "say": "Underwater, the world goes quiet, and he wonders whether his life was ever worth *anything*.",
+   "clips": [
+    720
    ]
   },
   {
@@ -442,35 +828,259 @@
    "clips": [
     711,
     [
-     717,
+     714,
      9
     ]
    ]
   },
   {
-   "say": "Imagine nearly dying just to sign up for *karate* class.",
+   "say": "Imagine nearly dying just to sign up for karate *class*.",
    "clips": [
-    714
+    729
    ]
   },
   {
-   "say": "Han makes him promise he will never jump off the school roof again, which is honestly *fair*.",
+   "say": "In the hospital bed, Shi-woon smiles, because the man in the flowery shirt is now his *teacher*.",
    "clips": [
-    270,
+    735,
     [
-     234,
+     726,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Han makes him promise never to jump again, which is honestly *fair*.",
+   "clips": [
+    738,
+    [
+     741,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon asks if he will really teach him, and Han stays silent, which is as close to *yes* as he gets.",
+   "clips": [
+    732
+   ]
+  },
+  {
+   "say": "Across the city, a group of old men who run the hidden world of the *Murim* whisper in the dark.",
+   "clips": [
+    744,
+    [
+     756,
      10
     ]
    ]
   },
   {
-   "say": "From then on, Shi-woon is Han's student, and the training is pure *torture*, from the first push-up to the last.",
+   "say": "They talk about a legendary killing technique, and a man who may still be *alive*.",
    "clips": [
-    1011,
+    768,
+    [
+     771,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "They call that man Goomoonryong, the Nine Arts *Dragon*, and he is their worst disaster.",
+   "clips": [
+    774
+   ]
+  },
+  {
+   "say": "Meanwhile the guy they are hunting is smoking on the school roof, without a *care* in the world.",
+   "clips": [
+    780,
+    [
+     786,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then a man in a black suit and sunglasses walks up *behind* him.",
+   "clips": [
+    789,
+    [
+     792,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Han just smirks, and asks if he *disturbed* him that much.",
+   "clips": [
+    813,
+    [
+     804,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "The fight starts, and it ends about as fast as it *started*.",
+   "clips": [
+    810,
+    [
+     807,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then the health teacher, Shiho, corners Han in her office, and he looks like a man about to be *devoured*.",
+   "clips": [
+    888,
+    [
+     891,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "She knows exactly who he *is*, and she is not impressed by the disguise.",
+   "clips": [
+    894,
+    [
+     897,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "She keeps flirting anyway, and Han keeps dodging, like she is a debt *collector*.",
+   "clips": [
+    900,
+    [
+     903,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "A Murim legend just beat a man in a suit, and he still screams when a woman grabs his *shirt*.",
+   "clips": [
+    840,
+    [
+     843,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile Changho's gang catches Shi-woon again, and this time nobody *stops* them.",
+   "clips": [
+    906,
+    [
+     909,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He ends up face down on the ground, barely *breathing*.",
+   "clips": [
+    915,
+    [
+     918,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Han shows up, throws him over his shoulder, and complains that he is getting *tired* of carrying this kid.",
+   "clips": [
+    921
+   ]
+  },
+  {
+   "say": "Shi-woon whispers it again, please teach me how to *fight*.",
+   "clips": [
+    924,
+    [
+     930,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He wakes up wiping his face, and then he freaks out when he realizes whose room he is *in*.",
+   "clips": [
+    936,
+    [
+     948,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He wakes up in a strange bed, and the health teacher is already making him *breakfast*.",
+   "clips": [
+    945,
+    [
+     957,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She asks why a boy like him wants to learn martial arts, and he has no good *answer*.",
+   "clips": [
+    987,
+    [
+     972,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He thanks her, because somehow his body feels better than it has in *years*.",
+   "clips": [
+    993,
+    [
+     996,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han leads him to the school field, tosses him a ball, and says to throw it with all his *might*.",
+   "clips": [
+    999,
+    [
+     1005,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So the real training begins, and the first test is a pure *disaster*.",
+   "clips": [
+    1002,
+    [
+     1011,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Sit-ups, push-ups, long jump, a hundred meter dash, and Shi-woon fails them *all*.",
+   "clips": [
+    1020,
     [
      1014,
-     10
+     6
     ]
+   ]
+  },
+  {
+   "say": "Han looks at his body and tells him to come back when he can at least handle a *car*.",
+   "clips": [
+    1017
    ]
   },
   {
@@ -479,24 +1089,422 @@
     1047,
     [
      1065,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon throws up, collapses and cries, but he is back on that field the next *morning*.",
+   "clips": [
+    1062,
+    [
+     1068,
      8
     ]
    ]
   },
   {
-   "say": "Shi-woon throws up, collapses, and cries, but he is back on that field the next *morning*, which already makes him tougher than Changho.",
+   "say": "Shiho sees how hard he trains and finds it hard to *watch*.",
    "clips": [
-    1941
+    1080
+   ]
+  },
+  {
+   "say": "Meanwhile in class, Han teaches English by reading Tom Sawyer, which is not exactly the lesson *plan*.",
+   "clips": [
+    1149,
+    [
+     1143,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Sae-hee notices that he is limping, and tells him she was *worried*.",
+   "clips": [
+    1092,
+    [
+     1089,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He promises himself that he will not run *away*, no matter how hard this gets.",
+   "clips": [
+    1095
    ]
   },
   {
    "say": "Two weeks in, he can run one lap without throwing up, which for him is basically a *miracle*.",
    "clips": [
-    1017
+    1182
    ]
   },
   {
-   "say": "Han teaches him to breathe slowly and deeply, because he says a strong *body* is only the start.",
+   "say": "Shiho tells him his body is the real problem, because his blood cannot keep up with the *training*.",
+   "clips": [
+    1191,
+    [
+     1188,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then she hands him a strange pill, and warns that in the worst case, he could *die*.",
+   "clips": [
+    1209,
+    [
+     1200,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He swallows it anyway, because he has nothing left to *lose*.",
+   "clips": [
+    1221
+   ]
+  },
+  {
+   "say": "At night, Shiho watches him run laps, because she cannot stand by and watch it *happen*.",
+   "clips": [
+    1239
+   ]
+  },
+  {
+   "say": "Far from school, a young Alliance fighter swears the Dragon is his master's enemy, and the vengeance is *his*.",
+   "clips": [
+    1125,
+    [
+     1122,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "A black limousine glides through the night, full of men who want Han *dead*.",
+   "clips": [
+    1128,
+    [
+     1131,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then a gang boss named Song starts hunting the Nine Arts *Dragon*, and he brings a lot of friends.",
+   "clips": [
+    1248,
+    [
+     1251,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "His men are told to find him, and to hold him there until the boss *arrives*.",
+   "clips": [
+    1290
+   ]
+  },
+  {
+   "say": "So one night in the park, Han is lighting a cigarette when a crowd of thugs *surrounds* him.",
+   "clips": [
+    1299,
+    [
+     1305,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "They crack their knuckles, and they honestly think the night is going to be *easy*.",
+   "clips": [
+    1308,
+    [
+     1311,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han just smokes, says he does not want any *trouble*, and offers them a chance to leave.",
+   "clips": [
+    1326,
+    [
+     1323,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Nobody takes the offer, because nobody ever does.",
+   "clips": [
+    1320
+   ]
+  },
+  {
+   "say": "Then Song steps out of the dark, and Han finally bares his dragon *tattoo*.",
+   "clips": [
+    1335,
+    [
+     1362,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "That mark belongs to the Nine Arts Dragon, a legend of the Murim, where martial arts clans *rule*.",
+   "clips": [
+    1329
+   ]
+  },
+  {
+   "say": "Song's men laugh, and that is the last *mistake* they ever make.",
+   "clips": [
+    1338
+   ]
+  },
+  {
+   "say": "Song shows off his famous iron hand, and Han tells him it is quite *impressive*.",
+   "clips": [
+    1380,
+    [
+     1368,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He says that to win in one blow, he needs a soul-crushing *strike*.",
+   "clips": [
+    1371
+   ]
+  },
+  {
+   "say": "One punch later, the boss's iron hand turns into a bloody *mess*.",
+   "clips": [
+    1425,
+    [
+     1413,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "In a car across the street, two men in suits quietly watch the whole *thing*.",
+   "clips": [
+    1419
+   ]
+  },
+  {
+   "say": "Han flicks his cigarette away, and walks off like nothing *happened*.",
+   "clips": [
+    1386
+   ]
+  },
+  {
+   "say": "Never insult a man holding a cigarette.",
+   "clips": [
+    1332
+   ]
+  },
+  {
+   "say": "Word gets around, and Shi-woon finally understands why his teacher was never afraid of *Changho*.",
+   "clips": [
+    1407,
+    [
+     1410,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han hates attention, but trouble finds him anyway, like a bad *sequel* nobody asked for.",
+   "clips": [
+    1404
+   ]
+  },
+  {
+   "say": "Back at school, Changho's gang corners Shi-woon again, expecting the usual *routine*, like he is a vending machine for punches.",
+   "clips": [
+    1467,
+    [
+     1470,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "This time he does not crawl, and the whole hallway hears the *crack* of a fist.",
+   "clips": [
+    1476,
+    [
+     1479,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Main-character energy, finally unlocked.",
+   "clips": [
+    1473
+   ]
+  },
+  {
+   "say": "Han hears about the punch, and warns him that power is a drug, and drunk fighters ruin *themselves*.",
+   "clips": [
+    1818,
+    [
+     1821,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then a Lamborghini rolls into the faculty parking lot, and the vice principal cannot stop *staring* at it.",
+   "clips": [
+    1500,
+    [
+     1503,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Whoever owns it, the vice principal looks ready to cry about his own *car*.",
+   "clips": [
+    1497
+   ]
+  },
+  {
+   "say": "The vice principal is so furious that he starts screaming at a janitor who has nothing to do with *it*.",
+   "clips": [
+    1491
+   ]
+  },
+  {
+   "say": "Shi-woon falls asleep in the infirmary, soaked in sweat, and Sae-hee is the one who finds *him*.",
+   "clips": [
+    1545,
+    [
+     1551,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She says she missed him at school, and he realizes how much he missed *her*.",
+   "clips": [
+    1566
+   ]
+  },
+  {
+   "say": "Changho's gang decides he needs a little re-education, and they gang up on him *again*.",
+   "clips": [
+    1572,
+    [
+     1569,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He stands there taking it, and he does not say a single *word*.",
+   "clips": [
+    1584
+   ]
+  },
+  {
+   "say": "Then he limps down the hallway, whispering that he will find out what he can *do*.",
+   "clips": [
+    1605,
+    [
+     1608,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then men in expensive suits roll up in a black *Maybach*, and every student stops to stare.",
+   "clips": [
+    1629,
+    [
+     1617,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Their young master is hunting the Nine Arts Dragon, and he is *not* polite about it.",
+   "clips": [
+    1635,
+    [
+     1626,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "In this world, martial arts clans hide behind ordinary jobs, and their fights decide who runs the *shadows*.",
+   "clips": [
+    1614,
+    [
+     1728,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Behind closed doors, the Nine Clans argue over who will find the Dragon *first*.",
+   "clips": [
+    1539,
+    [
+     1542,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The young master is also hunting Shiho, and he swears she cannot hide *forever*.",
+   "clips": [
+    1839
+   ]
+  },
+  {
+   "say": "Two thugs show up at the school asking for the female teacher *Shiho*.",
+   "clips": [
+    1671,
+    [
+     1674,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They hold a knife to Shi-woon, and he has no idea what they are *talking* about.",
+   "clips": [
+    1677,
+    [
+     1779,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He bleeds and shakes, but he still does not give them what they *want*.",
+   "clips": [
+    1782,
+    [
+     1611,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han teaches him to breathe slowly and deeply, because he says a strong body is only the *start*.",
    "clips": [
     1881,
     [
@@ -508,200 +1516,116 @@
   {
    "say": "He calls it ki, the energy inside every martial artist, and says it matters more than any *muscle*.",
    "clips": [
-    1887,
+    1887
+   ]
+  },
+  {
+   "say": "Han says ki normally takes years to learn, and Shi-woon has about two *months*.",
+   "clips": [
+    2355,
     [
-     1881,
-     9
+     2352,
+     7
     ]
    ]
   },
   {
-   "say": "Meanwhile the new health teacher, Shiho, is obsessed with Han, and he runs from her like she is a *tax* collector.",
+   "say": "Goku had a scouter, but Shi-woon only has a *stomachache*.",
    "clips": [
-    138,
+    2361
+   ]
+  },
+  {
+   "say": "Meanwhile the Nine Clans meet around a tea table, and evil men love their *tea*.",
+   "clips": [
+    1902,
     [
-     132,
-     10
+     1908,
+     7
     ]
    ]
   },
   {
-   "say": "Shiho keeps flirting, Han keeps dodging, and the vice principal keeps almost having a *heart* attack.",
+   "say": "One elder is certain the Dragon is still hiding in this *city*, and he wants him found.",
    "clips": [
-    129
+    1905,
+    [
+     1911,
+     8
+    ]
    ]
   },
   {
-   "say": "Her wild Lamborghini ride leaves Shi-woon dizzy, like he just stepped off a *roller* coaster.",
+   "say": "Shiho takes him for a ride in her Lamborghini, and he steps out dizzy, like he left a *roller* coaster.",
    "clips": [
     1893,
     [
      1935,
-     8
+     10
     ]
    ]
   },
   {
    "say": "He is still weak, but for the first time in his life, he *shows* up every single day.",
    "clips": [
-    1020
+    1941
    ]
   },
   {
-   "say": "A Lamborghini suddenly shows up in the faculty parking lot, and the vice principal cannot stop *staring* at it.",
+   "say": "Then one night he finds a frightened white-haired girl on a dark road, and tells her it is *okay*.",
    "clips": [
-    1500,
+    2043,
     [
-     1503,
-     10
-    ]
-   ]
-  },
-  {
-   "say": "Then a gang boss named Song shows up, hunting a martial artist called the Nine Arts *Dragon*, and he does not look friendly.",
-   "clips": [
-    1308,
-    [
-     1335,
-     12
-    ]
-   ]
-  },
-  {
-   "say": "Han lights a cigarette, says he does not want trouble, and bares a dragon *tattoo*.",
-   "clips": [
-    1326,
-    [
-     1362,
-     8
-    ]
-   ]
-  },
-  {
-   "say": "That mark belongs to the Dragon, a legend of the Murim, the hidden world where martial arts clans still *rule*.",
-   "clips": [
-    1365,
-    [
-     1362,
-     10
-    ]
-   ]
-  },
-  {
-   "say": "Song's men laugh, and that is the last *mistake* they ever make.",
-   "clips": [
-    1314,
-    [
-     1311,
-     6
-    ]
-   ]
-  },
-  {
-   "say": "One soul-crushing punch, and the boss's iron hand turns into a bloody *mess*.",
-   "clips": [
-    1368,
-    [
-     1425,
-     6
-    ]
-   ]
-  },
-  {
-   "say": "Shi-woon sees it all, and finally understands why his teacher was never afraid of *Changho*.",
-   "clips": [
-    1371,
-    [
-     1374,
-     8
-    ]
-   ]
-  },
-  {
-   "say": "Never insult a man holding a cigarette.",
-   "clips": [
-    1329
-   ]
-  },
-  {
-   "say": "Han hates attention, but trouble finds him anyway, like a bad *sequel* nobody asked for.",
-   "clips": [
-    1323
-   ]
-  },
-  {
-   "say": "Back at school, Changho's gang corners Shi-woon again, expecting the usual *routine*, like he is a vending machine for punches.",
-   "clips": [
-    1476,
-    [
-     1467,
-     10
-    ]
-   ]
-  },
-  {
-   "say": "This time he does not crawl, and the whole hallway hears the *crack* of a fist.",
-   "clips": [
-    1479,
-    [
-     1473,
-     8
-    ]
-   ]
-  },
-  {
-   "say": "Then men in expensive suits roll up to the school in a black *Maybach*, and every student stops to stare.",
-   "clips": [
-    1629,
-    [
-     1617,
-     10
-    ]
-   ]
-  },
-  {
-   "say": "Their young master is hunting the Nine Arts Dragon, and he is *not* polite about it.",
-   "clips": [
-    1635,
-    [
-     1623,
-     8
-    ]
-   ]
-  },
-  {
-   "say": "In this world, martial arts clans hide behind ordinary jobs, and their fights decide who runs the *shadows*.",
-   "clips": [
-    1905,
-    [
-     1902,
+     2040,
      9
     ]
    ]
   },
   {
-   "say": "Behind closed doors, the Nine Clans argue over who will find the Dragon *first*, and nobody wants to share the credit.",
+   "say": "Her name is Sosul, and the next thing he knows, he is carrying her down a dark *highway*.",
    "clips": [
-    1908
+    2106
    ]
   },
   {
-   "say": "Soon Shi-woon is ambushed on a dark highway by a pack of bikers, and he has no *chance*.",
+   "say": "She is being hunted, and a pack of bikers is *chasing* them both.",
    "clips": [
-    2220,
+    2112,
     [
-     2214,
+     2121,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He is just a kid with a few weeks of training, and he runs until his lungs *burn*.",
+   "clips": [
+    2127,
+    [
+     2130,
      9
     ]
    ]
   },
   {
-   "say": "Then Han appears and screams, do you know whose *disciple* you are messing with?",
+   "say": "He tells her he is sorry, because he cannot run any *further*.",
+   "clips": [
+    2136
+   ]
+  },
+  {
+   "say": "Then the lights of the bikes close in, and he is sure this is the *end*.",
+   "clips": [
+    2154
+   ]
+  },
+  {
+   "say": "That is when Han appears and screams, do you know whose *disciple* you are messing with?",
    "clips": [
     2163,
     [
      2160,
-     7
+     8
     ]
    ]
   },
@@ -710,25 +1634,111 @@
    "clips": [
     2184,
     [
-     2172,
+     2187,
      6
     ]
    ]
   },
   {
-   "say": "Han turns the whole gang into scrap metal, and it is a full Hulk *smash*.",
+   "say": "Han turns their whole gang into scrap metal, and it is a full Hulk *smash*.",
    "clips": [
-    2217,
+    2172,
     [
-     2208,
-     8
+     2166,
+     7
     ]
    ]
   },
   {
    "say": "That is what a teacher is for.",
    "clips": [
+    2208
+   ]
+  },
+  {
+   "say": "Sosul is the daughter of a powerful clan, and her father presses a Phoenix seal into her *hands*.",
+   "clips": [
+    2238,
+    [
+     2241,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon wakes up with the girl safe beside him, and he has no idea what he has *signed* up for.",
+   "clips": [
     2226
+   ]
+  },
+  {
+   "say": "Hunted by powerful enemies, she ends up hiding in his apartment, and he promises to *protect* her.",
+   "clips": [
+    2409,
+    [
+     2412,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon, who has never talked to a girl, now has one living at his *place*.",
+   "clips": [
+    2385,
+    [
+     2391,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He makes her breakfast, pats her on the head, and tells her not to *worry*.",
+   "clips": [
+    2430,
+    [
+     2424,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Sosul asks if he wants to be a Murim person, and he says he only wants to protect his *friends*.",
+   "clips": [
+    2394,
+    [
+     2397,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Another Alliance man arrives in the city with a cold smile, and says he wants to meet Goomoonryong *soon*.",
+   "clips": [
+    2457,
+    [
+     2454,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Han teaches him to throw a punch step by step, and Shi-woon answers *yes* sir like a soldier.",
+   "clips": [
+    2478,
+    [
+     2475,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then he hits a tree so hard that it shakes, and for once the tree loses.",
+   "clips": [
+    2493,
+    [
+     2472,
+     8
+    ]
    ]
   },
   {
@@ -737,24 +1747,28 @@
     2523,
     [
      2526,
-     10
+     9
     ]
    ]
   },
   {
-   "say": "He tracks the thugs down alone, and walks in with his *fists* up, shaking but standing.",
+   "say": "He tracks the thugs to a warehouse and walks in alone with his fists *up*, shaking but standing.",
    "clips": [
-    2544,
+    2529,
     [
-     2577,
-     8
+     2544,
+     9
     ]
    ]
   },
   {
    "say": "The training kicks in, and for once he is the one *swinging*.",
    "clips": [
-    2571
+    2571,
+    [
+     2577,
+     6
+    ]
    ]
   },
   {
@@ -768,9 +1782,123 @@
    ]
   },
   {
-   "say": "Main-character energy, finally unlocked.",
+   "say": "Main-character energy, round two.",
    "clips": [
-    39
+    2586
+   ]
+  },
+  {
+   "say": "Then a calm man in a black suit stops them on a night road and asks about *Goomoonryong*.",
+   "clips": [
+    2595,
+    [
+     2601,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon says he has never heard that name, and the man *smiles*, because he never said it was a person.",
+   "clips": [
+    2604,
+    [
+     2598,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So he tells Sae-hee to run, and he stands his ground *alone*.",
+   "clips": [
+    2610,
+    [
+     2625,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He shoves her into a taxi, slams the door, and turns to face whatever is *coming*.",
+   "clips": [
+    2619,
+    [
+     2616,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The man in black just stands in the road, calm as a dentist, and Shi-woon's legs begin to *shake*.",
+   "clips": [
+    2628
+   ]
+  },
+  {
+   "say": "The man does not even try hard, and Shi-woon is bleeding in *seconds*.",
+   "clips": [
+    2670
+   ]
+  },
+  {
+   "say": "Every punch he throws gets blocked, and every punch the man throws puts him on the *ground*.",
+   "clips": [
+    2694
+   ]
+  },
+  {
+   "say": "But he tells the man he does not care who he is, or what clan he *serves*.",
+   "clips": [
+    2691
+   ]
+  },
+  {
+   "say": "He says that if the man wants to get past him, he will have to defeat him *first*.",
+   "clips": [
+    2718,
+    [
+     2703,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He cannot win, and everyone watching knows it, but he refuses to *quit*.",
+   "clips": [
+    2742,
+    [
+     2745,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "In the end the man in black walks away, and promises they will meet *again*.",
+   "clips": [
+    2778,
+    [
+     2781,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon wakes up bandaged, and Sosul stays by his bed all night, *worried* sick.",
+   "clips": [
+    2793,
+    [
+     2802,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile an Alliance fighter says he has only one goal, to take the lives of those who killed his *master*.",
+   "clips": [
+    2874,
+    [
+     2862,
+     10
+    ]
    ]
   },
   {
@@ -778,119 +1906,569 @@
    "clips": [
     2919,
     [
-     2931,
+     2925,
      8
     ]
    ]
   },
   {
-   "say": "Shi-woon only wants to learn, and tells Han he will *protect* his friends one day.",
+   "say": "Shi-woon only wants to learn, and tells Han he will protect his friends *one* day.",
    "clips": [
     2910,
     [
-     2916,
-     8
+     2913,
+     7
     ]
    ]
   },
   {
    "say": "Han shrugs, but he keeps teaching him, and Shi-woon *grins* like an idiot.",
    "clips": [
-    2913,
+    2916
+   ]
+  },
+  {
+   "say": "After the fight with the man in black, Shi-woon ends up in a cast, and Shiho drives everyone to the beach to cheer him *up*.",
+   "clips": [
+    2955,
     [
-     2898,
-     6
+     2973,
+     9
     ]
    ]
   },
   {
-   "say": "Years ago, Han lost control of his rage, and the Murim elders branded him a *monster*.",
+   "say": "Sosul blushes, and makes him promise to take her to an amusement park *next*.",
    "clips": [
-    4473,
+    2982,
     [
-     4479,
-     8
-    ]
-   ]
-  },
-  {
-   "say": "Now the Alliance wants him, and they decide Shi-woon is the perfect *bait* to lure him out.",
-   "clips": [
-    3240,
-    [
-     3243,
-     8
-    ]
-   ]
-  },
-  {
-   "say": "Men in suits search the school, and Shi-woon is the first thing they *check*.",
-   "clips": [
-    3246,
-    [
-     3258,
+     2952,
      7
     ]
    ]
   },
   {
-   "say": "The old masters agree to trap Goomoonryong in a business *tower*, and they are very proud of the plan.",
+   "say": "That night Han drags him to a rooftop, and he is not in a good *mood*.",
    "clips": [
-    3555,
+    3024,
     [
-     3549,
+     3036,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He yells that Shi-woon is an idiot, because the Murim will find them *all*.",
+   "clips": [
+    3039
+   ]
+  },
+  {
+   "say": "Then he gives him one last lesson, a footwork technique, and tells him to watch *carefully*.",
+   "clips": [
+    3042,
+    [
+     3045,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "If Shi-woon turns back into a coward while he is gone, Han will not take him back as a *disciple*.",
+   "clips": [
+    3081,
+    [
+     3084,
      10
+    ]
+   ]
+  },
+  {
+   "say": "Then he drives off in his Lamborghini, and Shi-woon waves like a little *kid*.",
+   "clips": [
+    3057
+   ]
+  },
+  {
+   "say": "An Alliance man with glasses reports that he has found the Nine Arts Dragon's *hideout*.",
+   "clips": [
+    3111,
+    [
+     3114,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "It is a high school, which is the last place anyone would *look*.",
+   "clips": [
+    3123,
+    [
+     3126,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Back at school, Sae-hee catches up with him, worried that he has been *distant*.",
+   "clips": [
+    3129,
+    [
+     3132,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Changho swears he will show everyone what happens to people who mess with *him*.",
+   "clips": [
+    3156,
+    [
+     3153,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Sae-hee apologizes for being too scared to help him, and cries *softly*.",
+   "clips": [
+    3159
+   ]
+  },
+  {
+   "say": "Shi-woon tells her that from now on, he will not back down while he has someone to *protect*.",
+   "clips": [
+    3165,
+    [
+     3162,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon sits in class for the first time in ages, and thinks about how much he has *changed*.",
+   "clips": [
+    3189
+   ]
+  },
+  {
+   "say": "Changho does not take that well, and one afternoon he shows up with a baseball *bat*.",
+   "clips": [
+    3207
+   ]
+  },
+  {
+   "say": "He swings it down the hallway, screaming that he will kill them both, and nobody can *stop* him.",
+   "clips": [
+    3222,
+    [
+     3231,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The old chief of the Alliance walks into the school in his kimono, like he *owns* it.",
+   "clips": [
+    3168
+   ]
+  },
+  {
+   "say": "That same afternoon, a black car pulls up outside, and men in suits walk in looking for *Shi-woon*.",
+   "clips": [
+    3255,
+    [
+     3246,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The Alliance has figured out that he is Goomoonryong's disciple, and they want to use him as *bait*.",
+   "clips": [
+    3258,
+    [
+     3261,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon hears them coming, and decides that he will not be a burden to his teacher *anymore*.",
+   "clips": [
+    3243
+   ]
+  },
+  {
+   "say": "He calls Han, but all he gets is a busy *tone*.",
+   "clips": [
+    3198,
+    [
+     3582,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "So he runs, and a van full of strangers in sunglasses pulls up beside *him*.",
+   "clips": [
+    3315,
+    [
+     3318,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "They say they are not kidnappers, they are here to *help*.",
+   "clips": [
+    3324,
+    [
+     3321,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "A black van chases them through the city, and the driver handles it like an action *movie*.",
+   "clips": [
+    3333,
+    [
+     3336,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "One of them says that Han is the most infamous villain in the *Murim*.",
+   "clips": [
+    3402
+   ]
+  },
+  {
+   "say": "Shi-woon yells that he will not sit around with people who speak badly of *Sunsengnim*.",
+   "clips": [
+    3405
+   ]
+  },
+  {
+   "say": "In their tower, the old masters decide to use the boy to *trap* the Dragon.",
+   "clips": [
+    3417,
+    [
+     3420,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The Alliance watches the city through cameras, and one man complains that there is no clear shot of his *face*.",
+   "clips": [
+    3369,
+    [
+     3372,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "They are sure that Goomoonryong will walk right into it, because he cares about his *disciple*.",
+   "clips": [
+    3423,
+    [
+     3426,
+     8
     ]
    ]
   },
   {
    "say": "Ten old men against one teacher.",
    "clips": [
-    3543
+    3441
    ]
   },
   {
-   "say": "Shi-woon hears about it, and runs to *warn* him, because he refuses to be a burden anymore.",
+   "say": "Years ago, Han lost control of his rage, and the Murim elders branded him a *monster*.",
    "clips": [
-    3570,
+    3498,
     [
-     3591,
+     4473,
      8
     ]
    ]
   },
   {
-   "say": "He races toward the tower, even though the elders are tracking his *phone*, which is a rookie mistake.",
+   "say": "The Alliance decides the best way to catch him is to build a trap around the *tower*.",
    "clips": [
-    3588,
+    3525,
     [
-     3597,
-     9
+     3543,
+     8
     ]
    ]
   },
   {
-   "say": "Then he grabs the phone and tells the driver to stop the car, because he will lure the trackers *away* himself.",
+   "say": "Han gets a call saying his disciple is at the tower, and he hears the trap in the caller's *voice*.",
    "clips": [
-    3594
-   ]
-  },
-  {
-   "say": "Han storms in with Shiho at his side, and she says she is fine because she is with the *invincible* Goomoonryong.",
-   "clips": [
-    3882,
+    3528,
     [
-     3873,
+     3519,
      10
     ]
    ]
   },
   {
-   "say": "At the tower, the chief sets off a fire alarm, and every coward runs for the *stairs*.",
+   "say": "The old chief is furious, because nobody insults the Alliance and walks *away*.",
    "clips": [
-    4116,
+    3564
+   ]
+  },
+  {
+   "say": "So the chief orders his men to go after the kid, and they *hunt* him.",
+   "clips": [
+    3579
+   ]
+  },
+  {
+   "say": "Meanwhile Shi-woon passes out in the back seat of the van, and the men in sunglasses call him totally *wasted*.",
+   "clips": [
+    3456,
     [
-     4122,
+     3459,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon charges his dead phone in a stranger's van, and decides he has to reach the tower *himself*.",
+   "clips": [
+    3570,
+    [
+     3573,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then he realizes the elders are tracking his phone, which is a rookie *mistake*.",
+   "clips": [
+    3588,
+    [
+     3591,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "So he tells the driver to stop the car, because he will lure the trackers *away* himself.",
+   "clips": [
+    3594,
+    [
+     3597,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He steps out into the street alone, and says it ends *here*.",
+   "clips": [
+    3609,
+    [
+     3621,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "That is not a plan, that is a *dare*.",
+   "clips": [
+    3606
+   ]
+  },
+  {
+   "say": "Han storms into the city in a white sports car, with Shiho at his *side*.",
+   "clips": [
+    3687,
+    [
+     3711,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Shiho tells him she will follow him even to the depths of *hell*.",
+   "clips": [
+    3648
+   ]
+  },
+  {
+   "say": "A huge crowd gathers around the business tower, and nobody knows why they are *there*.",
+   "clips": [
+    3672,
+    [
+     3690,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The crowd waits like a fan club, because a Goomoonryong sighting beats any rock *concert*.",
+   "clips": [
+    3708,
+    [
+     3705,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Martial artists beg the guards to let them in, like it is a sold-out *show*.",
+   "clips": [
+    3747,
+    [
+     3750,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The Alliance has a welcome committee, and a man in a striped suit introduces himself with a *smile*.",
+   "clips": [
+    3723,
+    [
+     3729,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He promises to show everyone his skills, and he smiles a little too *wide*.",
+   "clips": [
+    3777,
+    [
+     3756,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Han looks up at the tower and mutters about those old farts, not in the mood to *wait*.",
+   "clips": [
+    3741,
+    [
+     3735,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile Shi-woon makes it to the tower door, and the door is *locked*.",
+   "clips": [
+    3792,
+    [
+     3798,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He begs the guards to let him in, and they tell him it is *useless*.",
+   "clips": [
+    3804
+   ]
+  },
+  {
+   "say": "He raises his fist and says that if they refuse him, he will use *force*.",
+   "clips": [
+    3813,
+    [
+     3816,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He tells them that losing a fight is still better than not fighting at *all*.",
+   "clips": [
+    3825
+   ]
+  },
+  {
+   "say": "Then he swings, loses, and sits on the floor gasping for *air*.",
+   "clips": [
+    3846,
+    [
+     3873,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Inside, Han and Shiho cut through the Alliance, and the stairs fill up with fallen *fighters*.",
+   "clips": [
+    3912,
+    [
+     3882,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then Shiho opens her jacket, whose lining can fill the stairwell with poison gas, and offers to take everyone to hell *together*.",
+   "clips": [
+    3915,
+    [
+     3918,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Poison gas fills the stairwell, the Alliance men panic, and somewhere in the chaos, Shi-woon slips *inside*.",
+   "clips": [
+    3930,
+    [
+     3936,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Han screams at him for coming, but Shiho admits that without Shi-woon, they would both be *dead*.",
+   "clips": [
+    3948,
+    [
+     3954,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Han tells her it is not her fight, and she says she is going with him to the *end*.",
+   "clips": [
+    3957,
+    [
+     4107,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile the chief screams at his own men, because the Sunwoo family's lady, Sosul, slipped *away* from them.",
+   "clips": [
+    3945,
+    [
+     3942,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then the fire alarm goes off, and every coward in the building runs for the *stairs*.",
+   "clips": [
+    3963,
+    [
+     3975,
      8
     ]
    ]
@@ -901,56 +2479,174 @@
     4134,
     [
      4137,
-     10
+     9
     ]
    ]
   },
   {
-   "say": "The chief greets him, welcome Goomoonryong, you are a little *late*.",
+   "say": "Nobody can tell if he is brave or insane, and honestly, same.",
+   "clips": [
+    4140
+   ]
+  },
+  {
+   "say": "On the roof, the old chief welcomes him, and tells Goomoonryong he is a little *late*.",
    "clips": [
     4149,
     [
-     4113,
+     4146,
      6
     ]
    ]
   },
   {
-   "say": "It was a trap from the start, and poison gas starts *flooding* the room.",
+   "say": "Shiho and Shi-woon stumble out of the smoke behind him, and realize it was a trap from the *start*.",
    "clips": [
     4155,
     [
      4143,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Han taunts the old men to come at him all at once, and the chief takes him on *himself*.",
+   "clips": [
+    4158,
+    [
+     4161,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The chief says his recklessness is his biggest weakness, just like his master, who was more wild beast than martial *artist*.",
+   "clips": [
+    4164,
+    [
+     4167,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Han is still drained from the poison on the stairs, and in front of the whole Alliance, the legend actually *loses*.",
+   "clips": [
+    4179,
+    [
+     4194,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The chief says he does not want to kill a young man with a promising *future*.",
+   "clips": [
+    4197,
+    [
+     4206,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Han tells him not to make him laugh, but he is running on *fumes*.",
+   "clips": [
+    4212
+   ]
+  },
+  {
+   "say": "He drops to his knees, bleeding, and tells his dead master that he is *sorry*.",
+   "clips": [
+    4215,
+    [
+     4218,
      7
     ]
    ]
   },
   {
-   "say": "Weakened and poisoned, Han stares at the chief, and something inside him *breaks*.",
+   "say": "Shiho walks over, kneels beside him, and asks if he is *alright*.",
    "clips": [
-    4158,
+    4209
+   ]
+  },
+  {
+   "say": "Then Shiho pours in the ki she drew out of Shi-woon, and Han's empty ki starts to flow *again*.",
+   "clips": [
+    4227,
     [
-     4152,
+     4239,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The chief sees the Dragon getting back up, and he pulls out a *gun*.",
+   "clips": [
+    4254,
+    [
+     4263,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The gun goes off, and Shiho is the one who goes *down*.",
+   "clips": [
+    4269,
+    [
+     4260,
      6
     ]
    ]
   },
   {
-   "say": "The poison and the old rage push him into a terrifying *form*, and the room goes quiet.",
+   "say": "Han catches her, and screams for her to open her *eyes*.",
+   "clips": [
+    4314,
+    [
+     4317,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He holds her on the roof, bleeding, and cannot do a single thing to *save* her.",
+   "clips": [
+    4338,
+    [
+     4320,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "And then something inside Han *breaks*, and the whole roof goes quiet.",
+   "clips": [
+    4323,
+    [
+     4335,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The old rage takes over, and something terrifying takes Han's *place*.",
    "clips": [
     4359,
     [
      4356,
-     8
+     6
     ]
    ]
   },
   {
    "say": "He tears through the Alliance's best, and every blow shakes the *tower*, like Saitama on a bad day.",
    "clips": [
-    4377,
+    4374,
     [
-     4368,
+     4377,
      9
     ]
    ]
@@ -960,24 +2656,54 @@
    "clips": [
     4386,
     [
-     4320,
-     6
+     4368,
+     5
     ]
    ]
   },
   {
    "say": "That is not a human anymore.",
    "clips": [
-    4362
+    4383
    ]
   },
   {
-   "say": "Then a bleeding Shi-woon walks in and asks, Sunsengnim, can you *hear* me?",
+   "say": "Kang-sung looks at the monster Han has become, and asks what *state* he is in.",
    "clips": [
-    4497,
+    4446,
     [
-     4500,
-     6
+     4443,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then he charges in, the one man in the Alliance who might actually stand a *chance*.",
+   "clips": [
+    4449,
+    [
+     4455,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Down in the rain, Sosul steps up and commands her people to protect *Shi-woon*.",
+   "clips": [
+    4527,
+    [
+     4398,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then a bleeding Shi-woon staggers toward him and asks, Sunsengnim, can you *hear* me?",
+   "clips": [
+    4494,
+    [
+     4401,
+     7
     ]
    ]
   },
@@ -987,68 +2713,80 @@
     4482,
     [
      4479,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "But Shi-woon keeps getting back up, and says, this is not the Sunsengnim I *believe* in.",
+   "clips": [
+    4497,
+    [
+     4500,
      8
     ]
    ]
   },
   {
-   "say": "But Shi-woon keeps getting back up, and says, if it weren't for you, I would be dead, and this is not the Sunsengnim I *believe* in.",
+   "say": "He says he was a coward who thought of ending his life, and Han *saved* him.",
+   "clips": [
+    4506,
+    [
+     4509,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He says that if it were not for Sunsengnim, he would not even be *here*.",
    "clips": [
     4512
    ]
   },
   {
-   "say": "He tells him he used to be a coward who even thought of killing himself, and that Han is the one who *saved* him.",
-   "clips": [
-    4506
-   ]
-  },
-  {
    "say": "And then he throws one *punch*.",
    "clips": [
-    4518
+    4518,
+    [
+     4521,
+     3
+    ]
    ]
   },
   {
-   "say": "That punch stops the Nine Arts Dragon *cold*, and every fighter in the room asks if that kid really just did that.",
+   "say": "That punch stops the Nine Arts Dragon *cold*, and every fighter on the roof asks if that kid really did it.",
    "clips": [
-    4500
+    4530,
+    [
+     4536,
+     10
+    ]
    ]
   },
   {
-   "say": "Then Han strikes his own student straight *through*, and the whole room thinks he just killed him.",
+   "say": "Then Han strikes his own student straight *through*, and the whole roof thinks he just killed him.",
    "clips": [
-    4521,
+    4542,
     [
      4608,
-     6
-    ]
-   ]
-  },
-  {
-   "say": "Han goes after the chief, but Kang-sung, the Alliance's top fighter, steps in and says the old man is already as good as *dead*.",
-   "clips": [
-    4626,
-    [
-     4629,
-     6
-    ]
-   ]
-  },
-  {
-   "say": "Han just laughs and says that kid was only a *toy*, never his disciple, while Shi-woon lies there in his own blood.",
-   "clips": [
-    4638,
-    [
-     4659,
      8
     ]
    ]
   },
   {
-   "say": "Kang-sung admits Han killed his master, says he does not *blame* him, and the two monsters clash anyway.",
+   "say": "Han goes after the chief, but Kang-sung, the Alliance's top fighter, says the old man is as good as *dead*.",
    "clips": [
-    4665,
+    4623,
+    [
+     4626,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "He tells Han that he should hurry up and get his disciple *treated*.",
+   "clips": [
+    4629,
     [
      4632,
      6
@@ -1056,39 +2794,133 @@
    ]
   },
   {
-   "say": "The Alliance escapes in a *helicopter*, and Kang-sung promises there will always be another chance.",
+   "say": "Han just laughs and says that kid was only a *toy*, never his disciple, while Shi-woon lies there bleeding.",
    "clips": [
-    4686,
+    4659
+   ]
+  },
+  {
+   "say": "Han asks if he knows who killed his master, and Kang-sung says he does, but does not *blame* him.",
+   "clips": [
+    4662,
     [
-     4689,
+     4665,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That should have ended it, but two monsters like that never talk things out, so the ground starts *shaking*.",
+   "clips": [
+    4680,
+    [
+     4686,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The Alliance has seen enough, and its men yell at Kang-sung to get on the *chopper*.",
+   "clips": [
+    4689,
+    [
+     4692,
      8
     ]
    ]
   },
   {
-   "say": "Shi-woon wakes up in a hospital, and learns Han destroyed his ki center, so he can never use martial arts *again*.",
+   "say": "He promises there will always be another *chance*, and he climbs on board.",
    "clips": [
-    4599,
+    4695
+   ]
+  },
+  {
+   "say": "Their helicopter lifts off with the old chief, and the roof finally goes *silent*.",
+   "clips": [
+    4683
+   ]
+  },
+  {
+   "say": "Shi-woon wakes up in a hospital bed, and the first thing he feels is that something inside him is *missing*.",
+   "clips": [
+    4698,
     [
-     4596,
+     4716,
      8
     ]
    ]
   },
   {
-   "say": "Han probably did it to *save* him, because a boy with no martial arts is no disciple the Murim needs to hunt.",
+   "say": "Kang-sung tells him his people brought him to the hospital, and that he told his mom it was a car *accident*.",
    "clips": [
-    4722
+    4578,
+    [
+     4572,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then a doctor explains that Han destroyed his ki center, so he can never use martial arts *again*.",
+   "clips": [
+    4596,
+    [
+     4599,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon asks if Sunsengnim really tried to *kill* him.",
+   "clips": [
+    4602
+   ]
+  },
+  {
+   "say": "Han probably did it to *save* him, because a boy with no martial arts is no disciple to hunt.",
+   "clips": [
+    4722,
+    [
+     4725,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon begs the empty room for an answer, and nobody *answers*.",
+   "clips": [
+    4704,
+    [
+     4701,
+     5
+    ]
    ]
   },
   {
    "say": "Han, Shiho and even Sosul vanish like they never existed, and Shi-woon keeps calling, but nobody *answers*.",
    "clips": [
-    4767,
+    4734,
     [
-     4734,
+     4731,
      8
     ]
+   ]
+  },
+  {
+   "say": "Back at school, Sae-hee finds him and says his mom has been worried *sick*.",
+   "clips": [
+    4740,
+    [
+     4737,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Changho has been suspended indefinitely, which is the one good piece of news in all *this*.",
+   "clips": [
+    4743
    ]
   },
   {
@@ -1096,7 +2928,7 @@
    "clips": [
     4749,
     [
-     4752,
+     4746,
      8
     ]
    ]
@@ -1107,7 +2939,7 @@
     4755,
     [
      4761,
-     8
+     9
     ]
    ]
   },
@@ -1117,34 +2949,34 @@
     4764,
     [
      4758,
-     8
+     10
     ]
    ]
   },
   {
-   "say": "Men in suits show up at his school and bow to him, and Shi-woon tells them they have the wrong *person*.",
+   "say": "Men in suits show up at his school and bow to him, and Shi-woon says they have the wrong *person*.",
    "clips": [
     4773,
     [
      4770,
-     8
+     10
     ]
    ]
   },
   {
-   "say": "They do not budge, they came for Goomoonryong's disciple, the new head of the Sunwoo *clan*.",
+   "say": "They do not budge, they came for Goomoonryong's disciple, the clan's new *heir*.",
    "clips": [
     4782,
     [
-     4779,
+     4785,
      6
     ]
    ]
   },
   {
-   "say": "The punching bag who begged for his life on that roof stopped the Nine Arts Dragon with one punch, and that is the *end*.",
+   "say": "The punching bag who begged for his life stopped the Nine Arts Dragon with one punch, and that is the *end*.",
    "clips": [
-    4518
+    4779
    ]
   }
  ],
