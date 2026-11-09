@@ -222,9 +222,16 @@ jobs:
         if: always()  # keep the parts that did build
         with:
           name: video
-          path: |
-            ${{ inputs.job }}/final_*.mp4
-            ${{ inputs.job }}/final_*.chapters.txt
+          path: ${{ inputs.job }}/final_*.mp4
+          if-no-files-found: ignore
+          retention-days: 1
+
+      # YouTube chapters (tools/build_short.py writes one when the script marks 3+ chapters); youtube.yml adds them to the description
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chapters
+          path: ${{ inputs.job }}/final_*.chapters.txt
           if-no-files-found: ignore
           retention-days: 1
 

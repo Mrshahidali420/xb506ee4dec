@@ -59,9 +59,13 @@ jobs:
         run: python3 tools/join_parts.py "${{ inputs.meta }}" out $(cat parts.txt)
 
       - name: Upload
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           # a single build (a Short, or one long video) may carry YouTube chapters next to its video
-          [ "$(wc -l < parts.txt)" = "1" ] && cp "$(ls parts/1/*.chapters.txt 2>/dev/null | head -1)" out/joined.chapters.txt 2>/dev/null || true
+          if [ "$(wc -l < parts.txt)" = "1" ] && gh run download ${{ inputs.runs }} -n chapters -D chapters 2>/dev/null; then
+            cp chapters/*.chapters.txt out/joined.chapters.txt 2>/dev/null || true
+          fi
           pip install -q google-api-python-client google-auth-oauthlib
           m="${{ inputs.meta }}"
           args=(); while IFS= read -r p; do [ -n "$p" ] && args+=(--playlist "$p"); done < "$m/playlists.txt"
