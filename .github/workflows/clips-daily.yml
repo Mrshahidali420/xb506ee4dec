@@ -1,14 +1,14 @@
 name: Clips daily
 run-name: Clips daily
 
-# No human in the loop, no paid AI. Picks the most trending episode of the last 48 hours (AniList),
+# No human in the loop, no paid AI. Picks an episode (AniList): fresh and trending first, then the last 10 days, then good ones up to 15 days old; no daily limit,
 # build.yml downloads it and makes the speech text and camera cuts, clip.yml picks the hot stretches
 # (signals + Groq), cuts the branded clips and hands them to the Page posters (recap-assets release).
 # Nothing is posted here: where-build and mi-build post them when their `clip` post type is switched on.
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 */3 * * *'
+    - cron: '30 * * * *'
 
 concurrency:
   group: clips-daily
