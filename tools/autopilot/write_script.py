@@ -207,7 +207,7 @@ def assemble(draft: dict, meta: dict) -> dict:
     tag = "#" + re.sub(r"[^a-z0-9]", "", meta["title"].lower())
     part = meta["part"]
     script.update(
-        voice_chain=["kokoro", "edge"], kokoro_voice="am_liam", speed=1.0,
+        voice_chain=["kokoro", "supertonic", "edge"], kokoro_voice="am_liam", speed=1.0,
         music=MUSIC_SUSPENSE if draft["mood"].strip().lower() in {"suspense", "scifi"} else MUSIC_DEFAULT,
         credit=meta["title"])
     return {"title": draft["title"].strip(),

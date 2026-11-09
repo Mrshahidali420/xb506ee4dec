@@ -89,6 +89,13 @@ jobs:
           path: voice-test/models
           key: kokoro-v1.0
 
+      # Supertonic voice model and faster-whisper small.en model download from Hugging Face on a miss
+      - name: Restore speech models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: speech-models-supertonic-small-en
+
       - name: Install tools
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
@@ -133,12 +140,23 @@ jobs:
             git pull -q --rebase && git push -q
           fi
 
+      # DepthFlow (key manhwa panels, "depth": true in a script) lives in its own environment; only built when a script asks
+      - name: Install DepthFlow
+        run: |
+          files=""; for s in ${{ inputs.script }}; do files="$files ${{ inputs.job }}/$s"; done
+          grep -qs '"depth": *true' $files || { echo "no depth segments"; exit 0; }
+          sudo apt-get install -y -qq xvfb libegl1 libgl1 libgl1-mesa-dri libglu1-mesa > /dev/null
+          uv venv --python 3.11 ~/depthflow-venv
+          uv pip install --python ~/depthflow-venv/bin/python --index-strategy unsafe-best-match             --extra-index-url https://download.pytorch.org/whl/cpu torch torchvision depthflow==1.0.1 pillow numpy
+          echo "DEPTHFLOW_PY=$HOME/depthflow-venv/bin/python" >> "$GITHUB_ENV"
+          echo "LIBGL_ALWAYS_SOFTWARE=1" >> "$GITHUB_ENV"
+
       - name: Build
         run: |
           for s in ${{ inputs.script }}; do
             [ -f "${{ inputs.job }}/$s" ] || { echo "no $s: prep run only"; continue; }
             uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy --with kokoro-onnx \
-              --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
+              --with supertonic --with faster-whisper --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
           done
 
       # A manhwa part also becomes a swipe-through picture post (tools/make_carousel.py). No panels = no carousel.

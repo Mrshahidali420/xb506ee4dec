@@ -186,7 +186,37 @@ def kokoro_tts(text: str, voice: str, raw: Path) -> None:
     sf.write(raw, samples, rate)
 
 
-ENGINES = {"edge": edge_tts_voice, "f5": f5_tts, "elevenlabs": eleven_tts, "orpheus": orpheus_tts, "chatterbox": chatterbox_tts, "kokoro": kokoro_tts}
+SUPERTONIC = None  # the loaded model, shared by every line
+SUPERTONIC_VOICES = ("M1", "M3", "M5")  # the male voices in use; "supertonic_voice" in script.json picks one
+
+
+def supertonic_tts(text: str, voice: str, raw: Path) -> None:
+    try:
+        from supertonic import TTS
+    except ImportError as exc:  # not installed on the build machine
+        raise VoiceEngineDown(f"supertonic: {exc}") from exc
+
+    global SUPERTONIC
+    try:
+        if SUPERTONIC is None:  # load once per build; the first run downloads the model (the runner cache keeps it)
+            SUPERTONIC = TTS(auto_download=True)
+        wav, _ = SUPERTONIC.synthesize(text=text, voice_style=SUPERTONIC.get_voice_style(voice_name=voice),
+                                       total_steps=8, speed=1.0, lang="en")
+        SUPERTONIC.save_audio(wav, str(raw))
+    except Exception as exc:
+        raise VoiceEngineDown(f"supertonic: {exc}") from exc
+
+
+def supertonic_voice(cfg: dict) -> str:
+    voice = cfg.get("supertonic_voice", "M1")
+    if voice not in SUPERTONIC_VOICES:
+        print(f"  supertonic_voice '{voice}' is not one of {SUPERTONIC_VOICES}, using M1", flush=True)
+        return "M1"
+    return voice
+
+
+ENGINES = {"edge": edge_tts_voice, "f5": f5_tts, "elevenlabs": eleven_tts, "orpheus": orpheus_tts, "chatterbox": chatterbox_tts,
+           "kokoro": kokoro_tts, "supertonic": supertonic_tts}
 
 
 def make_voice(text: str, cfg: dict, proj: Path, out: Path) -> None:
@@ -204,6 +234,8 @@ def make_voice(text: str, cfg: dict, proj: Path, out: Path) -> None:
         orpheus_tts(plain(text), cfg.get("orpheus_voice", "troy"), raw)
     elif cfg["voice_engine"] == "chatterbox":
         chatterbox_tts(plain(text), (proj / cfg["voice_ref"]).resolve(), raw)
+    elif cfg["voice_engine"] == "supertonic":
+        supertonic_tts(plain(text), supertonic_voice(cfg), raw)
     else:
         kokoro_tts(plain(text), cfg.get("kokoro_voice", "am_michael"), raw)
     run([FFMPEG, "-y", "-i", str(raw), "-af",
@@ -211,10 +243,27 @@ def make_voice(text: str, cfg: dict, proj: Path, out: Path) -> None:
          "-ar", "44100", "-ac", "2", str(out)])
 
 
-def word_times(text: str, wav: Path, dur: float) -> list[tuple[float, float, str]]:
-    """Word timings from Groq Whisper; falls back to spreading words by length."""
-    words = plain(text).split()
-    marked = text.split()
+WHISPER = None  # the local faster-whisper model, loaded once per build
+TIMING_USED = {"faster-whisper": 0, "groq": 0, "estimate": 0}
+
+
+def local_words(wav: Path, count: int) -> list[tuple[float, float]] | None:
+    """Word start/end from local faster-whisper (small.en, CPU); None when it fails or hears another word count."""
+    global WHISPER
+    try:
+        if WHISPER is None:
+            from faster_whisper import WhisperModel
+
+            WHISPER = WhisperModel("small.en", device="cpu", compute_type="int8")
+        segs, _ = WHISPER.transcribe(str(wav), word_timestamps=True)
+        got = [(w.start, w.end) for seg in segs for w in seg.words]
+        return got if len(got) == count else None
+    except Exception as exc:  # timing is cosmetic; never fail the build on it
+        print("  local word timing failed:", type(exc).__name__, str(exc)[:100])
+        return None
+
+
+def groq_words(wav: Path, count: int) -> list[tuple[float, float]] | None:
     try:
         from groq import Groq
 
@@ -223,10 +272,22 @@ def word_times(text: str, wav: Path, dur: float) -> list[tuple[float, float, str
                 file=(wav.name, fh.read()), model="whisper-large-v3", response_format="verbose_json",
                 timestamp_granularities=["word"], language="en")
         got = [(w["start"], w["end"]) for w in (res.model_dump().get("words") or [])]
-        if len(got) == len(words):
-            return [(s, e, m) for (s, e), m in zip(got, marked)]
+        return got if len(got) == count else None
     except Exception as exc:  # timing is cosmetic; never fail the build on it
         print("  word timing fallback:", type(exc).__name__)
+        return None
+
+
+def word_times(text: str, wav: Path, dur: float) -> list[tuple[float, float, str]]:
+    """Word timings from local faster-whisper, then Groq Whisper; last resort spreads words by length."""
+    words = plain(text).split()
+    marked = text.split()
+    for name, find in (("faster-whisper", local_words), ("groq", groq_words)):
+        got = find(wav, len(words))
+        if got:
+            TIMING_USED[name] += 1
+            return [(s, e, m) for (s, e), m in zip(got, marked)]
+    TIMING_USED["estimate"] += 1
     weights = [len(w) + 2 for w in words]
     total, t, out = sum(weights), 0.0, []
     for wt, m in zip(weights, marked):
@@ -331,6 +392,54 @@ def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = N
          "-c:a", "aac", "-ar", "44100", "-ac", "2", str(out)])
 
 
+DEPTH_MAX = 12  # depth segments per video; the render is slow (about a minute per 4 s on the runner)
+DEPTH_SCENE = Path(__file__).resolve().parent / "depth_scene.py"
+DEPTH_PY = os.environ.get("DEPTHFLOW_PY", "")  # python of the environment that has depthflow + torch
+
+
+def depth_frame(src: Path, at: float, out: Path) -> None:
+    """The panel at second `at`, letterbox cut off, laid out for the frame as piece() does."""
+    from PIL import Image, ImageFilter
+
+    run([FFMPEG, "-y", "-ss", f"{at:.3f}", "-i", str(src), "-frames:v", "1", str(out)])
+    art = Image.open(out).convert("RGB")
+    box = art.convert("L").point(lambda v: 255 if v > 22 else 0).getbbox()  # the source letterboxes the panel in black
+    if box and (box[2] - box[0]) > art.width // 3 and (box[3] - box[1]) > art.height // 5:
+        art = art.crop(box)
+    cover = max(W / art.width, H / art.height)
+    back = art.resize((round(art.width * cover), round(art.height * cover)))
+    left, top = (back.width - W) // 2, (back.height - H) // 2
+    back = back.crop((left, top, left + W, top + H))
+    if WIDE:  # whole panel in the middle, blurred copy behind
+        back = back.filter(ImageFilter.GaussianBlur(30)).point(lambda v: int(v * 0.85))
+        fit = H / art.height
+        back.paste(art.resize((round(art.width * fit), H)), ((W - round(art.width * fit)) // 2, 0))
+    back.save(out)
+
+
+def depth_segment(i: int, src: Path, at: float, dur: float, tmp: Path) -> Path | None:
+    """The panel as a DepthFlow clip as long as the line, with a silent track; None when it fails (normal clip then)."""
+    out = tmp / f"s{i:02d}_depth_{dur:.2f}.mp4"
+    if out.exists():
+        return out
+    try:
+        if not DEPTH_PY:
+            raise RuntimeError("DEPTHFLOW_PY is not set")
+        frame, raw = tmp / f"s{i:02d}_depth.png", tmp / f"s{i:02d}_depth_raw.mp4"
+        depth_frame(src, at, frame)
+        r = subprocess.run(["xvfb-run", "-a", DEPTH_PY, str(DEPTH_SCENE), str(frame), str(raw), f"{dur:.3f}", str(FPS), str(W), str(H)],
+                           capture_output=True, text=True, timeout=900)
+        if r.returncode or not raw.exists():
+            raise RuntimeError(f"exit {r.returncode}: {(r.stdout + r.stderr)[-300:]}")
+        run([FFMPEG, "-y", "-i", str(raw), "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{dur:.3f}",
+             "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
+             "-c:a", "aac", "-ar", "44100", "-ac", "2", "-shortest", str(out)])
+        return out
+    except Exception as exc:  # a key panel is a bonus; never fail the build on it
+        print(f"  warning: depth segment {i:02d} failed, using the normal clip: {str(exc)[:300]}", flush=True)
+        return None
+
+
 def video_length(path: Path) -> float:
     out = subprocess.run([FFPROBE, "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration",
                           "-of", "csv=p=0", str(path)], capture_output=True, text=True).stdout.strip()
@@ -358,7 +467,7 @@ def concat(parts: list[Path], out: Path) -> None:
 
 def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tuple[Path, float, list]:
     # one folder per engine + voice: a failed engine never wipes lines another engine made
-    vdir = tmp / f"voice-{cfg['voice_engine']}-{cfg.get(cfg['voice_engine'] + '_voice', 'default')}"
+    vdir = tmp / f"voice-{cfg['voice_engine']}-{supertonic_voice(cfg) if cfg['voice_engine'] == 'supertonic' else cfg.get(cfg['voice_engine'] + '_voice', 'default')}"
     vdir.mkdir(exist_ok=True)
     voice = vdir / f"v{i:02d}.wav"
     make_voice(seg["say"], cfg, proj, voice)
@@ -375,7 +484,13 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     bed = proj / cfg["bed_audio"] if cfg.get("bed_audio") else None
     shots = load_shots(proj)
     parts = []
-    for j, (start, _) in enumerate(clips):
+    depth = None
+    if i in cfg.get("_depth_ok", ()):  # key panel: its first clip, as a DepthFlow clip, covers the whole line
+        at = inside_panel(snap(clips[0][0], dur, shots), shots)
+        depth = depth_segment(i, proj / cfg["source"], at, dur, tmp)
+        if depth:
+            print(f"  depth segment {i:02d}: DepthFlow used", flush=True)
+    for j, (start, _) in enumerate(clips if not depth else []):
         span = cuts[j + 1] - cuts[j]
         p = tmp / f"s{i:02d}_{j}.mp4"
         comic = cfg.get("frame") == "full"  # a film clip may run on across a cut (a normal edit); a comic panel never spills
@@ -383,8 +498,9 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
         at = inside_panel(at, shots) if comic else at
         piece(proj / cfg["source"], at, span, p, bed, comic, shot_room(at, shots) if comic else 1e9)
         parts.append(p)
-    video = tmp / f"s{i:02d}_pic.mp4"
-    concat(parts, video)
+    video = depth or tmp / f"s{i:02d}_pic.mp4"
+    if not depth:
+        concat(parts, video)
     out = tmp / f"seg{i:02d}.mp4"
     run([FFMPEG, "-y", "-i", str(video), "-i", str(voice), "-filter_complex",
          f"[0:a]volume={cfg['bed_volume']}[bed];[bed][1:a]amix=inputs=2:duration=first:normalize=0[a]",
@@ -452,6 +568,11 @@ def main() -> None:
     # each script gets its own build folder, so cached voice lines never mix between versions
     tmp = proj / ("build" if script.name == "script.json" else f"build-{script.stem}")
     tmp.mkdir(exist_ok=True)
+    if cfg.get("frame") == "full":  # manhwa only: segments marked "depth": true, the first DEPTH_MAX of them
+        marked = [i for i, seg in enumerate(cfg["segments"]) if seg.get("depth") and "say" in seg]
+        cfg["_depth_ok"] = set(marked[:DEPTH_MAX])
+        for i in marked[DEPTH_MAX:]:
+            print(f"depth segment {i:02d} skipped: over the cap of {DEPTH_MAX}", flush=True)
     chain = [e for e in cfg.get("voice_chain", ["f5", "elevenlabs", "orpheus", "kokoro"]) if e in ENGINES]
     for engine in chain:
         cfg["voice_engine"] = engine
@@ -463,6 +584,7 @@ def main() -> None:
     else:
         sys.exit("every voice engine failed")
     print("voice engine used:", cfg["voice_engine"])
+    print("word timing used:", TIMING_USED)
     joined = tmp / "joined.mp4"
     concat(segs, joined)
     captions(events, tmp / "captions.ass")
