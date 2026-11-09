@@ -58,9 +58,11 @@ jobs:
 
       # The film or panel video is kept between runs, so only the first build of a job downloads it.
       # Restored before WARP: through the tunnel the cache download crawls (6+ min instead of 20 s).
+      # Restore here, save right after the download (below): actions/cache alone saves only when the WHOLE job
+      # succeeds, so a failed or timed-out build threw its download away and the restart fetched everything again.
       - name: Restore cached source
         id: cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         env:
           SEGMENT_DOWNLOAD_TIMEOUT_MINS: 3
         with:
@@ -104,6 +106,16 @@ jobs:
           free -m | head -2; df -h . | tail -1
           case "${{ steps.src.outputs.type }}" in manga|webtoon) ulimit -v 12000000 ;; esac
           python3 tools/fetch_source.py "${{ inputs.job }}"
+
+      # Saved the moment the download is whole (never partial: this step only runs when the fetch succeeded)
+      - name: Keep the downloaded source
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            ${{ inputs.job }}/source.mp4
+            ${{ inputs.job }}/work
+          key: src-${{ inputs.job }}-${{ hashFiles(format('{0}/source.json', inputs.job)) }}
 
       # WARP is only for the download; the free edge voice service blocks its shared addresses
       - name: Leave WARP
