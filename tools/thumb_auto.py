@@ -373,7 +373,9 @@ def is_auto(spec: dict) -> bool:
 def manual_ranks(job: Path, ranked: list[dict]) -> list[dict]:
     """Where the hand-picked panels land in the automatic ranking: the calibration check."""
     path = job / "yt" / "thumb.json"
-    spec = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"auto": True}
+    if not path.exists():  # a new part: no hand picks to compare with
+        return []
+    spec = json.loads(path.read_text(encoding="utf-8"))
     if is_auto(spec):
         return []
     order = {p["panel"]: n + 1 for n, p in enumerate(ranked)}
