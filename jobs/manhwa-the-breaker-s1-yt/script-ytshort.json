@@ -1,0 +1,153 @@
+{
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "The Breaker (Jeon Geuk-jin / Park Jin-hwan)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "kokoro",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1,
+ "bed_volume": 0,
+ "output": "final_ytshort.mp4",
+ "kokoro_voice": "am_liam",
+ "title": "A school coward who once begged for his life just punched the deadliest man alive, and the whole room froze . . . (highlight)",
+ "segments": [
+  {
+   "say": "A school coward who once begged for his life just *punched* the deadliest man alive, and the whole room froze.",
+   "clips": [
+    4518,
+    [
+     4500,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "He snaps at her to stay out of it, and he hates himself the second the words *leave* his mouth.",
+   "clips": [
+    42
+   ]
+  },
+  {
+   "say": "Meanwhile a new substitute teacher walks in wearing a flowery *shirt*, and asks a student where the school office is.",
+   "clips": [
+    9,
+    [
+     15,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "His name is Han Chun-woo, and he looks like a washed-up beach *bum* who got lost on vacation.",
+   "clips": [
+    12,
+    [
+     45,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He spots the bruises and calls Shi-woon a *coward* who cannot hit back, which is a hell of an intro.",
+   "clips": [
+    21,
+    [
+     18,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Rude, but not exactly *wrong*.",
+   "clips": [
+    27
+   ]
+  },
+  {
+   "say": "Han took a quiet job at a quiet school to hide from his past, and he picked the worst *one*.",
+   "clips": [
+    78
+   ]
+  },
+  {
+   "say": "In class, Shi-woon keeps his head down and prays that nobody, especially the new teacher, will notice *him*.",
+   "clips": [
+    51,
+    [
+     60,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then Changho barks at the teacher to stop screwing around and start the lesson, like he *owns* the place.",
+   "clips": [
+    54,
+    [
+     63,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Han just grins, tells the whole class to open their books, and somehow Changho *shuts* up.",
+   "clips": [
+    69,
+    [
+     66,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Nobody has ever made Changho *back* down before, and Shi-woon starts to wonder about this guy.",
+   "clips": [
+    57
+   ]
+  },
+  {
+   "say": "That night, outside a Muay Thai gym, a pack of drunk thugs *surrounds* the strange new teacher.",
+   "clips": [
+    96,
+    [
+     99,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The thugs demand that Han pay up for a drink he never *ordered*, and he just smiles at them.",
+   "clips": [
+    102
+   ]
+  },
+  {
+   "say": "He thanks them for the lovely evening, and then the first chair goes *flying*.",
+   "clips": [
+    117,
+    [
+     120,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The full story is on our channel.",
+   "clips": [
+    117,
+    [
+     120,
+     7
+    ]
+   ]
+  }
+ ]
+}
