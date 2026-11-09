@@ -1,0 +1,56 @@
+{
+ "title": "The Breaker wiring test",
+ "caption": "A bullied student jumped off a bridge to make his teacher train him 😳 The full story of The Breaker, from school bully to the one punch that stopped a legend.\n\nFollow for the next full story!\n\n#thebreaker #manhwarecap #manhwa #martialarts #fullstory #recap",
+ "source": "source.mp4",
+ "frame": "full",
+ "header": "../../brand/manhwa-x/header.png",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "The Breaker (Jeon Geuk-jin / Park Jin-hwan)",
+ "watermark": "@ManhwaXRecap",
+ "voice_chain": [
+  "supertonic",
+  "edge"
+ ],
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1,
+ "bed_volume": 0,
+ "output": "final_supertonic.mp4",
+ "comment": "Was Han right to make Shi-woon risk his life, or did he go too far? 👀 Comment below 👇",
+ "kokoro_voice": "am_liam",
+ "segments": [
+  {
+   "say": "To see how it got here, go back to a very ordinary *school*, where nothing special happens to anybody.",
+   "clips": [
+    9,
+    [
+     21,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Shi-woon Lee is a quiet high school kid, and Changho's gang uses him as a *punching* bag every single day.",
+   "clips": [
+    54,
+    [
+     66,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Every hallway is a trap, and he comes home with a new *bruise* more often than homework.",
+   "clips": [
+    99,
+    [
+     111,
+     8
+    ]
+   ]
+  }
+ ],
+ "supertonic_voice": "M3"
+}
