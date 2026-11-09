@@ -77,7 +77,7 @@ jobs:
         if: inputs.pick == ''
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
-          for f in "${{ steps.job.outputs.dir }}"/thumb-*.jpg "${{ inputs.meta }}"/thumb*.json "${{ inputs.meta }}"/panel-ranks.json; do [ -f "$f" ] && git add "$f"; done
+          for f in "${{ steps.job.outputs.dir }}"/thumb-*.jpg "${{ inputs.meta }}"/thumb*.json "${{ inputs.meta }}"/panel-ranks.json "${{ inputs.meta }}"/shortlist.jpg; do [ -f "$f" ] && git add "$f"; done
           git commit -qm "Thumbnails: ${{ steps.job.outputs.dir }}" || exit 0
           for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
       - name: Set the pick on YouTube

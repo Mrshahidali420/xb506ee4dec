@@ -331,6 +331,30 @@ def build_spec(job: Path, ranked: list[dict], segs: list[dict]) -> tuple[dict, d
     return spec, {"reasons": reasons, "flags": flags}
 
 
+def shortlist(job: Path, ranked: list[dict], out: Path) -> None:
+    """One picture of the 12 best different panels, each tagged with its second: the daily writer picks from this
+    single sheet (not the 20+ panel sheets), so a hand pick costs one image view, not twenty."""
+    from PIL import Image, ImageDraw
+
+    tiles = [p for p in ranked if not p["near_copy"]][:12]
+    cell, cols = 420, 4
+    sheet = Image.new("RGB", (cols * cell, 3 * cell), "black")
+    with tempfile.TemporaryDirectory() as tmp:
+        for n, p in enumerate(tiles):
+            to = Path(tmp) / f"{n}.png"
+            mid = p["panel"] * PANEL_SECONDS + PANEL_SECONDS / 2
+            subprocess.run([FFMPEG, "-v", "error", "-y", "-ss", f"{mid:.2f}", "-i", str(job / "source.mp4"), "-frames:v", "1", str(to)], check=True)
+            img = Image.open(to).convert("RGB")
+            box = img.convert("L").point(lambda v: 255 if v > 22 else 0).getbbox()
+            img = img.crop(box) if box else img
+            img.thumbnail((cell - 6, cell - 6))
+            sheet.paste(img, ((n % cols) * cell + 3, (n // cols) * cell + 3))
+            d = ImageDraw.Draw(sheet)
+            d.rectangle((n % cols * cell, n // cols * cell, n % cols * cell + 190, n // cols * cell + 26), fill="black")
+            d.text((n % cols * cell + 6, n // cols * cell + 6), f"second {p['second']}  score {p['score']}", fill="yellow")
+    sheet.save(out, quality=82)
+
+
 def badge(job: Path) -> str:
     source = json.loads((job / "source.json").read_text(encoding="utf-8")) if (job / "source.json").exists() else {}
     return f"CH {source['chapters']}" if source.get("chapters") else "RECAP"
@@ -371,6 +395,8 @@ def main() -> None:
                   "panels": len(ranked), "with_faces": sum(1 for p in ranked if p["faces"]),
                   "manual_picks": manual_ranks(job, ranked), "weights": WEIGHTS, "variety": VARIETY,
                   "ranked": [{**p, "hash": f"{p['hash']:016x}"} for p in ranked]}
+    if (job / "source.mp4").exists():
+        shortlist(job, ranked, meta / "shortlist.jpg")
     (meta / "thumb-auto.json").write_text(json.dumps(spec, indent=1), encoding="utf-8")
     (meta / "panel-ranks.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     if not (meta / "thumb.json").exists():  # a new part: the automatic picks are its thumbnails
