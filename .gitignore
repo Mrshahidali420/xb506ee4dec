@@ -3,6 +3,7 @@
 !/.gitignore
 !/.github/
 !/tools/
+!/lab/
 !/autopilot/
 !/jobs/
 !/queue/

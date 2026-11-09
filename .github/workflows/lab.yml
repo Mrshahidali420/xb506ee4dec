@@ -1,0 +1,304 @@
+name: Test lab
+run-name: Lab ${{ inputs.test }}
+
+# Compares voice, word-timing and panel-motion tools. Touches nothing in the production pipeline:
+# it only reads lab/, tools/manhwa_panels.py and the cached panel video, and uploads one artifact, lab-results.
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: Which test to run
+        type: choice
+        options: [all, voice, timing, visual]
+        default: all
+
+permissions:
+  contents: read
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  CPU_TORCH: https://download.pytorch.org/whl/cpu
+
+jobs:
+  # ---------- VOICE ----------
+  voice-kokoro:
+    if: inputs.test == 'voice' || inputs.test == 'timing' || inputs.test == 'all'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Restore voice model
+        uses: actions/cache@v4
+        with:
+          path: voice-test/models
+          key: kokoro-v1.0
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install kokoro-onnx soundfile 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log", LAB_OUT: out }
+        run: cd lab && LAB_OUT=../out python voice.py kokoro
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-voice-kokoro, path: out, retention-days: 2 }
+
+  voice-pocket:
+    if: inputs.test == 'voice' || inputs.test == 'all'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install pocket-tts scipy --extra-index-url "$CPU_TORCH" 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python voice.py pocket
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-voice-pocket, path: out, retention-days: 2 }
+
+  voice-supertonic:
+    if: inputs.test == 'voice' || inputs.test == 'all'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install supertonic 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python voice.py supertonic
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-voice-supertonic, path: out, retention-days: 2 }
+
+  voice-chatterbox:
+    if: inputs.test == 'voice' || inputs.test == 'all'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install chatterbox-tts --extra-index-url "$CPU_TORCH" 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python voice.py chatterbox
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-voice-chatterbox, path: out, retention-days: 2 }
+
+  # ---------- TIMING ----------
+  timing-whisperx:
+    needs: voice-kokoro
+    if: always() && (inputs.test == 'timing' || inputs.test == 'all')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { name: part-voice-kokoro, path: kokoro }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install whisperx --extra-index-url "$CPU_TORCH" 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python timing.py whisperx ../kokoro/voice/kokoro_am_liam.mp3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-timing-whisperx, path: out, retention-days: 2 }
+
+  timing-fasterwhisper:
+    needs: voice-kokoro
+    if: always() && (inputs.test == 'timing' || inputs.test == 'all')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { name: part-voice-kokoro, path: kokoro }
+      - name: Install
+        continue-on-error: true
+        run: |
+          pip install faster-whisper 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python timing.py faster-whisper ../kokoro/voice/kokoro_am_liam.mp3
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-timing-fasterwhisper, path: out, retention-days: 2 }
+
+  # ---------- VISUAL ----------
+  frames:
+    if: inputs.test == 'visual' || inputs.test == 'all'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # same paths and key formula as thumb.yml, for the job folder jobs/manhwa-the-breaker-t5
+      - name: Restore the panel video
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            jobs/manhwa-the-breaker-t5/source.mp4
+            jobs/manhwa-the-breaker-t5/work
+          key: src-jobs/manhwa-the-breaker-t5-${{ hashFiles('jobs/manhwa-the-breaker-t5/source.json') }}
+          fail-on-cache-miss: true
+      - name: Cut and crop the 5 panels
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q pillow numpy
+          python lab/frames.py jobs/manhwa-the-breaker-t5/source.mp4 panels
+      - uses: actions/upload-artifact@v4
+        with: { name: lab-panels, path: panels, retention-days: 2 }
+
+  visual-ffmpeg:
+    needs: frames
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/download-artifact@v4
+        with: { name: lab-panels, path: panels }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q pillow numpy 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python visual.py ffmpeg ../panels
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-visual-ffmpeg, path: out, retention-days: 2 }
+
+  visual-kage:
+    needs: frames
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/download-artifact@v4
+        with: { name: lab-panels, path: panels }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          git clone -q https://github.com/spike-crypto/Kage kage-src && git -C kage-src checkout -q 56989e83f92a40af46a80fccca2aa2bc78054a32
+          pip install torch --extra-index-url "$CPU_TORCH" 2>&1 | tee "$RUNNER_TEMP/install.log"
+          pip install "transformers>=4.44,<5" pillow "numpy<2.4" opencv-python-headless pydantic requests python-dotenv 2>&1 | tee -a "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python visual.py kage ../panels ../kage-src
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-visual-kage, path: out, retention-days: 2 }
+
+  visual-acmp:
+    needs: frames
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/download-artifact@v4
+        with: { name: lab-panels, path: panels }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install "git+https://github.com/vc-tr/acmp@3a671971b58721e0dea603cfee78d6941135494c" --extra-index-url "$CPU_TORCH" 2>&1 | tee "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log" }
+        run: cd lab && LAB_OUT=../out python visual.py acmp ../panels
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: part-visual-acmp, path: out, retention-days: 2 }
+
+  visual-depthflow:
+    needs: frames
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: [depthflow, narrator]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/download-artifact@v4
+        with: { name: lab-panels, path: panels }
+      - name: Install
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg xvfb libegl1 libgl1 libgl1-mesa-dri libglu1-mesa > /dev/null
+          pip install torch torchvision --extra-index-url "$CPU_TORCH" 2>&1 | tee "$RUNNER_TEMP/install.log"
+          pip install depthflow==1.0.1 pillow numpy 2>&1 | tee -a "$RUNNER_TEMP/install.log"
+      - name: Run
+        if: always()
+        env: { INSTALL_LOG: "${{ runner.temp }}/install.log", LIBGL_ALWAYS_SOFTWARE: "1" }
+        run: cd lab && LAB_OUT=../out python visual.py ${{ matrix.tool }} ../panels
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: "part-visual-${{ matrix.tool }}", path: out, retention-days: 2 }
+
+  # ---------- COLLECT ----------
+  collect:
+    needs: [voice-kokoro, voice-pocket, voice-supertonic, voice-chatterbox, timing-whisperx, timing-fasterwhisper, visual-ffmpeg, visual-kage, visual-acmp, visual-depthflow]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { pattern: "part-*", path: parts, merge-multiple: true }
+      - name: Make results.md
+        run: |
+          mkdir -p parts
+          printf 'Run: %s, commit %s\nPinned commits used: Kage 56989e83, acmp 3a671971, comic-manga-narrator 38bac4fa (its GentleDepth preset re-created in lab/visual.py), DepthFlow depthflow==1.0.1 (repo 9607b607), pocket-tts repo c91f50f3, Supertonic repo 1e9799e9 (pip supertonic), Chatterbox repo ab55923c.\nText: lab/text.txt (first say line of manhwa-the-breaker-s1, stars removed).\n' "$GITHUB_RUN_ID" "$GITHUB_SHA" > pins.txt
+          python lab/report.py parts pins.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: lab-results, path: parts, retention-days: 14 }
