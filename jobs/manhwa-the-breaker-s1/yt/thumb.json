@@ -1,0 +1,114 @@
+{
+ "badge": "CH 1-72",
+ "auto": true,
+ "review": false,
+ "confidence": 83,
+ "thumbs": [
+  {
+   "name": "scene",
+   "style": "scene",
+   "panel": 814,
+   "focus": [
+    0.5,
+    0.459
+   ],
+   "fit": "contain",
+   "sides": [
+    589,
+    4519
+   ],
+   "labels": [
+    {
+     "text": "DISTURBED",
+     "at": [
+      0.2,
+      0.14
+     ],
+     "to": [
+      0.509,
+      0.459
+     ]
+    }
+   ]
+  },
+  {
+   "name": "split",
+   "style": "split",
+   "panels": [
+    814,
+    4519
+   ],
+   "focus": [
+    [
+     0.5,
+     0.459
+    ],
+    [
+     0.5,
+     0.666
+    ]
+   ],
+   "labels": [
+    {
+     "text": "MC",
+     "at": [
+      0.13,
+      0.86
+     ],
+     "to": [
+      0.273,
+      0.5
+     ]
+    },
+    {
+     "text": "ENEMY",
+     "at": [
+      0.82,
+      0.86
+     ],
+     "to": [
+      0.734,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "trio",
+   "style": "trio",
+   "panels": [
+    589,
+    814,
+    4519
+   ],
+   "focus": [
+    [
+     0.5,
+     0.7
+    ],
+    [
+     0.5,
+     0.459
+    ],
+    [
+     0.5,
+     0.666
+    ]
+   ],
+   "labels": [
+    {
+     "text": "PUNCHED",
+     "at": [
+      0.2,
+      0.14
+     ],
+     "to": [
+      0.799,
+      0.666
+     ]
+    }
+   ]
+  }
+ ],
+ "auto_hash": "5058ce7e37b4e3af936dcf40a26b938db2911539"
+}
