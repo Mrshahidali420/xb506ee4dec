@@ -1,9 +1,12 @@
 """Pick whole manhwa stories for the weekly long video (Shahid, 9 Nov 2026: complete stories, not parts).
 
-  python story_pick.py discover [n]     finished Korean manhwa of 30-120 chapters, most popular first (AniList, no key)
+  python story_pick.py discover [n]     finished full-colour Korean manhwa of 30-120 chapters, most popular first (AniList, no key)
   python story_pick.py add "<title>"    look the title up (status, chapters), find its sources, put it in daily/stories.json
   python story_pick.py show             the shelf: each story, its status, chapters covered, and the next block
   python story_pick.py next             the next block to build, as JSON (daily.py uses story_job instead)
+
+Colour only (Shahid, 9 Nov 2026): a title must carry AniList's "Full Color" tag; black-and-white manga,
+manhwa or manhua are never added.
 
 The block rule:
   finished              one video, the whole story (chapters 1..total)
@@ -56,7 +59,7 @@ def anilist(query: str, variables: dict) -> dict:
 
 
 def discover(n: int) -> None:
-    query = """query($p:Int){Page(page:$p,perPage:50){media(type:MANGA,countryOfOrigin:"KR",status:FINISHED,
+    query = """query($p:Int){Page(page:$p,perPage:50){media(type:MANGA,countryOfOrigin:"KR",status:FINISHED,tag_in:["Full Color"],
       sort:POPULARITY_DESC,format:MANGA){title{english romaji} chapters popularity averageScore genres}}}"""
     shelf = load()
     have = {s["slug"] for s in shelf["stories"]}
@@ -80,11 +83,13 @@ def save(shelf: dict) -> None:
 
 
 def add(title: str, total: int | None = None) -> None:
-    query = """query($s:String){Media(search:$s,type:MANGA,countryOfOrigin:"KR"){title{english romaji} status chapters}}"""
+    query = """query($s:String){Media(search:$s,type:MANGA,countryOfOrigin:"KR"){title{english romaji} status chapters tags{name}}}"""
     m = anilist(query, {"s": title})["Media"]
     if not m:
         sys.exit(f"AniList knows no Korean manhwa called {title!r}")
     name = m["title"]["english"] or m["title"]["romaji"]
+    if "Full Color" not in {t["name"] for t in m.get("tags") or []}:  # Shahid, 9 Nov 2026: colour comics only, never black and white
+        sys.exit(f"{name}: not tagged Full Color on AniList (black and white): skipped")
     total = total or m["chapters"]
     if not total:  # ongoing titles often carry no chapter count on AniList: pass it by hand (`add "<title>" <chapters>`)
         sys.exit(f"{name}: AniList has no chapter count (status {m['status']}); run: story_pick.py add \"{title}\" <chapters>")
