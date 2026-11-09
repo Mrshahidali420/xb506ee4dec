@@ -11,11 +11,11 @@ Reads <project_dir>/pages/*.jpg|png (in name order), writes:
 from __future__ import annotations
 
 import json
-import multiprocessing
 import os
 import shutil
 import subprocess
 import sys
+from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -140,14 +140,23 @@ def ocr_panels(pdir: Path, count: int, work: Path) -> None:
     workers = min(os.cpu_count() or 1, 4)
     out = None
     if workers > 1 and count > 20:
-        try:
-            with multiprocessing.Pool(workers) as pool:
-                out = list(pool.imap(_read_panel, jobs, chunksize=8))
+        try:  # ProcessPoolExecutor raises if a worker dies (a plain Pool would wait forever)
+            with ProcessPoolExecutor(workers) as pool:
+                out = []
+                for n, row in enumerate(pool.map(_read_panel, jobs, chunksize=8), 1):
+                    out.append(row)
+                    if n % 100 == 0:
+                        print(f"OCR: {n}/{count} panels", flush=True)
             print(f"OCR: {workers} workers", flush=True)
         except Exception as exc:
             print(f"OCR pool failed ({exc}): one process", flush=True)
+            out = None
     if out is None:
-        out = [_read_panel(j) for j in jobs]
+        try:
+            out = [_read_panel(j) for j in jobs]
+        except Exception as exc:  # no reader at all: the video is built without panels_text.json, as before
+            print(f"OCR skipped: {exc}", flush=True)
+            return
     (work / "panels_text.json").write_text(json.dumps(out, ensure_ascii=False, indent=0), encoding="utf-8")
     print(f"OCR: {sum(1 for o in out if o['text'])}/{count} panels have text", flush=True)
 
