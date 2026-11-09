@@ -74,7 +74,8 @@ def main() -> None:
         files = {}
         for page in pages:  # one branded copy per Page
             logo = BRANDS / f"{page}.png"
-            logo = logo if logo.exists() else None
+            if not logo.exists():
+                sys.exit(f"missing Page logo {logo}: a clip without branding must not go out")
             full, short = f"{page}_clip_{i:02d}.mp4", f"{page}_short_{i:02d}.mp4"
             encode(job / "source.mp4", a, b, job / full, logo)
             encode(job / "source.mp4", sa, sb, job / short, logo)
