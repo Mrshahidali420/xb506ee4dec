@@ -82,19 +82,16 @@ jobs:
         timeout-minutes: 5
         uses: ./.github/actions/warp
 
-      # Kokoro voice model (~330 MB): build_short.py downloads it on a miss, the cache keeps it
-      - name: Restore voice model
-        uses: actions/cache@v4
-        with:
-          path: voice-test/models
-          key: kokoro-v1.0
-
-      # Supertonic voice model and faster-whisper small.en model download from Hugging Face on a miss
+      # Every speech model the build may use, downloaded once on a cache miss (step "Download speech models" below)
+      # and kept here. Paths are the real on-disk ones the probe printed on the runner.
       - name: Restore speech models
+        id: speech
         uses: actions/cache@v4
         with:
-          path: ~/.cache/huggingface
-          key: speech-models-supertonic-small-en
+          path: |
+            voice-test/models
+            ~/.cache/huggingface
+          key: speech-models-v2
 
       - name: Install tools
         run: |
@@ -140,8 +137,10 @@ jobs:
             git pull -q --rebase && git push -q
           fi
 
-      # DepthFlow (key manhwa panels, "depth": true in a script) lives in its own environment; only built when a script asks
+      # DepthFlow (key manhwa panels, "depth": true in a script) lives in its own environment; only built when a script asks.
+      # continue-on-error: with DEPTHFLOW_PY unset the depth segments fall back to normal clips.
       - name: Install DepthFlow
+        continue-on-error: true
         run: |
           files=""; for s in ${{ inputs.script }}; do files="$files ${{ inputs.job }}/$s"; done
           grep -qs '"depth": *true' $files || { echo "no depth segments"; exit 0; }
@@ -151,12 +150,38 @@ jobs:
           echo "DEPTHFLOW_PY=$HOME/depthflow-venv/bin/python" >> "$GITHUB_ENV"
           echo "LIBGL_ALWAYS_SOFTWARE=1" >> "$GITHUB_ENV"
 
+      # The two optional speech extras share the Kokoro `uv run`: an install failure there would kill every build.
+      # Probe them alone; the build adds them only when they install (build_short.py falls back when they are missing).
+      - name: Probe speech extras
+        id: extras
+        run: |
+          if uv run --python 3.11 --with supertonic==1.3.1 --with faster-whisper==1.2.1 python -c "import supertonic, faster_whisper; print('supertonic + faster-whisper import ok')"; then
+            echo "with=--with supertonic==1.3.1 --with faster-whisper==1.2.1" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::supertonic / faster-whisper did not install; building without them"
+            echo "with=" >> "$GITHUB_OUTPUT"
+          fi
+
+      # On a cache miss: fetch every model once, then print where each really landed (new files over 1 MB), so the cache path list stays true.
+      - name: Download speech models
+        if: steps.speech.outputs.cache-hit != 'true'
+        continue-on-error: true
+        run: |
+          touch /tmp/marker
+          uv run --python 3.11 --with numpy --with soundfile --with kokoro-onnx ${{ steps.extras.outputs.with }} python tools/fetch_models.py
+          if [ -n "$DEPTHFLOW_PY" ]; then
+            "$DEPTHFLOW_PY" -c "from PIL import Image; Image.new('RGB', (256, 256), (90, 120, 160)).save('/tmp/probe.png')"
+            xvfb-run -a "$DEPTHFLOW_PY" tools/depth_scene.py /tmp/probe.png /tmp/probe.mp4 1 10 270 480
+          fi
+          echo "== new model files =="
+          find / -xdev -type f -size +1M -newer /tmp/marker             -not -path '/proc/*' -not -path '/sys/*' -not -path '/tmp/*' -not -path "$HOME/.cache/uv/*"             -not -path "$HOME/depthflow-venv/*" -not -path '/usr/*' -not -path '/var/*' 2>/dev/null | head -40
+          ls -la voice-test/models ~/.cache 2>&1 | head -30
+
       - name: Build
         run: |
           for s in ${{ inputs.script }}; do
             [ -f "${{ inputs.job }}/$s" ] || { echo "no $s: prep run only"; continue; }
-            uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy --with kokoro-onnx \
-              --with supertonic --with faster-whisper --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
+            uv run --python 3.11 --with truststore --with groq --with soundfile --with edge-tts --with numpy --with kokoro-onnx               ${{ steps.extras.outputs.with }} --with gradio_client --with pillow python tools/build_short.py "${{ inputs.job }}" "$s"
           done
 
       # A manhwa part also becomes a swipe-through picture post (tools/make_carousel.py). No panels = no carousel.

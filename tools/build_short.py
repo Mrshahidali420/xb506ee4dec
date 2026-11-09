@@ -12,10 +12,12 @@ under the narrator. "music" is looped under the whole short and ducks when someo
 """
 from __future__ import annotations
 
+import difflib
 import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import urllib.request
@@ -247,23 +249,57 @@ WHISPER = None  # the local faster-whisper model, loaded once per build
 TIMING_USED = {"faster-whisper": 0, "groq": 0, "estimate": 0}
 
 
-def local_words(wav: Path, count: int) -> list[tuple[float, float]] | None:
-    """Word start/end from local faster-whisper (small.en, CPU); None when it fails or hears another word count."""
+def norm_word(word: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", word.lower())
+
+
+def align_words(spoken: list[str], heard: list[tuple[float, float, str]]) -> list[tuple[float, float]] | None:
+    """Give every script word a start/end from Whisper's words. Words are matched by text (difflib), so one dropped or
+    split word cannot shift every later caption; unmatched words are spread between their matched neighbours."""
+    heard = [h for h in heard if norm_word(h[2])]
+    want = [norm_word(w) for w in spoken]
+    sm = difflib.SequenceMatcher(None, want, [norm_word(h[2]) for h in heard], autojunk=False)
+    times: list[tuple[float, float] | None] = [None] * len(want)
+    matched = 0
+    for a, b, n in sm.get_matching_blocks():
+        for k in range(n):
+            times[a + k] = (heard[b + k][0], heard[b + k][1])
+            matched += 1
+    if matched < max(1, len(want) * 0.6):  # Whisper heard something else; not worth trusting
+        return None
+    i = 0
+    while i < len(times):
+        if times[i] is not None:
+            i += 1
+            continue
+        j = i
+        while j < len(times) and times[j] is None:
+            j += 1
+        start = times[i - 1][1] if i else 0.0
+        end = times[j][0] if j < len(times) else (times[i - 1][1] if i else 0.0)
+        end = max(end, start)
+        for k in range(i, j):
+            times[k] = (start + (end - start) * (k - i) / (j - i), start + (end - start) * (k - i + 1) / (j - i))
+        i = j
+    return times
+
+
+def local_words(wav: Path, words: list[str]) -> list[tuple[float, float]] | None:
+    """Word start/end from local faster-whisper (small.en, CPU); None when it fails or hears something else."""
     global WHISPER
     try:
         if WHISPER is None:
             from faster_whisper import WhisperModel
 
             WHISPER = WhisperModel("small.en", device="cpu", compute_type="int8")
-        segs, _ = WHISPER.transcribe(str(wav), word_timestamps=True)
-        got = [(w.start, w.end) for seg in segs for w in seg.words]
-        return got if len(got) == count else None
+        segs, _ = WHISPER.transcribe(str(wav), word_timestamps=True, beam_size=1, condition_on_previous_text=False)
+        return align_words(words, [(w.start, w.end, w.word) for seg in segs for w in seg.words])
     except Exception as exc:  # timing is cosmetic; never fail the build on it
         print("  local word timing failed:", type(exc).__name__, str(exc)[:100])
         return None
 
 
-def groq_words(wav: Path, count: int) -> list[tuple[float, float]] | None:
+def groq_words(wav: Path, words: list[str]) -> list[tuple[float, float]] | None:
     try:
         from groq import Groq
 
@@ -271,8 +307,7 @@ def groq_words(wav: Path, count: int) -> list[tuple[float, float]] | None:
             res = Groq(api_key=groq_key()).audio.transcriptions.create(
                 file=(wav.name, fh.read()), model="whisper-large-v3", response_format="verbose_json",
                 timestamp_granularities=["word"], language="en")
-        got = [(w["start"], w["end"]) for w in (res.model_dump().get("words") or [])]
-        return got if len(got) == count else None
+        return align_words(words, [(w["start"], w["end"], w["word"]) for w in (res.model_dump().get("words") or [])])
     except Exception as exc:  # timing is cosmetic; never fail the build on it
         print("  word timing fallback:", type(exc).__name__)
         return None
@@ -283,7 +318,7 @@ def word_times(text: str, wav: Path, dur: float) -> list[tuple[float, float, str
     words = plain(text).split()
     marked = text.split()
     for name, find in (("faster-whisper", local_words), ("groq", groq_words)):
-        got = find(wav, len(words))
+        got = find(wav, words)
         if got:
             TIMING_USED[name] += 1
             return [(s, e, m) for (s, e), m in zip(got, marked)]
@@ -394,7 +429,7 @@ def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = N
 
 DEPTH_MAX = 12  # depth segments per video; the render is slow (about a minute per 4 s on the runner)
 DEPTH_SCENE = Path(__file__).resolve().parent / "depth_scene.py"
-DEPTH_PY = os.environ.get("DEPTHFLOW_PY", "")  # python of the environment that has depthflow + torch
+DEPTH_PY = os.environ.get("DEPTHFLOW_PY", "")  # python of the environment that has depthflow + torch; cleared when a render hangs
 
 
 def depth_frame(src: Path, at: float, out: Path) -> None:
@@ -417,9 +452,24 @@ def depth_frame(src: Path, at: float, out: Path) -> None:
     back.save(out)
 
 
+def depth_render(cmd: list[str], timeout: float) -> None:
+    """Run one DepthFlow render in its own process group, so a hung render (xvfb + GL children) is killed whole."""
+    global DEPTH_PY
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, start_new_session=True)
+    try:
+        output, _ = p.communicate(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        os.killpg(p.pid, signal.SIGKILL)
+        p.communicate()
+        DEPTH_PY = ""  # one hang means the rest of this video renders normal clips
+        raise RuntimeError(f"render hung past {timeout:.0f}s; depth is off for the rest of this video")
+    if p.returncode:
+        raise RuntimeError(f"exit {p.returncode}: {output[-300:]}")
+
+
 def depth_segment(i: int, src: Path, at: float, dur: float, tmp: Path) -> Path | None:
     """The panel as a DepthFlow clip as long as the line, with a silent track; None when it fails (normal clip then)."""
-    out = tmp / f"s{i:02d}_depth_{dur:.2f}.mp4"
+    out = tmp / f"s{i:02d}_depth_{at:.2f}_{dur:.2f}.mp4"
     if out.exists():
         return out
     try:
@@ -427,13 +477,15 @@ def depth_segment(i: int, src: Path, at: float, dur: float, tmp: Path) -> Path |
             raise RuntimeError("DEPTHFLOW_PY is not set")
         frame, raw = tmp / f"s{i:02d}_depth.png", tmp / f"s{i:02d}_depth_raw.mp4"
         depth_frame(src, at, frame)
-        r = subprocess.run(["xvfb-run", "-a", DEPTH_PY, str(DEPTH_SCENE), str(frame), str(raw), f"{dur:.3f}", str(FPS), str(W), str(H)],
-                           capture_output=True, text=True, timeout=900)
-        if r.returncode or not raw.exists():
-            raise RuntimeError(f"exit {r.returncode}: {(r.stdout + r.stderr)[-300:]}")
-        run([FFMPEG, "-y", "-i", str(raw), "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{dur:.3f}",
+        depth_render(["xvfb-run", "-a", DEPTH_PY, str(DEPTH_SCENE), str(frame), str(raw), f"{dur:.3f}", str(FPS), str(W), str(H)],
+                     120 + dur * 30)
+        if not raw.exists():
+            raise RuntimeError("no render output")
+        # a render shorter than the line holds its last frame, so the voice is never cut
+        run([FFMPEG, "-y", "-i", str(raw), "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+             "-vf", f"tpad=stop_mode=clone:stop_duration={dur:.3f}", "-t", f"{dur:.3f}",
              "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
-             "-c:a", "aac", "-ar", "44100", "-ac", "2", "-shortest", str(out)])
+             "-c:a", "aac", "-ar", "44100", "-ac", "2", str(out)])
         return out
     except Exception as exc:  # a key panel is a bonus; never fail the build on it
         print(f"  warning: depth segment {i:02d} failed, using the normal clip: {str(exc)[:300]}", flush=True)
