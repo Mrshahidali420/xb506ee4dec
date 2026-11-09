@@ -408,6 +408,21 @@ def mean_db(path: Path) -> float:
     return float(re.search(r"mean_volume: (-?[\d.]+) dB", out).group(1))
 
 
+SFX_DIR = Path(__file__).resolve().parent.parent / "sfx"
+SFX_DB_UNDER_VOICE = 8.0  # an effect sits this far under the voice, so it never covers a word
+
+
+def sfx_file(i: int, seg: dict) -> Path | None:
+    """The sound file for a segment's "sfx" key; an unknown name is ignored with a log line."""
+    name = seg.get("sfx")
+    if not name:
+        return None
+    found = next(iter(sorted(SFX_DIR.glob(f"{name}.*"))), None) if isinstance(name, str) and re.fullmatch(r"\w+", name) else None
+    if not found:
+        print(f"  sfx segment {i:02d}: unknown effect {name!r}, ignored", flush=True)
+    return found
+
+
 def piece(src: Path, start: float, dur: float, out: Path, audio: Path | None = None, full: bool = False,
           room: float = 1e9) -> None:
     """One source shot, framed 9:16: sharp centre crop over a blurred, darkened copy.
@@ -566,8 +581,15 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     if not depth:
         concat(parts, video)
     out = tmp / f"seg{i:02d}.mp4"
-    run([FFMPEG, "-y", "-i", str(video), "-i", str(voice), "-filter_complex",
-         f"[0:a]volume={cfg['bed_volume']}[bed];[bed][1:a]amix=inputs=2:duration=first:normalize=0[a]",
+    fx = sfx_file(i, seg)
+    extra, mix = [], "[bed][1:a]amix=inputs=2:duration=first:normalize=0[a]"
+    if fx:  # the effect starts with the line, mean level 8 dB under the voice (never above 0 dB gain)
+        gain = min(mean_db(voice) - SFX_DB_UNDER_VOICE - mean_db(fx), 0.0)
+        extra = ["-i", str(fx)]
+        mix = f"[2:a]volume={gain:.1f}dB[fx];[bed][1:a][fx]amix=inputs=3:duration=first:normalize=0[a]"
+        print(f"  sfx segment {i:02d}: {fx.name} at {gain:.1f} dB", flush=True)
+    run([FFMPEG, "-y", "-i", str(video), "-i", str(voice), *extra, "-filter_complex",
+         f"[0:a]volume={cfg['bed_volume']}[bed];{mix}",
          "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-ar", "44100", "-ac", "2", str(out)])
     return out, video_length(out), words
 
@@ -586,7 +608,35 @@ def ass_time(t: float) -> str:
     return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
 
 
-def captions(events: list[tuple[float, float, str]], path: Path) -> None:
+def karaoke_events(events: list[tuple[float, float, str]]) -> list[tuple[float, float, str]]:
+    """Per-word events -> one event per word that shows its whole caption line with that word marked.
+    A line breaks after punctuation or when it would pass a width that fits the screen; a quote stays as it is."""
+    limit = 30 if WIDE else 15
+    out, line = [], []
+
+    def flush() -> None:
+        for k, (start, end, _) in enumerate(line):
+            stop = line[k + 1][0] if k + 1 < len(line) else end
+            words = [re.sub(r"[*]", "", w).upper() for _, _, w in line]
+            out.append((start, max(stop, start + 0.05), "KARAOKE:" + "|".join(
+                (" ".join(words[:k]) + " " if k else "", words[k], " " + " ".join(words[k + 1:]) if k + 1 < len(words) else ""))))
+        line.clear()
+
+    for ev in events:
+        if ev[2].startswith("QUOTE:"):
+            flush()
+            out.append(ev)
+            continue
+        if line and sum(len(re.sub(r"[*]", "", w)) + 1 for _, _, w in line) + len(ev[2]) > limit:
+            flush()
+        line.append(ev)
+        if re.search(r"[.,!?;:]\W*$", ev[2]):
+            flush()
+    flush()
+    return out
+
+
+def captions(events: list[tuple[float, float, str]], path: Path, karaoke: bool = False) -> None:
     head = (f"[Script Info]\nScriptType: v4.00+\nPlayResX: {W}\nPlayResY: {H}\n\n[V4+ Styles]\n"
             "Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, "
             "BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV\n"
@@ -595,7 +645,16 @@ def captions(events: list[tuple[float, float, str]], path: Path) -> None:
             f"{70 if WIDE else 330}\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n")
     lines = []
+    if karaoke:
+        events = karaoke_events(events)
     for start, end, word in events:
+        if word.startswith("KARAOKE:"):  # whole line, the spoken word (middle of the two | marks) yellow and a bit bigger
+            before, now, after = word[8:].split("|")
+            lit = f"{{\\c{YELLOW}\\fscx115\\fscy115}}"
+            text = f"{before}{lit}{now}{{\\r}}{after}"
+            lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Word,,0,0,0,,"
+                         f"{{\\pos({W // 2},{int(H * (0.82 if WIDE else 0.755))})}}{text}")
+            continue
         if word.startswith("QUOTE:"):
             lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Quote,,0,0,0,,“{word[6:]}”")
             continue
@@ -611,14 +670,39 @@ def captions(events: list[tuple[float, float, str]], path: Path) -> None:
 
 def build_segments(cfg: dict, proj: Path, tmp: Path) -> tuple[list[Path], list]:
     segs, events, clock = [], [], 0.0
+    cfg["_starts"] = []  # where each segment begins in the joined video
     for i, seg in enumerate(cfg["segments"]):
         maker = original_segment if "orig" in seg else narration_segment
         path, dur, words = maker(i, seg, cfg, proj, tmp)
         segs.append(path)
+        cfg["_starts"].append(clock)
         events += [(clock + s, clock + min(e, dur), w) for s, e, w in words]
         clock += dur
         print(f"segment {i:02d} ok ({dur:.1f}s)", flush=True)
     return segs, events
+
+
+def stamp(t: float) -> str:
+    t = int(t)
+    return f"{t // 3600}:{t // 60 % 60:02d}:{t % 60:02d}" if t >= 3600 else f"{t // 60}:{t % 60:02d}"
+
+
+def write_chapters(cfg: dict, total: float, path: Path) -> None:
+    """YouTube chapters from the segments marked "chapter": "M:SS Title" lines; none unless YouTube would accept them
+    (first at 0:00, at least 3, each at least 10 s long)."""
+    marks = [(start, str(seg["chapter"]).strip()) for start, seg in zip(cfg["_starts"], cfg["segments"]) if seg.get("chapter")]
+    if not marks:
+        return
+    if marks[0][0] > 0.5:
+        marks.insert(0, (0.0, "Intro"))
+    marks[0] = (0.0, marks[0][1])
+    ends = [m[0] for m in marks[1:]] + [total]
+    if len(marks) < 3 or any(e - m[0] < 10 for m, e in zip(marks, ends)):
+        print(f"chapters: {len(marks)} marked, not valid for YouTube (need 3+, each 10 s+), file not written", flush=True)
+        path.unlink(missing_ok=True)
+        return
+    path.write_text("\n".join(f"{stamp(t)} {title}" for t, title in marks) + "\n", encoding="utf-8")
+    print(f"chapters: {len(marks)} written to {path.name}", flush=True)
 
 
 def main() -> None:
@@ -651,7 +735,7 @@ def main() -> None:
     print("word timing used:", TIMING_USED)
     joined = tmp / "joined.mp4"
     concat(segs, joined)
-    captions(events, tmp / "captions.ass")
+    captions(events, tmp / "captions.ass", bool(cfg.get("karaoke")))
     mark_y, credit_y = ("40", "h-50") if WIDE else ("210", "h-150")
     header = cfg.get("header") and not WIDE  # page name card in the empty band above the picture
     if header:
@@ -694,6 +778,7 @@ def main() -> None:
         audio = ["-af", "loudnorm=I=-14:TP=-1.5"]
     run([FFMPEG, "-y", "-i", "joined.mp4", *audio, "-vf", vf, "-c:v", "libx264", "-preset", "medium", "-crf", "19",
          "-c:a", "aac", "-b:a", "192k", "-shortest", str(final)], cwd=tmp)
+    write_chapters(cfg, duration(final), final.with_suffix(".chapters.txt"))
     print(f"done {final} ({duration(final):.1f}s)")
 
 

@@ -222,7 +222,9 @@ jobs:
         if: always()  # keep the parts that did build
         with:
           name: video
-          path: ${{ inputs.job }}/final_*.mp4
+          path: |
+            ${{ inputs.job }}/final_*.mp4
+            ${{ inputs.job }}/final_*.chapters.txt
           if-no-files-found: ignore
           retention-days: 1
 

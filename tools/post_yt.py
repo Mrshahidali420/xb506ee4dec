@@ -17,6 +17,7 @@ private: open YouTube Studio and set it to Public by hand.
 from __future__ import annotations
 
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -114,6 +115,15 @@ def add_to_playlist(yt, video_id: str, name: str) -> None:
     print(f"added to playlist {name!r}")
 
 
+def add_chapters(description: str, block: str) -> str:
+    """The chapter list under the description; skipped when the description already has one or would pass YouTube's 5000 characters."""
+    if re.search(r"^0:00 ", description, re.M) or len(description) + len(block) + 2 > 5000:
+        print("chapters: not added (description already has them or is too long)")
+        return description
+    print(f"chapters: added {len(block.splitlines())} lines")
+    return f"{description}\n\n{block}"
+
+
 def main() -> None:
     args = sys.argv[1:]
     if len(args) == 2 and args[0] == "auth":
@@ -138,6 +148,9 @@ def main() -> None:
     channel, video, title, description = plain[0].lower(), Path(plain[1]), plain[2], plain[3]
     if description.startswith("@"):  # a long description with line breaks lives in a text file
         description = Path(description[1:]).read_text(encoding="utf-8").strip()
+    chapters = video.with_suffix(".chapters.txt")  # written by build_short.py next to the video when the script marks chapters
+    if chapters.exists() and chapters.read_text(encoding="utf-8").strip():
+        description = add_chapters(description, chapters.read_text(encoding="utf-8").strip())
     thumb = Path(flags["--thumb"][-1]) if "--thumb" in flags else None
     tags = [t.strip() for t in ",".join(flags.get("--tags", [])).split(",") if t.strip()]
     playlists = flags.get("--playlist", [])

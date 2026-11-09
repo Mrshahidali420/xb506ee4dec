@@ -3,6 +3,7 @@
 !/.gitignore
 !/.github/
 !/tools/
+!/sfx/
 !/lab/
 !/autopilot/
 !/jobs/

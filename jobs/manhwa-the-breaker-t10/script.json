@@ -30,7 +30,8 @@
      21,
      8
     ]
-   ]
+   ],
+   "chapter": "School life"
   },
   {
    "say": "Shi-woon Lee is a quiet high school kid, and Changho's gang uses him as a *punching* bag every single day.",
@@ -51,7 +52,9 @@
      8
     ]
    ],
-   "depth": true
+   "depth": true,
+   "chapter": "The bullying",
+   "sfx": "whoosh"
   },
   {
    "say": "Today the gang wants sixty thousand won from him, and he has no clue how he will *pay* it.",
@@ -71,7 +74,8 @@
      252,
      8
     ]
-   ]
+   ],
+   "sfx": "boom"
   },
   {
    "say": "She asks what happened, and he is so ashamed that he can barely look at her.",
@@ -82,7 +86,8 @@
      8
     ]
    ],
-   "depth": true
+   "depth": true,
+   "chapter": "The turning point"
   },
   {
    "say": "He snaps at her to stay out of it, and he hates himself the second the words *leave* his mouth.",
@@ -104,5 +109,6 @@
     ]
    ]
   }
- ]
+ ],
+ "karaoke": true
 }
