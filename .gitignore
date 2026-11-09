@@ -25,3 +25,6 @@ jobs/**/build*/voice-*/*.raw.*
 !/brand/*/logo.png
 !/brand/*/header.png
 jobs/**/sheets/
+
+!/brand/pages/
+!/brand/pages/*
