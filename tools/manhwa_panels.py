@@ -15,7 +15,7 @@ import os
 import shutil
 import subprocess
 import sys
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -200,11 +200,14 @@ def main() -> None:
         print(f"{name}: {len(group)} strips, {count} panels so far", flush=True)
     ocr_panels(pdir, count, work)
     spans = range(count)
-    listing = []
-    for i in spans:
-        clip = clips / f"c_{i:03d}.mp4"
-        panel_clip(pdir / f"p_{i:03d}.png", clip)
-        listing.append(f"file '{clip.as_posix()}'")
+    listing = [f"file '{(clips / f'c_{i:03d}.mp4').as_posix()}'" for i in spans]
+    # one ffmpeg per panel, 4 at a time (9 Nov 2026: 1,599 panels one by one took 40+ silent minutes)
+    with ThreadPoolExecutor(min(os.cpu_count() or 1, 4)) as pool:
+        work_items = [pool.submit(panel_clip, pdir / f"p_{i:03d}.png", clips / f"c_{i:03d}.mp4") for i in spans]
+        for n, item in enumerate(work_items, 1):
+            item.result()  # an ffmpeg error stops the build here, as before
+            if n % 100 == 0 or n == count:
+                print(f"clips: {n}/{count} panels", flush=True)
     (work / "panels.txt").write_text("\n".join(listing) + "\n", encoding="utf-8")
     # silent track so the builder's audio mapping works like a film source
     subprocess.run([FFMPEG, "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(work / "panels.txt"),

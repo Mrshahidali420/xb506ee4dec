@@ -195,7 +195,7 @@ def main() -> None:
                 transcribe(job, "en" if src.get("lang", "dub") == "dub" else "translate")
             except (subprocess.CalledProcessError, OSError, ValueError) as err:
                 print(f"no transcript: {err}", flush=True)
-    if src.get("shot_sheets") and not (job / "work" / "shot_sheet_01.jpg").exists():
+    if src.get("shot_sheets") and src["type"] not in ("webtoon", "manga") and not (job / "work" / "shot_sheet_01.jpg").exists():
         shot_sheets(job)
 
 
