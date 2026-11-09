@@ -383,13 +383,16 @@ def main() -> None:
     meta.mkdir(exist_ok=True)
     script = json.loads((job / "script.json").read_text(encoding="utf-8"))
     segs = script["segments"]
-    if not (job / "source.mp4").exists():  # the cache is gone: the series cover is still a real thumbnail
-        spec = {"badge": badge(job), "auto": True, "review": True, "confidence": 0,
-                "thumbs": [{"name": "auto-cover", "style": "cover", "series": script.get("credit", job.name).split(" (")[0]}]}
-        report = {"flags": ["no panel video (cache miss): cover only"], "seconds": round(time.time() - started, 1)}
-    else:
+    ranked, tools = [], {}
+    if (job / "source.mp4").exists():
         with tempfile.TemporaryDirectory() as tmp:
             ranked, tools = score_panels(job, Path(tmp), segs)
+    distinct = [p for p in ranked if not p["near_copy"]]
+    if len(distinct) < 3:  # no cache, or too few usable panels for three styles: the series cover is still a real thumbnail
+        spec = {"badge": badge(job), "auto": True, "review": True, "confidence": 0,
+                "thumbs": [{"name": "auto-cover", "style": "cover", "series": script.get("credit", job.name).split(" (")[0]}]}
+        report = {"flags": [f"{len(distinct)} usable panels (cache miss or too few): cover only"], "seconds": round(time.time() - started, 1)}
+    else:
         spec, picks = build_spec(job, ranked, segs)
         report = {**picks, "tools": tools, "confidence": spec["confidence"], "seconds": round(time.time() - started, 1),
                   "panels": len(ranked), "with_faces": sum(1 for p in ranked if p["faces"]),
@@ -399,7 +402,8 @@ def main() -> None:
         shortlist(job, ranked, meta / "shortlist.jpg")
     (meta / "thumb-auto.json").write_text(json.dumps(spec, indent=1), encoding="utf-8")
     (meta / "panel-ranks.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
-    if not (meta / "thumb.json").exists():  # a new part: the automatic picks are its thumbnails
+    old = meta / "thumb.json"
+    if not old.exists() or json.loads(old.read_text(encoding="utf-8")).get("auto"):  # a new part, or last time's automatic picks
         plain = {**spec, "thumbs": [{**t, "name": t["name"].removeprefix("auto-")} for t in spec["thumbs"]]}
         (meta / "thumb.json").write_text(json.dumps(plain, indent=1), encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "ranked"}, indent=1))

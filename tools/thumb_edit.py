@@ -200,9 +200,14 @@ def make(work: Path, job: Path, t: dict) -> tuple[str, str, str]:
 def fallback(work: Path, job: Path, t: dict, badge: str, out: Path) -> None:
     """The browser failed: the main panel full frame with the badge, drawn by quickthumb (sjquant/quickthumb, MIT);
     if quickthumb is missing too, by Pillow alone. No labels: a plain good panel beats no thumbnail."""
-    first = t.get("panel") or (t.get("panels") or [None])[0]
-    src = work / (panel(job / "source.mp4", first, work / f"p{first}.png") if first is not None
-                  else anilist_cover(t["series"], work / "cover.png"))
+    first = t["panel"] if t.get("panel") is not None else (t.get("panels") or [None])[0]
+    try:
+        if first is None:
+            raise ValueError("a cover spec")
+        src = work / panel(job / "source.mp4", first, work / f"p{first}.png")
+    except Exception:  # no panel video: the series cover is the picture
+        src = work / anilist_cover(t.get("series") or json.loads((job / "script.json").read_text(encoding="utf-8"))
+                                   .get("credit", job.name).split(" (")[0], work / "cover.png")
     try:
         from quickthumb import Canvas, Stroke
 

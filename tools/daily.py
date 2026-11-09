@@ -227,6 +227,9 @@ def build(only: set[str] | None = None) -> None:
             slot["next"] += 1
             if slot["next"] > slot.get("last", 10**6) and slot.get("then"):  # season over: the next show in line
                 slot.update(slot["then"].pop(0), next=1)
+        elif j["kind"] == "story":  # the block counts as covered only now that its build has started
+            src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
+            story_pick.take_block(j["job"], src["story"], src["chapters"])
         elif j["kind"] == "movie":
             src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
             slot["used"].append(src.get("search") or src.get("title"))

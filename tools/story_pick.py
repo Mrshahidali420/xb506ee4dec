@@ -82,11 +82,16 @@ def save(shelf: dict) -> None:
 def add(title: str, total: int | None = None) -> None:
     query = """query($s:String){Media(search:$s,type:MANGA,countryOfOrigin:"KR"){title{english romaji} status chapters}}"""
     m = anilist(query, {"s": title})["Media"]
+    if not m:
+        sys.exit(f"AniList knows no Korean manhwa called {title!r}")
     name = m["title"]["english"] or m["title"]["romaji"]
     total = total or m["chapters"]
     if not total:  # ongoing titles often carry no chapter count on AniList: pass it by hand (`add "<title>" <chapters>`)
         sys.exit(f"{name}: AniList has no chapter count (status {m['status']}); run: story_pick.py add \"{title}\" <chapters>")
-    out = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "find_manhwa.py"), title], capture_output=True, text=True, check=True).stdout
+    found = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "find_manhwa.py"), title], capture_output=True, text=True)
+    if found.returncode:
+        sys.exit(f"{name}: find_manhwa failed: {found.stderr.strip()[-200:]}")
+    out = found.stdout
     sources = json.loads(out) if out.strip().startswith("[") else []  # find_manhwa prints the list alone on stdout
     if not sources:
         sys.exit(f"{name}: no readable source found")
@@ -108,17 +113,25 @@ def next_story(shelf: dict) -> tuple[dict, tuple[int, int]] | None:
 
 
 def story_job() -> tuple[str, dict] | None:
-    """For daily.py: the job folder and source.json of the next story block; marks the block as taken."""
-    shelf = load()
-    found = next_story(shelf)
+    """For daily.py: the job folder and source.json of the next story block. Nothing is saved here: a prep that
+    fails must not use the block up. daily.build() calls take_block() once the real build has started."""
+    found = next_story(load())
     if not found:
         return None
     s, (a, b) = found
     job = f"jobs/manhwa-{s['slug']}-s{len(s['blocks']) + 1}"
-    s["blocks"].append({"job": job, "chapters": f"{a}-{b}"})
-    s["done"] = b
-    save(shelf)
     return job, {"type": "manga", "chapters": f"{a}-{b}", "sources": s["sources"], "story": s["title"], "story_status": s["status"]}
+
+
+def take_block(job: str, story: str, chapters: str) -> None:
+    """Mark a block as covered (its build has started). Safe to call twice for the same job."""
+    shelf = load()
+    s = next((x for x in shelf["stories"] if x["title"] == story), None)
+    if s is None or any(b["job"] == job for b in s["blocks"]):
+        return
+    s["blocks"].append({"job": job, "chapters": chapters})
+    s["done"] = int(chapters.split("-")[1])
+    save(shelf)
 
 
 def show() -> None:

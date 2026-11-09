@@ -55,16 +55,28 @@ jobs:
           pip install -q "opencv-python-headless<5"  # OpenCV 5 dropped CascadeClassifier
           python3 -c "import cv2; print('opencv', cv2.__version__, hasattr(cv2, 'CascadeClassifier'))"
           python -m playwright install --with-deps chromium > /dev/null
-      - name: Pick panels by code
-        continue-on-error: true  # the hand-picked thumbnails below are made either way
-        if: inputs.pick == '' && (inputs.auto || hashFiles(format('{0}/thumb.json', inputs.meta)) == '')
+      # Decided before the auto step writes anything: does the part have a thumb.json made by hand?
+      - name: Hand picks?
+        id: hand
         run: |
+          f="${{ steps.job.outputs.dir }}/yt/thumb.json"
+          if [ -f "$f" ] && ! grep -q '"auto": true' "$f"; then echo "has=yes" >> "$GITHUB_OUTPUT"; else echo "has=no" >> "$GITHUB_OUTPUT"; fi
+      - name: Pick panels by code
+        continue-on-error: true  # the hand-picked thumbnails are made either way; the last check below catches an empty result
+        if: inputs.pick == '' && (inputs.auto || steps.hand.outputs.has == 'no')
+        run: |
+          meta="${{ steps.job.outputs.dir }}/yt"
           python3 tools/thumb_auto.py "${{ steps.job.outputs.dir }}" | tee auto.log
-          grep -q '"review": true' "${{ inputs.meta }}/thumb-auto.json" && echo "### Low confidence: pick the panels by hand" >> "$GITHUB_STEP_SUMMARY" || true
-          python3 tools/thumb_edit.py "${{ inputs.meta }}" thumb-auto.json
+          grep -q '"review": true' "$meta/thumb-auto.json" && echo "### Low confidence: pick the panels by hand" >> "$GITHUB_STEP_SUMMARY" || true
+          # a part with hand picks gets the extra auto-* thumbnails; a new part gets scene/split/trio from the auto picks
+          if [ "${{ steps.hand.outputs.has }}" = yes ]; then spec=thumb-auto.json; else spec=thumb.json; fi
+          python3 tools/thumb_edit.py "$meta" "$spec"
       - name: Make the thumbnails
-        if: inputs.pick == '' && hashFiles(format('{0}/thumb.json', inputs.meta)) != ''
+        if: inputs.pick == '' && steps.hand.outputs.has == 'yes'
         run: python3 tools/thumb_edit.py "${{ inputs.meta }}"
+      - name: Check something was made
+        if: inputs.pick == ''
+        run: ls "${{ steps.job.outputs.dir }}"/thumb-*.jpg > /dev/null || { echo "::error::no thumbnail was made"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: inputs.pick == ''
         with:
