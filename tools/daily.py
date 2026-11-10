@@ -21,7 +21,6 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import story_pick  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 PLAN, TODAY = ROOT / "daily" / "plan.json", ROOT / "daily" / "today.json"
@@ -149,6 +148,7 @@ def prep() -> None:
                 if "weekdays" in slot and now.weekday() not in slot["weekdays"]:
                     continue  # a weekly slot: it only runs on its days (0 = Monday)
                 if kind == "story":  # one whole manhwa story (or the next bulk block of a long one), tools/story_pick.py
+                    import story_pick  # here, not at the top: it needs requests, which `post` and `build` do not have
                     made = story_pick.story_job()
                     if made and any(j["job"] == made[0] for j in jobs):
                         made = None  # a second story slot must not take the block the first one just offered
@@ -233,6 +233,7 @@ def build(only: set[str] | None = None) -> None:
         elif j["kind"] == "story":  # the block counts as covered only now that its build has started
             src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
             if src.get("story") and src.get("chapters"):
+                import story_pick
                 story_pick.take_block(j["job"], src["story"], src["chapters"])
         elif j["kind"] == "movie":
             src = json.loads((ROOT / j["job"] / "source.json").read_text(encoding="utf-8"))
