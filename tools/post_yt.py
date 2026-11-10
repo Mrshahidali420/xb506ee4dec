@@ -117,7 +117,8 @@ def add_to_playlist(yt, video_id: str, name: str) -> None:
 
 def add_chapters(description: str, block: str) -> str:
     """The chapter list under the description; skipped when the description already has one or would pass YouTube's 5000 characters."""
-    if re.search(r"^0:00 ", description, re.M) or len(description) + len(block) + 2 > 5000:
+    has_list = len(re.findall(r"^\d+:\d\d ", description, re.M)) >= 3  # a lone "0:00 Part 1" line is not a chapter list
+    if has_list or len(f"{description}\n\n{block}".encode("utf-8")) > 5000:  # YouTube counts bytes
         print("chapters: not added (description already has them or is too long)")
         return description
     print(f"chapters: added {len(block.splitlines())} lines")

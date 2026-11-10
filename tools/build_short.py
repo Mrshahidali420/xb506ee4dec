@@ -586,7 +586,7 @@ def narration_segment(i: int, seg: dict, cfg: dict, proj: Path, tmp: Path) -> tu
     if fx:  # the effect starts with the line, mean level 8 dB under the voice (never above 0 dB gain)
         gain = min(mean_db(voice) - SFX_DB_UNDER_VOICE - mean_db(fx), 0.0)
         extra = ["-i", str(fx)]
-        mix = f"[2:a]volume={gain:.1f}dB[fx];[bed][1:a][fx]amix=inputs=3:duration=first:normalize=0[a]"
+        mix = f"[2:a]volume={gain:.1f}dB[fx];[bed][1:a][fx]amix=inputs=3:duration=first:normalize=0,alimiter=limit=0.95[a]"
         print(f"  sfx segment {i:02d}: {fx.name} at {gain:.1f} dB", flush=True)
     run([FFMPEG, "-y", "-i", str(video), "-i", str(voice), *extra, "-filter_complex",
          f"[0:a]volume={cfg['bed_volume']}[bed];{mix}",
@@ -611,14 +611,14 @@ def ass_time(t: float) -> str:
 def karaoke_events(events: list[tuple[float, float, str]]) -> list[tuple[float, float, str]]:
     """Per-word events -> one event per word that shows its whole caption line with that word marked.
     A line breaks after punctuation or when it would pass a width that fits the screen; a quote stays as it is."""
-    limit = 30 if WIDE else 15
+    limit = 30 if WIDE else 11  # 9:16: 11 characters at 104 px fit between the margins even with the lit word at 115%
     out, line = [], []
 
     def flush() -> None:
         for k, (start, end, _) in enumerate(line):
             stop = line[k + 1][0] if k + 1 < len(line) else end
             words = [re.sub(r"[*]", "", w).upper() for _, _, w in line]
-            out.append((start, max(stop, start + 0.05), "KARAOKE:" + "|".join(
+            out.append((start, max(stop, start + 0.05), "KARAOKE:" + "\x1f".join(
                 (" ".join(words[:k]) + " " if k else "", words[k], " " + " ".join(words[k + 1:]) if k + 1 < len(words) else ""))))
         line.clear()
 
@@ -649,7 +649,7 @@ def captions(events: list[tuple[float, float, str]], path: Path, karaoke: bool =
         events = karaoke_events(events)
     for start, end, word in events:
         if word.startswith("KARAOKE:"):  # whole line, the spoken word (middle of the two | marks) yellow and a bit bigger
-            before, now, after = word[8:].split("|")
+            before, now, after = word[8:].split("\x1f")  # a unit separator, never in a word (a "|" could be)
             lit = f"{{\\c{YELLOW}\\fscx115\\fscy115}}"
             text = f"{before}{lit}{now}{{\\r}}{after}"
             lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Word,,0,0,0,,"
