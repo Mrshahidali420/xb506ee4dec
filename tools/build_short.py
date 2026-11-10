@@ -735,7 +735,7 @@ def main() -> None:
     print("word timing used:", TIMING_USED)
     joined = tmp / "joined.mp4"
     concat(segs, joined)
-    captions(events, tmp / "captions.ass", bool(cfg.get("karaoke")))
+    captions(events, tmp / "captions.ass", bool(cfg.get("karaoke", True)))  # on for every page (Shahid, 10 Nov 2026); "karaoke": false turns it off
     mark_y, credit_y = ("40", "h-50") if WIDE else ("210", "h-150")
     header = cfg.get("header") and not WIDE  # page name card in the empty band above the picture
     if header:
