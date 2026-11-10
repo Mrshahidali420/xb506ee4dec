@@ -1,0 +1,890 @@
+{
+ "title": "A Man Wakes Up Inside A Fake Family Built To Make Him Confess A Murder . . . (Forgotten)",
+ "caption": "Forgotten (2017): a young man is kidnapped and hypnotized until he believes a stranger's family is his own. Behind the perfect home is a trap meant to dig out one night he forgot 😳\n\n#forgotten #kmovie #movierecap #spoilerroom #fyp",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Film: Forgotten (2017)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Was Jack a victim or a killer in the end? Why?",
+ "segments": [
+  {
+   "say": "A man is tied to a chair in a basement, and told the family he loves is all *fake*.",
+   "clips": [
+    3819.0,
+    [
+     3849.8,
+     6
+    ],
+    [
+     4157.5,
+     13
+    ]
+   ],
+   "chapter": "The Fake Family"
+  },
+  {
+   "say": "To see how it got here, go back to the day Jack's family *moved house*.",
+   "clips": [
+    109.5,
+    [
+     121.0,
+     5
+    ],
+    [
+     232.3,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Jack rides to their new house with Mom, Dad, and his big brother Mike.",
+   "clips": [
+    85.5,
+    [
+     89.0,
+     5
+    ],
+    [
+     96.0,
+     9
+    ]
+   ],
+   "chapter": "Moving Day"
+  },
+  {
+   "say": "Mike is the golden boy. Top of his class, great at sports, loved by *everyone*.",
+   "clips": [
+    157.9,
+    [
+     172.5,
+     5
+    ],
+    [
+     201.9,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Jack adores him, but he lives in his *shadow*. Then the new house starts making noise.",
+   "clips": [
+    142.8,
+    [
+     229.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "That night at dinner, something heavy falls in the room right above their *heads*.",
+   "clips": [
+    465.5,
+    [
+     469.3,
+     5
+    ],
+    [
+     473.2,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Mom and Dad laugh it off. Probably *thunder*. Jack is not buying it.",
+   "clips": [
+    479.2,
+    [
+     488.3,
+     4
+    ],
+    [
+     484.2,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "In bed, he keeps hearing strange sounds from that room, and nobody else *does*.",
+   "clips": [
+    541.8,
+    [
+     607.0,
+     5
+    ],
+    [
+     673.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Mike tells him he just doesn't want to *study*.",
+   "clips": [
+    688.7,
+    [
+     690.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then, one rainy night on a hill, Dad phones Jack and asks him to fetch a *document*.",
+   "clips": [
+    734.9,
+    [
+     768.3,
+     6
+    ],
+    [
+     773.2,
+     11
+    ]
+   ],
+   "chapter": "The Black Van"
+  },
+  {
+   "say": "Jack tells Mike to wait. Ten minutes, tops.",
+   "clips": [
+    779.8,
+    [
+     783.6,
+     3
+    ],
+    [
+     787.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "But when he gets back, two men are shoving Mike into a black *van*.",
+   "clips": [
+    865.8,
+    [
+     867.3,
+     5
+    ],
+    [
+     879.8,
+     9
+    ]
+   ],
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Jack screams his brother's name into the rain.",
+   "clips": [
+    868.6,
+    [
+     877.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Jack chases it through the rain until he falls to his *knees*.",
+   "clips": [
+    884.7,
+    [
+     888.0,
+     4
+    ],
+    [
+     893.2,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "All he caught was the license *plate*.",
+   "clips": [
+    894.6,
+    [
+     897.0,
+     2
+    ],
+    [
+     899.7,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Jack passes out. He wakes up to Mom begging him to say what happened to her other *son*.",
+   "clips": [
+    903.0,
+    [
+     959.0,
+     6
+    ],
+    [
+     971.4,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Detectives arrive, and Jack swears he saw a black *van*.",
+   "clips": [
+    988.6,
+    [
+     991.5,
+     3
+    ],
+    [
+     997.6,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "But that plate does not exist. They tried every number *close* to it.",
+   "clips": [
+    1007.4,
+    [
+     1014.4,
+     4
+    ],
+    [
+     1021.2,
+     9
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1041.2,
+    1044.2
+   ],
+   "text": "I said, \"07JO8911.\" It was a black van!"
+  },
+  {
+   "say": "Even his own dad tells them Jack isn't *well*. Nobody believed him.",
+   "clips": [
+    1048.9,
+    [
+     1054.0,
+     4
+    ],
+    [
+     1057.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Jack takes his pills and tries to rest, but every night he dreams of the same *man*.",
+   "clips": [
+    1103.8,
+    [
+     1134.8,
+     6
+    ],
+    [
+     1161.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Days later, Mike walks back through the front door, alive and *smiling*.",
+   "clips": [
+    1310.1,
+    [
+     1313.0,
+     4
+    ],
+    [
+     1320.0,
+     8
+    ]
+   ],
+   "chapter": "A Stranger Comes Home"
+  },
+  {
+   "say": "He remembers nothing. The doctor says the shock wiped his *memory*.",
+   "clips": [
+    1328.5,
+    [
+     1330.6,
+     4
+    ],
+    [
+     1335.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Everyone cries with joy. Jack just *stares* at him.",
+   "clips": [
+    1293.5,
+    [
+     1300.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Something is off. Mike limped on his left leg for twenty years. Now it's his *right*.",
+   "clips": [
+    224.9,
+    [
+     1577.8,
+     5
+    ],
+    [
+     1579.9,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "A stranger was wearing his brother's face.",
+   "clips": [
+    1568.9
+   ]
+  },
+  {
+   "say": "So Jack follows him one night, and even jumps in a taxi. Follow that car!",
+   "clips": [
+    1797.6,
+    [
+     1830.8,
+     5
+    ],
+    [
+     1839.9,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "But Mike disappears into a maze of dark alleys, and Jack is left *alone*.",
+   "clips": [
+    1925.9,
+    [
+     1971.3,
+     5
+    ],
+    [
+     2010.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then two men spot him and chase him through the closed *shops*.",
+   "clips": [
+    2072.5,
+    [
+     2078.5,
+     4
+    ],
+    [
+     2100.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Next morning, he grabs Mike and screams that men chased him.",
+   "clips": [
+    2217.8,
+    [
+     2391.5,
+     4
+    ],
+    [
+     2406.8,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Mike stays calm. None of that ever happened, he says. It was all in your *head*.",
+   "clips": [
+    2429.0,
+    [
+     2441.6,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Jack screams that this man is not his *brother*.",
+   "clips": [
+    2647.3,
+    [
+     2642.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "But Mom is not on his side. Later she whispers into the phone, passing along everything Jack *said*.",
+   "clips": [
+    2814.7,
+    [
+     2822.0,
+     6
+    ],
+    [
+     2833.7,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Jack hears all of it. Nothing in that house was *real*.",
+   "clips": [
+    2950.5,
+    [
+     2943.3,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "That night he sneaks out, but Dad is waiting at the gate. Where are you going?",
+   "clips": [
+    3151.8,
+    [
+     3171.0,
+     5
+    ],
+    [
+     3178.9,
+     11
+    ]
+   ],
+   "chapter": "The Calendar"
+  },
+  {
+   "say": "Jack runs into the rain, and stumbles into a police *station*.",
+   "clips": [
+    3237.5,
+    [
+     3256.3,
+     4
+    ],
+    [
+     3279.3,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He tells the officer a gang has held him for over a *month*.",
+   "clips": [
+    3309.2,
+    [
+     3311.4,
+     4
+    ],
+    [
+     3317.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then the officer asks his age. Twenty-one, Jack says. It's 1997.",
+   "clips": [
+    3389.8,
+    [
+     3380.2,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The officer points at the calendar. It's 2017, and Jack is *forty-one*. Twenty years, gone just like that.",
+   "clips": [
+    3402.8,
+    [
+     3404.9,
+     4
+    ],
+    [
+     3406.8,
+     9
+    ],
+    [
+     3452.8,
+     14
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Then the people who took him finally show their *faces*.",
+   "clips": [
+    3676.9,
+    [
+     3686.3,
+     3
+    ],
+    [
+     3705.0,
+     7
+    ]
+   ],
+   "chapter": "The Basement"
+  },
+  {
+   "say": "They tell him about December twentieth, 1997, when a family was killed in their own *home*.",
+   "clips": [
+    3699.8,
+    [
+     3725.6,
+     5
+    ],
+    [
+     3731.4,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "The police never found the killer, and the case was forgotten once the time limit ran *out*.",
+   "clips": [
+    3751.5,
+    [
+     3764.3,
+     6
+    ],
+    [
+     3767.3,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "But the family never forgot. They dug the case up again, and finally found the man who ruined their *lives*.",
+   "clips": [
+    3777.3,
+    [
+     3872.4,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "They caught him, but he swore he remembered *nothing*.",
+   "clips": [
+    3845.0,
+    [
+     3860.9,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "So they hired a hypnosis expert to dig the memory out of his *head*.",
+   "clips": [
+    3894.4,
+    [
+     3916.8,
+     5
+    ],
+    [
+     3928.8,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The expert said the killer had blocked that whole night out of his own *mind*.",
+   "clips": [
+    3941.5,
+    [
+     3920.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "They put him to sleep and told him it was 1997, and that his family was driving him to their new *house*.",
+   "clips": [
+    4056.5,
+    [
+     4093.4,
+     7
+    ],
+    [
+     4121.0,
+     15
+    ]
+   ],
+   "sfx": "riser"
+  },
+  {
+   "say": "Mom, Dad and Mike were actors. The house was built to match the murder scene, down to the last *detail*.",
+   "clips": [
+    4180.8,
+    [
+     4235.9,
+     7
+    ],
+    [
+     4243.9,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Even the song that played the night of the murder was on the *stereo*. Cruel, but clever.",
+   "clips": [
+    4241.5,
+    [
+     4239.9,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "They only had to wait for rain, and stage the same night again.",
+   "clips": [
+    4318.6,
+    [
+     4256.7,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But the spell started wearing off, and Jack grew *suspicious*.",
+   "clips": [
+    4319.7,
+    [
+     4325.8,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "In the car, they say he'll die the most painful way there is. Jack swears he is *innocent*.",
+   "clips": [
+    4340.3,
+    [
+     4353.4,
+     6
+    ],
+    [
+     4380.5,
+     12
+    ]
+   ]
+  },
+  {
+   "orig": [
+    4370.5,
+    4372.3
+   ],
+   "text": "I never killed anyone."
+  },
+  {
+   "say": "Then he throws himself out of the car, and runs for his *life*.",
+   "clips": [
+    4401.1,
+    [
+     4417.5,
+     4
+    ],
+    [
+     4432.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "They hunt him through the night streets until he ends up bleeding in an operating *room*.",
+   "clips": [
+    4497.5,
+    [
+     4515.4,
+     5
+    ],
+    [
+     4629.2,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "And as he fights to live, the memory finally cracks open.",
+   "clips": [
+    4632.6,
+    [
+     4634.5,
+     6
+    ]
+   ],
+   "chapter": "What He Forgot"
+  },
+  {
+   "say": "Twenty years ago, Jack was a broke kid with a brother in a hospital *bed*.",
+   "clips": [
+    4838.9,
+    [
+     4770.9,
+     5
+    ],
+    [
+     4806.9,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "He begged every lender in town. Then a stranger in a chat room made him an *offer*.",
+   "clips": [
+    4783.2,
+    [
+     4912.0,
+     6
+    ],
+    [
+     4936.6,
+     11
+    ]
+   ]
+  },
+  {
+   "orig": [
+    4959.2,
+    4962.0
+   ],
+   "text": "You'll get paid for killing someone..."
+  },
+  {
+   "say": "He needed the money so badly he never asked *why*.",
+   "clips": [
+    4989.0,
+    [
+     5001.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Jack hit send. His orders were simple. Break in at night, and get rid of the *woman*.",
+   "clips": [
+    5005.4,
+    [
+     5462.9,
+     6
+    ],
+    [
+     5471.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "But in the dark, everything went wrong. He told the little boy to hide under a blanket and *count*.",
+   "clips": [
+    5405.0,
+    [
+     5517.1,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "When the boy finished counting, the woman and the little girl were on the *floor*. Nobody walks away clean.",
+   "clips": [
+    5520.5,
+    [
+     5526.1,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then the memory ends. In the hospital, a man in a black suit walks in holding a *syringe*.",
+   "clips": [
+    5677.2,
+    [
+     5695.3,
+     6
+    ],
+    [
+     5706.3,
+     12
+    ]
+   ],
+   "chapter": "The Hospital"
+  },
+  {
+   "say": "He leans in close and snarls, why didn't you kill that kid *too*?",
+   "clips": [
+    5861.9,
+    [
+     5868.7,
+     6
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "Jack just lies there as the whole night comes back to *him*.",
+   "clips": [
+    5901.2,
+    [
+     6014.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Soon after, the man in the suit is lying dead on the *pavement*.",
+   "clips": [
+    6091.5,
+    [
+     6093.4,
+     4
+    ],
+    [
+     6105.2,
+     9
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Some nights you can never *forget*. Wonder what we spoil next?",
+   "clips": [
+    6123.8,
+    [
+     6178.9,
+     3
+    ],
+    [
+     6189.0,
+     6
+    ],
+    [
+     6197.9,
+     8
+    ]
+   ]
+  }
+ ]
+}

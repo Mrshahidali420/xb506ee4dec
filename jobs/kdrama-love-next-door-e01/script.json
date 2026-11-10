@@ -1,0 +1,920 @@
+{
+ "title": "She Quit Her Job And Cancelled Her Wedding Without Telling Her Mom . . . (Episode 1)",
+ "caption": "In Love Next Door episode 1, Ruby flies home from America and tells her mom she cancelled her wedding, one month before the date.\nHer mom's best friend's son is the only one who gets it. Follow for episode 2!\n\n#lovenextdoor #kdrama #kdramarecap #spoilerroom #fyp",
+ "comment": "Would you have handed Ruby over to her mom like Ethan did? Why?",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Love Next Door (2024)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "Ruby tells her mom she cancelled her *wedding*. Then her dad hits the floor.",
+   "clips": [
+    2738.0,
+    [
+     2741.3,
+     7
+    ],
+    [
+     2757.9,
+     10
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "To see how it got here, go back to a *mountain* trail.",
+   "clips": [
+    64.1,
+    [
+     76.4,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Four moms are hiking, and Linda and Helen cannot stop *bragging* about their kids.",
+   "clips": [
+    66.9,
+    [
+     252.6,
+     5
+    ],
+    [
+     265.1,
+     7
+    ]
+   ],
+   "chapter": "Two Bragging Moms"
+  },
+  {
+   "say": "Helen's son Ethan is a famous architect, and he even swam on the national *team*.",
+   "clips": [
+    291.0,
+    [
+     295.4,
+     4
+    ],
+    [
+     317.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Linda's daughter Ruby is a big *star* at a giant tech company in America.",
+   "clips": [
+    300.8,
+    [
+     304.1,
+     3
+    ],
+    [
+     306.4,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "So Linda plays her best card. Ruby is getting *married* in one month. Helen did not enjoy that. But Ruby had a secret nobody knew.",
+   "clips": [
+    715.4,
+    [
+     727.9,
+     6
+    ],
+    [
+     757.6,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, Ethan is missing his own award show. He is busy interviewing a *funeral* director.",
+   "clips": [
+    378.9,
+    [
+     421.2,
+     8
+    ],
+    [
+     431.6,
+     13
+    ]
+   ],
+   "chapter": "Ethan's Big Night"
+  },
+  {
+   "say": "He wants a memorial park where people cry, and then *smile* too.",
+   "clips": [
+    458.7,
+    [
+     502.8,
+     4
+    ],
+    [
+     531.8,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then his phone buzzes. Max is panicking, because the award is about to be *announced*. Ethan runs in at the last second.",
+   "clips": [
+    560.2,
+    [
+     588.0,
+     4
+    ],
+    [
+     612.3,
+     15
+    ],
+    [
+     621.9,
+     18
+    ]
+   ]
+  },
+  {
+   "say": "Ethan wins the award, but forgets to thank Max's firm, and Max is *furious*. Ethan had no idea who was landing that day.",
+   "clips": [
+    637.0,
+    [
+     656.2,
+     4
+    ],
+    [
+     663.8,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "On the other side of the world, Ruby wakes up on a plane. She dreamed someone was *beating* her up.",
+   "clips": [
+    783.8,
+    [
+     794.4,
+     8
+    ],
+    [
+     809.1,
+     16
+    ]
+   ],
+   "chapter": "Ruby Comes Home"
+  },
+  {
+   "say": "Her best friend Mia meets her at the airport. Mia is a *paramedic*, and she came straight from work.",
+   "clips": [
+    834.2,
+    [
+     860.2,
+     5
+    ],
+    [
+     898.6,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "In the car, Mia asks why Ruby is so skinny. Ruby says it is for the *wedding*.",
+   "clips": [
+    967.7,
+    [
+     958.3,
+     5
+    ],
+    [
+     964.3,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Mia asks if Ruby told her mom she is back. Ruby says *sure*.",
+   "clips": [
+    972.3,
+    [
+     977.4,
+     6
+    ],
+    [
+     980.7,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That was lie number one.",
+   "clips": [
+    983.4
+   ]
+  },
+  {
+   "say": "They stop for spicy rice cakes, and Ruby cannot handle the *heat* anymore.",
+   "clips": [
+    1176.0,
+    [
+     1218.9,
+     6
+    ],
+    [
+     1233.1,
+     8
+    ]
+   ],
+   "chapter": "The Rice Cake Detour"
+  },
+  {
+   "say": "Then Ruby dives under the table, because her brother Danny just walked in.",
+   "clips": [
+    1250.4,
+    [
+     1263.1,
+     6
+    ],
+    [
+     1284.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Mia asks why Ruby is hiding from her own family. Ruby says she wants to *surprise* them, so they buy balloons and silly headbands.",
+   "clips": [
+    1364.5,
+    [
+     1388.0,
+     10
+    ],
+    [
+     1423.5,
+     17
+    ],
+    [
+     1430.0,
+     20
+    ]
+   ]
+  },
+  {
+   "say": "Then Ruby grabs Mia's arm. Stay with me until the end of the day, no matter *what*.",
+   "clips": [
+    1459.0,
+    [
+     1460.7,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "But Mia's phone rings. It is an emergency at work, and she *bolts*.",
+   "clips": [
+    1468.5,
+    [
+     1483.2,
+     6
+    ],
+    [
+     1484.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Ruby is left alone on the street. That *traitor*. And she had nowhere left to hide.",
+   "clips": [
+    1500.7,
+    [
+     1508.2,
+     3
+    ],
+    [
+     1512.1,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "So she wanders to the old bathhouse where she and Ethan were forced to *bathe* together as kids.",
+   "clips": [
+    1519.6,
+    [
+     1538.3,
+     8
+    ],
+    [
+     1543.4,
+     12
+    ]
+   ],
+   "chapter": "The Old Bathhouse"
+  },
+  {
+   "say": "There is a new building there, and a man steps out. It is Ethan, her childhood *enemy*.",
+   "clips": [
+    1574.2,
+    [
+     1606.2,
+     8
+    ],
+    [
+     1612.7,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He tells her to get off his *land*. Then Ruby spots her mom, and dives into a cardboard box.",
+   "clips": [
+    1629.4,
+    [
+     1649.4,
+     8
+    ],
+    [
+     1683.1,
+     14
+    ]
+   ],
+   "chapter": "The Box Trick"
+  },
+  {
+   "orig": [
+    1677.3,
+    1680.0
+   ],
+   "text": "Just pretend I'm a discarded box, okay?"
+  },
+  {
+   "say": "Both moms and Ruby's dad walk up, and Linda smells something *fishy*.",
+   "clips": [
+    1690.6,
+    [
+     1698.8,
+     5
+    ],
+    [
+     1710.6,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Linda kicks the box and asks what is inside. Ethan says it is *nothing*.",
+   "clips": [
+    1826.8,
+    [
+     1828.4,
+     9
+    ],
+    [
+     1840.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The moms finally leave. Ethan just did her a *huge* favor.",
+   "clips": [
+    1859.8,
+    [
+     1868.4,
+     4
+    ],
+    [
+     1871.7,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Ruby climbs out of the box, and begs to use his bathroom. Then she won't *leave*.",
+   "clips": [
+    1920.9,
+    [
+     1936.1,
+     6
+    ],
+    [
+     1964.7,
+     13
+    ]
+   ],
+   "chapter": "The Tomb Office"
+  },
+  {
+   "say": "She walks into his office and calls his ceiling a tomb. Ethan is *offended*.",
+   "clips": [
+    2057.5,
+    [
+     2074.4,
+     6
+    ],
+    [
+     2086.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then a heavy sculpture crashes down. Ethan hurts his back, and Ruby has to *check* it.",
+   "clips": [
+    2110.9,
+    [
+     2138.7,
+     4
+    ],
+    [
+     2155.4,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "She spots an old *scar* from when they fought as kids.",
+   "clips": [
+    2161.5,
+    [
+     2173.2,
+     6
+    ],
+    [
+     2176.3,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ethan tells her to just go home, because waiting only makes her mom *angrier*. Ruby does not listen.",
+   "clips": [
+    2215.9,
+    [
+     2225.2,
+     5
+    ],
+    [
+     2235.1,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Across town, Mia finds a drunk man in a park who refuses *help*.",
+   "clips": [
+    2326.4,
+    [
+     2335.5,
+     5
+    ],
+    [
+     2354.4,
+     9
+    ]
+   ],
+   "chapter": "Mia's Long Shift"
+  },
+  {
+   "say": "A stranger steps in and says he is a red belt. Then he gets knocked *flat*, and Mia treats them both.",
+   "clips": [
+    2413.2,
+    [
+     2418.4,
+     5
+    ],
+    [
+     2431.5,
+     13
+    ],
+    [
+     2448.5,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "That night they both walk home down the same street, because their moms live *next* door to each other.",
+   "clips": [
+    2477.1,
+    [
+     2495.4,
+     5
+    ],
+    [
+     2511.4,
+     12
+    ]
+   ],
+   "chapter": "The Wedding Bomb"
+  },
+  {
+   "say": "Ruby eyes a delivery rider's helmet. She wants armor to survive her *mother*.",
+   "clips": [
+    2519.1,
+    [
+     2533.5,
+     6
+    ],
+    [
+     2540.3,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then she begs him to stay the night. Ethan thinks she has *lost* it. He had no idea what she was hiding.",
+   "clips": [
+    2629.8,
+    [
+     2631.6,
+     8
+    ],
+    [
+     2635.9,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Ruby finally cracks. She says, I screwed up. I came home to tell my mom, and I cannot *face* her.",
+   "clips": [
+    2642.7,
+    [
+     2661.6,
+     5
+    ],
+    [
+     2673.3,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Ethan asks what she *did*. Ruby mumbles, then yells it.",
+   "clips": [
+    2652.6,
+    [
+     2658.4,
+     5
+    ]
+   ]
+  },
+  {
+   "orig": [
+    2677.6,
+    2680.0
+   ],
+   "text": "I said I broke off my engagement!"
+  },
+  {
+   "say": "Ethan looks over her shoulder, and sees her mother standing *right* there.",
+   "clips": [
+    2681.0,
+    [
+     2689.6,
+     5
+    ],
+    [
+     2712.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ruby fakes a big smile, then tells her mom the truth. The wedding is *off*.",
+   "clips": [
+    2738.0,
+    [
+     2741.3,
+     5
+    ],
+    [
+     2745.6,
+     11
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "Her dad faints on the spot. Linda screams. It is *chaos*.",
+   "clips": [
+    2749.6,
+    [
+     2757.9,
+     2
+    ],
+    [
+     2792.7,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Linda asks if she cheated. Ruby says the breakup was *her* fault.",
+   "clips": [
+    2858.0,
+    [
+     2864.0,
+     5
+    ],
+    [
+     2870.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Ruby had just lit the fuse.",
+   "clips": [
+    2877.3
+   ]
+  },
+  {
+   "say": "Linda goes after her with a bunch of leeks, and Ethan takes the *hits* instead.",
+   "clips": [
+    2908.1,
+    [
+     2911.0,
+     6
+    ],
+    [
+     2929.6,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then Ruby drops a second bomb. She also quit her *job*.",
+   "clips": [
+    3022.4,
+    [
+     3028.3,
+     5
+    ],
+    [
+     3033.8,
+     8
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Her dad collapses again, and Linda lunges for *Ruby*.",
+   "clips": [
+    3051.0,
+    [
+     3059.3,
+     6
+    ],
+    [
+     3067.4,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ruby grabs Ethan's hand and yells *run*.",
+   "clips": [
+    3082.6,
+    [
+     3088.0,
+     4
+    ],
+    [
+     3094.0,
+     5
+    ]
+   ],
+   "chapter": "Run For It"
+  },
+  {
+   "say": "They race through the streets with Linda right behind them, just like when they were *kids*.",
+   "clips": [
+    3097.3,
+    [
+     3110.7,
+     10
+    ],
+    [
+     3116.2,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "They finally stop at a park, and Ruby *collapses* on a bench.",
+   "clips": [
+    3153.5,
+    [
+     3167.7,
+     8
+    ],
+    [
+     3180.1,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Ethan does not buy the cheating story, so he asks why she told her mom *that*.",
+   "clips": [
+    3300.5,
+    [
+     3302.9,
+     5
+    ],
+    [
+     3307.6,
+     9
+    ]
+   ],
+   "chapter": "The Reboot"
+  },
+  {
+   "orig": [
+    3311.1,
+    3314.0
+   ],
+   "text": "Maybe I'm an irresistible femme fatale."
+  },
+  {
+   "say": "Then she tells him the truth. Ten years of work fried her brain, so she had to *reboot*.",
+   "clips": [
+    3370.5,
+    [
+     3380.5,
+     6
+    ],
+    [
+     3409.2,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "So she quit her job and called off her wedding. She had to do it before her *courage* ran out.",
+   "clips": [
+    3421.3,
+    [
+     3427.1,
+     4
+    ],
+    [
+     3435.6,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Honestly, that took guts.",
+   "clips": [
+    3400.2
+   ]
+  },
+  {
+   "say": "Then Danny calls. Linda has calmed down, and Ruby can come *home*.",
+   "clips": [
+    3499.4,
+    [
+     3505.9,
+     3
+    ],
+    [
+     3512.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ruby does not buy it. Ethan says he will come too, because Linda likes him *more*.",
+   "clips": [
+    3516.6,
+    [
+     3528.2,
+     5
+    ],
+    [
+     3530.7,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "At the hospital, Mia refuses to give the man her name. So she leaves him glucose *candy*.",
+   "clips": [
+    3587.7,
+    [
+     3597.1,
+     5
+    ],
+    [
+     3628.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The man keeps her note. He is already *hooked*.",
+   "clips": [
+    3655.2,
+    [
+     3663.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "At the door Ruby begs for one more minute. Ethan says she will never be *ready*.",
+   "clips": [
+    3675.6,
+    [
+     3679.4,
+     3
+    ],
+    [
+     3683.3,
+     9
+    ]
+   ],
+   "chapter": "Facing Mom"
+  },
+  {
+   "say": "Linda sits there crying, and Ruby feels so guilty she says *sorry*.",
+   "clips": [
+    3731.0,
+    [
+     3744.1,
+     5
+    ],
+    [
+     3748.3,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then Linda grabs her. It was a trap, and Ethan hands Ruby over without a *fight*.",
+   "clips": [
+    3752.9,
+    [
+     3754.7,
+     5
+    ],
+    [
+     3762.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Linda lays into Ruby again. Ethan listens, and remembers when Ruby *defended* him as a kid.",
+   "clips": [
+    3783.2,
+    [
+     3801.7,
+     8
+    ],
+    [
+     3814.4,
+     10
+    ],
+    [
+     3823.2,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "But the preview for episode 2 ends on a wild line. Ethan says, I turned back time, and recreated your embarrassing *past*.",
+   "clips": [
+    3825.5,
+    [
+     3838.1,
+     9
+    ],
+    [
+     3851.6,
+     15
+    ]
+   ]
+  }
+ ]
+}

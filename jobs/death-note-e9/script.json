@@ -1,0 +1,623 @@
+{
+ "title": "A Stranger Told Jack \"I Am L\" And Jack Could Not Touch Him . . . (Episode 9)",
+ "source": "source.mp4",
+ "caption": "In Death Note episode 9, a stranger at the university entrance ceremony walks up to Jack and says he is L.\nJack cannot kill him, so he smiles back and the mind game begins. Follow for episode 10!\n\n#deathnote #anime #animerecap #animeexplained #fyp",
+ "comment": "Would you have kept a straight face like Jack when L said he was L? Why?",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Death Note (Episode 9)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "A stranger walks up to Jack after the speech and says, *I am L*.",
+   "clips": [
+    884.5,
+    [
+     892.0,
+     5
+    ],
+    [
+     896.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "To see how it got here, go back to Jack paying a death god in *apples*.",
+   "clips": [
+    164.8,
+    [
+     169.9,
+     14
+    ]
+   ],
+   "chapter": "Apples and cameras"
+  },
+  {
+   "say": "Ryuk is in a foul mood, because Jack banned apples in the *house*.",
+   "clips": [
+    175.0,
+    [
+     183.6,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He even threatens to write Jack's name in his own *notebook*.",
+   "clips": [
+    194.6,
+    [
+     200.9,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Jack just tells him not to laugh and walks *home*.",
+   "clips": [
+    202.0,
+    [
+     206.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then he phones the task force and says his family could never have seen those deaths on the *news*.",
+   "clips": [
+    209.0,
+    [
+     216.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "L has to admit Kira could not have killed them without seeing the *broadcast*.",
+   "clips": [
+    224.0,
+    [
+     232.7,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "But Jack's real trick is quieter. He sits down to study, with a tiny TV hidden in a *chip bag*.",
+   "clips": [
+    244.5,
+    [
+     249.8,
+     13
+    ],
+    [
+     252.6,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "Every time a criminal's face hits the screen, he memorizes the *name*.",
+   "clips": [
+    260.8,
+    [
+     273.0,
+     3
+    ],
+    [
+     285.9,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Later, out in public, he copies each one onto a scrap he keeps in his *wallet*.",
+   "clips": [
+    295.8,
+    [
+     299.4,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Nobody was ever going to catch that *trick*.",
+   "clips": [
+    301.5
+   ]
+  },
+  {
+   "say": "Meanwhile, L's team has gone through every tape, and found *nothing*.",
+   "clips": [
+    311.5,
+    [
+     320.0,
+     9
+    ]
+   ],
+   "chapter": "L finds nothing"
+  },
+  {
+   "say": "The cameras come out of both houses, and the detectives are *crushed*.",
+   "clips": [
+    329.0,
+    [
+     337.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "But L does not look crushed. He thinks Kira kept killing the whole time, and never *flinched*.",
+   "clips": [
+    364.0,
+    [
+     386.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "A killer that calm? That sounds like a *god*.",
+   "clips": [
+    398.5,
+    [
+     407.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But L waves that away. This is just a childish human who wants to play *god*.",
+   "clips": [
+    417.0,
+    [
+     426.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "So he comes up with a new plan. Get close to Kira, until Kira *confesses*.",
+   "clips": [
+    434.5,
+    [
+     448.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Back at Jack's house, Ryuk reports that every camera is *gone*.",
+   "clips": [
+    460.5,
+    [
+     469.0,
+     5
+    ],
+    [
+     477.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Jack can relax, and Ryuk gets his *apples* back.",
+   "clips": [
+    484.8,
+    [
+     488.3,
+     5
+    ],
+    [
+     493.9,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "But L is still out there, so Jack plans to use his own *father* to find him.",
+   "clips": [
+    507.6,
+    [
+     510.8,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Cold, even for *him*.",
+   "clips": [
+    515.0
+   ]
+  },
+  {
+   "say": "The next morning, his family sends him off to the *entrance exam*.",
+   "clips": [
+    524.5,
+    [
+     532.6,
+     6
+    ],
+    [
+     543.6,
+     10
+    ]
+   ],
+   "chapter": "Exam day"
+  },
+  {
+   "say": "Jack strolls in like he owns the *place*.",
+   "clips": [
+    551.0,
+    [
+     557.2,
+     3
+    ],
+    [
+     559.9,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He answers fast, then sits there *bored*.",
+   "clips": [
+    582.0,
+    [
+     590.7,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He had no idea his biggest problem was in that very *room*.",
+   "clips": [
+    607.5,
+    [
+     613.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then the ceremony begins. Jack is the top scorer, so he gives the *speech*.",
+   "clips": [
+    704.6,
+    [
+     713.0,
+     6
+    ],
+    [
+     774.0,
+     13
+    ]
+   ],
+   "chapter": "The ceremony",
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Then the other top scorer is called up, a messy kid named Hideki *Ryuga*.",
+   "clips": [
+    751.5,
+    [
+     754.6,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The crowd whispers. He showed up in jeans and *sneakers*.",
+   "clips": [
+    738.0,
+    [
+     743.2,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That kid was *trouble*.",
+   "clips": [
+    765.0
+   ]
+  },
+  {
+   "say": "Then the weirdo grabs the mic and *hunches* over it.",
+   "clips": [
+    803.0,
+    [
+     810.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "When it ends, Jack steps down, and the weird kid is *waiting* for him.",
+   "clips": [
+    827.5,
+    [
+     830.5,
+     4
+    ],
+    [
+     850.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He knows Jack's name. He knows his father is the *chief* of police.",
+   "clips": [
+    834.5,
+    [
+     857.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "He offers Jack secret information on the Kira case, if he keeps it *quiet*.",
+   "clips": [
+    869.5,
+    [
+     873.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then he says *it*.",
+   "clips": [
+    867.5
+   ],
+   "sfx": "hit"
+  },
+  {
+   "orig": [
+    884.7,
+    887.4
+   ],
+   "text": "I'm L."
+  },
+  {
+   "say": "Jack's heart drops, but he keeps a straight *face*.",
+   "clips": [
+    903.5,
+    [
+     916.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He plays along and thanks L, like the chief's son *should*.",
+   "clips": [
+    955.5
+   ]
+  },
+  {
+   "orig": [
+    935.0,
+    937.9
+   ],
+   "text": "The likelihood that you are Kira is just under 5%."
+  },
+  {
+   "say": "Even at five percent, L still *suspects* him.",
+   "clips": [
+    962.5,
+    [
+     966.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Jack's mind races. If L dies now, the police will point straight at *him*.",
+   "clips": [
+    974.0,
+    [
+     981.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "He could write the name, but is Ryuga even a *real* name?",
+   "clips": [
+    986.5,
+    [
+     992.8,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "And if the man does not die, he knows for sure Jack is *Kira*.",
+   "clips": [
+    999.0,
+    [
+     1009.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "It was the perfect *trap*.",
+   "clips": [
+    1028.0
+   ]
+  },
+  {
+   "say": "So Jack does the only thing he can. He *smiles* back.",
+   "clips": [
+    1034.6,
+    [
+     1064.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then L waves goodbye and rides off in a *limousine*.",
+   "clips": [
+    1071.5,
+    [
+     1074.5,
+     5
+    ],
+    [
+     1081.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "At home, Jack ignores his sister and storms up to his *room*.",
+   "clips": [
+    1099.6,
+    [
+     1104.8,
+     5
+    ],
+    [
+     1108.9,
+     10
+    ]
+   ],
+   "chapter": "Jack snaps"
+  },
+  {
+   "say": "Alone at last, he finally *explodes*.",
+   "clips": [
+    1110.6,
+    [
+     1112.6,
+     5
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "orig": [
+    1118.1,
+    1120.1
+   ],
+   "text": "Damn it! He got me!"
+  },
+  {
+   "say": "Ryuk laughs and asks why Jack does not just use the Shinigami *eyes*.",
+   "clips": [
+    1123.0,
+    [
+     1129.0,
+     8
+    ],
+    [
+     1139.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "But if he kills a fake L, the real L learns he is *Kira*.",
+   "clips": [
+    1147.0,
+    [
+     1153.0,
+     6
+    ],
+    [
+     1158.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "L could be real, a fake, or a double sent to test him. Jack cannot *know*.",
+   "clips": [
+    1174.0,
+    [
+     1196.0,
+     5
+    ],
+    [
+     1198.8,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Jack just got outplayed, and he *knew* it.",
+   "clips": [
+    1210.0
+   ]
+  },
+  {
+   "say": "Then his panic turns into a *smile*.",
+   "clips": [
+    1231.8,
+    [
+     1234.6,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "L has nothing on him. This is just a match of wits between two *geniuses*.",
+   "clips": [
+    1247.0,
+    [
+     1256.2,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "On the surface, two friendly classmates. Underneath, each one is *investigating* the other.",
+   "clips": [
+    1258.0,
+    [
+     1270.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Friendship as a weapon. *Chilling*.",
+   "clips": [
+    1239.6
+   ]
+  },
+  {
+   "say": "Jack makes a promise. Once L tells him everything, he will kill him with his own *hands*.",
+   "clips": [
+    1281.7
+   ]
+  },
+  {
+   "say": "But L has one more move, and it starts on a tennis *court*. Follow for episode 10!",
+   "clips": [
+    1358.5,
+    [
+     1371.5,
+     5
+    ]
+   ]
+  }
+ ]
+}
