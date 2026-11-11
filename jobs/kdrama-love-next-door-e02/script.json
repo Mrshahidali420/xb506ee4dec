@@ -1,0 +1,898 @@
+{
+ "title": "Her Mom Told Her To Pack Up And Leave Home . . . (Episode 2)",
+ "caption": "In Love Next Door episode 2, Ruby's mom tells her to pack up and go back to America after the whole neighborhood hears the wedding is off.\nThe only one who finds her is Ethan. Follow for episode 3!\n\n#lovenextdoor #kdrama #kdramarecap #spoilerroom #fyp",
+ "comment": "Was Linda wrong to lie to her friends about Ruby? Why?",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Love Next Door (2024)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "Ruby's mom drags out a suitcase and orders her to *leave*. Then Ruby screams, can't I just be your *daughter*?",
+   "clips": [
+    3101.0,
+    [
+     3126.5,
+     7
+    ],
+    [
+     3220.8,
+     13
+    ]
+   ],
+   "sfx": "hit",
+   "chapter": "The Big Fight"
+  },
+  {
+   "say": "To see how it got here, go back to a teenage Ruby scrubbing *grills*.",
+   "clips": [
+    64.4,
+    [
+     96.9,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "She spends her whole part-time pay on a gold *brooch* for her mom, who pins it on with a smile.",
+   "clips": [
+    163.7,
+    [
+     206.9,
+     7
+    ],
+    [
+     221.2,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Years later, Ruby wakes up on a storage room floor, because her mom got rid of her *room*.",
+   "clips": [
+    235.7,
+    [
+     240.0,
+     6
+    ],
+    [
+     246.0,
+     12
+    ]
+   ],
+   "chapter": "Happily Unemployed"
+  },
+  {
+   "say": "Next door, Ethan watches the news. A *meteor* shower is coming this week. Remember that.",
+   "clips": [
+    272.7,
+    [
+     298.3,
+     5
+    ],
+    [
+     305.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Her mom made stew for three. Ruby asks where her *rice* is, and her mom acts like she is a ghost.",
+   "clips": [
+    334.3,
+    [
+     346.0,
+     7
+    ],
+    [
+     354.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then Linda asks if she really *cheated*. Ruby says she just got bored, of her job and her marriage, so she quit both.",
+   "clips": [
+    374.1,
+    [
+     384.1,
+     8
+    ],
+    [
+     415.8,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Her big plan is to sleep, eat, and do *nothing*. She wants to be happily unemployed. Her dad laughs, her mom nearly *explodes*.",
+   "clips": [
+    439.9,
+    [
+     457.3,
+     8
+    ],
+    [
+     463.1,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Then the doorbell rings, and it's Ethan and Mia. Mia checks Ruby's tongue like she is a *patient*.",
+   "clips": [
+    508.3,
+    [
+     521.2,
+     6
+    ],
+    [
+     526.8,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Ethan brings pumpkin porridge, and Linda treats him like her own *son*. Ruby gets nothing.",
+   "clips": [
+    546.4,
+    [
+     549.1,
+     5
+    ],
+    [
+     566.4,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then her brother Danny walks in half *naked*, and yanks Ruby's hair bun in a full breakfast fight.",
+   "clips": [
+    487.5,
+    [
+     621.4,
+     6
+    ],
+    [
+     626.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Linda walks away. Ethan counts down. Five, four, three, two, *one*. Then a drum kit crashes in the basement.",
+   "clips": [
+    636.3,
+    [
+     649.5,
+     6
+    ],
+    [
+     658.9,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Nobody in that house is *normal*. Mia corners Ruby, asks why she quit everything, and admits her mom sent her.",
+   "clips": [
+    681.9,
+    [
+     715.5,
+     7
+    ],
+    [
+     731.0,
+     13
+    ]
+   ],
+   "chapter": "Everyone Wants Answers"
+  },
+  {
+   "say": "Mia calls her a perfectionist, someone who would never quit on a whim. Ruby just says, stuff *happens*.",
+   "clips": [
+    747.4,
+    [
+     762.4,
+     6
+    ],
+    [
+     777.9,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Later, Ruby calls Ethan a *traitor* for handing her to her mom, and puts him in a *headlock*.",
+   "clips": [
+    826.6,
+    [
+     831.8,
+     6
+    ],
+    [
+     838.8,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Linda runs in and checks Ethan for bruises. Ethan is the favorite *child*. Then she sends Ruby off with rice cakes.",
+   "clips": [
+    853.9,
+    [
+     876.5,
+     7
+    ],
+    [
+     900.9,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "At his office, Max is thrilled that she is the childhood friend. He wants the whole *story*.",
+   "clips": [
+    953.6,
+    [
+     958.0,
+     6
+    ],
+    [
+     973.1,
+     11
+    ]
+   ],
+   "chapter": "Childhood Friend Story"
+  },
+  {
+   "say": "So Ruby tells it. In 1995, a little boy shows up at her door, hiding behind his *mom*.",
+   "clips": [
+    1024.6,
+    [
+     1034.4,
+     6
+    ],
+    [
+     1038.2,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Little Ruby decides to *raise* him. She builds him a castle, washes his hands, and rules the playground.",
+   "clips": [
+    1055.0,
+    [
+     1067.6,
+     4
+    ],
+    [
+     1078.6,
+     9
+    ],
+    [
+     1103.2,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Ethan cuts in. He says she is a compulsive *liar*, and every word is made up.",
+   "clips": [
+    1122.7,
+    [
+     1130.5,
+     5
+    ],
+    [
+     1138.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "In his version, she was the first *lunatic* he ever met. She fed him her beans and spent his allowance on ice cream.",
+   "clips": [
+    1162.5,
+    [
+     1223.7,
+     8
+    ],
+    [
+     1240.2,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Ruby fires back. He could not even unzip his *pants*. She was the one who helped him.",
+   "clips": [
+    1275.5,
+    [
+     1279.4,
+     6
+    ],
+    [
+     1283.8,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, the neighborhood moms are gossiping about Ruby. Linda walks up with her groceries and says she wants to shred someone *unlucky*.",
+   "clips": [
+    1337.8,
+    [
+     1361.7,
+     7
+    ],
+    [
+     1370.0,
+     15
+    ]
+   ],
+   "chapter": "Town Gossip"
+  },
+  {
+   "say": "Then Linda hears Helen invited the snooty Hee Sisters to Ethan's grand opening. The same women who heard her *brag*.",
+   "clips": [
+    1388.0,
+    [
+     1423.5,
+     7
+    ],
+    [
+     1457.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "That night, Ruby flips a green onion pancake on the rooftop. Mia cheers, and Ruby says she learned the trick *abroad*.",
+   "clips": [
+    1507.7,
+    [
+     1519.8,
+     7
+    ],
+    [
+     1523.4,
+     14
+    ]
+   ],
+   "chapter": "Rooftop Night"
+  },
+  {
+   "say": "At the diner, Linda begs Frank to talk to Ruby. He won't. Alone, he admits he is too *scared* to ask.",
+   "clips": [
+    1566.6,
+    [
+     1568.6,
+     7
+    ],
+    [
+     1634.2,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then Max brings Ethan terrible news. A big project is frozen, so nobody will pay them for the *designs*.",
+   "clips": [
+    1717.0,
+    [
+     1722.2,
+     6
+    ],
+    [
+     1731.7,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Back on the roof, Ethan smiles like nothing happened. But Ruby can *tell*.",
+   "clips": [
+    1747.3,
+    [
+     1759.0,
+     4
+    ],
+    [
+     1765.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Ruby asks if he will grill her too. He says he is not *curious*. Just do not wait too long to tell your mom.",
+   "clips": [
+    1805.3,
+    [
+     1813.0,
+     8
+    ],
+    [
+     1833.0,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "The next day, Linda secretly calls Ruby's ex-fiancé. Ruby catches her and grabs the *phone*.",
+   "clips": [
+    1881.5,
+    [
+     1910.0,
+     5
+    ],
+    [
+     1955.2,
+     10
+    ]
+   ],
+   "chapter": "Wrong Phone Call"
+  },
+  {
+   "orig": [
+    1969.0,
+    1971.4
+   ],
+   "text": "Don't call him ever again."
+  },
+  {
+   "say": "Ruby deletes his number, and Linda just stares at the screen. Calling him was a bad *idea*.",
+   "clips": [
+    1973.2,
+    [
+     1976.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "On a bus, Ruby remembers *America*. She calls her ex, Jake, and gets his voicemail. I really need you right now.",
+   "clips": [
+    2162.7,
+    [
+     2184.0,
+     7
+    ],
+    [
+     2197.2,
+     14
+    ]
+   ],
+   "chapter": "Nobody Picks Up"
+  },
+  {
+   "say": "Ethan and a reporter help an old woman push her cardboard cart. All of it earns three thousand *won*, about two dollars.",
+   "clips": [
+    2036.9,
+    [
+     2078.5,
+     7
+    ],
+    [
+     2135.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "At the interview, Ethan says he regrets leaving a top firm every day. But he would *still* do it.",
+   "clips": [
+    2299.3,
+    [
+     2330.5,
+     6
+    ],
+    [
+     2344.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "That night, Ruby shows up with a *pomegranate* tree for his grand opening.",
+   "clips": [
+    2437.6,
+    [
+     2443.2,
+     4
+    ],
+    [
+     2466.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She says every leaf that falls means his company will shrivel. Then she tells him she is too busy to *come*.",
+   "clips": [
+    2470.6,
+    [
+     2477.4,
+     7
+    ],
+    [
+     2498.9,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "On opening day, Linda tears her room apart looking for her gold brooch. She leaves without it, and Ruby keeps *searching*.",
+   "clips": [
+    2523.6,
+    [
+     2548.5,
+     5
+    ],
+    [
+     2581.5,
+     10
+    ],
+    [
+     2600.6,
+     16
+    ]
+   ],
+   "chapter": "Grand Opening Day"
+  },
+  {
+   "say": "At the opening, the Hee Sisters ask if Ruby is getting married. Linda says it's called off, and they fake *sympathy*.",
+   "clips": [
+    2717.5,
+    [
+     2722.9,
+     7
+    ],
+    [
+     2736.9,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then Linda hides in a bathroom stall, and two women rip her apart outside. Like mother, like *daughter*.",
+   "clips": [
+    2815.2,
+    [
+     2821.0,
+     6
+    ],
+    [
+     2849.1,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Ruby shows up anyway, and gives her mom the brooch. Linda says, you should *go*. People will talk.",
+   "clips": [
+    2866.5,
+    [
+     2928.5,
+     6
+    ],
+    [
+     2943.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Ruby asks if her mom is ashamed of her. Then Linda's friends walk *up*.",
+   "clips": [
+    2947.5,
+    [
+     2951.3,
+     5
+    ],
+    [
+     2956.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "In front of them, Linda lies. Ruby quit because a better company scouted her, and they offered more money to *stay*.",
+   "clips": [
+    2998.7,
+    [
+     3013.0,
+     7
+    ],
+    [
+     3025.8,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "At home, Ruby says her mom is good at lying. Linda says pack up, go back to America, and starts *packing* herself.",
+   "clips": [
+    3053.9,
+    [
+     3061.7,
+     7
+    ],
+    [
+     3087.9,
+     15
+    ]
+   ],
+   "sfx": "riser",
+   "chapter": "Pack Your Bags"
+  },
+  {
+   "say": "Linda says Ruby stabbed her in the back, after everything she did to raise her *right*.",
+   "clips": [
+    3131.0,
+    [
+     3152.0,
+     5
+    ],
+    [
+     3211.0,
+     11
+    ]
+   ]
+  },
+  {
+   "orig": [
+    3217.9,
+    3220.8
+   ],
+   "text": "Can't I just be your daughter for once,"
+  },
+  {
+   "say": "Ruby ends up on a swing. Ethan finds her, and teases her about the jungle *gym*.",
+   "clips": [
+    3275.3,
+    [
+     3279.0,
+     5
+    ],
+    [
+     3304.3,
+     11
+    ]
+   ],
+   "chapter": "Playground At Night"
+  },
+  {
+   "say": "Up there, he remembers what she always said. She wanted to eat the *clouds* like cotton candy.",
+   "clips": [
+    3335.5,
+    [
+     3355.6,
+     6
+    ],
+    [
+     3361.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then it starts raining. They squeeze under one tiny *umbrella* and laugh about their childhood, until Ruby starts to *cry*.",
+   "clips": [
+    3401.9,
+    [
+     3426.0,
+     7
+    ],
+    [
+     3485.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Ethan does not say a word. He just holds the umbrella over her while she *cries*.",
+   "clips": [
+    3510.0,
+    [
+     3534.8,
+     5
+    ],
+    [
+     3687.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then he tells her hate has satellites, like the moon around Earth. You cannot hate someone you do not *love*.",
+   "clips": [
+    3735.4,
+    [
+     3744.0,
+     7
+    ],
+    [
+     3753.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Then Ruby gasps. A shooting star, from the meteor shower on the *news*!",
+   "clips": [
+    3766.8,
+    [
+     3776.5,
+     4
+    ],
+    [
+     3785.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He wishes his company will not go *under*. Ruby asks what is going on, and he finally tells her about the unpaid fees.",
+   "clips": [
+    3813.9,
+    [
+     3829.2,
+     8
+    ],
+    [
+     3840.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Ruby promises to collect every cent. Then they go looking for *udon*.",
+   "clips": [
+    3845.4,
+    [
+     3857.8,
+     4
+    ],
+    [
+     3877.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "The next morning, Ruby leaves the house early, with a *folder* under her arm.",
+   "clips": [
+    3913.9,
+    [
+     3922.9,
+     5
+    ],
+    [
+     3926.5,
+     9
+    ]
+   ],
+   "chapter": "Redecorated Room"
+  },
+  {
+   "say": "That evening, Linda tells Ethan to redo Ruby's room. Her daughter is not a piece of *luggage*.",
+   "clips": [
+    4026.6,
+    [
+     4041.9,
+     6
+    ],
+    [
+     4047.9,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Back home, Ruby finds a family dinner, and her mom made her *abalone* rice.",
+   "clips": [
+    4094.2,
+    [
+     4105.5,
+     5
+    ],
+    [
+     4118.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That night, she opens the door to her new room and gasps. Glow-in-the-dark *stars* cover the ceiling.",
+   "clips": [
+    4175.0,
+    [
+     4211.0,
+     6
+    ],
+    [
+     4224.1,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "She calls Ethan in the middle of the night. He rebuilt her teenage room, down to the love letter *desk*.",
+   "clips": [
+    4236.6,
+    [
+     4266.6,
+     7
+    ],
+    [
+     4285.0,
+     13
+    ]
+   ]
+  },
+  {
+   "orig": [
+    4298.4,
+    4300.2
+   ],
+   "text": "I recreated your embarrassing past."
+  },
+  {
+   "say": "Ruby nearly dies of embarrassment. Then Ethan has one request. Close your *curtains*.",
+   "clips": [
+    4303.0,
+    [
+     4310.5,
+     4
+    ],
+    [
+     4321.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She opens the window and freezes. Ethan is right across from her. I moved *back in*.",
+   "clips": [
+    4331.7,
+    [
+     4334.0,
+     5
+    ],
+    [
+     4354.8,
+     11
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Ruby still has not told anyone why she quit. And now the one person she is hiding from can see right into her *room*.",
+   "clips": [
+    4358.4,
+    [
+     4360.3,
+     12
+    ]
+   ]
+  }
+ ]
+}

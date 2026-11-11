@@ -1,0 +1,914 @@
+{
+ "title": "Two Enemies Set The Whole Planet On Fire To Save It, And A Firefighter Led The Charge . . . (Promare)",
+ "source": "source.mp4",
+ "caption": "Two enemies set the whole planet on fire to save it, and a loud firefighter led the charge. 🔥 Promare, the full story. Follow for more anime movie recaps!\n\n#promare #anime #animemovie #animerecap #animeexplained",
+ "comment": "Would you have forgiven Lio after everything his gang burned down? Why?",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Promare (movie)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "To stop a dying Earth, a firefighter and his sworn enemy set the whole planet *ablaze*.",
+   "clips": [
+    6190.0,
+    [
+     6194.5,
+     4
+    ],
+    [
+     6145.0,
+     11
+    ]
+   ],
+   "chapter": "Planet On Fire"
+  },
+  {
+   "say": "To see how it got here, go back to the day the world first *burned*.",
+   "clips": [
+    215.3,
+    [
+     217.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Ordinary people burst into flames, and in one night half of humanity was *gone*.",
+   "clips": [
+    174.5,
+    [
+     214.0,
+     4
+    ],
+    [
+     209.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Some survivors could burn on purpose. People called them Burnish, and the world turned on *them*.",
+   "clips": [
+    1856.0,
+    [
+     1796.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Thirty years later, a loud rookie firefighter named *Galo* runs straight into burning buildings.",
+   "clips": [
+    373.5,
+    [
+     579.5,
+     7
+    ],
+    [
+     605.0,
+     9
+    ]
+   ],
+   "chapter": "Burning Rescue"
+  },
+  {
+   "say": "His team, Burning Rescue, puts out fires that no regular crew can *touch*.",
+   "clips": [
+    357.5,
+    [
+     1140.5,
+     2
+    ],
+    [
+     374.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Their enemy is Mad Burnish, a gang of fire terrorists, led by a cold young man named *Lio*.",
+   "clips": [
+    699.5,
+    [
+     1062.5,
+     13
+    ],
+    [
+     1162.0,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "When they torch a skyscraper, Galo throws himself in, but his heavy gear can't keep *up*.",
+   "clips": [
+    541.5,
+    [
+     752.5,
+     5
+    ],
+    [
+     759.2,
+     11
+    ]
+   ],
+   "sfx": "riser"
+  },
+  {
+   "say": "So his friend Lucia sends over a brand new suit, and it looks completely *ridiculous*.",
+   "clips": [
+    768.5,
+    [
+     782.7,
+     7
+    ],
+    [
+     813.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Galo stops mid-fight to strike a heroic pose, and he gets *blasted*.",
+   "clips": [
+    868.5,
+    [
+     869.5,
+     6
+    ],
+    [
+     893.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Classic Galo. Zero plan, all *heart*.",
+   "clips": [
+    890.2,
+    [
+     897.8,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Then Lio steps out of the fire, and the two of them finally fight one on *one*.",
+   "clips": [
+    974.0,
+    [
+     1005.0,
+     9
+    ],
+    [
+     1015.0,
+     12
+    ]
+   ]
+  },
+  {
+   "orig": [
+    989.1,
+    992.0
+   ],
+   "text": "The only thing that should be burning is your soul."
+  },
+  {
+   "say": "Galo takes the beating, and then his whole crew shows up and freezes Lio *solid*.",
+   "clips": [
+    1065.5,
+    [
+     1136.5,
+     5
+    ],
+    [
+     1128.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "But the Freeze Force storms in, and its boss, Vulcan, tries to arrest *Galo*.",
+   "clips": [
+    1223.5,
+    [
+     1205.5,
+     8
+    ],
+    [
+     1245.8,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Lio gets dragged off to prison, and the whole city thinks the war is *over*.",
+   "clips": [
+    1298.5,
+    [
+     1364.3,
+     5
+    ],
+    [
+     1350.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Galo gets a medal from Governor Kray, the man who once pulled him out of a fire, then celebrates over *pizza*.",
+   "clips": [
+    1512.8,
+    [
+     1469.5,
+     6
+    ],
+    [
+     1474.5,
+     16
+    ],
+    [
+     1485.0,
+     20
+    ]
+   ],
+   "chapter": "A Hero's Medal"
+  },
+  {
+   "say": "But the Freeze Force bursts in, drags out the Burnish cook, and arrests the old owner for hiding *him*.",
+   "clips": [
+    1654.6,
+    [
+     1685.0,
+     6
+    ],
+    [
+     1759.4,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, Lio's gang tears open the prison truck and breaks *free*.",
+   "clips": [
+    1790.0,
+    [
+     1837.5,
+     3
+    ],
+    [
+     1863.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shaken, Galo rides to a frozen lake in the mountains, and Aina follows *him*.",
+   "clips": [
+    1893.5,
+    [
+     1896.5,
+     5
+    ],
+    [
+     1940.0,
+     11
+    ]
+   ],
+   "chapter": "The Frozen Lake"
+  },
+  {
+   "say": "Then a Burnish flame lights up the woods, and he finds Lio's gang hiding in a cave with one of them *dying*.",
+   "clips": [
+    2037.5,
+    [
+     2093.5,
+     10
+    ],
+    [
+     2159.5,
+     21
+    ]
+   ]
+  },
+  {
+   "say": "Galo begs to help, but she dies anyway, and her body turns to *ashes*.",
+   "clips": [
+    2143.0,
+    [
+     2240.0,
+     6
+    ],
+    [
+     2257.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Lio says every Burnish turns to ash, and that Kray's foundation is killing them for *research*.",
+   "clips": [
+    2299.0,
+    [
+     2305.0,
+     6
+    ],
+    [
+     2373.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Galo calls him a liar. The governor would never do that. Lio just walks *away*.",
+   "clips": [
+    2397.0,
+    [
+     2389.0,
+     6
+    ],
+    [
+     2342.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "So Galo storms into Kray's office with his medal in his hand and asks if it's *true*.",
+   "clips": [
+    2439.5,
+    [
+     2442.3,
+     8
+    ],
+    [
+     2473.8,
+     13
+    ]
+   ],
+   "chapter": "The Truth Underground"
+  },
+  {
+   "say": "Kray does not deny a single word. He just says, *follow me*.",
+   "clips": [
+    2510.8,
+    [
+     2519.3,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Deep underground, Kray shows him the real problem. In six months, the magma will bury the whole *planet*.",
+   "clips": [
+    2535.5,
+    [
+     2546.0,
+     9
+    ],
+    [
+     2558.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "His answer is a giant spaceship with only ten thousand seats. Everyone else gets *left behind*.",
+   "clips": [
+    2566.0,
+    [
+     2574.0,
+     7
+    ],
+    [
+     2583.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "And the engine runs on Burnish. Galo watches the pizza cook scream inside a *pod*.",
+   "clips": [
+    2655.0,
+    [
+     2663.0,
+     6
+    ],
+    [
+     2684.0,
+     12
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Galo loses it and says he will put out the magma himself, and Kray has him thrown in a *cell*.",
+   "clips": [
+    2735.5,
+    [
+     2771.2,
+     10
+    ],
+    [
+     2746.0,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Kray was never the hero Galo *thought*.",
+   "clips": [
+    2795.0,
+    [
+     2801.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, the Freeze Force follows the old pizza man's hidden tracker straight to Lio's *hideout*.",
+   "clips": [
+    2851.0,
+    [
+     2857.5,
+     4
+    ],
+    [
+     2878.5,
+     11
+    ]
+   ],
+   "chapter": "The Betrayal"
+  },
+  {
+   "say": "Vulcan freezes Lio's whole gang with absolute zero bullets, one by *one*.",
+   "clips": [
+    2955.0,
+    [
+     2977.0,
+     4
+    ],
+    [
+     2985.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then he blasts Lio into the crater of a volcano. Nobody could survive *that*.",
+   "clips": [
+    3103.5,
+    [
+     3150.8,
+     6
+    ],
+    [
+     3158.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "But a single spark was still *burning*.",
+   "clips": [
+    3471.0,
+    [
+     3467.5,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "A week later, nobody has seen Galo. His friends hear he's been arrested as a *terrorist*.",
+   "clips": [
+    3252.0,
+    [
+     3259.0,
+     7
+    ],
+    [
+     3322.5,
+     12
+    ]
+   ],
+   "chapter": "Galo The Terrorist"
+  },
+  {
+   "say": "His only visitor is Heris, Aina's big sister, and she looks *guilty*.",
+   "clips": [
+    3348.0,
+    [
+     3366.0,
+     4
+    ],
+    [
+     3377.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Galo asks if Aina knows what the ship runs on. Heris says she will do anything to keep her sister *alive*.",
+   "clips": [
+    3373.5,
+    [
+     3391.0,
+     10
+    ],
+    [
+     3400.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Saving her sister, she was dooming everyone *else*.",
+   "clips": [
+    3418.5,
+    [
+     3410.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Then fire explodes across the city, and a voice demands every Burnish be freed. It is Lio, back from the *dead*.",
+   "clips": [
+    3513.0,
+    [
+     3527.8,
+     8
+    ],
+    [
+     3545.0,
+     16
+    ],
+    [
+     3567.5,
+     17
+    ]
+   ],
+   "chapter": "Lio Returns",
+   "sfx": "boom"
+  },
+  {
+   "say": "Galo escapes his cell, charges the fire dragon with his crew, and laughs, because the flames feel barely *warm*.",
+   "clips": [
+    3679.5,
+    [
+     3633.8,
+     4
+    ],
+    [
+     3787.5,
+     12
+    ],
+    [
+     3803.5,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Their fight smashes through the ice into a hidden vault, and a computer calls them by *name*.",
+   "clips": [
+    3815.5,
+    [
+     3899.5,
+     8
+    ],
+    [
+     3951.0,
+     12
+    ]
+   ],
+   "chapter": "The Hidden Truth"
+  },
+  {
+   "say": "It's Professor Deus, a scientist who built every weapon against the Burnish, until Kray had him *killed*.",
+   "clips": [
+    4102.0,
+    [
+     4048.0,
+     6
+    ],
+    [
+     4056.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He reveals the secret behind the flames. They are alive, a fire lifeform from another universe called the *Promare*.",
+   "clips": [
+    4167.9,
+    [
+     4281.8,
+     9
+    ],
+    [
+     4311.5,
+     14
+    ],
+    [
+     4291.8,
+     18
+    ]
+   ]
+  },
+  {
+   "say": "Whenever Kray burns a Burnish for power, the Promare feel the pain, and the planet's core will *explode*.",
+   "clips": [
+    4240.5,
+    [
+     4248.4,
+     8
+    ],
+    [
+     4268.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "So Deus hands them his own weapon, a giant machine that two pilots can run *together*.",
+   "clips": [
+    4395.0,
+    [
+     4410.5,
+     6
+    ],
+    [
+     4404.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Lio hates the idea of fighting beside a firefighter. Galo just says, if there's a fire, I put it *out*.",
+   "clips": [
+    4474.5,
+    [
+     4492.0,
+     9
+    ],
+    [
+     4497.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "They launch in a giant mech called Leo de Galan, and Galo's burning soul finally *wakes up*.",
+   "clips": [
+    4666.3,
+    [
+     4660.6,
+     6
+    ],
+    [
+     4676.0,
+     11
+    ]
+   ],
+   "chapter": "Deus Ex Machina",
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Kray answers with his own white robot, and its cannon freezes anything to absolute *zero*.",
+   "clips": [
+    4891.5,
+    [
+     5248.0,
+     9
+    ],
+    [
+     5281.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Galo does not even dodge. He just grins and takes it *head on*.",
+   "clips": [
+    5302.0,
+    [
+     5300.8,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Then Kray *laughed*.",
+   "clips": [
+    5410.3,
+    [
+     5441.0,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "He is a Burnish too, and he has hated Galo since the day they *met*.",
+   "clips": [
+    5427.8,
+    [
+     5420.0,
+     8
+    ],
+    [
+     5449.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He admits saving Galo was a complete accident, and he sent him to the deadliest job to get rid of *him*.",
+   "clips": [
+    5460.5,
+    [
+     5463.8,
+     7
+    ],
+    [
+     5477.0,
+     14
+    ]
+   ]
+  },
+  {
+   "orig": [
+    5478.3,
+    5481.2
+   ],
+   "text": "I wanted to be rid of you, but you kept surviving."
+  },
+  {
+   "say": "Kray locks Lio into his engine as a living power core, and the ship starts a five minute *countdown*.",
+   "clips": [
+    5544.5,
+    [
+     5606.0,
+     5
+    ],
+    [
+     5610.8,
+     13
+    ]
+   ],
+   "chapter": "The Last Stand"
+  },
+  {
+   "say": "Ignis and the whole team hold off Vulcan's troops, and Lucia fires Galo straight at the *engine*.",
+   "clips": [
+    5683.5,
+    [
+     5690.0,
+     4
+    ],
+    [
+     5700.0,
+     11
+    ]
+   ],
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Inside, Galo finds Lio burning alive, and he grabs him and refuses to let *go*.",
+   "clips": [
+    5886.5,
+    [
+     5895.0,
+     8
+    ],
+    [
+     5917.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Lio wakes up. For the first time in his life, he lit a fire to save somebody *else*.",
+   "clips": [
+    5970.0,
+    [
+     5976.0,
+     5
+    ],
+    [
+     5986.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Lio says the Promare only need to burn out once, so he asks Galo to burn the whole planet *with him*.",
+   "clips": [
+    6003.5,
+    [
+     6000.0,
+     12
+    ],
+    [
+     6015.5,
+     18
+    ]
+   ]
+  },
+  {
+   "say": "Galo says yes, because he can put out a fire as big as the *world*.",
+   "clips": [
+    6017.6,
+    [
+     6024.5,
+     2
+    ],
+    [
+     6028.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Every Burnish on Earth lends them their flame, and their friends stand right beside *them*.",
+   "clips": [
+    6071.5,
+    [
+     6077.5,
+     10
+    ],
+    [
+     6081.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Galo and Lio become one giant machine, and the whole planet lights *up*.",
+   "clips": [
+    6119.5,
+    [
+     6190.5,
+     4
+    ],
+    [
+     6145.0,
+     10
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "Then everything goes quiet. The Promare are sent home, the Burnish are gone, and the city starts to *rebuild*.",
+   "clips": [
+    6208.5,
+    [
+     6245.0,
+     5
+    ],
+    [
+     6261.5,
+     15
+    ],
+    [
+     6272.5,
+     16
+    ]
+   ]
+  },
+  {
+   "orig": [
+    6299.9,
+    6302.5
+   ],
+   "text": "Yeah, I'm the universe's number one firefighting idiot."
+  },
+  {
+   "say": "A firefighter and a terrorist saved the Earth by burning it, and they both walked away *smiling*.",
+   "clips": [
+    6275.5,
+    [
+     6297.5,
+     5
+    ],
+    [
+     6306.5,
+     14
+    ]
+   ]
+  }
+ ]
+}
