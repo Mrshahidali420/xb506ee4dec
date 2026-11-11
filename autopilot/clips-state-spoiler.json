@@ -1,6 +1,7 @@
 {
  "done": [
-  "spoiler:weak-hero-2-e7"
+  "spoiler:weak-hero-2-e7",
+  "spoiler:love-next-door-e8"
  ],
  "failed": {
   "spoiler:movie-josee": 2,
@@ -9,7 +10,7 @@
  },
  "days": {
   "2026-11-11": {
-   "spoiler": 1
+   "spoiler": 2
   }
  },
  "shows": [
@@ -17,6 +18,11 @@
    "page": "spoiler",
    "show": "weak-hero-2",
    "at": 1794382425
+  },
+  {
+   "page": "spoiler",
+   "show": "love-next-door",
+   "at": 1794436160
   }
  ]
 }
