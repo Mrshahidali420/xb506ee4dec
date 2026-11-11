@@ -5,6 +5,10 @@ run-name: Clips Anime Rewind
 # here never holds up the other Pages. Posting is post-clips.yml.
 on:
   workflow_dispatch:
+    inputs:
+      retry:
+        description: Retry number (set by clips-page.yml after a source that would not download; leave 0)
+        default: "0"
   schedule:
     - cron: '10 * * * *'
 
@@ -21,4 +25,5 @@ jobs:
     uses: ./.github/workflows/clips-page.yml
     with:
       page: animerewind
+      retry: ${{ inputs.retry || '0' }}
     secrets: inherit

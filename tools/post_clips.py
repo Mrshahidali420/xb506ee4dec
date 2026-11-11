@@ -32,6 +32,7 @@ BLOCK_CODES = {368}
 THROTTLE_PAUSE = 3600
 BLOCK_PAUSE = 86400
 WORK = Path(os.environ.get("RUNNER_TEMP", "/tmp"))
+IG_STAGING = "ig-staging"   # public release of this repo that Instagram fetches the reel from
 
 
 def gh(*args: str, raw: bool = False) -> str | bytes:
@@ -115,10 +116,29 @@ def pause_for(exc: post_fb.GraphError) -> int:
 
 
 def post_instagram(page_id: str, token: str, video: Path, caption: str) -> str:
+    """Instagram fetches the reel from a public link (this repo's ig-staging release), removed after. The byte upload
+    (upload_type resumable) is refused with ProcessingFailedError 'Request processing failed' (11 Nov 2026), the same
+    failure that moved queue_post.py and ig_backlog.py to a public link."""
     import post_ig
 
+    repo, env = os.environ.get("GITHUB_REPOSITORY", "Mrshahidali420/xb506ee4dec"), {**os.environ, "GH_TOKEN": os.environ.get("REPO_TOKEN", "")}
+    if not os.environ.get("REPO_TOKEN"):
+        raise RuntimeError("no REPO_TOKEN: the reel cannot be staged on a public link for Instagram")
     ig_id, name = post_ig.ig_account(page_id, token)
-    media = post_ig.upload_reel(ig_id, token, video, caption)
+    staged = video.with_name(f"ig-{int(time.time())}-{video.name}")
+    video.replace(staged)
+    if subprocess.run(["gh", "release", "view", IG_STAGING, "-R", repo], capture_output=True, env=env).returncode:
+        subprocess.run(["gh", "release", "create", IG_STAGING, "-R", repo, "--title", IG_STAGING, "--notes",
+                        "Videos waiting for Instagram to fetch them. Removed after posting."], check=True, capture_output=True, env=env)
+    subprocess.run(["gh", "release", "upload", IG_STAGING, str(staged), "-R", repo, "--clobber"], check=True, capture_output=True, env=env)
+    try:
+        os.environ["VIDEO_URL"] = post_ig.requests.head(f"https://github.com/{repo}/releases/download/{IG_STAGING}/{staged.name}",
+                                                        allow_redirects=True, timeout=60).url
+        print(f"instagram: {staged.stat().st_size // 1024} KB staged on a public link, Instagram fetches it (video_url, not a byte upload)", flush=True)
+        media = post_ig.upload_reel(ig_id, token, staged, caption)
+    finally:
+        os.environ.pop("VIDEO_URL", None)
+        subprocess.run(["gh", "release", "delete-asset", IG_STAGING, staged.name, "-R", repo, "-y"], capture_output=True, env=env)
     link = post_ig.requests.get(f"{post_ig.GRAPH}/{media}", params={"fields": "permalink", "access_token": token}, timeout=60).json()
     return link.get("permalink", f"{name}:{media}")
 
@@ -145,6 +165,7 @@ def run(page: str, go: bool) -> None:
     comment = first_comment(conf, item)
     print(f"{waiting} clip(s) waiting. next: {item['id']} ({item['anime']} episode {item['episode']})")
     print(f"facebook reel: {'full' if use_full else 'short'} version, {item['full_seconds'] if use_full else item['short_seconds']} s")
+    print(f"audio: {item.get('audio') or 'unknown'}")
     print(f"caption: {item['caption']}")
     print(f"first comment: {comment or '(none)'}")
     print(f"instagram reel: short version, {item['short_seconds']} s, caption ends with 'link in bio' (posts only when IG_POST_ENABLED is true)")
@@ -155,7 +176,7 @@ def run(page: str, go: bool) -> None:
     if not page_id or not token:
         sys.exit(f"missing {conf['fb']}_FB_PAGE_ID or {conf['fb']}_FB_PAGE_TOKEN")
     video = download(repo, item["full_id"] if use_full else item["short_id"], "reel_fb.mp4")   # before the claim: a failed download costs nothing
-    entry = {"id": item["id"], "show": item["anime"], "at": now_iso(), "fb": None, "ig": None}
+    entry = {"id": item["id"], "show": item["anime"], "audio": item.get("audio"), "at": now_iso(), "fb": None, "ig": None}
     ledger["posted"] = (ledger["posted"] + [entry])[-300:]
     save_ledger(page, ledger)   # claimed before the upload: a crash after Facebook publishes can never post this clip twice
     try:

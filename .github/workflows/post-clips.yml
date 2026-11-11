@@ -37,6 +37,7 @@ jobs:
     env:
       PAGE: ${{ matrix.page }}
       GH_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
+      REPO_TOKEN: ${{ github.token }}   # stages the Instagram reel on this repo's public ig-staging release, removed after
       ANIME_FB_PAGE_ID: ${{ secrets.ANIME_FB_PAGE_ID }}
       ANIME_FB_PAGE_TOKEN: ${{ secrets.ANIME_FB_PAGE_TOKEN }}
       MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}

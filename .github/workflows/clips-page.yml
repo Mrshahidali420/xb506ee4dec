@@ -12,6 +12,9 @@ on:
       page:
         type: string
         required: true
+      retry:
+        type: string
+        default: '0'
 
 jobs:
   pick:
@@ -63,15 +66,27 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write   # starts this Page's run again when the source would not download
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
       - name: Record the result
+        id: mark
         run: |
-          result=fail; [ "${{ needs.clip.result }}" = "success" ] && result=done
+          # prep failed = the source would not download (fetch_source.py says why): that title is dead, never picked again
+          result=fail; [ "${{ needs.clip.result }}" = "success" ] && result=done; [ "${{ needs.prep.result }}" = "failure" ] && result=dead
+          echo "result=$result" >> "$GITHUB_OUTPUT"
           python3 tools/clip_daily.py mark "${{ needs.pick.outputs.job }}" $result
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
           git add autopilot
           git diff --cached --quiet || git commit -qm "Clips: ${{ needs.pick.outputs.job }} $result"
           for i in 1 2 3 4 5; do git pull -q --no-rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); [ $i = 5 ] && { echo "::error::push failed"; exit 1; }; done
+      # A dead source must not cost the Page its hour: pick the next title now, at most twice in a row.
+      - name: Try the next title
+        if: steps.mark.outputs.result == 'dead' && fromJSON(inputs.retry) < 2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "source dead, picking the next ${{ inputs.page }} title (retry $(( ${{ inputs.retry }} + 1 )) of 2)"
+          gh workflow run "clips-${{ inputs.page }}.yml" --ref "${{ github.ref_name }}" -f retry=$(( ${{ inputs.retry }} + 1 ))

@@ -82,6 +82,9 @@ def main() -> None:
     repo = f"{os.environ.get('OWNER', 'Mrshahidali420')}/recap-assets"
     if subprocess.run(["gh", "release", "view", TAG, "-R", repo], capture_output=True).returncode:
         subprocess.run(["gh", "release", "create", TAG, "-R", repo, "--title", TAG, "--notes", "Clips waiting for the Page posters."], check=True)
+    got = job / "work" / "audio.txt"   # what fetch_source really got (dub or sub); else what the pick asked for
+    audio = got.read_text(encoding="utf-8").strip() if got.exists() else meta.get("audio")
+    print(f"audio: {audio or 'unknown'}", flush=True)
     for page in meta.get("pages") or [meta["page"]]:
         data, sha = manifest(repo, page)
         data["items"] = prune(repo, data["items"])
@@ -93,7 +96,7 @@ def main() -> None:
                     "title": clip["title"], "caption": clip["caption"], "comment": clip["comment"], "why": clip.get("why", ""),
                     "full_id": upload(repo, job / f["full"], f"{base}-full.mp4"), "short_id": upload(repo, job / f["short"], f"{base}-short.mp4"),
                     "full_seconds": round(clip["end"] - clip["start"]), "short_seconds": round(clip["short_end"] - clip["short_start"]),
-                    "made_at": int(time.time())}
+                    "audio": audio, "made_at": int(time.time())}
             data["items"] = [x for x in data["items"] if x["id"] != base] + [item]
             print(f"published {base}", flush=True)
         save(repo, page, data, sha)

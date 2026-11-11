@@ -35,24 +35,61 @@ def youtube(job: Path, src: dict) -> None:
         "--merge-output-format", "mp4", "-o", str(job / "source.mp4"), src["url"]])
 
 
-def anime(job: Path, src: dict) -> None:
-    code = f"""
+# Runs inside anipy's own Python. Every provider, every name (English, then romaji), every matching entry, the wanted
+# language first: the first that lists the episode and gives a stream wins. One broken entry no longer kills the job
+# (11 Nov 2026: animehub's "Naruto" entry /anime/naruto-kai lists a movie as episode 'mv', and anipy's parsenum raised
+# ValueError on it while /anime/naruto was fine). A "Korean" entry is a Korean dub, never used.
+ANIME_PROBE = """
+import json, re, sys
 from anipy_api.provider import get_provider, LanguageTypeEnum as L
 from anipy_api.anime import Anime
-p = get_provider('animehub')
-r = [x for x in p.get_search({src['title']!r}) if x.name.strip().lower() == {src['title']!r}.lower()] or p.get_search({src['title']!r})
-a = Anime.from_search_result(p, r[0])
-lang = L.DUB if {src.get('lang', 'dub')!r} == 'dub' and L.DUB in a.languages else L.SUB
-s = a.get_video(a.get_episodes(lang=lang)[{int(src['episode']) - 1}], lang=lang, preferred_quality=720)
-print('URL=' + str(s.url)); print('REF=' + (s.referrer or ''))
+titles, ep, want = json.loads(sys.argv[1]), float(sys.argv[2]), sys.argv[3]
+norm = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
+tried = []
+for prov in ('animehub', 'anidbapp'):
+    try:
+        p = get_provider(prov)
+        found = [(t, p.get_search(t)) for t in titles]
+    except Exception as err:
+        tried.append(f'{prov}: search failed ({type(err).__name__}: {err})'); continue
+    exact = [r for t, rs in found for r in rs if norm(r.name) == norm(t)]
+    loose = (found[0][1][:3] if found else []) if not exact else []
+    seen = set()
+    for r in exact + loose:
+        if r.identifier in seen or 'korean' in (r.name + r.identifier).lower():
+            continue
+        seen.add(r.identifier)
+        a = Anime.from_search_result(p, r)
+        for lang in sorted(a.languages, key=lambda l: l.value != want):
+            try:
+                eps = a.get_episodes(lang=lang)
+                if ep not in eps:
+                    tried.append(f'{prov} {r.identifier} {lang.value}: no episode {ep:g} ({len(eps)} listed)'); continue
+                s = a.get_video(next(e for e in eps if e == ep), lang=lang, preferred_quality=720)
+            except Exception as err:
+                tried.append(f'{prov} {r.identifier} {lang.value}: {type(err).__name__}: {err}'); continue
+            print('URL=' + str(s.url)); print('REF=' + (s.referrer or '')); print('LANG=' + lang.value)
+            print(f'source: {prov} {r.identifier} {lang.value}', file=sys.stderr)
+            sys.exit(0)
+print('\\n'.join(tried) or 'no search result', file=sys.stderr)
+sys.exit(3)
 """
-    out = subprocess.run([*UV, "--with", "anipy-cli", "python", "-c", code], capture_output=True, text=True)
-    if out.returncode:  # show why (episode not out yet, provider down) instead of a bare exit code
-        print(out.stderr[-1500:], flush=True)
-        out.check_returncode()
+
+
+def anime(job: Path, src: dict) -> None:
+    titles = [src["title"]] + [t for t in src.get("alt", []) if t and t != src["title"]]
+    out = subprocess.run([*UV, "--with", "anipy-cli", "python", "-c", ANIME_PROBE, json.dumps(titles), str(src["episode"]),
+                          src.get("lang", "dub")], capture_output=True, text=True)
+    print(out.stderr[-2500:], flush=True)
+    if out.returncode:  # no provider has it (episode not out yet, provider down, broken listing): the title is marked failed
+        sys.exit(f"no working anime source for {' / '.join(titles)} episode {src['episode']}: every provider and entry above failed")
     lines = out.stdout.splitlines()
     url = next(l[4:] for l in lines if l.startswith("URL="))
     ref = next((l[4:] for l in lines if l.startswith("REF=")), "")
+    got = next((l[5:] for l in lines if l.startswith("LANG=")), src.get("lang", "dub"))
+    (job / "work").mkdir(exist_ok=True)
+    (job / "work" / "audio.txt").write_text(got, encoding="utf-8")   # what we really got (a title without a dub falls back to sub)
+    print(f"audio: {got} (asked {src.get('lang', 'dub')})", flush=True)
     sh([*UV, "--with", "yt-dlp", "yt-dlp", "-q", *(["--referer", ref] if ref else []), "--remux-video", "mp4",
         "-o", str(job / "source.mp4"), url])
 
@@ -192,7 +229,9 @@ def main() -> None:
         film_sheets(job)
         if src["type"] == "anime" and not (job / "work" / "english.txt").exists():
             try:  # a dub is English already; a sub is Japanese speech, translated to English text
-                transcribe(job, "en" if src.get("lang", "dub") == "dub" else "translate")
+                got = job / "work" / "audio.txt"
+                lang = got.read_text(encoding="utf-8").strip() if got.exists() else src.get("lang", "dub")
+                transcribe(job, "en" if lang == "dub" else "translate")
             except (subprocess.CalledProcessError, OSError, ValueError) as err:
                 print(f"no transcript: {err}", flush=True)
     if src.get("shot_sheets") and src["type"] not in ("webtoon", "manga") and not (job / "work" / "shot_sheet_01.jpg").exists():

@@ -1,7 +1,7 @@
 """Choose today's trending episode to clip, for the two Pages. No AI, no browser.
 
   python tools/clip_daily.py pick [page]     makes jobs/clip-<slug>-e<NN>/ (source.json, clip.json) and prints job=<folder> for GitHub
-  python tools/clip_daily.py mark <job> done|fail    records the result in the state file
+  python tools/clip_daily.py mark <job> done|fail|dead    records the result in the state file (dead = source not downloadable, never retried)
 No page = the WhereAnime / Manhwa Index pick below. A page (animerewind, manhwax, spoiler) = one random good title for that
 Page (tools/clip_pages.py), with its own state file autopilot/clips-state-<page>.json.
 
@@ -146,7 +146,8 @@ def pick() -> None:
         return
     job = ROOT / "jobs" / f"clip-{slug(chosen['title'])}-e{chosen['episode']:02d}"
     job.mkdir(parents=True, exist_ok=True)
-    (job / "source.json").write_text(json.dumps({"type": "anime", "title": chosen["title"], "episode": chosen["episode"], "lang": "sub"}, indent=1))
+    (job / "source.json").write_text(json.dumps({"type": "anime", "title": chosen["title"], "alt": [chosen["romaji"]],
+                                                 "episode": chosen["episode"], "lang": "sub"}, indent=1))
     (job / "clip.json").write_text(json.dumps({"kind": "clip", "pages": pages, "title": chosen["title"], "episode": chosen["episode"],
                                                "anilist_id": chosen["anilist_id"], "manga_id": chosen["manga_id"], "key": chosen["key"]}, indent=1))
     print(f"picked {chosen['title']} episode {chosen['episode']} (tier {chosen['tier']}, trending {chosen['trending']}) for {', '.join(pages)}", file=sys.stderr)
@@ -164,6 +165,8 @@ def mark(job: str, result: str) -> None:
             day[page] = day.get(page, 0) + 1
             st["shows"] = (st.get("shows", []) + [{"page": page, "show": meta.get("show") or meta["anilist_id"], "at": int(time.time())}])[-300:]
         st["days"] = {today(): day}
+    elif result == "dead":   # the source could not be downloaded at all: never picked again
+        st["failed"][key] = max(st["failed"].get(key, 0) + 1, MAX_TRIES, clip_pages.MAX_TRIES)
     else:
         st["failed"][key] = st["failed"].get(key, 0) + 1
     save(st, own)

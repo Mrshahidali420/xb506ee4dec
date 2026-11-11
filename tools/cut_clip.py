@@ -20,7 +20,7 @@ LOGO = 150         # logo width in pixels
 BRANDS = Path(__file__).resolve().parent.parent / "brand" / "pages"
 REACH = 2.0  # seconds an end may move to reach a camera cut
 VERTICAL = ("[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:5[bg];"
-            "[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,format=yuv420p")
+            "[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1,format=yuv420p")   # square pixels: the source's odd SAR made a 1920:3413 frame
 
 
 def graph(logo: bool) -> str:

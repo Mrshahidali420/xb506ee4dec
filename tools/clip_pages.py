@@ -22,6 +22,7 @@ MAX_TRIES = 2
 BEST_SCORE = 78
 BEST_POPULARITY = 50000
 EP_CAP = 12          # best-of: a random episode among the first 12
+AUDIO_WEIGHTS = {"dub": 1, "sub": 1}   # Anime Rewind and Manhwa X: English dub or original sub, about half each (a title with no dub falls back to sub)
 BEST_QUERY = """query($page:Int,$min:Int,$pop:Int){Page(page:$page,perPage:50){media(type:ANIME,format_in:[TV,ONA],isAdult:false,averageScore_greater:$min,
 popularity_greater:$pop,sort:POPULARITY_DESC){id title{romaji english} episodes trending popularity averageScore
 relations{edges{relationType node{id type countryOfOrigin}}}}}}"""
@@ -48,8 +49,10 @@ def anime_cand(c: dict, need_manga: bool) -> dict | None:
     if need_manga and not c["manga_id"]:
         return None
     link = f"https://anilist.co/manga/{c['manga_id']}" if need_manga else f"https://anilist.co/anime/{c['anilist_id']}"
-    return cand(c["key"], c["anilist_id"], c["title"], c["episode"], {"type": "anime", "title": c["title"], "episode": c["episode"], "lang": "sub"},
-                1 + math.sqrt(c["popularity"]) / 100, anilist_id=c["anilist_id"], manga_id=c["manga_id"], link=link)
+    audio = random.choices(list(AUDIO_WEIGHTS), weights=list(AUDIO_WEIGHTS.values()))[0]
+    source = {"type": "anime", "title": c["title"], "alt": [c["romaji"]] if c.get("romaji") else [], "episode": c["episode"], "lang": audio}
+    return cand(c["key"], c["anilist_id"], c["title"], c["episode"], source,
+                1 + math.sqrt(c["popularity"]) / 100, anilist_id=c["anilist_id"], manga_id=c["manga_id"], link=link, audio=audio)
 
 
 def airing_pool(cd, now: int, hours: int, need_manga: bool, good) -> list[dict]:
@@ -69,7 +72,7 @@ def best_pool(cd, now: int, need_manga: bool) -> list[dict]:
         title, last = m["title"]["english"] or m["title"]["romaji"], min(m["episodes"] or EP_CAP, EP_CAP)
         for ep in range(1, last + 1):
             p = anime_cand({"key": f"{m['id']}-{ep}", "anilist_id": m["id"], "episode": ep, "title": title, "manga_id": manga,
-                            "popularity": m["popularity"] or 0}, need_manga)
+                            "romaji": m["title"]["romaji"], "popularity": m["popularity"] or 0}, need_manga)
             if p:
                 p["w"] *= 3 if ep == 1 or ep == m["episodes"] else 1
                 out.append(p)
@@ -146,6 +149,6 @@ def pick_page(page: str) -> None:
     (job / "clip.json").write_text(json.dumps({"kind": "clip", "pages": [page], "title": chosen["title"], "episode": chosen["episode"],
                                                "anilist_id": chosen["anilist_id"], "manga_id": chosen["manga_id"], "key": chosen["key"],
                                                "show": chosen["show"], "genre": conf["label"], "movie": chosen["movie"],
-                                               "link": chosen["link"], "top": 1}, indent=1))
-    print(f"picked {chosen['title']} episode {chosen['episode']} for {page}", file=sys.stderr)
+                                               "link": chosen["link"], "audio": chosen.get("audio"), "top": 1}, indent=1))
+    print(f"picked {chosen['title']} episode {chosen['episode']} for {page}{' (' + chosen['audio'] + ')' if chosen.get('audio') else ''}", file=sys.stderr)
     print(f"job=jobs/{job.name}")
