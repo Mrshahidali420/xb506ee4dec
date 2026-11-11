@@ -61,8 +61,8 @@ def airing_pool(cd, now: int, hours: int, need_manga: bool, good) -> list[dict]:
 
 def best_pool(cd, now: int, need_manga: bool) -> list[dict]:
     """Well-scored, popular shows of any season: each of the first 12 episodes is a candidate; episode 1 and a season finale weigh more."""
-    minimum, popularity = (70, 20000) if need_manga else (BEST_SCORE, BEST_POPULARITY)
-    body = json.dumps({"query": BEST_QUERY, "variables": {"page": random.choice([1, 2, 3]), "min": minimum, "pop": popularity}}).encode()
+    minimum, popularity = (60, 5000) if need_manga else (BEST_SCORE, BEST_POPULARITY)
+    body = json.dumps({"query": BEST_QUERY, "variables": {"page": random.choice([1, 2, 3, 4, 5]), "min": minimum, "pop": popularity}}).encode()
     req = urllib.request.Request("https://graphql.anilist.co", body, {"Content-Type": "application/json", "User-Agent": "clip-daily"})
     media = json.loads(urllib.request.urlopen(req, timeout=60).read())["data"]["Page"]["media"]
     out = []
@@ -108,7 +108,7 @@ def tiers(page: str, cd, now: int) -> list[tuple[float, object]]:
                 (2, lambda: airing_pool(cd, now, 10 * 24, False, lambda c: c["trending"] >= 10 or c["score"] >= 75)),
                 (4, lambda: best_pool(cd, now, False))]
     if page == "manhwax":
-        return [(3, lambda: airing_pool(cd, now, 10 * 24, True, lambda c: c["trending"] >= 5 or c["score"] >= 70)),
+        return [(3, lambda: airing_pool(cd, now, 21 * 24, True, lambda c: c["trending"] >= 2 or c["score"] >= 60)),
                 (2, lambda: best_pool(cd, now, True))]
     return [(1, lambda: spoiler_pool("series")), (1, lambda: spoiler_pool("movie"))]
 
