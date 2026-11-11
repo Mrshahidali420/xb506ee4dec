@@ -1,0 +1,21 @@
+name: Page insights
+run-name: Page insights (read only)
+
+# Read-only: prints whether each clip Page token can read insights and the views of the last reels.
+on:
+  workflow_dispatch:
+
+jobs:
+  insights:
+    runs-on: ubuntu-latest
+    env:
+      ANIME_FB_PAGE_ID: ${{ secrets.ANIME_FB_PAGE_ID }}
+      ANIME_FB_PAGE_TOKEN: ${{ secrets.ANIME_FB_PAGE_TOKEN }}
+      MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
+      MANHWAX_FB_PAGE_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
+      SPOILER_FB_PAGE_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
+      SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests
+      - run: python tools/page_insights.py
