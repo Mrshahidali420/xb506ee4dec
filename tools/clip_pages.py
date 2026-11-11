@@ -76,20 +76,17 @@ def best_pool(cd, now: int, need_manga: bool) -> list[dict]:
 
 
 def spoiler_pool(kind: str) -> list[dict]:
-    """Episodes of the K-drama series, or the K-movies, listed in daily/plan.json under "spoiler"."""
-    plan = json.loads((ROOT / "daily" / "plan.json").read_text(encoding="utf-8"))["spoiler"]
+    """Episodes of the K-drama series, or the K-movies, in autopilot/spoiler-pool.json (copied from daily/plan.json "spoiler", which is not in git)."""
+    pool = json.loads((ROOT / "autopilot" / "spoiler-pool.json").read_text(encoding="utf-8"))
     out = []
-    for entry in plan:
-        if kind == "series" and entry.get("kind") == "series":
-            for s in [entry, *entry.get("then", [])]:
-                name = re.sub(r"-e\{n.*", "", Path(s["job"]).name).removeprefix("kdrama-")
-                last = int(s["last"])
-                for n in range(1, last + 1):   # one drama weighs the same as another, whatever its length
-                    out.append(cand(f"spoiler:{name}-e{n}", name, name.replace("-", " ").title(), n,
-                                    {"type": "kisskh", "url": s["url"], "episode": n}, 1 / last))
-        if kind == "movie" and entry.get("kind") == "movie":
-            for t in sorted({t for pool in entry["pools"].values() for t in pool}):
-                out.append(cand(f"spoiler:movie-{slug(t)}", slug(t), t, 1, {"type": "kisskh", "search": t, "episode": 1}, movie=True))
+    if kind == "series":
+        for s in pool["series"]:
+            for n in range(1, s["last"] + 1):   # one drama weighs the same as another, whatever its length
+                out.append(cand(f"spoiler:{s['name']}-e{n}", s["name"], s["name"].replace("-", " ").title(), n,
+                                {"type": "kisskh", "url": s["url"], "episode": n}, 1 / s["last"]))
+    else:
+        for t in pool["movies"]:
+            out.append(cand(f"spoiler:movie-{slug(t)}", slug(t), t, 1, {"type": "kisskh", "search": t, "episode": 1}, movie=True))
     return out
 
 
