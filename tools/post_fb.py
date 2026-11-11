@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import os
 import sys
+import time
 from pathlib import Path
 
 import requests
@@ -57,6 +58,45 @@ def upload(page_id: str, token: str, video: Path, caption: str) -> str:
     check(requests.post(url, data={"upload_phase": "finish", "upload_session_id": session, "description": caption,
                                    "published": "true", "access_token": token}, timeout=120), "upload finish")
     return start["video_id"]
+
+
+class GraphError(RuntimeError):
+    """A Graph API refusal; .code is Meta's error code (rate limits are 4, 17, 32, 341, 613, 368, 80000-80014)."""
+
+    def __init__(self, message: str, code: int = 0) -> None:
+        super().__init__(message)
+        self.code = code
+
+
+def reel(page_id: str, token: str, video: Path, caption: str) -> str:
+    """Publish a Facebook Reel (Reels API: start, send the bytes, finish). Up to 90 s, 9:16. Returns the video id, which the first comment goes on."""
+    url = f"{GRAPH}/{page_id}/video_reels"
+
+    def call(resp: requests.Response, step: str) -> dict:
+        data = resp.json()
+        if resp.status_code != 200 or "error" in data:
+            err = data.get("error", {})
+            raise GraphError(f"{step} failed: {err.get('message', 'HTTP ' + str(resp.status_code))}", int(err.get("code") or 0))
+        return data
+
+    start = call(requests.post(url, data={"upload_phase": "start", "access_token": token}, timeout=60), "reel start")
+    vid, size = start["video_id"], video.stat().st_size
+    host = "https://rupload.facebook.com/"
+    target = start.get("upload_url") if str(start.get("upload_url", "")).startswith(host) else f"{host}video-upload/v21.0/{vid}"  # the token goes only to Facebook's upload host
+    sent = requests.post(target, data=video.read_bytes(), timeout=900,
+                         headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size)}).json()
+    if not sent.get("success"):
+        raise GraphError(f"reel upload failed: {sent.get('error', sent)}", int((sent.get("error") or {}).get("code") or 0))
+    call(requests.post(url, data={"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED", "description": caption,
+                                  "access_token": token}, timeout=120), "reel finish")
+    for _ in range(18):   # wait until Facebook has processed it, so a comment can go on
+        status = requests.get(f"{GRAPH}/{vid}", params={"fields": "status", "access_token": token}, timeout=60).json().get("status", {})
+        if status.get("video_status") == "ready":
+            break
+        if status.get("video_status") == "error":
+            raise GraphError(f"Facebook could not process the reel: {status}")
+        time.sleep(10)
+    return vid
 
 
 def main() -> None:

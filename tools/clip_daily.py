@@ -1,7 +1,9 @@
 """Choose today's trending episode to clip, for the two Pages. No AI, no browser.
 
-  python tools/clip_daily.py pick     makes jobs/clip-<slug>-e<NN>/ (source.json, clip.json) and prints job=<folder> for GitHub
-  python tools/clip_daily.py mark <job> done|fail    records the result in clips/state.json
+  python tools/clip_daily.py pick [page]     makes jobs/clip-<slug>-e<NN>/ (source.json, clip.json) and prints job=<folder> for GitHub
+  python tools/clip_daily.py mark <job> done|fail    records the result in the state file
+No page = the WhereAnime / Manhwa Index pick below. A page (animerewind, manhwax, spoiler) = one random good title for that
+Page (tools/clip_pages.py), with its own state file autopilot/clips-state-<page>.json.
 
 How it picks: AniList lists every episode that aired in the last 48 hours. The one whose show is trending
 the most (then the most popular) wins, unless it was clipped already or failed twice. WhereAnime takes any
@@ -21,6 +23,9 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import clip_pages  # noqa: E402  (the Pages with their own pick)
+
 STATE = ROOT / "autopilot" / "clips-state.json"
 WINDOW_HOURS = 15 * 24      # a fresh episode first, then the last 10 days, then good older ones up to 15 days
 FRESH_HOURS = 72
@@ -59,13 +64,18 @@ def manhwa_id(media: dict) -> int | None:
     return None
 
 
-def state() -> dict:
-    return json.loads(STATE.read_text()) if STATE.exists() else {"done": [], "failed": {}, "days": {}}
+def state_file(page: str | None = None) -> Path:
+    return STATE if not page else STATE.with_name(f"clips-state-{page}.json")
 
 
-def save(st: dict) -> None:
+def state(page: str | None = None) -> dict:
+    f = state_file(page)
+    return json.loads(f.read_text()) if f.exists() else {"done": [], "failed": {}, "days": {}, "shows": []}
+
+
+def save(st: dict, page: str | None = None) -> None:
     STATE.parent.mkdir(exist_ok=True)
-    STATE.write_text(json.dumps(st, indent=1))
+    state_file(page).write_text(json.dumps(st, indent=1))
 
 
 def slug(text: str) -> str:
@@ -82,21 +92,31 @@ def tier_of(c: dict, now: int) -> int | None:
     return 2 if c["score"] >= GOOD_SCORE and c["popularity"] >= 10000 else None
 
 
+def to_candidate(r: dict) -> dict | None:
+    """One AniList airing as a candidate, or None for adult shows and formats we do not clip."""
+    m = r["media"]
+    if m["isAdult"] or m["format"] not in FORMATS:
+        return None
+    return {"key": f"{m['id']}-{r['episode']}", "anilist_id": m["id"], "episode": r["episode"], "aired": r["airingAt"],
+            "title": m["title"]["english"] or m["title"]["romaji"], "romaji": m["title"]["romaji"],
+            "trending": m["trending"] or 0, "popularity": m["popularity"] or 0, "score": m["averageScore"] or 0, "manga_id": manhwa_id(m)}
+
+
+def airing(now: int, hours: int) -> list[dict]:
+    """Every clippable episode that aired between MIN_AGE_HOURS and <hours> ago, shuffled."""
+    rows = anilist({"from": now - hours * 3600, "to": now - MIN_AGE_HOURS * 3600})
+    out = [c for c in map(to_candidate, rows) if c]
+    random.shuffle(out)
+    return out
+
+
 def candidates(now: int) -> list[dict]:
-    rows = anilist({"from": now - WINDOW_HOURS * 3600, "to": now - MIN_AGE_HOURS * 3600})
     out = []
-    for r in rows:
-        m = r["media"]
-        if m["isAdult"] or m["format"] not in FORMATS:
-            continue
-        c = {"key": f"{m['id']}-{r['episode']}", "anilist_id": m["id"], "episode": r["episode"], "aired": r["airingAt"],
-             "title": m["title"]["english"] or m["title"]["romaji"], "romaji": m["title"]["romaji"],
-             "trending": m["trending"] or 0, "popularity": m["popularity"] or 0, "score": m["averageScore"] or 0, "manga_id": manhwa_id(m)}
+    for c in airing(now, WINDOW_HOURS):
         c["tier"] = tier_of(c, now)
         if c["tier"] is not None:
             out.append(c)
     # fresh first; inside a tier the most talked about; the oldest tier is shuffled so the backlog is a random good pick
-    random.shuffle(out)
     return sorted(out, key=lambda c: (c["tier"], 0 if c["tier"] == 2 else -c["trending"], -c["popularity"]))
 
 
@@ -137,21 +157,25 @@ def pick() -> None:
 
 def mark(job: str, result: str) -> None:
     meta = json.loads((ROOT / job / "clip.json").read_text())
-    st, key = state(), meta["key"]
+    own = meta["pages"][0] if meta["pages"][0] in clip_pages.PAGES else None   # the new Pages keep their own state file
+    st, key = state(own), meta["key"]
     if result == "done":
         st["done"] = (st["done"] + [key])[-500:]
         day = st["days"].get(today(), {})
         for page in meta["pages"]:
             day[page] = day.get(page, 0) + 1
+            st["shows"] = (st.get("shows", []) + [{"page": page, "show": meta.get("show") or meta["anilist_id"], "at": int(time.time())}])[-300:]
         st["days"] = {today(): day}
     else:
         st["failed"][key] = st["failed"].get(key, 0) + 1
-    save(st)
+    save(st, own)
     print(f"{key}: {result}")
 
 
 if __name__ == "__main__":
-    if sys.argv[1:2] == ["pick"]:
+    if sys.argv[1:2] == ["pick"] and len(sys.argv) == 3:
+        clip_pages.pick_page(sys.argv[2])
+    elif sys.argv[1:2] == ["pick"]:
         pick()
     elif sys.argv[1:2] == ["mark"] and len(sys.argv) == 4:
         mark(sys.argv[2], sys.argv[3])

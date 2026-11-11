@@ -1,0 +1,30 @@
+name: Clips Manhwa X
+run-name: Clips Manhwa X
+
+# One show-clip reel an hour for the Manhwa X Page (clips-page.yml). Own concurrency group, so a slow job
+# here never holds up the other Pages. Posting is post-clips.yml.
+on:
+  workflow_dispatch:
+    inputs:
+      chain:
+        description: "true = start the next run an hour later (the normal way); false = one clip only"
+        type: boolean
+        default: true
+  schedule:
+    - cron: '25 * * * *'
+
+concurrency:
+  group: clips-manhwax
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  clip:
+    uses: ./.github/workflows/clips-page.yml
+    with:
+      page: manhwax
+      chain: ${{ github.event_name != 'workflow_dispatch' || inputs.chain }}
+    secrets: inherit

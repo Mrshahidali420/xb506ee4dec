@@ -1,0 +1,65 @@
+name: Post clips
+run-name: Post clips ${{ inputs.page || 'all pages' }}${{ inputs.dry_run && ' (dry run)' || '' }}
+
+# Posts the next show-clip reel of each clip Page (tools/post_clips.py): a Facebook Reel with the first comment
+# (our recap or the AniList page) and an Instagram Reel. Hourly; the script keeps 50 minutes between posts from
+# the ledger queue/<page>-clips.json, so an early or doubled run never double-posts.
+# Real posts only when the repo variable <PAGE>_CLIPS_ENABLED (ANIMEREWIND_, MANHWAX_, SPOILER_) is 'true'
+# and dry_run is off; otherwise it prints what it would post.
+on:
+  schedule:
+    - cron: '50 * * * *'
+  workflow_dispatch:
+    inputs:
+      page:
+        description: Page (animerewind, manhwax, spoiler); empty = all three
+        default: ''
+      dry_run:
+        description: Only show what would be posted
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    strategy:
+      max-parallel: 1  # every Page commits to the queue folder; one at a time
+      fail-fast: false
+      matrix:
+        page: ${{ fromJSON(inputs.page && format('["{0}"]', inputs.page) || '["animerewind","manhwax","spoiler"]') }}
+    concurrency:
+      group: post-clips-${{ matrix.page }}
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PAGE: ${{ matrix.page }}
+      GH_TOKEN: ${{ secrets.ARCHIVE_TOKEN }}
+      ANIME_FB_PAGE_ID: ${{ secrets.ANIME_FB_PAGE_ID }}
+      ANIME_FB_PAGE_TOKEN: ${{ secrets.ANIME_FB_PAGE_TOKEN }}
+      MANHWAX_FB_PAGE_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
+      MANHWAX_FB_PAGE_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
+      SPOILER_FB_PAGE_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
+      SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
+      IG_POST_ENABLED: ${{ vars.IG_POST_ENABLED }}
+      ALL_VARS: ${{ toJSON(vars) }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests truststore
+      - name: Post next clip
+        run: |
+          [ -n "$GH_TOKEN" ] || { echo "no ARCHIVE_TOKEN"; exit 1; }
+          enabled=$(echo "$ALL_VARS" | jq -r --arg k "${PAGE^^}_CLIPS_ENABLED" '.[$k] // ""')
+          GO=""
+          if [ "${{ inputs.dry_run }}" != "true" ] && [ "$enabled" = "true" ]; then GO="--go"; fi
+          echo "${PAGE^^}_CLIPS_ENABLED='$enabled' dry_run='${{ inputs.dry_run }}' -> ${GO:-dry run}"
+          python3 tools/post_clips.py "$PAGE" $GO
+      - name: Save the ledger
+        if: always()
+        run: |
+          git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
+          git add queue 2>/dev/null; git diff --cached --quiet && exit 0
+          git commit -qm "Queue: clip posted to $PAGE"
+          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); done

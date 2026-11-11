@@ -4,7 +4,7 @@ Usage: GH_TOKEN=<ARCHIVE_TOKEN> python tools/publish_clips.py <job>
 Reads <job>/clips_out.json (tools/cut_clip.py) and <job>/clip.json. For each Page:
   - uploads <page>_clip_NN.mp4 and <page>_short_NN.mp4 to the release `clips` of <owner>/recap-assets
   - adds the clip to clips/<page>.json in that repo (items: ids, texts, asset ids and sizes)
-The posters (where-build, mi-build) read that manifest, post, and keep their own ledger. Items older than
+The posters (where-build, mi-build, and tools/post_clips.py for Anime Rewind, Manhwa X, Spoiler Room) read that manifest, post, and keep their own ledger. Items older than
 KEEP_DAYS are removed with their files, so the store never fills up.
 """
 from __future__ import annotations
@@ -86,7 +86,8 @@ def main() -> None:
         for i, clip in enumerate(clips, 1):
             f = clip["files"][page]
             base = f"{job.name}-{page}-{i:02d}"
-            item = {"id": base, "page": page, "anilist_id": meta["manga_id"] if page == "manhwaindex" else meta["anilist_id"], "anime": meta["title"], "episode": meta["episode"],
+            item = {"id": base, "page": page, "anilist_id": meta["manga_id"] if page in ("manhwaindex", "manhwax") else meta["anilist_id"], "anime": meta["title"], "episode": meta["episode"],
+                    "link": meta.get("link"), "movie": bool(meta.get("movie")),
                     "title": clip["title"], "caption": clip["caption"], "comment": clip["comment"], "why": clip.get("why", ""),
                     "full_id": upload(repo, job / f["full"], f"{base}-full.mp4"), "short_id": upload(repo, job / f["short"], f"{base}-short.mp4"),
                     "full_seconds": round(clip["end"] - clip["start"]), "short_seconds": round(clip["short_end"] - clip["short_start"]),

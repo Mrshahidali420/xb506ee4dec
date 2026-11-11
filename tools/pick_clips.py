@@ -75,9 +75,10 @@ def best_inside(score: np.ndarray, a: float, b: float) -> tuple[float, float]:
     return float(start), float(start + SHORT_LEN)
 
 
-def words_for(show: str, episode: int, windows: list[dict], lines: list[tuple[float, str]]) -> list[dict]:
+def words_for(show: str, episode: int, windows: list[dict], lines: list[tuple[float, str]], genre: str = "anime", movie: bool = False) -> list[dict]:
     """Ask Groq for title, caption, comment and a keep flag per window. Plain words if it fails."""
-    plain = [{"keep": True, "title": f"{show} Episode {episode}: the moment of the episode", "caption": f"{show} Episode {episode}. What a scene.",
+    where = show if movie else f"{show} Episode {episode}"
+    plain = [{"keep": True, "title": f"{where}: the moment of the {'film' if movie else 'episode'}", "caption": f"{where}. What a scene.",
               "comment": "What did you think of this one?", "why": "loudest, busiest stretch of the episode"} for _ in windows]
     key = os.environ.get("GROQ_API_KEY", "")
     if not key:
@@ -89,7 +90,7 @@ def words_for(show: str, episode: int, windows: list[dict], lines: list[tuple[fl
     prompt = (f"You help a Facebook Page share anime clips. Show: {show}, episode {episode}.\n"
               "Below is the speech of candidate clips, in English. For each window return an object with:\n"
               '  keep (false if it is a recap of earlier episodes, a next-episode preview, credits or empty chatter),\n'
-              "  title (under 90 chars, starts with the show and episode, says what happens),\n"
+              f"  title (under 90 chars, starts with the title{'' if movie else ' and episode'}, says what happens),\n"
               "  caption (2-3 short lines, a hook, then 4-5 hashtags; no spoilers beyond this clip),\n"
               "  comment (one question for the first comment),\n  why (one short line).\n"
               'Answer ONE JSON object: {"clips": [ ... one per window, in order ... ]}.\n\n' + "\n\n".join(parts))
@@ -121,12 +122,13 @@ def main() -> None:
     sig["motion"] = signals.motion(video, n)
     sig["subs"] = subtitle_signal(lines, n)
 
-    skip = oped.exclusions(meta.get("title"), meta.get("episode"), length)
+    anime = meta.get("genre", "anime") in ("anime", "manhwa adaptation")   # OP/ED times exist for anime only
+    skip = oped.exclusions(meta.get("title") if anime else None, meta.get("episode"), length)
     score = select.combine(sig)
     ok = select.allowed_mask(n, skip["zones"])
-    found = select.best_windows(score, ok, top=TOP, lengths=LENGTHS)
+    found = select.best_windows(score, ok, top=int(meta.get("top", TOP)), lengths=LENGTHS)
     found = sorted((select.snap(w, cuts, lo=min(LENGTHS) - 30, hi=max(LENGTHS) + 30) for w in found), key=lambda w: w["start"])
-    words = words_for(str(meta["title"]).title(), int(meta["episode"]), found, lines)
+    words = words_for(str(meta["title"]).title(), int(meta["episode"]), found, lines, meta.get("genre", "anime"), bool(meta.get("movie")))
 
     out = []
     for w, t in zip(found, words):
