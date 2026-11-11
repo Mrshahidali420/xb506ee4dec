@@ -1,13 +1,14 @@
 {
  "done": [
-  "140960-11"
+  "140960-11",
+  "158927-1"
  ],
  "failed": {
   "20-9": 1
  },
  "days": {
   "2026-11-11": {
-   "animerewind": 1
+   "animerewind": 2
   }
  },
  "shows": [
@@ -15,6 +16,11 @@
    "page": "animerewind",
    "show": 140960,
    "at": 1794382600
+  },
+  {
+   "page": "animerewind",
+   "show": 158927,
+   "at": 1794385418
   }
  ]
 }
