@@ -48,6 +48,7 @@ jobs:
       SPOILER_FB_PAGE_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
       SPOILER_FB_PAGE_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
       IG_POST_ENABLED: ${{ vars.IG_POST_ENABLED }}
+      STORIES_PER_DAY: ${{ vars.STORIES_PER_DAY }}
       ALL_VARS: ${{ toJSON(vars) }}
     steps:
       - uses: actions/checkout@v4

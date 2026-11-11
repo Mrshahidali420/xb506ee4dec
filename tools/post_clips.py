@@ -235,6 +235,13 @@ def run(page: str, go: bool) -> None:
         except BaseException as exc:  # sys.exit inside post_ig or an API error: Facebook is up, keep going
             print(f"::warning::Instagram failed: {exc}")
         save_ledger(page, ledger)
+    story_cap = int(os.environ.get("STORIES_PER_DAY") or 0)
+    made = sum(1 for p in ledger["posted"] if p.get("story") and time.time() - p["story"].get("at", 0) < 86400)
+    if story_cap and made < story_cap:   # the clip reel also goes out as a Story: Facebook and Instagram, no link possible
+        import post_story
+        entry["story"] = post_story.both(page_id, token, download(repo, item["short_id"], "story.mp4"))
+        print(f"story: {entry['story']}")
+        save_ledger(page, ledger)
 
 
 if __name__ == "__main__":
