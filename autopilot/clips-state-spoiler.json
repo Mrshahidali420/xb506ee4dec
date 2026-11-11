@@ -1,0 +1,18 @@
+{
+ "done": [
+  "spoiler:weak-hero-2-e7"
+ ],
+ "failed": {},
+ "days": {
+  "2026-11-11": {
+   "spoiler": 1
+  }
+ },
+ "shows": [
+  {
+   "page": "spoiler",
+   "show": "weak-hero-2",
+   "at": 1794382425
+  }
+ ]
+}
