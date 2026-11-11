@@ -25,7 +25,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import clip_pages  # noqa: E402
 import post_fb  # noqa: E402
 
-REEL_MAX = 90            # seconds a Facebook / Instagram Reel may last
+REEL_MAX = 85            # seconds the full version may last to go out as a Reel (the limit is 90; the short version is under 75)
 THROTTLE_CODES = {4, 17, 32, 341, 613}
 BLOCK_CODES = {368}
 THROTTLE_PAUSE = 3600

@@ -88,7 +88,7 @@ def words_for(show: str, episode: int, windows: list[dict], lines: list[tuple[fl
         text = " | ".join(t for s, t in lines if w["start"] <= s < w["end"])[:TEXT_CAP]
         parts.append(f"WINDOW {i} ({int(w['start'])}-{int(w['end'])} s) speech: {text or '(no speech)'}")
     prompt = (f"You help a Facebook Page share anime clips. Show: {show}, episode {episode}.\n"
-              "Below is the speech of candidate clips, in English. For each window return an object with:\n"
+              "Below is the speech of candidate clips, in English. Use hashtags that fit the genre (say anime only for anime). For each window return an object with:\n"
               '  keep (false if it is a recap of earlier episodes, a next-episode preview, credits or empty chatter),\n'
               f"  title (under 90 chars, starts with the title{'' if movie else ' and episode'}, says what happens),\n"
               "  caption (2-3 short lines, a hook, then 4-5 hashtags; no spoilers beyond this clip),\n"
