@@ -89,7 +89,7 @@ def main() -> None:
             f = clip["files"][page]
             base = f"{job.name}-{page}-{i:02d}"
             item = {"id": base, "page": page, "anilist_id": meta["manga_id"] if page in ("manhwaindex", "manhwax") else meta["anilist_id"], "anime": meta["title"], "episode": meta["episode"],
-                    "link": meta.get("link"), "movie": bool(meta.get("movie")),
+                    "link": meta.get("link") or ("https://whereanime.com/" if page == "manhwaindex" and not meta.get("manga_id") else None), "movie": bool(meta.get("movie")),
                     "title": clip["title"], "caption": clip["caption"], "comment": clip["comment"], "why": clip.get("why", ""),
                     "full_id": upload(repo, job / f["full"], f"{base}-full.mp4"), "short_id": upload(repo, job / f["short"], f"{base}-short.mp4"),
                     "full_seconds": round(clip["end"] - clip["start"]), "short_seconds": round(clip["short_end"] - clip["short_start"]),

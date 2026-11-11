@@ -130,22 +130,20 @@ def made_today(st: dict, page: str) -> int:
 
 def pick() -> None:
     """One job per run, with the Pages it is for. No daily limit: whatever is left is clipped, freshest and most
-    trending first. A show that was clipped lately waits behind other shows. Manhwa Index gets every anime made
-    from a manhwa or manhua, and a turn whenever it has fewer clips than WhereAnime today."""
+    trending first. A show that was clipped lately waits behind other shows. Both Pages get every pick."""
     st = state()
     recent_shows = {k.split("-")[0] for k in st["done"][-12:]}
     usable = [c for c in candidates(int(time.time())) if c["key"] not in st["done"] and st["failed"].get(c["key"], 0) < MAX_TRIES]
     usable.sort(key=lambda c: (c["tier"], str(c["anilist_id"]) in recent_shows))
-    best = usable[0] if usable and made_today(st, "whereanime") < PER_DAY else None
-    manhwa = next((c for c in usable if c["manga_id"]), None) if made_today(st, "manhwaindex") < PER_DAY else None
-    if best and best["manga_id"] and manhwa is None:
-        manhwa = best
-    chosen = manhwa if manhwa and made_today(st, "manhwaindex") < made_today(st, "whereanime") else (best or manhwa)
+    chosen = usable[0] if usable else None
     if not chosen:
         print("nothing to clip now", file=sys.stderr)
         return
-    pages = (["whereanime"] if chosen is best or (best and best["key"] == chosen["key"]) else []) + (["manhwaindex"] if manhwa and chosen["key"] == manhwa["key"] else [])
-    pages = pages or ["whereanime"]
+    # Both Pages are separate: each gets its own branded copy of every clip, of the same episode, on its own quota.
+    pages = [p for p in ("whereanime", "manhwaindex") if made_today(st, p) < PER_DAY]
+    if not pages:
+        print("both Pages are at their daily number", file=sys.stderr)
+        return
     job = ROOT / "jobs" / f"clip-{slug(chosen['title'])}-e{chosen['episode']:02d}"
     job.mkdir(parents=True, exist_ok=True)
     (job / "source.json").write_text(json.dumps({"type": "anime", "title": chosen["title"], "episode": chosen["episode"], "lang": "sub"}, indent=1))
