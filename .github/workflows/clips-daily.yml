@@ -76,3 +76,17 @@ jobs:
           git add autopilot
           git diff --cached --quiet || git commit -qm "Clips: ${{ needs.pick.outputs.job }} $result"
           git pull -q --rebase && git push -q
+
+  # The chain: GitHub's schedule fires only a few times a day, so every run that found an episode
+  # starts the next one. It stops when nothing is left to clip; the hourly cron starts it again.
+  next:
+    needs: [pick, mark]
+    if: always() && needs.pick.outputs.job != ''
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Start the next clip run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run clips-daily.yml --repo "${{ github.repository }}" --ref "${{ github.ref_name }}"
