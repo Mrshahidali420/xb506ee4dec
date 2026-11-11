@@ -14,6 +14,9 @@ on:
       page:
         description: Page (animerewind, manhwax, spoiler); empty = all three
         default: ''
+      count:
+        description: Manual run only; clips to post per Page in this run (the 50 minute gap is skipped when above 1)
+        default: '1'
       dry_run:
         description: Only show what would be posted
         type: boolean
@@ -56,7 +59,12 @@ jobs:
           GO=""
           if [ "${{ inputs.dry_run }}" != "true" ] && [ "$enabled" = "true" ]; then GO="--go"; fi
           echo "${PAGE^^}_CLIPS_ENABLED='$enabled' dry_run='${{ inputs.dry_run }}' -> ${GO:-dry run}"
-          python3 tools/post_clips.py "$PAGE" $GO
+          n="${{ inputs.count }}"; n=${n:-1}
+          if [ "$n" -gt 1 ]; then export MIN_GAP_MINUTES_CLIPS=0; fi
+          for i in $(seq 1 "$n"); do
+            python3 tools/post_clips.py "$PAGE" $GO || true
+            [ "$i" -lt "$n" ] && sleep 45
+          done
       - name: Save the ledger
         if: always()
         run: |
