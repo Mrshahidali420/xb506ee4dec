@@ -14,6 +14,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -22,6 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+import requests  # noqa: E402
 import clip_pages  # noqa: E402
 import post_fb  # noqa: E402
 
@@ -99,10 +101,35 @@ def recap_link(conf: dict, title: str) -> str | None:
     return None
 
 
-def first_comment(conf: dict, item: dict) -> str:
+SITE_PATHS = {"manhwaindex": ("https://manhwaindex.com", ("manhwa", "manga", "manhua")), "whereanime": ("https://whereanime.com", ("anime",))}
+
+
+def own_site_link(site: str, title: str) -> str | None:
+    """The page of this title on our own site (its name is the end of the URL); None when the site has no such page."""
+    key = clip_pages.slug(title)
+    base, folders = SITE_PATHS[site]
+    for folder in folders if key else ():
+        url = f"{base}/{folder}/{key}"
+        try:
+            if requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20).status_code == 200:
+                return url
+        except requests.RequestException:
+            pass
+    return None
+
+
+def first_comment(page: str, conf: dict, item: dict) -> str:
+    """Our recap when there is one; the Pages that send people to our own sites link the show there (never AniList)."""
+    lines = []
     recap = recap_link(conf, item["anime"])
     if recap:
-        return f"Our full recap of {item['anime']}: {recap}"
+        lines.append(f"Our full recap of {item['anime']}: {recap}")
+    sites = {"animerewind": [("whereanime", "Where to watch")], "manhwax": [("manhwaindex", "Read the manhwa"), ("whereanime", "Where to watch the anime")]}
+    for site, label in sites.get(page, []):
+        link = own_site_link(site, item["anime"]) or SITE_PATHS[site][0]
+        lines.append(f"{label}: {link}")
+    if lines:
+        return "\n".join(lines)
     return f"{item['anime']}: {item['link']}" if item.get("link") else ""
 
 
@@ -162,7 +189,7 @@ def run(page: str, go: bool) -> None:
         print(f"::warning::no clip waiting for {page}")
         return
     use_full = item["full_seconds"] <= REEL_MAX
-    comment = first_comment(conf, item)
+    comment = first_comment(page, conf, item)
     print(f"{waiting} clip(s) waiting. next: {item['id']} ({item['anime']} episode {item['episode']})")
     print(f"facebook reel: {'full' if use_full else 'short'} version, {item['full_seconds'] if use_full else item['short_seconds']} s")
     print(f"audio: {item.get('audio') or 'unknown'}")
