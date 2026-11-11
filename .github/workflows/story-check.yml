@@ -1,0 +1,30 @@
+name: Story check
+run-name: Story check (read only, nothing is published)
+
+# For each recap Page: does its token reach the Page, is an Instagram account linked, and does Facebook accept a
+# Page Story upload session? The session is only opened ("start"); nothing is uploaded or published.
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check each Page
+        env:
+          ANIME_ID: ${{ secrets.ANIME_FB_PAGE_ID }}
+          ANIME_TOKEN: ${{ secrets.ANIME_FB_PAGE_TOKEN }}
+          MANHWAX_ID: ${{ secrets.MANHWAX_FB_PAGE_ID }}
+          MANHWAX_TOKEN: ${{ secrets.MANHWAX_FB_PAGE_TOKEN }}
+          SPOILER_ID: ${{ secrets.SPOILER_FB_PAGE_ID }}
+          SPOILER_TOKEN: ${{ secrets.SPOILER_FB_PAGE_TOKEN }}
+        run: |
+          api="https://graph.facebook.com/v21.0"
+          for p in ANIME MANHWAX SPOILER; do
+            id_var="${p}_ID"; tok_var="${p}_TOKEN"; id="${!id_var}"; tok="${!tok_var}"
+            echo "=== $p"
+            curl -sS "$api/$id?fields=name,followers_count,instagram_business_account&access_token=$tok" | jq -c 'if .error then {error: .error.message} else {name, followers: .followers_count, instagram: .instagram_business_account.id} end'
+            echo "story session: $(curl -sS -X POST "$api/$id/video_stories" -d upload_phase=start -d access_token=$tok | jq -c 'if .error then {error: .error.message} else {ok: (.video_id != null)} end')"
+            echo "insights: $(curl -sS "$api/$id/insights?metric=page_media_view&period=day&access_token=$tok" | jq -c 'if .error then {error: .error.message} else "ok" end')"
+          done
