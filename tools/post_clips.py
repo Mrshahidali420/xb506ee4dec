@@ -26,7 +26,7 @@ import clip_pages  # noqa: E402
 import post_fb  # noqa: E402
 
 MAX_FAILS = 2           # Facebook refusals after which a clip is left alone
-REEL_MAX = 85            # seconds the full version may last to go out as a Reel (the limit is 90; the short version is under 75)
+REEL_MAX = 60            # seconds: a clip longer than this goes out as its short version (Shahid, 11 Nov 2026: Reels up to 60 s)
 THROTTLE_CODES = {4, 17, 32, 341, 613}
 BLOCK_CODES = {368}
 THROTTLE_PAUSE = 3600

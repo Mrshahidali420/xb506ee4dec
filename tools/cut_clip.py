@@ -15,7 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-SHORT_MAX = 75.0   # Reels stop at 90 s; stay under it
+SHORT_MAX = 60.0   # Reels stay at or under 60 s (Shahid, 11 Nov 2026)
 LOGO = 150         # logo width in pixels
 BRANDS = Path(__file__).resolve().parent.parent / "brand" / "pages"
 REACH = 2.0  # seconds an end may move to reach a camera cut
