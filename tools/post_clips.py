@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import clip_pages  # noqa: E402
 import post_fb  # noqa: E402
 
+MAX_FAILS = 2           # Facebook refusals after which a clip is left alone
 REEL_MAX = 85            # seconds the full version may last to go out as a Reel (the limit is 90; the short version is under 75)
 THROTTLE_CODES = {4, 17, 32, 341, 613}
 BLOCK_CODES = {368}
@@ -77,7 +78,10 @@ def download(repo: str, asset: int, name: str) -> Path:
 def next_item(items: list[dict], ledger: dict) -> dict | None:
     """The oldest clip not posted yet; one from another show than the last post comes first."""
     done = {p["id"] for p in ledger["posted"]}
-    waiting = sorted((i for i in items if i["id"] not in done), key=lambda i: i["made_at"])
+    failed = {i for i, n in ledger.get("failed", {}).items() if n >= MAX_FAILS}
+    for i in sorted(failed & {i["id"] for i in items} - done):
+        print(f"skipping {i}: Facebook refused it {ledger['failed'][i]} times")
+    waiting = sorted((i for i in items if i["id"] not in done | failed), key=lambda i: i["made_at"])
     last = ledger["posted"][-1].get("show") if ledger["posted"] else None
     return next((i for i in waiting if i["anime"] != last), waiting[0] if waiting else None)
 
@@ -123,6 +127,7 @@ def run(page: str, go: bool) -> None:
     conf = clip_pages.PAGES[page]
     repo = f"{os.environ.get('OWNER', 'Mrshahidali420')}/recap-assets"
     ledger = load_ledger(page)
+    ledger.setdefault("failed", {})
     if ledger.get("paused_until") and time.time() < float(ledger["paused_until"]):
         print(f"paused by Meta's limits until {datetime.fromtimestamp(float(ledger['paused_until']), timezone.utc):%Y-%m-%d %H:%M} UTC: {ledger.get('note', '')}")
         return
@@ -149,20 +154,26 @@ def run(page: str, go: bool) -> None:
     page_id, token = post_fb.env_key(f"{conf['fb']}_FB_PAGE_ID"), post_fb.env_key(f"{conf['fb']}_FB_PAGE_TOKEN")
     if not page_id or not token:
         sys.exit(f"missing {conf['fb']}_FB_PAGE_ID or {conf['fb']}_FB_PAGE_TOKEN")
+    video = download(repo, item["full_id"] if use_full else item["short_id"], "reel_fb.mp4")   # before the claim: a failed download costs nothing
     entry = {"id": item["id"], "show": item["anime"], "at": now_iso(), "fb": None, "ig": None}
+    ledger["posted"] = (ledger["posted"] + [entry])[-300:]
+    save_ledger(page, ledger)   # claimed before the upload: a crash after Facebook publishes can never post this clip twice
     try:
-        video = download(repo, item["full_id"] if use_full else item["short_id"], "reel_fb.mp4")
         entry["fb"] = post_fb.reel(page_id, token, video, item["caption"])
     except post_fb.GraphError as exc:
+        ledger["posted"] = [p for p in ledger["posted"] if p is not entry]   # a clean refusal: give the claim back
         wait = pause_for(exc)
+        if not wait:
+            ledger["failed"][item["id"]] = ledger["failed"].get(item["id"], 0) + 1
+            print(f"::warning::{item['id']} failed {ledger['failed'][item['id']]} of {MAX_FAILS} times")
         if wait:   # Meta's limit: stop, say so, and let the Page rest
             ledger["paused_until"], ledger["note"] = time.time() + wait, str(exc)[:200]
             save_ledger(page, ledger)
             print(f"::warning::Meta limit, {page} paused {wait // 3600} h: {exc}")
             return
+        save_ledger(page, ledger)
         sys.exit(f"facebook reel failed: {exc}")
-    ledger["posted"] = (ledger["posted"] + [entry])[-300:]
-    save_ledger(page, ledger)   # saved before anything else can fail: this clip never goes out twice
+    save_ledger(page, ledger)   # the reel id is in the claimed entry
     print(f"posted https://www.facebook.com/{entry['fb']}")
     if comment:
         try:

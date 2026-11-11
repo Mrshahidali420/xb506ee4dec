@@ -64,6 +64,7 @@ def best_pool(cd, now: int, need_manga: bool) -> list[dict]:
     media = json.loads(urllib.request.urlopen(req, timeout=60).read())["data"]["Page"]["media"]
     out = []
     for m in media:
+        first = len(out)
         manga = cd.manhwa_id(m)
         title, last = m["title"]["english"] or m["title"]["romaji"], min(m["episodes"] or EP_CAP, EP_CAP)
         for ep in range(1, last + 1):
@@ -72,6 +73,8 @@ def best_pool(cd, now: int, need_manga: bool) -> list[dict]:
             if p:
                 p["w"] *= 3 if ep == 1 or ep == m["episodes"] else 1
                 out.append(p)
+        for p in out[first:]:   # a show is picked by its own weight, not once per episode
+            p["w"] /= len(out) - first
     return out
 
 
@@ -87,6 +90,11 @@ def spoiler_pool(kind: str) -> list[dict]:
     else:
         for t in pool["movies"]:
             out.append(cand(f"spoiler:movie-{slug(t)}", slug(t), t, 1, {"type": "kisskh", "search": t, "episode": 1}, movie=True))
+    import clip_daily as cd
+    spent = set(cd.state("spoiler")["done"])
+    left = sum(1 for c in out if c["key"] not in spent)
+    if left < 5:
+        print(f"::warning::spoiler pool ({kind}) has only {left} unused title(s): add more to autopilot/spoiler-pool.json")
     return out
 
 
@@ -130,7 +138,7 @@ def pick_page(page: str) -> None:
             chosen = random.choices(pool, weights=[c["w"] for c in pool])[0]
             break
     if not chosen:
-        print("nothing to clip now", file=sys.stderr)
+        print(f"::warning::{page}: nothing to clip now")
         return
     job = ROOT / "jobs" / f"clip-{conf['short']}-{slug(chosen['title'])}-e{chosen['episode']:02d}"
     job.mkdir(parents=True, exist_ok=True)

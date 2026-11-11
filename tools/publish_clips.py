@@ -77,6 +77,8 @@ def main() -> None:
     job = Path(sys.argv[1])
     meta = json.loads((job / "clip.json").read_text(encoding="utf-8"))
     clips = json.loads((job / "clips_out.json").read_text(encoding="utf-8"))
+    if not clips:
+        sys.exit("no clip kept")   # every stretch was dropped (recap, preview, credits): the title counts as failed, not done
     repo = f"{os.environ.get('OWNER', 'Mrshahidali420')}/recap-assets"
     if subprocess.run(["gh", "release", "view", TAG, "-R", repo], capture_output=True).returncode:
         subprocess.run(["gh", "release", "create", TAG, "-R", repo, "--title", TAG, "--notes", "Clips waiting for the Page posters."], check=True)

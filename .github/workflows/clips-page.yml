@@ -5,16 +5,13 @@ run-name: Clips ${{ inputs.page }}
 # Called by clips-animerewind.yml, clips-manhwax.yml, clips-spoiler.yml, each with its own concurrency group.
 # tools/clip_daily.py pick <page> chooses the title, build.yml downloads it, clip.yml picks the hot stretch
 # (signals + Groq) and hands the clip to recap-assets (manifest clips/<page>.json). Nothing is posted here:
-# post-clips.yml posts. Chain: when a clip was made, wait until an hour after this run began, then start the next one.
+# post-clips.yml posts.
 on:
   workflow_call:
     inputs:
       page:
         type: string
         required: true
-      chain:
-        type: boolean
-        default: true
 
 jobs:
   pick:
@@ -37,7 +34,7 @@ jobs:
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
           git add "${{ steps.pick.outputs.job }}"
           git commit -qm "Clips: ${{ inputs.page }} picks ${{ steps.pick.outputs.job }}"
-          for i in 1 2 3 4 5; do git pull -q --no-rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); done
+          for i in 1 2 3 4 5; do git pull -q --no-rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); [ $i = 5 ] && { echo "::error::push failed"; exit 1; }; done
 
   prep:
     needs: pick
@@ -77,19 +74,4 @@ jobs:
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
           git add autopilot
           git diff --cached --quiet || git commit -qm "Clips: ${{ needs.pick.outputs.job }} $result"
-          for i in 1 2 3 4 5; do git pull -q --no-rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); done
-
-  next:
-    needs: [pick, mark]
-    if: always() && needs.pick.outputs.job != '' && inputs.chain
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - name: Wait for the hour, then start the next run
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          start=$(date -d "${{ github.run_started_at }}" +%s); now=$(date +%s); wait=$((start + 3300 - now))
-          [ "$wait" -gt 0 ] && sleep "$wait"
-          gh workflow run "clips-${{ inputs.page }}.yml" --repo "${{ github.repository }}" --ref "${{ github.ref_name }}"
+          for i in 1 2 3 4 5; do git pull -q --no-rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); [ $i = 5 ] && { echo "::error::push failed"; exit 1; }; done

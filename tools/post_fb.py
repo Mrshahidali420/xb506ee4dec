@@ -90,7 +90,11 @@ def reel(page_id: str, token: str, video: Path, caption: str) -> str:
     call(requests.post(url, data={"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED", "description": caption,
                                   "access_token": token}, timeout=120), "reel finish")
     for _ in range(18):   # wait until Facebook has processed it, so a comment can go on
-        status = requests.get(f"{GRAPH}/{vid}", params={"fields": "status", "access_token": token}, timeout=60).json().get("status", {})
+        try:   # Facebook has already published at "finish": a failed status check must not turn into a failed post
+            status = requests.get(f"{GRAPH}/{vid}", params={"fields": "status", "access_token": token}, timeout=60).json().get("status", {})
+        except (requests.RequestException, ValueError) as exc:
+            print(f"status check failed after finish, reel {vid} is published: {exc}", flush=True)
+            return vid
         if status.get("video_status") == "ready":
             break
         if status.get("video_status") == "error":
