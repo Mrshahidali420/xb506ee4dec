@@ -7,6 +7,19 @@
    "at": "2026-11-11T08:48:42+00:00",
    "fb": "1767214894348425",
    "ig": "https://www.instagram.com/reel/DfmFyjOAkex/"
+  },
+  {
+   "id": "clip-sp-love-next-door-e08-spoiler-01",
+   "show": "Love Next Door",
+   "audio": null,
+   "at": "2026-11-12T03:29:31+00:00",
+   "fb": "2429534351185474",
+   "ig": "https://www.instagram.com/reel/DfoGDCylGbe/",
+   "story": {
+    "at": 1794454273.8097913,
+    "fb": "1038907882556382",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
