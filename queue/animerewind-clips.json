@@ -40,6 +40,19 @@
     "fb": "2664812114033996",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-ar-the-world-s-strongest-witch-e06-animerewind-01",
+   "show": "The World's Strongest Witch",
+   "audio": "sub",
+   "at": "2026-11-12T20:28:04+00:00",
+   "fb": "1015316321626771",
+   "ig": "https://www.instagram.com/reel/Dfp6q9ugHi1/",
+   "story": {
+    "at": 1794515437.9292593,
+    "fb": "2592340691239696",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
