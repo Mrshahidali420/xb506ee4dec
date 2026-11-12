@@ -15,6 +15,19 @@
    "at": "2026-11-11T08:46:04+00:00",
    "fb": "1393670259509289",
    "ig": "https://www.instagram.com/reel/DfmFeyMhiH8/"
+  },
+  {
+   "id": "clip-mx-the-god-of-high-school-e07-manhwax-01",
+   "show": "The God of High School",
+   "audio": "dub",
+   "at": "2026-11-12T03:26:49+00:00",
+   "fb": "1810299303503344",
+   "ig": "https://www.instagram.com/reel/DfoFvl1BoRm/",
+   "story": {
+    "at": 1794454115.949755,
+    "fb": "1600281148077600",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
