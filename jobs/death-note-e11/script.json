@@ -1,0 +1,787 @@
+{
+ "title": "Kira Went Live On TV And Killed A Man In Front Of The Whole World . . . (Episode 11)",
+ "source": "source.mp4",
+ "caption": "In Death Note episode 11, Kira goes live on TV, kills an anchor on camera and gives the police four days to give in.\nThe chief steals a police van to grab the tapes, and L starts to suspect a second Kira. Follow for episode 12!\n\n#deathnote #anime #animerecap #animeexplained #fyp",
+ "comment": "Would you have driven into the TV station like the chief, or stayed behind? Why?",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Death Note (Episode 11)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "Kira goes live on TV, kills a man on camera, and a cop drops dead at the station *door*.",
+   "clips": [
+    206.0,
+    [
+     236.5,
+     6
+    ],
+    [
+     429.6,
+     13
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "To see how it got here, go back to L and his team, glued to a *TV*.",
+   "clips": [
+    119.0,
+    [
+     139.0,
+     8
+    ]
+   ],
+   "chapter": "Four tapes"
+  },
+  {
+   "say": "A TV station has just announced it has four tapes, sent straight from *Kira*.",
+   "clips": [
+    133.0,
+    [
+     163.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The producer cannot believe his luck. Ratings are about to jump seventy *percent*. Death sells, apparently.",
+   "clips": [
+    156.0,
+    [
+     150.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Tape one predicted two deaths, and both men dropped dead right on *time*.",
+   "clips": [
+    171.0,
+    [
+     176.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Tape two is the big one, and it airs live at *six o'clock*.",
+   "clips": [
+    183.0,
+    [
+     192.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The whole task force crowds around the screen, holding their *breath*.",
+   "clips": [
+    199.0
+   ]
+  },
+  {
+   "say": "Then the screen flickers, and one word fills it. *KIRA*.",
+   "clips": [
+    206.0
+   ],
+   "chapter": "Kira goes live",
+   "sfx": "hit"
+  },
+  {
+   "orig": [
+    208.3,
+    210.8
+   ],
+   "text": "I am Kira."
+  },
+  {
+   "say": "He orders the station to change channels. At six sharp, a news anchor on another network will *die*.",
+   "clips": [
+    212.0,
+    [
+     217.0,
+     6
+    ],
+    [
+     224.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The clock hits six, and the whole room goes *silent*.",
+   "clips": [
+    231.0
+   ]
+  },
+  {
+   "say": "On the other channel, the anchor grabs his chest and *collapses*.",
+   "clips": [
+    236.5
+   ]
+  },
+  {
+   "say": "Nobody says a word. Even L looks *shaken*.",
+   "clips": [
+    243.0,
+    [
+     247.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then Kira names his next victim, and L flips to *channel 24* to see.",
+   "clips": [
+    253.0,
+    [
+     259.5,
+     5
+    ],
+    [
+     267.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The team panics. Aizawa screams into a phone, demanding someone stop the *broadcast*.",
+   "clips": [
+    288.5,
+    [
+     293.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But nobody at the station answers. So a young detective, Ukita, takes a siren and *drives*.",
+   "clips": [
+    297.2,
+    [
+     317.5,
+     5
+    ],
+    [
+     323.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "On screen, Kira says he hates evil and loves *justice*.",
+   "clips": [
+    302.0,
+    [
+     307.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "L chews his thumb and says what the whole room is *thinking*.",
+   "clips": [
+    311.0
+   ]
+  },
+  {
+   "orig": [
+    314.8,
+    316.6
+   ],
+   "text": "Damn you, Kira."
+  },
+  {
+   "say": "Kira promises a perfect world, if the police just stay quiet and *obey*.",
+   "clips": [
+    336.0
+   ]
+  },
+  {
+   "say": "In a hospital bed, the chief watches it all, while his wife begs him to *rest*.",
+   "clips": [
+    355.0,
+    [
+     366.0,
+     8
+    ]
+   ],
+   "chapter": "The chief's stand"
+  },
+  {
+   "say": "But he is still in charge of the Kira task force. Rest can *wait*. He was never going to listen.",
+   "clips": [
+    374.0,
+    [
+     380.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Outside Sakura TV, Ukita jumps out of the car, gun in *hand*.",
+   "clips": [
+    387.8,
+    [
+     404.0,
+     6
+    ]
+   ],
+   "chapter": "The man at the door"
+  },
+  {
+   "say": "Then his eyes go *wide*.",
+   "clips": [
+    401.3
+   ]
+  },
+  {
+   "say": "His gun hits the ground. Kira just *killed* him.",
+   "clips": [
+    406.4,
+    [
+     415.0,
+     4
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "A detective, dead on the doorstep, and the cameras are *rolling*.",
+   "clips": [
+    429.6,
+    [
+     432.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Back at headquarters, Aizawa wants to run to the station, and L tells him it is a *death wish*.",
+   "clips": [
+    451.0,
+    [
+     463.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "But there is a problem. Kira was supposed to need a name and a face. So how did *this* happen?",
+   "clips": [
+    463.0,
+    [
+     470.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "L thinks fast. Maybe Kira only needs a *face*.",
+   "clips": [
+    480.0,
+    [
+     489.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "And Kira is close, watching everyone who walks *in*.",
+   "clips": [
+    494.0,
+    [
+     498.5,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Charge in unprepared, and you all end up *dead*. L had a point.",
+   "clips": [
+    507.0,
+    [
+     519.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They have already lost one man. They are not losing *another*.",
+   "clips": [
+    533.0,
+    [
+     541.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, a hospital bed sits *empty*.",
+   "clips": [
+    559.0,
+    [
+     562.0,
+     3
+    ]
+   ],
+   "chapter": "The chief's run"
+  },
+  {
+   "say": "Because the chief just climbed into a police *van*.",
+   "clips": [
+    564.0,
+    [
+     566.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "He floors it, and drives right through the front *doors*.",
+   "clips": [
+    569.5,
+    [
+     571.2,
+     3
+    ],
+    [
+     573.0,
+     7
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "A guard dives out of the way. The chief steps out looking *furious*.",
+   "clips": [
+    577.0,
+    [
+     588.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He storms in and demands every single *tape*. Nobody argues with that man.",
+   "clips": [
+    606.0,
+    [
+     617.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "You made Kira a celebrity, he roars. You got what you *deserve*.",
+   "clips": [
+    636.5,
+    [
+     641.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The producer hands over everything. He just wants the gun *down*.",
+   "clips": [
+    647.0
+   ]
+  },
+  {
+   "say": "Outside, L and Aizawa watch a police car pull up on *TV*.",
+   "clips": [
+    654.0,
+    [
+     657.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then two officers collapse on the sidewalk, and the reporters run for their *lives*.",
+   "clips": [
+    694.1,
+    [
+     697.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The chief calls L. He says he has never felt more *alive*.",
+   "clips": [
+    719.0
+   ]
+  },
+  {
+   "orig": [
+    727.0,
+    729.5
+   ],
+   "text": "I've confiscated all of the tapes."
+  },
+  {
+   "say": "L calls in Deputy Director Kitamura, and the riot police are *ready*.",
+   "clips": [
+    758.5,
+    [
+     790.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "They pour out in helmets and shields. Kira cannot kill faces he *cannot see*.",
+   "clips": [
+    792.5,
+    [
+     795.0,
+     5
+    ],
+    [
+     797.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The chief walks out unharmed, and the plan *worked*.",
+   "clips": [
+    804.0,
+    [
+     809.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Even a news anchor goes on air and says the nation must fight *back*.",
+   "clips": [
+    847.0,
+    [
+     860.3,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Back at headquarters, the chief walks in with every tape. Heart attack? What heart *attack*?",
+   "clips": [
+    862.5,
+    [
+     866.0,
+     8
+    ]
+   ],
+   "chapter": "Kira's four days"
+  },
+  {
+   "say": "Inside the envelope, the postmark says *Osaka*.",
+   "clips": [
+    891.0,
+    [
+     886.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "L does not buy it. Kira can control people before they die, so he never had to go to *Osaka*.",
+   "clips": [
+    895.0,
+    [
+     903.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then L plays the tapes nobody was supposed to see.",
+   "clips": [
+    925.0,
+    [
+     932.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Tape three is for a yes. Kira would pick the criminals, and the police would be his *puppets*.",
+   "clips": [
+    936.0,
+    [
+     944.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He wants the police and L on TV, faces bare, so he can kill them if they step out of *line*.",
+   "clips": [
+    956.0,
+    [
+     964.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Tape four is for a no. And the police say no, of *course*.",
+   "clips": [
+    978.0,
+    [
+     983.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But something about these tapes does not feel like *Kira*.",
+   "clips": [
+    1000.0
+   ]
+  },
+  {
+   "say": "Kira goes live again, and this time it is a *threat*.",
+   "clips": [
+    987.5,
+    [
+     990.5,
+     4
+    ],
+    [
+     992.0,
+     7
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Four days. Either the head of the police dies, or L. Kira's *call*.",
+   "clips": [
+    1005.0,
+    [
+     1010.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "He is not bluffing, either.",
+   "clips": [
+    1014.0
+   ]
+  },
+  {
+   "say": "In his room, Jack smirks. His biggest enemy might be dead in four *days*.",
+   "clips": [
+    1021.5,
+    [
+     1026.0,
+     7
+    ]
+   ],
+   "chapter": "A second Kira"
+  },
+  {
+   "say": "Then Ryuk confirms it. Another death god has come to the human *world*.",
+   "clips": [
+    1034.0,
+    [
+     1040.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "And whoever holds that notebook has the death god *eyes*.",
+   "clips": [
+    1045.0
+   ]
+  },
+  {
+   "say": "That is bad news for Jack. If the copycat gets caught, someone finds the *notebook*.",
+   "clips": [
+    1060.0,
+    [
+     1066.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "So he makes a decision. He has to join the *task force*. Keep your enemies close.",
+   "clips": [
+    1076.5,
+    [
+     1081.8,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "At the hotel, L pokes at his cake and drops a bomb. This is not the real *Kira*.",
+   "clips": [
+    1099.0,
+    [
+     1119.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The team stares at him. A *second* Kira?",
+   "clips": [
+    1129.5
+   ]
+  },
+  {
+   "say": "His proof? The two men on tape one were small-time *nobodies*.",
+   "clips": [
+    1135.5,
+    [
+     1143.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "A copycat picks nobodies, so the real Kira cannot steal his *kills*.",
+   "clips": [
+    1156.5
+   ]
+  },
+  {
+   "say": "L puts it at seventy percent, and he hates how this guy *kills*.",
+   "clips": [
+    1164.0,
+    [
+     1170.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "The real Kira only killed to protect himself. This guy murders the *innocent*.",
+   "clips": [
+    1180.0,
+    [
+     1186.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then L asks the chief for something big. He wants Jack on the *team*.",
+   "clips": [
+    1195.0,
+    [
+     1200.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "The chief asks if L still suspects his son. L says, not *exactly*.",
+   "clips": [
+    1206.0,
+    [
+     1211.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But he has one rule. Nobody tells Jack about the second *Kira*. Everyone is lying to everyone.",
+   "clips": [
+    1220.5,
+    [
+     1226.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "And across town, a girl is out *shopping*.",
+   "clips": [
+    1233.5,
+    [
+     1235.5,
+     4
+    ]
+   ],
+   "chapter": "The girl with the notebook"
+  },
+  {
+   "say": "Her name is Misa, and her death god, Rem, is watching *over* her.",
+   "clips": [
+    1238.5,
+    [
+     1241.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "She is the second Kira, and she sent those tapes for one *reason*.",
+   "clips": [
+    1246.5,
+    [
+     1257.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "She wants to meet Kira. The tapes were just a way to make him *notice*.",
+   "clips": [
+    1278.5,
+    [
+     1263.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "A fangirl with a death note. Great.",
+   "clips": [
+    1268.5
+   ]
+  },
+  {
+   "say": "Rem warns her it is dangerous. Misa does not care. She has the *eyes*.",
+   "clips": [
+    1268.0,
+    [
+     1282.0,
+     7
+    ]
+   ],
+   "sfx": "riser"
+  },
+  {
+   "say": "Jack wants to find the second Kira before the task force does. But a girl with red eyes is already looking for *him*.",
+   "clips": [
+    1366.5,
+    [
+     1371.5,
+     12
+    ]
+   ]
+  }
+ ]
+}
