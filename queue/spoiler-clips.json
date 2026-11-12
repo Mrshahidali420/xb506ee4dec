@@ -20,6 +20,19 @@
     "fb": "1038907882556382",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-sp-weak-hero-2-e04-spoiler-01",
+   "show": "Weak Hero 2",
+   "audio": null,
+   "at": "2026-11-12T20:34:30+00:00",
+   "fb": "2533125923881425",
+   "ig": "https://www.instagram.com/reel/Dfp7WRhjeS4/",
+   "story": {
+    "at": 1794515781.9464295,
+    "fb": "1084323171297868",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
