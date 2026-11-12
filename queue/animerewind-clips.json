@@ -27,6 +27,19 @@
     "fb": "1860468858611502",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-ar-cyberpunk-edgerunners-e10-animerewind-01",
+   "show": "Cyberpunk: Edgerunners",
+   "audio": "sub",
+   "at": "2026-11-12T11:52:28+00:00",
+   "fb": "1581400887361753",
+   "ig": "https://www.instagram.com/reel/Dfo_msEk6kk/",
+   "story": {
+    "at": 1794484459.51426,
+    "fb": "2664812114033996",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
