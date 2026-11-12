@@ -14,6 +14,19 @@
    "at": "2026-11-11T08:40:32+00:00",
    "fb": "1433028228463141",
    "ig": "https://www.instagram.com/reel/DfmE1Eljpa0/"
+  },
+  {
+   "id": "clip-ar-oshi-no-ko-e11-animerewind-01",
+   "show": "OSHI NO KO",
+   "audio": "dub",
+   "at": "2026-11-12T03:24:08+00:00",
+   "fb": "1762451361994878",
+   "ig": "https://www.instagram.com/reel/DfoFb4zDASE/",
+   "story": {
+    "at": 1794453951.4480503,
+    "fb": "1860468858611502",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
