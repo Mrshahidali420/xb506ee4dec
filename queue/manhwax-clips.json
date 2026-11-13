@@ -67,6 +67,19 @@
     "fb": "29005174919105557",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-mx-the-god-of-high-school-e04-manhwax-01",
+   "show": "The God of High School",
+   "audio": "dub",
+   "at": "2026-11-13T22:16:34+00:00",
+   "fb": "1650915393249079",
+   "ig": "https://www.instagram.com/reel/Dfsr1BzRg5D/",
+   "story": {
+    "at": 1794608317.3053145,
+    "fb": "1143856281376063",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
