@@ -54,6 +54,19 @@
     "fb": "1773948613689657",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-mx-solo-leveling-e03-manhwax-01",
+   "show": "Solo Leveling",
+   "audio": "dub",
+   "at": "2026-11-13T16:47:39+00:00",
+   "fb": "1370805578298531",
+   "ig": "https://www.instagram.com/reel/DfsGMkmzzzI/",
+   "story": {
+    "at": 1794588577.7445204,
+    "fb": "29005174919105557",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
