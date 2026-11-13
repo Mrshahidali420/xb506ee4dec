@@ -66,6 +66,19 @@
     "fb": "2309272609638864",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-ar-bloom-into-you-e01-animerewind-01",
+   "show": "Bloom Into You",
+   "audio": "dub",
+   "at": "2026-11-13T08:46:40+00:00",
+   "fb": "1897016101468604",
+   "ig": "https://www.instagram.com/reel/DfrPJNSGXx2/",
+   "story": {
+    "at": 1794559713.6453354,
+    "fb": "2396468127852870",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
