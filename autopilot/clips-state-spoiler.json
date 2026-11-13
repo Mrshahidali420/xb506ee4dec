@@ -4,7 +4,8 @@
   "spoiler:love-next-door-e8",
   "spoiler:weak-hero-2-e4",
   "spoiler:love-next-door-e16",
-  "spoiler:movie-a-tale-of-two-sisters"
+  "spoiler:movie-a-tale-of-two-sisters",
+  "spoiler:love-next-door-e4"
  ],
  "failed": {
   "spoiler:movie-josee": 2,
@@ -16,7 +17,7 @@
  },
  "days": {
   "2026-11-13": {
-   "spoiler": 1
+   "spoiler": 2
   }
  },
  "shows": [
@@ -44,6 +45,11 @@
    "page": "spoiler",
    "show": "a-tale-of-two-sisters",
    "at": 1794534173
+  },
+  {
+   "page": "spoiler",
+   "show": "love-next-door",
+   "at": 1794591277
   }
  ]
 }
