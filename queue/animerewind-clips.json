@@ -79,6 +79,19 @@
     "fb": "2396468127852870",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-ar-mushoku-tensei-jobless-reincarnation-season-3-e10-animerewind-01",
+   "show": "Mushoku Tensei: Jobless Reincarnation Season 3",
+   "audio": "sub",
+   "at": "2026-11-13T16:44:56+00:00",
+   "fb": "2385972815540438",
+   "ig": "https://www.instagram.com/reel/DfsF4B7iSl7/",
+   "story": {
+    "at": 1794588400.2310307,
+    "fb": "2132194477420288",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
