@@ -92,6 +92,19 @@
     "fb": "2132194477420288",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-ar-attack-on-titan-final-season-part-2-e10-animerewind-01",
+   "show": "Attack on Titan Final Season Part 2",
+   "audio": "sub",
+   "at": "2026-11-13T22:12:43+00:00",
+   "fb": "1768118327584534",
+   "ig": "https://www.instagram.com/reel/DfsrcQYCL9s/",
+   "story": {
+    "at": 1794608119.3128352,
+    "fb": "1692726855829621",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
