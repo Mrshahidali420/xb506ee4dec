@@ -41,6 +41,19 @@
     "fb": "1409942774462566",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-mx-solo-leveling-season-2-arise-from-the-shadow-e09-manhwax-01",
+   "show": "Solo Leveling Season 2 -Arise from the Shadow-",
+   "audio": "sub",
+   "at": "2026-11-13T08:49:35+00:00",
+   "fb": "1647034170433541",
+   "ig": "https://www.instagram.com/reel/DfrPekhzcYh/",
+   "story": {
+    "at": 1794559884.3967443,
+    "fb": "1773948613689657",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
