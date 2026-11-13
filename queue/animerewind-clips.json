@@ -53,6 +53,19 @@
     "fb": "2592340691239696",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-ar-tokyo-revengers-war-of-the-three-titans-arc-e06-animerewind-01",
+   "show": "Tokyo Revengers: War of the Three Titans Arc",
+   "audio": "sub",
+   "at": "2026-11-13T01:29:49+00:00",
+   "fb": "2159073188028726",
+   "ig": "https://www.instagram.com/reel/DfqdJ-kn_Sv/",
+   "story": {
+    "at": 1794533499.564319,
+    "fb": "2309272609638864",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
