@@ -46,6 +46,19 @@
     "fb": "3818081684996978",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-sp-a-tale-of-two-sisters-e01-spoiler-01",
+   "show": "A Tale of Two Sisters",
+   "audio": null,
+   "at": "2026-11-13T08:52:22+00:00",
+   "fb": "2281206902449755",
+   "ig": "https://www.instagram.com/reel/DfrPzghCRS-/",
+   "story": {
+    "at": 1794560069.0666275,
+    "fb": "1070512632712949",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
