@@ -33,6 +33,19 @@
     "fb": "1084323171297868",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-sp-love-next-door-e16-spoiler-01",
+   "show": "Love Next Door",
+   "audio": null,
+   "at": "2026-11-13T01:32:51+00:00",
+   "fb": "1136208202109082",
+   "ig": "https://www.instagram.com/reel/Dfqden_lFzR/",
+   "story": {
+    "at": 1794533665.0108163,
+    "fb": "3818081684996978",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
