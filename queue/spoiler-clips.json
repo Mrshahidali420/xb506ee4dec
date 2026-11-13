@@ -59,6 +59,19 @@
     "fb": "1070512632712949",
     "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
    }
+  },
+  {
+   "id": "clip-sp-love-next-door-e04-spoiler-01",
+   "show": "Love Next Door",
+   "audio": null,
+   "at": "2026-11-13T22:19:33+00:00",
+   "fb": "1140670565044160",
+   "ig": "https://www.instagram.com/reel/DfssKkXGcNu/",
+   "story": {
+    "at": 1794608483.3021944,
+    "fb": "29162797780054099",
+    "ig_error": "upload failed: {'debug_info': {'retriable': False, 'type': 'ProcessingFailedError', 'message': 'Request processing failed'}}"
+   }
   }
  ],
  "paused_until": null,
