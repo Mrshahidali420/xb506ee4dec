@@ -62,10 +62,12 @@ jobs:
           echo "${PAGE^^}_CLIPS_ENABLED='$enabled' dry_run='${{ inputs.dry_run }}' -> ${GO:-dry run}"
           n="${{ inputs.count }}"; n=${n:-1}
           if [ "$n" -gt 1 ]; then export MIN_GAP_MINUTES_CLIPS=0; fi
+          rc=0
           for i in $(seq 1 "$n"); do
-            python3 tools/post_clips.py "$PAGE" $GO || true
-            [ "$i" -lt "$n" ] && sleep 45
+            python3 tools/post_clips.py "$PAGE" $GO || rc=1
+            if [ "$i" -lt "$n" ]; then sleep 45; fi
           done
+          exit $rc   # red only when a post really failed; the ledger is saved either way
       - name: Save the ledger
         if: always()
         run: |

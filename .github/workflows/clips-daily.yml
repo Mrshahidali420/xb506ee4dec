@@ -34,8 +34,9 @@ jobs:
         run: |
           git config user.name "queue bot" && git config user.email "queue-bot@users.noreply.github.com"
           git add "${{ steps.pick.outputs.job }}"
+          git diff --cached --quiet && exit 0   # the folder is already in the repo
           git commit -qm "Clips: pick ${{ steps.pick.outputs.job }}"
-          git pull -q --rebase && git push -q
+          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((RANDOM % 6 + 2)); [ $i = 5 ] && { echo "::error::push failed"; exit 1; }; done
 
   prep:
     needs: pick
