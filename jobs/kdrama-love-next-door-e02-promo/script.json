@@ -1,0 +1,186 @@
+{
+ "title": "Her Teenage Bedroom Was Rebuilt While She Was Out . . . (highlight)",
+ "caption": "In Love Next Door episode 2, Ethan secretly rebuilds Ruby's teenage bedroom, glow-in-the-dark stars and all. Full recap is on our page 👉 link in the comments\n\n#lovenextdoor #kdrama #kdramarecap #spoilerroom #fyp",
+ "comment": "Full recap: https://www.facebook.com/933996759648410",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Love Next Door (2024)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "Ruby opens her bedroom door and finds her teenage room rebuilt, down to the glow-in-the-dark *stars*.",
+   "clips": [
+    4173.9,
+    [
+     4179.0,
+     6
+    ],
+    [
+     4224.2,
+     14
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "To see how it got here, go back to the day Linda tells Ethan to redo Ruby's *room*.",
+   "clips": [
+    4026.6,
+    [
+     4041.9,
+     6
+    ],
+    [
+     4047.9,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Her daughter is not a piece of *luggage*, she says.",
+   "clips": [
+    4054.8,
+    [
+     4060.8,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "So Ethan measures the old storage room with a tablet, one *corner* at a time.",
+   "clips": [
+    4063.0,
+    [
+     4068.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "That evening, Ruby comes home to a family dinner, and her mom made *abalone* rice.",
+   "clips": [
+    4094.2,
+    [
+     4105.5,
+     7
+    ],
+    [
+     4118.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "After dinner, she opens the door to her room, and her jaw *drops*.",
+   "clips": [
+    4174.0,
+    [
+     4179.0,
+     7
+    ],
+    [
+     4211.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Glow-in-the-dark stars cover the ceiling, exactly like when she was a *teenager*.",
+   "clips": [
+    4219.5,
+    [
+     4224.2,
+     1
+    ],
+    [
+     4239.4,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "She calls Ethan in the middle of the night, and demands to know how he did *it*.",
+   "clips": [
+    4266.6,
+    [
+     4272.0,
+     5
+    ],
+    [
+     4285.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "He rebuilt the desk where she wrote a love letter to her senior, and the bed where she *cried*.",
+   "clips": [
+    4366.8,
+    [
+     4237.0,
+     8
+    ],
+    [
+     4292.6,
+     15
+    ]
+   ]
+  },
+  {
+   "orig": [
+    4298.4,
+    4300.2
+   ],
+   "text": "I recreated your embarrassing past."
+  },
+  {
+   "say": "Ruby nearly dies of embarrassment. Every cringe memory is *back*.",
+   "clips": [
+    4303.0,
+    [
+     4306.5,
+     5
+    ],
+    [
+     4312.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then Ethan has one favor to ask. Close your *curtains*.",
+   "clips": [
+    4317.2,
+    [
+     4364.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Episode 2 is on our *page*.",
+   "clips": [
+    4362.0,
+    [
+     4280.9,
+     5
+    ]
+   ]
+  }
+ ]
+}

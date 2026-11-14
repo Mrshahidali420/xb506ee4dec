@@ -1,0 +1,992 @@
+{
+ "title": "She Went Into The Underworld To Save A Boy, And A Dead Woman Took Over Her Body . . .",
+ "source": "source.mp4",
+ "caption": "In Children Who Chase Lost Voices (2011), a lonely girl hears a strange song on her radio, meets a boy from a hidden world called Agartha, and loses him.\nShe follows her teacher underground to bring him back, and the price is her own body.\n\n#childrenwhochaselostvoices #anime #animerecap #animemovie #recap",
+ "comment": "Would you have let Morisaki bring Lisa back, or let her go? Why?",
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Children Who Chase Lost Voices (2011)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "A little girl walks into the underworld to save a boy, and a dead woman takes over her *body*.",
+   "clips": [
+    6288.0,
+    [
+     6381.0,
+     12
+    ],
+    [
+     6398.5,
+     16
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "To see how it got here, go back to a lonely girl on a *hillside*.",
+   "clips": [
+    111.0,
+    [
+     120.5,
+     9
+    ]
+   ],
+   "chapter": "A lonely girl"
+  },
+  {
+   "say": "Her dad is gone, her mom works nights, and her only friend is a *cat*.",
+   "clips": [
+    1641.0,
+    [
+     1405.5,
+     4
+    ],
+    [
+     172.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Every day she climbs up here and tunes a tiny homemade radio to the *sky*.",
+   "clips": [
+    135.5,
+    [
+     156.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "One day it picks up a strange song, and she cannot get it out of her *head*.",
+   "clips": [
+    152.9,
+    [
+     272.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then she crosses a railroad bridge, and a giant beast is *waiting*.",
+   "clips": [
+    580.0,
+    [
+     596.5,
+     5
+    ],
+    [
+     612.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "She trips on the tracks, and it lunges *straight at her*.",
+   "clips": [
+    631.8,
+    [
+     634.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "That is when a stranger steps between her and the *beast*.",
+   "clips": [
+    644.0,
+    [
+     649.5,
+     6
+    ]
+   ],
+   "sfx": "whoosh"
+  },
+  {
+   "say": "He says the beast's life is already coming to an *end*.",
+   "clips": [
+    662.8,
+    [
+     674.8,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "But it is not done yet, and the boy takes the hit to *save her*.",
+   "clips": [
+    695.8,
+    [
+     704.0,
+     6
+    ],
+    [
+     711.5,
+     11
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "A train roars in, and he grabs her and leaps off the *bridge*.",
+   "clips": [
+    729.0,
+    [
+     744.7,
+     5
+    ],
+    [
+     764.6,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "She wakes up under the stars on a mountain ledge, with no idea how she got *there*.",
+   "clips": [
+    797.0,
+    [
+     802.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "The boy tells her to stay away from this mountain. Naturally, she *doesn't*.",
+   "clips": [
+    829.5,
+    [
+     1037.5,
+     9
+    ]
+   ],
+   "chapter": "The boy on the mountain"
+  },
+  {
+   "say": "His name is Shun. She patches up his arm, and they tune the radio *together*.",
+   "clips": [
+    1060.0,
+    [
+     1068.0,
+     4
+    ],
+    [
+     1127.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Neither of them can forget that song, the one that sounds like someone's heart turned into *sound*.",
+   "clips": [
+    1148.0,
+    [
+     1165.0,
+     8
+    ],
+    [
+     1179.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then Shun tells her where he comes from. A place called *Agartha*.",
+   "clips": [
+    1214.5,
+    [
+     1236.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "At sunset he gives her a kiss and a blessing, and she turns into a *tomato*.",
+   "clips": [
+    1264.0,
+    [
+     1270.5,
+     8
+    ]
+   ]
+  },
+  {
+   "orig": [
+    1280.2,
+    1283.0
+   ],
+   "text": "Asuna, I just want you to live."
+  },
+  {
+   "say": "That sounded a lot like a goodbye.",
+   "clips": [
+    1293.0,
+    [
+     1301.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "That night he sits alone under the stars, afraid, and reaches for the *sky*.",
+   "clips": [
+    1344.0,
+    [
+     1368.5,
+     8
+    ],
+    [
+     1372.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Next morning Asuna packs two lunches for her friend, and he never *shows*.",
+   "clips": [
+    1411.0,
+    [
+     1519.0,
+     9
+    ]
+   ],
+   "chapter": "Gone"
+  },
+  {
+   "say": "Then she hears a boy's body was found in the *river*.",
+   "clips": [
+    1547.0,
+    [
+     1553.0,
+     5
+    ],
+    [
+     1564.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Shun is dead, and she never got to say *goodbye*.",
+   "clips": [
+    1593.0,
+    [
+     1603.5,
+     6
+    ]
+   ],
+   "sfx": "riser"
+  },
+  {
+   "say": "That is a lot for one kid to carry.",
+   "clips": [
+    1627.5
+   ]
+  },
+  {
+   "say": "At school, a new teacher, Mr. Morisaki, tells an old myth about the *underworld*.",
+   "clips": [
+    1687.0,
+    [
+     1712.0,
+     10
+    ]
+   ],
+   "chapter": "The teacher's myth"
+  },
+  {
+   "say": "A man follows his dead wife underground, and loses her *forever*.",
+   "clips": [
+    1719.0,
+    [
+     1733.7,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "After class she corners him, and he pulls out an old *book*.",
+   "clips": [
+    1855.0,
+    [
+     1905.5,
+     6
+    ],
+    [
+     1912.8,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He says ancient guardians called the Quetzal Coatl watch a gate to a world beneath the *earth*.",
+   "clips": [
+    1918.8,
+    [
+     1926.0,
+     7
+    ],
+    [
+     1946.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "That world is Agartha, and it can supposedly grant any wish, even bringing back the *dead*.",
+   "clips": [
+    1962.0,
+    [
+     1970.5,
+     11
+    ],
+    [
+     1972.5,
+     15
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "That evening her cat Mimi bolts down the tracks, and Asuna chases her into the *dark*.",
+   "clips": [
+    2024.8,
+    [
+     2028.0,
+     7
+    ],
+    [
+     2031.8,
+     11
+    ]
+   ],
+   "chapter": "Into the dark"
+  },
+  {
+   "say": "Her search ends on a mountaintop, with a cloaked boy who looks just like *Shun*.",
+   "clips": [
+    2060.0,
+    [
+     2067.9,
+     7
+    ],
+    [
+     2072.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "But he is not Shun, and he tells her to forget everything she *saw*.",
+   "clips": [
+    2081.0,
+    [
+     2086.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then armed soldiers show up and demand a key called the *Clavis*.",
+   "clips": [
+    2101.0,
+    [
+     2105.5,
+     7
+    ],
+    [
+     2114.5,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Asuna and the boy run into a cave, with soldiers right behind *them*.",
+   "clips": [
+    2140.0,
+    [
+     2144.0,
+     7
+    ],
+    [
+     2165.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "She calls him Shun. He snaps back, I am not *Shun*.",
+   "clips": [
+    2199.8,
+    [
+     2217.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Then a huge guardian beast wakes up, and he fights it with the glowing *key*.",
+   "clips": [
+    2243.0,
+    [
+     2257.0,
+     7
+    ],
+    [
+     2278.5,
+     11
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "But the soldiers catch up, and one of them is her own teacher, Mr. *Morisaki*.",
+   "clips": [
+    2340.0,
+    [
+     2357.0,
+     5
+    ],
+    [
+     2473.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Nobody saw that one coming.",
+   "clips": [
+    2478.0
+   ]
+  },
+  {
+   "say": "Morisaki only joined these soldiers for one *reason*.",
+   "clips": [
+    2564.5,
+    [
+     2731.0,
+     5
+    ]
+   ]
+  },
+  {
+   "orig": [
+    2570.6,
+    2573.6
+   ],
+   "text": "My only goal is to bring my wife back to life."
+  },
+  {
+   "say": "He asks if she wants the boy back too. She does not know, but she goes with *him*.",
+   "clips": [
+    2599.8,
+    [
+     2609.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "They dive into an ancient pool, and sink into the *dark*.",
+   "clips": [
+    2627.0,
+    [
+     2642.4,
+     5
+    ],
+    [
+     2662.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "They wake up in Agartha, a hidden world of green meadows and old stone *ruins*.",
+   "clips": [
+    2761.0,
+    [
+     2811.8,
+     8
+    ],
+    [
+     2863.0,
+     13
+    ]
+   ],
+   "chapter": "Agartha"
+  },
+  {
+   "say": "Mimi turns up too, riding on Asuna's *shoulder* like she never left.",
+   "clips": [
+    2825.0,
+    [
+     2852.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "That night Morisaki dreams of his wife Lisa, begging him to live well after she is *gone*.",
+   "clips": [
+    3443.0,
+    [
+     3463.0,
+     9
+    ],
+    [
+     3470.0,
+     15
+    ]
+   ],
+   "chapter": "Lisa"
+  },
+  {
+   "say": "The next day, he calls the trip a journey to learn how to say *goodbye*.",
+   "clips": [
+    3619.5,
+    [
+     3625.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "He did not believe a word of it.",
+   "clips": [
+    3629.9
+   ]
+  },
+  {
+   "say": "But someone was already hunting them.",
+   "clips": [
+    3657.4
+   ]
+  },
+  {
+   "say": "Meanwhile, Agartha's council is furious about the surface people, and sends Shin after the *Clavis*.",
+   "clips": [
+    3190.0,
+    [
+     3265.5,
+     9
+    ],
+    [
+     3294.0,
+     14
+    ]
+   ],
+   "chapter": "Shin's mission"
+  },
+  {
+   "say": "Then Shin finds Asuna in a ruined city, just as a swarm of monsters closes *in*.",
+   "clips": [
+    3833.0,
+    [
+     3856.0,
+     7
+    ],
+    [
+     3912.5,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "They all run for a crumbling bridge, and it collapses into a roaring *river*.",
+   "clips": [
+    3947.0,
+    [
+     3991.0,
+     7
+    ],
+    [
+     4008.8,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Morisaki finds them half drowned on the *bank*.",
+   "clips": [
+    4081.5,
+    [
+     4083.5,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Together they reach a hidden village called Amoroto, where outsiders are *unwelcome*.",
+   "clips": [
+    4210.0,
+    [
+     4262.0,
+     7
+    ],
+    [
+     4284.0,
+     10
+    ]
+   ],
+   "chapter": "Amoroto"
+  },
+  {
+   "say": "Its elder explains why. For hundreds of years, surface kings looted Agartha and left it in *ruins*.",
+   "clips": [
+    4412.0,
+    [
+     4430.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Honestly, they have a point.",
+   "clips": [
+    4444.0
+   ]
+  },
+  {
+   "say": "Morisaki asks how to bring back the dead, and the elder says it is *forbidden*.",
+   "clips": [
+    4565.0,
+    [
+     4593.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The village says Mimi has done her duty. Asuna begs her not to *go*.",
+   "clips": [
+    4778.0,
+    [
+     4788.5,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "They leave at dawn, but soldiers from Amoroto hunt them down, and Shin draws a sword to hold them *off*.",
+   "clips": [
+    5101.8,
+    [
+     5119.5,
+     11
+    ],
+    [
+     5129.8,
+     16
+    ]
+   ],
+   "chapter": "The cliff"
+  },
+  {
+   "say": "While Shin holds the line, Morisaki leads Asuna to a cliff as tall as the *sky*.",
+   "clips": [
+    5215.0,
+    [
+     5226.0,
+     9
+    ],
+    [
+     5238.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "They climb down a giant wall of stone, and Asuna *freezes*.",
+   "clips": [
+    5270.2,
+    [
+     5283.8,
+     7
+    ],
+    [
+     5289.8,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "At the bottom, Morisaki tells her to go home. He takes the Clavis and goes *alone*.",
+   "clips": [
+    5320.5,
+    [
+     5371.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then he says it. Asuna, I want you to *live*.",
+   "clips": [
+    5389.0,
+    [
+     5395.7,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Same words Shun used.",
+   "clips": [
+    5400.0
+   ]
+  },
+  {
+   "say": "Alone, Asuna runs through a night full of red eyed *monsters*.",
+   "clips": [
+    5612.0,
+    [
+     5625.5,
+     5
+    ],
+    [
+     5638.0,
+     8
+    ]
+   ]
+  },
+  {
+   "orig": [
+    5705.3,
+    5708.0
+   ],
+   "text": "I was just lonely."
+  },
+  {
+   "say": "She survives until dawn, and Shin finds her in the *grass*.",
+   "clips": [
+    5851.0,
+    [
+     5870.0,
+     5
+    ],
+    [
+     5880.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "At sunrise she finally admits it. He looks like Shun, but he is *Shin*.",
+   "clips": [
+    5890.0,
+    [
+     5895.0,
+     8
+    ],
+    [
+     5919.8,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Together they head for the edge of the world, and find a giant Quetzal Coatl who has come there to *die*.",
+   "clips": [
+    5995.0,
+    [
+     6003.0,
+     11
+    ],
+    [
+     6037.8,
+     19
+    ]
+   ],
+   "chapter": "The dying god"
+  },
+  {
+   "say": "Before it dies, it sings the same song Asuna heard on her *radio*.",
+   "clips": [
+    6078.0,
+    [
+     6086.0,
+     6
+    ],
+    [
+     6091.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "That song was a goodbye all along.",
+   "clips": [
+    6103.5,
+    [
+     6112.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "At the Gate of Life and Death, Morisaki finally gets his chance. Lisa, come back to *me*.",
+   "clips": [
+    6244.5,
+    [
+     6258.5,
+     6
+    ],
+    [
+     6270.0,
+     8
+    ]
+   ],
+   "chapter": "The gate"
+  },
+  {
+   "say": "Then Asuna walks in.",
+   "clips": [
+    6309.0,
+    [
+     6314.0,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Light pours out of the gate, and a dead woman's soul slips into Asuna's *body*.",
+   "clips": [
+    6372.0,
+    [
+     6379.2,
+     7
+    ],
+    [
+     6385.5,
+     11
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "Morisaki screams his wife's name. Shin screams for *Asuna*.",
+   "clips": [
+    6407.0,
+    [
+     6418.0,
+     5
+    ],
+    [
+     6431.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "For one moment, Morisaki gets what he begged for. Lisa is right there, talking to *him*.",
+   "clips": [
+    6464.0,
+    [
+     6491.0,
+     8
+    ],
+    [
+     6498.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Be careful what you wish for.",
+   "clips": [
+    6467.0
+   ]
+  },
+  {
+   "say": "But every second Lisa stays, Asuna slips further *away*.",
+   "clips": [
+    6509.0,
+    [
+     6511.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "Shin screams her name and throws himself into the *light*.",
+   "clips": [
+    6523.0,
+    [
+     6531.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then the light fades, Lisa steps out, and the two of them get one last moment on the *grass*.",
+   "clips": [
+    6562.0,
+    [
+     6577.0,
+     8
+    ],
+    [
+     6585.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "She tells him to find happiness, and this time he lets *go*.",
+   "clips": [
+    6591.0,
+    [
+     6606.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Asuna wakes up in the grass, alive, and finally ready to say *goodbye*.",
+   "clips": [
+    6644.0,
+    [
+     6650.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Back home, she calls out to her mom and heads out the *door*.",
+   "clips": [
+    6799.8,
+    [
+     6809.0,
+     3
+    ],
+    [
+     6814.8,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "She lost Shun, but she is finally ready to say hello to a world without *him*.",
+   "clips": [
+    6797.0,
+    [
+     6817.0,
+     12
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "title": "Kira Went Live On TV And Killed A Man In Front Of The Whole World . . . (highlight)",
+ "source": "source.mp4",
+ "caption": "Kira goes live on TV and kills a man on camera. Full recap is on our page 👉 link in the comments\n\n#deathnote #anime #animerecap #animeexplained #fyp",
+ "comment": "Full recap: https://www.facebook.com/1360889272659617",
+ "music": "../../music/Lordly_Feder.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Anime: Death Note (Episode 11)",
+ "watermark": "@AnimeRewindRecap",
+ "header": "../../brand/anime-rewind/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "Kira goes live on TV, kills a man on camera, and a cop drops dead at the station *door*.",
+   "clips": [
+    206.0,
+    [
+     236.5,
+     6
+    ],
+    [
+     429.6,
+     13
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "A TV station says it has four tapes, sent straight from *Kira*.",
+   "clips": [
+    133.0,
+    [
+     163.0,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Tape two airs live at six, and the whole task force holds its *breath*.",
+   "clips": [
+    183.0,
+    [
+     192.0,
+     5
+    ],
+    [
+     199.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then the screen flickers, and one word fills it. *KIRA*.",
+   "clips": [
+    206.0
+   ],
+   "sfx": "hit"
+  },
+  {
+   "orig": [
+    208.3,
+    210.8
+   ],
+   "text": "I am Kira."
+  },
+  {
+   "say": "He orders the station to change channels. At six sharp, a news anchor on another network will *die*.",
+   "clips": [
+    212.0,
+    [
+     217.0,
+     6
+    ],
+    [
+     224.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The clock hits six, and the whole room goes *silent*.",
+   "clips": [
+    231.0
+   ]
+  },
+  {
+   "say": "On the other channel, the anchor grabs his chest and *collapses*.",
+   "clips": [
+    236.5
+   ]
+  },
+  {
+   "say": "Nobody says a word. Even L looks *shaken*.",
+   "clips": [
+    243.0,
+    [
+     247.0,
+     4
+    ]
+   ]
+  },
+  {
+   "say": "Then Kira names his next victim, and L flips to *channel 24* to see.",
+   "clips": [
+    253.0,
+    [
+     259.5,
+     5
+    ],
+    [
+     267.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "But nobody at the station answers. So a young detective, Ukita, takes a siren and *drives*.",
+   "clips": [
+    297.2,
+    [
+     317.5,
+     5
+    ],
+    [
+     323.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Outside Sakura TV, Ukita jumps out of the car, gun in *hand*.",
+   "clips": [
+    387.8,
+    [
+     404.0,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Then his eyes go *wide*.",
+   "clips": [
+    401.3
+   ]
+  },
+  {
+   "say": "His gun hits the ground. Kira just *killed* him.",
+   "clips": [
+    406.4,
+    [
+     415.0,
+     4
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "Episode 11 is on our page.",
+   "clips": [
+    436.0
+   ]
+  }
+ ]
+}

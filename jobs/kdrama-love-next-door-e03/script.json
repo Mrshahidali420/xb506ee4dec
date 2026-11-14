@@ -1,0 +1,847 @@
+{
+ "title": "Ruby Cannot Swim, But She Jumped Into The Pool Anyway . . . (Episode 3)",
+ "caption": "In Love Next Door episode 3, Ruby tells her old principal she still works at Greip.\nThe truth comes out at an empty swimming pool, where Ethan has a teenage letter of his own. Follow for episode 4!\n\n#lovenextdoor #kdrama #kdramarecap #spoilerroom #fyp",
+ "comment": "Was Ethan right to call Ruby out for taking her old kind of job again? Why?",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Series: Love Next Door (2024)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "segments": [
+  {
+   "say": "Ruby can't swim. She jumps into the pool anyway, and Ethan has to *grab* her before she sinks.",
+   "clips": [
+    4174.3,
+    [
+     4196.3,
+     4
+    ],
+    [
+     4202.8,
+     10
+    ]
+   ],
+   "sfx": "hit"
+  },
+  {
+   "say": "To see how it got here, go back to Ethan dreaming about his old *swim meet*.",
+   "clips": [
+    262.7,
+    [
+     121.9,
+     9
+    ],
+    [
+     185.9,
+     14
+    ]
+   ],
+   "chapter": "Swim Meet Dream"
+  },
+  {
+   "say": "Ethan wakes at three in the *morning* to Ruby yelling next door. She even shouts a movie spoiler through the window.",
+   "clips": [
+    193.0,
+    [
+     208.5,
+     8
+    ],
+    [
+     247.3,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Next morning at the office, Max cheers about a huge retirement home offer. Ethan only worries about his dying pomegranate *tree*.",
+   "clips": [
+    535.8,
+    [
+     581.8,
+     5
+    ],
+    [
+     603.8,
+     13
+    ]
+   ],
+   "chapter": "Big Offer"
+  },
+  {
+   "say": "Over at Ruby's house, Linda rolls kimbap and tells Frank her new plan. Stop pushing Ruby, and wait for her to *cave*.",
+   "clips": [
+    690.9,
+    [
+     723.7,
+     8
+    ],
+    [
+     755.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Ruby just writes a schedule for her unemployed life. Games, TV, space out, and a *nap*.",
+   "clips": [
+    767.5,
+    [
+     791.7,
+     9
+    ],
+    [
+     830.3,
+     15
+    ]
+   ],
+   "chapter": "Unemployed Life"
+  },
+  {
+   "say": "She treats doing nothing like a full-time *job*.",
+   "clips": [
+    818.5,
+    [
+     808.2,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "Bored, she calls Ethan, and he hangs up on her. So she finds Mia at a comic shop *instead*.",
+   "clips": [
+    856.7,
+    [
+     865.0,
+     5
+    ],
+    [
+     895.6,
+     13
+    ]
+   ],
+   "chapter": "Comic Shop Night"
+  },
+  {
+   "say": "Ruby wants something red. Mia thinks she means the adults-only shelf, but Ruby means *blood*.",
+   "clips": [
+    927.8,
+    [
+     944.7,
+     9
+    ],
+    [
+     955.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then Ethan walks in and says he only came for a book. The book is a comic called *Princess*.",
+   "clips": [
+    973.6,
+    [
+     991.9,
+     5
+    ],
+    [
+     997.9,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then Ethan and Mia both have somewhere to be. Ruby walks home alone. Having no job gets *lonely* fast.",
+   "clips": [
+    1075.9,
+    [
+     1085.2,
+     3
+    ],
+    [
+     1111.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "The next morning, Ruby's old homeroom teacher, Ms. Yu, walks into the kimbap shop. She is the *principal* now.",
+   "clips": [
+    1290.7,
+    [
+     1294.7,
+     10
+    ]
+   ],
+   "chapter": "School Reunion"
+  },
+  {
+   "say": "Ms. Yu orders forty dishes, and Ruby offers to carry them to the *school*.",
+   "clips": [
+    1320.0,
+    [
+     1335.0,
+     6
+    ],
+    [
+     1340.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "On the way, Ms. Yu says every teacher is proud that Ruby works at Greip. Ruby just *smiles*.",
+   "clips": [
+    1367.1,
+    [
+     1375.2,
+     3
+    ],
+    [
+     1381.0,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "Ethan is there too, because his firm entered the school's gym design contest. Then Ms. Yu asks Ruby to talk to the *students*.",
+   "clips": [
+    1394.4,
+    [
+     1403.7,
+     6
+    ],
+    [
+     1458.5,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "A student asks what she wanted to be in high school. Ruby has no *answer*. She never once asked herself.",
+   "clips": [
+    1556.8,
+    [
+     1561.1,
+     11
+    ],
+    [
+     1573.2,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "After class, Ethan drags her to the schoolyard to dig up their old time *capsule*.",
+   "clips": [
+    1613.0,
+    [
+     1635.3,
+     3
+    ],
+    [
+     1659.0,
+     9
+    ]
+   ],
+   "chapter": "The Time Capsule"
+  },
+  {
+   "say": "They dig for half an hour and find *nothing*. Ruby asks why he played along with her lie.",
+   "clips": [
+    1681.7,
+    [
+     1710.0,
+     9
+    ],
+    [
+     1727.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Ethan says her years at Greip were *real*. That is good enough advice for the kids.",
+   "clips": [
+    1745.0,
+    [
+     1762.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ruby gives up and walks off. Ethan keeps digging *alone*.",
+   "clips": [
+    1767.0,
+    [
+     1774.5,
+     6
+    ],
+    [
+     1778.5,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "At home, Linda's wrist is wrapped in pain patches, and even Danny has a job now. Only Ruby is doing *nothing*.",
+   "clips": [
+    1820.7,
+    [
+     1851.8,
+     10
+    ],
+    [
+     1868.0,
+     16
+    ]
+   ]
+  },
+  {
+   "say": "That night, Ethan works on the school pool. Max tells him to focus on the retirement home. But that offer has a *catch*.",
+   "clips": [
+    1922.9,
+    [
+     1929.7,
+     2
+    ],
+    [
+     1970.1,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Across town, Mia's ambulance is stuck in traffic with a sick kid *inside*.",
+   "clips": [
+    2086.0,
+    [
+     2103.0,
+     5
+    ],
+    [
+     2082.3,
+     10
+    ]
+   ],
+   "chapter": "Mudflat Man"
+  },
+  {
+   "say": "Then a stranger in a white shirt runs between the cars and clears a *path*.",
+   "clips": [
+    2132.3,
+    [
+     2146.7,
+     7
+    ],
+    [
+     2182.4,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "At the station, Mia gushes about the stranger. Then rice cakes arrive from the man she treated in the *park*.",
+   "clips": [
+    2480.4,
+    [
+     2530.8,
+     8
+    ],
+    [
+     2548.2,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "At the client meeting, Ethan finds out the catch. The client wants them to copy famous foreign designs and call it an *homage*.",
+   "clips": [
+    2188.9,
+    [
+     2271.8,
+     14
+    ],
+    [
+     2298.0,
+     19
+    ]
+   ],
+   "chapter": "Copycat Design"
+  },
+  {
+   "say": "Ethan calls it plagiarism. Later, in the garage, Max says to fake it, then swap in their own *design*. That was never going to work.",
+   "clips": [
+    2301.6,
+    [
+     2318.0,
+     4
+    ],
+    [
+     2345.4,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Ethan says he is protecting his staff's pride. Max says they need *salaries*. Neither of them is wrong.",
+   "clips": [
+    2365.2,
+    [
+     2419.0,
+     8
+    ],
+    [
+     2425.6,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Then it gets personal. Max says Ethan only cares about that old *pool*.",
+   "clips": [
+    2403.0,
+    [
+     2414.0,
+     4
+    ],
+    [
+     2429.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Ethan walks away without a *word*.",
+   "clips": [
+    2437.6,
+    [
+     2439.5,
+     3
+    ]
+   ]
+  },
+  {
+   "say": "Meanwhile, a recruiter takes Ruby out for tea. She offers two jobs, and both look just like her old *one*.",
+   "clips": [
+    2580.9,
+    [
+     2611.9,
+     8
+    ],
+    [
+     2619.0,
+     12
+    ]
+   ],
+   "chapter": "Job Offers"
+  },
+  {
+   "say": "Later, Ethan runs into her on the street. He asks if she really wants that kind of *work* again.",
+   "clips": [
+    2688.2,
+    [
+     2699.4,
+     8
+    ],
+    [
+     2801.2,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Ruby snaps. Dreams are a luxury, she says, and he has always had an easy *life*.",
+   "clips": [
+    2853.5,
+    [
+     2860.2,
+     2
+    ],
+    [
+     2869.0,
+     8
+    ]
+   ]
+  },
+  {
+   "orig": [
+    2876.9,
+    2878.8
+   ],
+   "text": "I've had winters like that too."
+  },
+  {
+   "say": "Here is why. Years ago, Ruby gave teenage Ethan a towel stitched with his name for the 2008 *Olympics*.",
+   "clips": [
+    2924.0,
+    [
+     2953.3,
+     10
+    ],
+    [
+     2976.0,
+     15
+    ]
+   ],
+   "chapter": "Winter Memory"
+  },
+  {
+   "say": "On his way to training, a car hits him. He survives, but his swimming career is *over*.",
+   "clips": [
+    2998.1,
+    [
+     3019.4,
+     6
+    ],
+    [
+     3063.0,
+     9
+    ]
+   ],
+   "sfx": "boom"
+  },
+  {
+   "say": "So he really did know *winter*.",
+   "clips": [
+    3130.2,
+    [
+     3199.0,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Next morning, Nina from the office tells Ethan his big dreams come from *privilege*.",
+   "clips": [
+    3209.5,
+    [
+     3236.2,
+     2
+    ],
+    [
+     3258.2,
+     8
+    ]
+   ],
+   "chapter": "Making Peace"
+  },
+  {
+   "say": "It sounds just like Ruby in the park. Ethan admits whoever said it was *right*.",
+   "clips": [
+    3290.0,
+    [
+     3293.0,
+     4
+    ],
+    [
+     3299.6,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Then Max comes to apologize, and so does Ethan. They laugh and agree to stay *together*.",
+   "clips": [
+    3340.1,
+    [
+     3410.5,
+     9
+    ],
+    [
+     3450.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Then both companies ask Ruby for an interview. She stares at the message and does not *smile*.",
+   "clips": [
+    3527.7,
+    [
+     3531.6,
+     3
+    ],
+    [
+     3535.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "That night, Ruby is back at the school looking for the capsule, and she runs into Ms. Yu in the *dark*.",
+   "clips": [
+    3659.5,
+    [
+     3670.5,
+     16
+    ]
+   ],
+   "chapter": "Night At School",
+   "sfx": "riser"
+  },
+  {
+   "say": "Over pear tea, Ruby admits the lie. She quit Greip, or maybe she was *chased out*.",
+   "clips": [
+    3684.0,
+    [
+     3708.0,
+     7
+    ],
+    [
+     3715.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Ms. Yu says kids always find their own answers, so Ruby should trust her *choice*.",
+   "clips": [
+    3728.5,
+    [
+     3766.5,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Then she says Ethan might be at the old *pool*.",
+   "clips": [
+    3770.4,
+    [
+     3780.4,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "At the empty pool, Ethan has Ruby's teenage letter, and he is reading it out *loud*.",
+   "clips": [
+    3786.6,
+    [
+     3796.9,
+     4
+    ],
+    [
+     3802.0,
+     12
+    ]
+   ],
+   "chapter": "Pool At Night"
+  },
+  {
+   "say": "Ruby chases him to get it back. So he jumps into the pool, clothes and all, with the letter in his *hand*.",
+   "clips": [
+    3813.0,
+    [
+     3850.8,
+     7
+    ],
+    [
+     3856.1,
+     13
+    ]
+   ],
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Ruby can't swim, so she can't follow. Ethan says it is his first time in a pool since he quit *swimming*.",
+   "clips": [
+    3857.9,
+    [
+     3861.0,
+     7
+    ],
+    [
+     3869.2,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then he asks if she remembers the month he locked himself in his *room*.",
+   "clips": [
+    3880.0,
+    [
+     3885.4,
+     5
+    ],
+    [
+     3912.4,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "Ruby would not give up. She climbed along the window ledge to reach *him*.",
+   "clips": [
+    3935.2,
+    [
+     3964.0,
+     5
+    ],
+    [
+     3969.9,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "She calls him a loser until he finally yells *back*. It is the first time he has spoken in a month.",
+   "clips": [
+    3998.0,
+    [
+     4064.0,
+     5
+    ],
+    [
+     4092.0,
+     10
+    ]
+   ]
+  },
+  {
+   "orig": [
+    4106.9,
+    4109.6
+   ],
+   "text": "Lock your door again, and I'll break it down."
+  },
+  {
+   "say": "Back in the pool, Ruby does the same thing. She jumps in without *thinking*. Some habits never change.",
+   "clips": [
+    4136.1,
+    [
+     4174.3,
+     9
+    ],
+    [
+     4186.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Ethan grabs her before she sinks, and tells her to *relax*.",
+   "clips": [
+    4202.8,
+    [
+     4218.0,
+     7
+    ]
+   ]
+  },
+  {
+   "orig": [
+    4224.0,
+    4226.8
+   ],
+   "text": "Pretend you're a jellyfish."
+  },
+  {
+   "say": "Soon she is floating on her back, and Ethan holds her *up*.",
+   "clips": [
+    4270.6,
+    [
+     4279.0,
+     3
+    ],
+    [
+     4285.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Floating there, Ruby admits she feels like nothing without her old *job*.",
+   "clips": [
+    4292.0,
+    [
+     4307.1,
+     7
+    ]
+   ]
+  },
+  {
+   "say": "Ethan says he felt the same after he quit swimming. Alone at the starting line. But he found a new place to *swim*.",
+   "clips": [
+    4311.0,
+    [
+     4318.0,
+     10
+    ],
+    [
+     4331.3,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Then Ethan asks two what-ifs. Would she go back to Greip? No. Would she undo the engagement? Still *no*.",
+   "clips": [
+    4373.3,
+    [
+     4379.0,
+     5
+    ],
+    [
+     4384.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then the story jumps back to the day they all wrote letters to their future *selves*.",
+   "clips": [
+    4413.0,
+    [
+     4422.9,
+     7
+    ],
+    [
+     4441.2,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Teenage Ethan's letter asks one thing. Has he told Ruby how he *feels*?",
+   "clips": [
+    4483.9,
+    [
+     4489.2,
+     3
+    ],
+    [
+     4503.5,
+     6
+    ]
+   ]
+  },
+  {
+   "say": "And the time capsule Ruby could not find? Ethan dug it up on his *own*.",
+   "clips": [
+    1788.0,
+    [
+     1795.0,
+     8
+    ]
+   ],
+   "sfx": "hit"
+  }
+ ]
+}

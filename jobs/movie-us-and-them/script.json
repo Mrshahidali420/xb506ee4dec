@@ -1,0 +1,888 @@
+{
+ "title": "Two Exes Get Snowed In Together, And Ten Years Of Love Come Pouring Out . . . (Us and Them)",
+ "caption": "Us and Them (2018): two exes get snowed in at an airport and have to share one hotel room.\nA broke couple chased Beijing dreams, and it cost them each other. Follow for more movie recaps!\n\n#usandthem #movierecap #lovestory #netflixmovie #spoilerroom",
+ "output": "final_short.mp4",
+ "source": "source.mp4",
+ "crop_bottom": 0,
+ "music": "../../music/Kamin_EMIN_JONY.mp3",
+ "music_db_under_voice": 12,
+ "credit": "Film: Us and Them (2018)",
+ "watermark": "@SpoilerRoomRecap",
+ "header": "../../brand/spoiler-room/header.png",
+ "voice_chain": [
+  "kokoro",
+  "supertonic",
+  "edge"
+ ],
+ "kokoro_voice": "am_liam",
+ "edge_voice": "en-US-GuyNeural",
+ "edge_rate": "+30%",
+ "edge_pitch": "+10Hz",
+ "speed": 1.0,
+ "bed_volume": 0,
+ "comment": "Was Leo right to chase the money, or was Mia right to leave? Why?",
+ "segments": [
+  {
+   "say": "After ten years of loving and hurting each other, Leo and Mia finally say a proper *goodbye*.",
+   "clips": [
+    6358.0,
+    [
+     6373.0,
+     6
+    ],
+    [
+     6385.0,
+     11
+    ]
+   ],
+   "chapter": "The Last Goodbye"
+  },
+  {
+   "say": "To see how it got here, go back to a night when the snow shut down a whole *airport*.",
+   "clips": [
+    470.0,
+    [
+     487.0,
+     6
+    ],
+    [
+     498.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Leo and Mia are exes who have not spoken in years, and now they are stuck in the same *crowd*.",
+   "clips": [
+    205.0,
+    [
+     212.0,
+     7
+    ],
+    [
+     517.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "The hotel has one room left, so they have to share it.",
+   "clips": [
+    501.0,
+    [
+     533.0,
+     4
+    ],
+    [
+     539.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "Neither one can sleep, so they sit in the dark and the past starts *talking*.",
+   "clips": [
+    553.0,
+    [
+     560.0,
+     5
+    ],
+    [
+     577.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "It all started on a packed train home, years ago, where two strangers ended up at the same card *table*.",
+   "clips": [
+    72.0,
+    [
+     159.0,
+     7
+    ],
+    [
+     258.0,
+     13
+    ]
+   ],
+   "chapter": "The Train Home"
+  },
+  {
+   "say": "Leo is a quiet student. Mia is a loud girl who drinks, curses, and beats everyone at *cards*.",
+   "clips": [
+    281.0,
+    [
+     278.5,
+     6
+    ],
+    [
+     288.5,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then the snow stops the train, and they walk the rest of the way, side by *side*.",
+   "clips": [
+    322.5,
+    [
+     400.0,
+     6
+    ],
+    [
+     440.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Mia's mom is abroad with a new husband, so she spends New Year in an empty *house*.",
+   "clips": [
+    596.0,
+    [
+     637.0,
+     6
+    ],
+    [
+     650.0,
+     11
+    ]
+   ],
+   "chapter": "New Year Dinner"
+  },
+  {
+   "say": "Leo's dad wants him back home, because there is no career in making video *games*.",
+   "clips": [
+    680.0,
+    [
+     737.0,
+     5
+    ],
+    [
+     744.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "So Leo takes her to his dad's table for New Year's Eve, and his dad asks if she is his *girlfriend*.",
+   "clips": [
+    783.0,
+    [
+     787.5,
+     7
+    ],
+    [
+     820.5,
+     14
+    ]
+   ]
+  },
+  {
+   "orig": [
+    823.2,
+    825.5
+   ],
+   "text": "She is not my girlfriend."
+  },
+  {
+   "say": "Walking home in the snow, they both swear they will make it in *Beijing*.",
+   "clips": [
+    865.0,
+    [
+     872.0,
+     5
+    ],
+    [
+     995.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "But Beijing had other plans.",
+   "clips": [
+    1010.0,
+    [
+     1035.0,
+     2
+    ]
+   ]
+  },
+  {
+   "say": "Mia works in a computer mall, always smiling, always scraping for something *better*.",
+   "clips": [
+    1221.0,
+    [
+     1269.0,
+     4
+    ],
+    [
+     1290.0,
+     9
+    ]
+   ],
+   "chapter": "Broke In Beijing"
+  },
+  {
+   "say": "She turns up at dinner with a new boyfriend, a government worker with a PhD, and Leo just sits *there*.",
+   "clips": [
+    1094.0,
+    [
+     1102.0,
+     7
+    ],
+    [
+     1115.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "It lasts until his mother meets her. Mia has no college degree, and his mom makes sure she *knows it*.",
+   "clips": [
+    1460.0,
+    [
+     1485.0,
+     7
+    ],
+    [
+     1500.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Dumped, Mia shows up at Leo's door with her bags, and the room is so small they can barely *breathe*.",
+   "clips": [
+    1336.0,
+    [
+     1362.0,
+     7
+    ],
+    [
+     1380.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Leo does not fix anything. He just lets her *stay*.",
+   "clips": [
+    1430.0,
+    [
+     1410.0,
+     5
+    ]
+   ]
+  },
+  {
+   "say": "He is kind, but never brave.",
+   "clips": [
+    1415.0
+   ]
+  },
+  {
+   "say": "To pay the rent, Mia starts selling discs in a cold underpass, and when the inspectors come, she grabs everything and *runs*.",
+   "clips": [
+    1930.0,
+    [
+     1971.0,
+     7
+    ],
+    [
+     1977.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Soon a new man gives her a love hotline, and she tests it by calling Leo across the *tunnel*.",
+   "clips": [
+    2201.0,
+    [
+     2210.0,
+     6
+    ],
+    [
+     2224.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Then, in a huge New Year crowd, the truth comes out. The man has a *wife*.",
+   "clips": [
+    2258.0,
+    [
+     2276.0,
+     5
+    ],
+    [
+     2300.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "So Leo and Mia drink away the end of the year in their tiny room, and promise each other it will get *better*.",
+   "clips": [
+    2330.0,
+    [
+     2339.0,
+     8
+    ],
+    [
+     2379.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Back in the hotel, they laugh about their first night together, when she kept one sock *on*.",
+   "clips": [
+    2642.0,
+    [
+     2661.0,
+     6
+    ],
+    [
+     2666.0,
+     11
+    ]
+   ]
+  },
+  {
+   "orig": [
+    2668.8,
+    2671.4
+   ],
+   "text": "You were only wearing a sock."
+  },
+  {
+   "say": "Then Leo vanished.",
+   "clips": [
+    2779.0
+   ],
+   "chapter": "Behind The Wall"
+  },
+  {
+   "say": "Mia knocks on his door, and a neighbor points at a prison wall. Leo got *locked up*.",
+   "clips": [
+    2795.0,
+    [
+     2820.0,
+     8
+    ]
+   ]
+  },
+  {
+   "say": "On New Year's Eve, Mia sits at his dad's table and lies that Leo is stuck at a game *convention*.",
+   "clips": [
+    2850.0,
+    [
+     2867.0,
+     7
+    ],
+    [
+     2894.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "When Leo walks out, Mia is waiting, and she admits she told his dad she was his *girlfriend*.",
+   "clips": [
+    3080.0,
+    [
+     3100.0,
+     6
+    ],
+    [
+     3115.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "The man with the wife came to her shop and said Leo had beaten him up. Leo only says he *recognized him*.",
+   "clips": [
+    3130.0,
+    [
+     3154.0,
+     7
+    ],
+    [
+     3170.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "After prison, Leo starts drawing his own game, about a boy named Ian who cannot find a girl named *Kelly*.",
+   "clips": [
+    3240.0,
+    [
+     3248.0,
+     7
+    ],
+    [
+     3252.0,
+     13
+    ]
+   ],
+   "chapter": "The Game Called Ian"
+  },
+  {
+   "say": "In the hotel, Leo's phone rings, and a little girl asks, where are you, *Daddy*. Leo has a family now, and Mia just listens.",
+   "clips": [
+    3375.0,
+    [
+     3387.0,
+     8
+    ],
+    [
+     3396.5,
+     16
+    ]
+   ],
+   "chapter": "Daddy On The Phone"
+  },
+  {
+   "say": "Back then they could not afford a taxi, and Leo promised they would not be poor for *long*.",
+   "clips": [
+    3470.0,
+    [
+     3526.0,
+     6
+    ],
+    [
+     3543.0,
+     12
+    ]
+   ],
+   "chapter": "Rich Soon"
+  },
+  {
+   "say": "So he drops his game and sells houses, because he wants to watch her smile when he gets *home*.",
+   "clips": [
+    3581.0,
+    [
+     3597.0,
+     6
+    ],
+    [
+     3612.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Together they carry a giant couch up the stairs, and for once they own something *real*.",
+   "clips": [
+    3653.0,
+    [
+     3660.0,
+     5
+    ],
+    [
+     3680.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Then one New Year he rents a car to drive home, and tells his old classmates his company is about to go *public*.",
+   "clips": [
+    3871.0,
+    [
+     3905.0,
+     8
+    ],
+    [
+     3920.0,
+     15
+    ]
+   ],
+   "chapter": "Pretending Rich"
+  },
+  {
+   "say": "Then a classmate who is now the mayor's secretary quietly pays the whole bill, and Leo has never felt *smaller*.",
+   "clips": [
+    4000.0,
+    [
+     4010.0,
+     7
+    ],
+    [
+     4025.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Pride always costs more than the dinner.",
+   "clips": [
+    4018.0
+   ]
+  },
+  {
+   "say": "In the car, Mia says none of it matters to her. Leo hears, you will never make *it*.",
+   "clips": [
+    4105.0,
+    [
+     4131.0,
+     6
+    ],
+    [
+     4155.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "He buries himself in a game job, and Mia waits at home with cold *noodles*.",
+   "clips": [
+    4217.0,
+    [
+     4248.0,
+     5
+    ],
+    [
+     4756.0,
+     10
+    ]
+   ],
+   "chapter": "Falling Apart"
+  },
+  {
+   "say": "She reads his chats with a girl called Night Elf, and the trust is *gone*.",
+   "clips": [
+    4420.0,
+    [
+     4440.0,
+     5
+    ],
+    [
+     4460.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Then the landlord says move out by tomorrow, and all their things end up on the *street*.",
+   "clips": [
+    4479.0,
+    [
+     4520.0,
+     6
+    ],
+    [
+     4545.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Leo lies to his dad on the phone, says he is eating roast duck in Beijing, while he sits alone in the *dark*.",
+   "clips": [
+    4613.0,
+    [
+     4659.0,
+     8
+    ],
+    [
+     4678.0,
+     15
+    ]
+   ]
+  },
+  {
+   "say": "Mia comes back one last time, leaves him a bowl of noodles, and says, I'm *leaving*.",
+   "clips": [
+    4740.0,
+    [
+     4765.0,
+     5
+    ],
+    [
+     4771.0,
+     11
+    ]
+   ]
+  },
+  {
+   "say": "Leo sprints after her through the subway, but at the last second he does not get on the *train*.",
+   "clips": [
+    4860.0,
+    [
+     4868.0,
+     6
+    ],
+    [
+     4920.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Some trains you only miss once.",
+   "clips": [
+    4875.0
+   ]
+  },
+  {
+   "say": "Back in the present, Mia says, if you had gotten on that train, I would have stayed with you *forever*.",
+   "clips": [
+    4942.0,
+    [
+     4987.0,
+     7
+    ],
+    [
+     5005.0,
+     13
+    ]
+   ],
+   "chapter": "What If"
+  },
+  {
+   "say": "They trade what-ifs all night. In the end, they have everything. Just not each *other*.",
+   "clips": [
+    5041.0,
+    [
+     5050.0,
+     5
+    ],
+    [
+     5061.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Mia jokes that she could have been the wife, and now she is just the home-wrecker. Nobody *laughs*.",
+   "clips": [
+    5095.0,
+    [
+     5105.0,
+     6
+    ],
+    [
+     5115.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Then the walls come down. I missed you *too*.",
+   "clips": [
+    5224.0,
+    [
+     5270.0,
+     4
+    ]
+   ]
+  },
+  {
+   "orig": [
+    5314.9,
+    5317.7
+   ],
+   "text": "I have always loved you."
+  },
+  {
+   "say": "Back then, after Mia left, Leo locked himself in a tiny room and poured everything into his *game*.",
+   "clips": [
+    5346.0,
+    [
+     5410.0,
+     6
+    ],
+    [
+     5425.0,
+     12
+    ]
+   ],
+   "chapter": "Sorry In The Game"
+  },
+  {
+   "say": "At the very end of the game he leaves one message, say sorry to Kelly for me if you meet *her*.",
+   "clips": [
+    5455.0,
+    [
+     5535.0,
+     10
+    ]
+   ]
+  },
+  {
+   "say": "Players start leaving apology notes inside the game, and soon there are two *million*.",
+   "clips": [
+    5541.0,
+    [
+     5548.0,
+     5
+    ],
+    [
+     5555.0,
+     9
+    ]
+   ]
+  },
+  {
+   "say": "On TV, the host asks who he wants to say sorry to, and he says, only *her*. Mia is watching, and she cries.",
+   "clips": [
+    5609.0,
+    [
+     5681.0,
+     6
+    ],
+    [
+     5615.0,
+     12
+    ],
+    [
+     5688.0,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "Then he texts her, are you going home this year, and admits he never told his dad they broke *up*.",
+   "clips": [
+    5721.0,
+    [
+     5733.0,
+     7
+    ],
+    [
+     5775.0,
+     13
+    ]
+   ],
+   "chapter": "Go Home"
+  },
+  {
+   "say": "At his dad's table, the old man's eyes are failing, and Mia gently teaches him how to use the *remote*.",
+   "clips": [
+    5815.0,
+    [
+     5845.0,
+     7
+    ],
+    [
+     5865.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Then Leo says he bought a house in Beijing, and his dad refuses to move, and they scream at each *other*.",
+   "clips": [
+    5905.0,
+    [
+     5930.0,
+     7
+    ],
+    [
+     5940.0,
+     14
+    ]
+   ]
+  },
+  {
+   "say": "Outside in the snow Leo says, I can give you an address in Beijing now. Can't that be called *love*?",
+   "clips": [
+    6000.0,
+    [
+     6037.0,
+     7
+    ],
+    [
+     6044.0,
+     13
+    ]
+   ]
+  },
+  {
+   "say": "Mia says, if you thought I could not survive the hard times then, why think I can live your good life *now*? Leo says he does not understand her.",
+   "clips": [
+    6085.0,
+    [
+     6120.0,
+     10
+    ],
+    [
+     6130.0,
+     19
+    ]
+   ]
+  },
+  {
+   "orig": [
+    6112.5,
+    6115.4
+   ],
+   "text": "You never did."
+  },
+  {
+   "say": "Later, Leo drives her through the snow, and tells her his dad has *died*.",
+   "clips": [
+    6160.0,
+    [
+     6168.0,
+     5
+    ],
+    [
+     6175.0,
+     9
+    ]
+   ],
+   "chapter": "The Snow Goodbye"
+  },
+  {
+   "say": "Mia reads the letter his dad once sent her, and it says that even if they were never a couple, they would always be *family*.",
+   "clips": [
+    6483.0,
+    [
+     6496.0,
+     8
+    ],
+    [
+     6529.0,
+     17
+    ]
+   ]
+  },
+  {
+   "say": "She opens Leo's game one last time, and finds millions of apologies from strangers who lost someone *too*.",
+   "clips": [
+    6667.0,
+    [
+     6675.0,
+     6
+    ],
+    [
+     6690.0,
+     12
+    ]
+   ]
+  },
+  {
+   "say": "Some people you never really *forget*. Wonder what we spoil next?",
+   "clips": [
+    6747.0,
+    [
+     6773.0,
+     4
+    ],
+    [
+     6781.0,
+     7
+    ]
+   ]
+  }
+ ]
+}
